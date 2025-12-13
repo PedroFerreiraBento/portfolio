@@ -3,6 +3,9 @@ import { useI18n } from "../i18n";
 import { categories } from "../mocks/categories";
 import { projects } from "../mocks/projects";
 import { testimonials } from "../mocks/testimonials";
+import heroImage from "../assets/images/components/heroImageUrl.png";
+import catProdutosDigitais from "../assets/images/components/categoryImages_cat-produtos-digitais.png";
+import catDataScience from "../assets/images/components/categoryImages_cat-data-science.png";
 
 export function HomePage() {
   const { t, locale } = useI18n();
@@ -12,16 +15,13 @@ export function HomePage() {
   const primaryTestimonial = testimonials[0];
 
   const categoryImages: Record<string, string> = {
-    "cat-produtos-digitais":
-      "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "cat-data-science":
-      "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "cat-produtos-digitais": catProdutosDigitais,
+    "cat-data-science": catDataScience,
     "cat-dashboards":
       "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
   };
 
-  const heroImageUrl =
-    "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=1200";
+  const heroImageUrl = heroImage;
 
   return (
     <section className="space-y-12">
@@ -86,7 +86,7 @@ export function HomePage() {
           </div>
           <Link
             to="/projetos"
-            className="hidden text-xs font-medium text-accent hover:text-accent sm:inline-flex"
+            className="hidden rounded-md border border-brand bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80 sm:inline-flex sm:items-center"
           >
             {t("home.sections.categoriesSeePortfolio")}
           </Link>
@@ -132,7 +132,7 @@ export function HomePage() {
           </div>
           <Link
             to="/projetos"
-            className="text-xs font-medium text-accent hover:text-accent"
+            className="inline-flex items-center rounded-md border border-brand bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
           >
             {t("home.sections.examplesSeeCatalog")}
           </Link>
@@ -163,7 +163,7 @@ export function HomePage() {
                 </p>
                 <Link
                   to={`/projetos/${highlightedProject.slug}`}
-                  className="mt-auto inline-flex text-[0.7rem] font-medium text-accent hover:text-accent"
+                  className="mt-auto inline-flex items-center rounded-md border border-border-strong bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
                 >
                   {t("home.sections.examplesHighlightedLinkLabel")}
                 </Link>
