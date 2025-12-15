@@ -1,13 +1,48 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { MainLayout } from "../layout/MainLayout.tsx";
-import { HomePage } from "../pages/HomePage.tsx";
-import { ProjectsPage } from "../pages/ProjectsPage.tsx";
-import { ProjectDetailPage } from "../pages/ProjectDetailPage.tsx";
-import { ServicesPage } from "../pages/ServicesPage.tsx";
-import { AboutPage } from "../pages/AboutPage.tsx";
-import { ContactPage } from "../pages/ContactPage.tsx";
-import { NotFoundPage } from "../pages/NotFoundPage.tsx";
+
+const HomePage = lazy(() =>
+  import("../pages/HomePage.tsx").then((module) => ({
+    default: module.HomePage,
+  }))
+);
+
+const ProjectsPage = lazy(() =>
+  import("../pages/ProjectsPage.tsx").then((module) => ({
+    default: module.ProjectsPage,
+  }))
+);
+
+const ProjectDetailPage = lazy(() =>
+  import("../pages/ProjectDetailPage.tsx").then((module) => ({
+    default: module.ProjectDetailPage,
+  }))
+);
+
+const ServicesPage = lazy(() =>
+  import("../pages/ServicesPage.tsx").then((module) => ({
+    default: module.ServicesPage,
+  }))
+);
+
+const AboutPage = lazy(() =>
+  import("../pages/AboutPage.tsx").then((module) => ({
+    default: module.AboutPage,
+  }))
+);
+
+const ContactPage = lazy(() =>
+  import("../pages/ContactPage.tsx").then((module) => ({
+    default: module.ContactPage,
+  }))
+);
+
+const NotFoundPage = lazy(() =>
+  import("../pages/NotFoundPage.tsx").then((module) => ({
+    default: module.NotFoundPage,
+  }))
+);
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();

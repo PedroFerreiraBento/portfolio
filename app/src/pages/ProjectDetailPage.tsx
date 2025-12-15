@@ -104,7 +104,13 @@ export function ProjectDetailPage() {
 
       {project.thumbnail && (
         <div className="project-hero-image">
-          <img src={project.thumbnail} alt={title} />
+          <img
+            src={project.thumbnail}
+            alt={title}
+            decoding="async"
+            loading="eager"
+            fetchPriority="high"
+          />
         </div>
       )}
 
@@ -130,7 +136,12 @@ export function ProjectDetailPage() {
             <div className="project-gallery-grid">
               {project.gallery.map((image, index) => (
                 <div key={index} className="gallery-item">
-                  <img src={image} alt={`${title} gallery ${index + 1}`} />
+                  <img
+                    src={image}
+                    alt={`${title} gallery ${index + 1}`}
+                    decoding="async"
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>

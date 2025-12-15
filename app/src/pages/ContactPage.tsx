@@ -110,6 +110,8 @@ export function ContactPage() {
               src="https://images.pexels.com/photos/37347/office-freelancer-computer-business-37347.jpeg?auto=compress&cs=tinysrgb&w=800"
               alt={t("pages.contact.heroImageAlt")}
               className="contact-visual-image"
+              decoding="async"
+              loading="lazy"
             />
             <div className="contact-visual-overlay">
               <p className="font-semibold text-white">
@@ -132,12 +134,13 @@ export function ContactPage() {
             </div>
 
             {hasSubmitted ? (
-              <div className="success-message">
+              <div className="success-message" role="status" aria-live="polite">
                 <div className="success-icon-wrapper">
                   <CheckCircle2 size={48} className="text-success" />
                 </div>
                 <h3>{t("pages.contact.form.success")}</h3>
                 <button
+                  type="button"
                   onClick={() => setHasSubmitted(false)}
                   className="btn btn--ghost btn--small mt-4"
                 >
@@ -147,7 +150,10 @@ export function ContactPage() {
             ) : (
               <form className="modern-form" onSubmit={handleSubmit}>
                 {errorMessage && (
-                  <div className="mb-6 rounded-lg bg-red-50 p-4 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
+                  <div
+                    role="alert"
+                    className="mb-6 rounded-lg bg-red-50 p-4 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400"
+                  >
                     {errorMessage}
                   </div>
                 )}

@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { I18nProvider } from "./i18n";
 import { AppRouter } from "./router/AppRouter";

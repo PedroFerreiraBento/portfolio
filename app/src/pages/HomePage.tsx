@@ -6,19 +6,25 @@ import { testimonials } from "../mocks/testimonials";
 import heroImage from "../assets/images/components/heroImageUrl.png";
 import catProdutosDigitais from "../assets/images/components/categoryImages_cat-produtos-digitais.png";
 import catDataScience from "../assets/images/components/categoryImages_cat-data-science.png";
+import catDashboards from "../assets/images/components/categoryImages_cat-dashboards.png";
 
 export function HomePage() {
   const { t, locale } = useI18n();
 
   const orderedCategories = [...categories].sort((a, b) => a.order - b.order);
   const highlightedProject = projects.find((project) => project.highlight);
+  const landingProject = projects.find(
+    (project) => project.id === "proj-landing-saas-b2b"
+  );
+  const dashboardProject = projects.find(
+    (project) => project.id === "proj-dashboard-operacao-logistica"
+  );
   const primaryTestimonial = testimonials[0];
 
   const categoryImages: Record<string, string> = {
     "cat-produtos-digitais": catProdutosDigitais,
     "cat-data-science": catDataScience,
-    "cat-dashboards":
-      "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "cat-dashboards": catDashboards,
   };
 
   const heroImageUrl = heroImage;
@@ -68,6 +74,9 @@ export function HomePage() {
               src={heroImageUrl}
               alt={t("home.hero.imageAlt")}
               className="h-56 w-full object-cover sm:h-64 md:h-72"
+              decoding="async"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -103,6 +112,8 @@ export function HomePage() {
                   src={categoryImages[category.id]}
                   alt={category.name}
                   className="h-full w-full object-cover transition-transform group-hover:scale-[1.03]"
+                  decoding="async"
+                  loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-text-strong/80 via-text-strong/15 to-transparent" />
               </div>
@@ -138,80 +149,76 @@ export function HomePage() {
           </Link>
         </header>
         <div className="grid gap-4 md:grid-cols-3">
-          {highlightedProject && (
-            <article className="flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm">
-              <div className="h-32 w-full overflow-hidden bg-bg-soft">
-                <img
-                  src={
-                    highlightedProject.thumbnail ||
-                    "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  }
-                  alt={t(`projectContent.${highlightedProject.id}.title`)}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="flex flex-1 flex-col gap-2 p-3 text-xs">
-                <p className="inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-brand">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                  {t("home.sections.examplesHighlightedBadge")}
-                </p>
-                <h3 className="text-sm font-semibold text-text-strong">
-                  {t(`projectContent.${highlightedProject.id}.title`)}
-                </h3>
-                <p className="line-clamp-3 text-[0.7rem] text-text-soft">
-                  {t(`projectContent.${highlightedProject.id}.subtitle`)}
-                </p>
-                <Link
-                  to={`/projetos/${highlightedProject.slug}`}
-                  className="mt-auto inline-flex items-center rounded-md border border-border-strong bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
+          {[
+            {
+              project: highlightedProject,
+              badge: t("home.sections.examplesHighlightedBadge"),
+              badgeColor: "text-brand",
+              hasDot: true,
+              buttonLabel: t("home.sections.examplesHighlightedLinkLabel"),
+            },
+            {
+              project: landingProject,
+              badge: landingProject
+                ? t(`projectContent.${landingProject.id}.client`)
+                : "",
+              badgeColor: "text-text-muted",
+              hasDot: false,
+              buttonLabel: t("pages.projects.card.viewDetails"),
+            },
+            {
+              project: dashboardProject,
+              badge: dashboardProject
+                ? t(`projectContent.${dashboardProject.id}.client`)
+                : "",
+              badgeColor: "text-text-muted",
+              hasDot: false,
+              buttonLabel: t("pages.projects.card.viewDetails"),
+            },
+          ].map(
+            (card) =>
+              card.project && (
+                <article
+                  key={card.project.id}
+                  className="flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm"
                 >
-                  {t("home.sections.examplesHighlightedLinkLabel")}
-                </Link>
-              </div>
-            </article>
+                  <div className="h-32 w-full overflow-hidden bg-bg-soft">
+                    <img
+                      src={
+                        card.project.thumbnail ||
+                        "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800"
+                      }
+                      alt={t(`projectContent.${card.project.id}.title`)}
+                      className="h-full w-full object-cover"
+                      decoding="async"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-2 p-3 text-xs">
+                    <p
+                      className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] ${card.badgeColor}`}
+                    >
+                      {card.hasDot && (
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                      )}
+                      {card.badge}
+                    </p>
+                    <h3 className="text-sm font-semibold text-text-strong">
+                      {t(`projectContent.${card.project.id}.title`)}
+                    </h3>
+                    <p className="line-clamp-3 text-[0.7rem] text-text-soft">
+                      {t(`projectContent.${card.project.id}.subtitle`)}
+                    </p>
+                    <Link
+                      to={`/projetos/${card.project.slug}`}
+                      className="mt-auto inline-flex items-center rounded-md border border-border-strong bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
+                    >
+                      {card.buttonLabel}
+                    </Link>
+                  </div>
+                </article>
+              )
           )}
-
-          <article className="flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm">
-            <div className="h-32 w-full overflow-hidden bg-bg-soft">
-              <img
-                src="https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt={t("home.sections.examplesCard1ImageAlt")}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="flex flex-1 flex-col gap-2 p-3 text-xs">
-              <p className="inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
-                {t("home.sections.examplesCard1Badge")}
-              </p>
-              <h3 className="text-sm font-semibold text-text-strong">
-                {t("home.sections.examplesCard1Title")}
-              </h3>
-              <p className="line-clamp-3 text-[0.7rem] text-text-soft">
-                {t("home.sections.examplesCard1Description")}
-              </p>
-            </div>
-          </article>
-
-          <article className="flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm">
-            <div className="h-32 w-full overflow-hidden bg-bg-soft">
-              <img
-                src="https://images.pexels.com/photos/1181670/pexels-photo-1181670.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt={t("home.sections.examplesCard2ImageAlt")}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="flex flex-1 flex-col gap-2 p-3 text-xs">
-              <p className="inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
-                {t("home.sections.examplesCard2Badge")}
-              </p>
-              <h3 className="text-sm font-semibold text-text-strong">
-                {t("home.sections.examplesCard2Title")}
-              </h3>
-              <p className="line-clamp-3 text-[0.7rem] text-text-soft">
-                {t("home.sections.examplesCard2Description")}
-              </p>
-            </div>
-          </article>
         </div>
       </section>
 

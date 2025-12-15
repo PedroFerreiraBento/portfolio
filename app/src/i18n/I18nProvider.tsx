@@ -1,13 +1,7 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { en } from "./locales/en";
 import { pt } from "./locales/pt";
+import { I18nContext, type I18nContextValue } from "./I18nContext";
 import type { Locale, TranslationDictionary } from "./types";
 
 const I18N_STORAGE_KEY = "caosDomado.locale";
@@ -17,44 +11,45 @@ const translations: Record<Locale, TranslationDictionary> = {
   en,
 };
 
-export type I18nContextValue = {
-  locale: Locale;
-  setLocale: (locale: Locale) => void;
-  t: (path: string) => string;
-};
-
-const I18nContext = createContext<I18nContextValue | undefined>(undefined);
-
 function resolvePath(dictionary: TranslationDictionary, path: string): string {
   const segments = path.split(".");
-  let current: any = dictionary;
+  let current: unknown = dictionary;
 
   for (const segment of segments) {
-    if (current && typeof current === "object" && segment in current) {
-      current = current[segment];
-    } else {
-      return path;
+    if (current && typeof current === "object") {
+      const record = current as Record<string, unknown>;
+      if (segment in record) {
+        current = record[segment];
+        continue;
+      }
     }
+
+    return path;
   }
 
   return typeof current === "string" ? current : path;
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("pt");
-
-  useEffect(() => {
+  const [locale, setLocaleState] = useState<Locale>(() => {
     try {
       const stored = window.localStorage.getItem(
         I18N_STORAGE_KEY
       ) as Locale | null;
       if (stored === "pt" || stored === "en") {
-        setLocaleState(stored);
+        return stored;
       }
     } catch {
       // ignore storage errors
     }
-  }, []);
+
+    return "pt";
+  });
+
+  useEffect(() => {
+    const lang = locale === "pt" ? "pt-BR" : "en";
+    document.documentElement.lang = lang;
+  }, [locale]);
 
   const setLocale = (next: Locale) => {
     setLocaleState(next);
@@ -78,14 +73,4 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }, [locale]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
-}
-
-export function useI18nContext() {
-  const ctx = useContext(I18nContext);
-
-  if (!ctx) {
-    throw new Error("useI18nContext must be used within an I18nProvider");
-  }
-
-  return ctx;
 }

@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "../components/common/LanguageSwitcher";
 import { useI18n } from "../i18n";
-import logoImage from "../assets/images/logo.png";
 
 const navLinkBase =
   "relative inline-flex items-center px-2 py-1 text-sm font-medium text-text-soft transition-colors";
@@ -12,8 +11,24 @@ const navLinkActive =
 const navLinkInactive = "hover:text-brand";
 
 export function MainLayout() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const loadingLabel = locale === "pt" ? "Carregando…" : "Loading…";
+  const mobileNavLabel = mobileOpen
+    ? locale === "pt"
+      ? "Fechar navegação"
+      : "Close navigation"
+    : locale === "pt"
+    ? "Abrir navegação"
+    : "Open navigation";
+  const mobileMenuLabel = mobileOpen
+    ? locale === "pt"
+      ? "Fechar menu"
+      : "Close menu"
+    : locale === "pt"
+    ? "Abrir menu"
+    : "Open menu";
 
   const navItems = [
     { to: "/", labelKey: "nav.home" },
@@ -28,6 +43,12 @@ export function MainLayout() {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-page text-text-strong antialiased">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-bg-card focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-text-strong focus:shadow"
+      >
+        {locale === "pt" ? "Pular para o conteúdo" : "Skip to content"}
+      </a>
       {/* HEADER */}
       <header className="sticky top-0 z-40 border-b border-border-subtle bg-bg-card/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
@@ -35,9 +56,11 @@ export function MainLayout() {
           <div className="flex items-center gap-3">
             <NavLink to="/" className="group flex items-center gap-2">
               <img
-                src={logoImage}
+                src="/logo.png"
                 alt={t("common.brandName")}
                 className="h-9 w-auto"
+                decoding="async"
+                loading="eager"
               />
               <div className="flex flex-col">
                 <span className="text-sm font-semibold tracking-tight text-text-strong group-hover:text-brand">
@@ -74,11 +97,11 @@ export function MainLayout() {
               type="button"
               className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border-subtle bg-bg-card text-text-soft shadow-sm hover:bg-bg-soft md:hidden"
               onClick={toggleMobile}
-              aria-label={mobileOpen ? "Fechar navegação" : "Abrir navegação"}
+              aria-label={mobileNavLabel}
+              aria-controls="mobile-navigation"
+              aria-expanded={mobileOpen}
             >
-              <span className="sr-only">
-                {mobileOpen ? "Fechar menu" : "Abrir menu"}
-              </span>
+              <span className="sr-only">{mobileMenuLabel}</span>
               {mobileOpen ? (
                 <X className="h-5 w-5" aria-hidden="true" />
               ) : (
@@ -90,7 +113,10 @@ export function MainLayout() {
 
         {/* Navegação mobile */}
         {mobileOpen && (
-          <div className="border-t border-border-subtle bg-bg-card/95 px-4 pb-4 pt-2 shadow-sm md:hidden">
+          <div
+            id="mobile-navigation"
+            className="border-t border-border-subtle bg-bg-card/95 px-4 pb-4 pt-2 shadow-sm md:hidden"
+          >
             <nav className="flex flex-col gap-1 text-sm">
               {navItems.map((item) => (
                 <NavLink
@@ -118,11 +144,27 @@ export function MainLayout() {
       </header>
 
       {/* MAIN */}
-      <main className="flex-1 bg-gradient-to-b from-bg-page to-bg-soft">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 bg-gradient-to-b from-bg-page to-bg-soft"
+      >
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm shadow-slate-200/70 backdrop-blur-sm">
             <div className="px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-              <Outlet />
+              <Suspense
+                fallback={
+                  <div
+                    className="py-12 text-center text-sm text-text-muted"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {loadingLabel}
+                  </div>
+                }
+              >
+                <Outlet />
+              </Suspense>
             </div>
           </div>
         </div>

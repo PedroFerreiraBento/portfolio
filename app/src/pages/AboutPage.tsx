@@ -22,6 +22,9 @@ export function AboutPage() {
           <img
             src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Team meeting strategy"
+            decoding="async"
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="about-hero-visual__overlay"></div>
         </div>
@@ -42,6 +45,8 @@ export function AboutPage() {
             <img
               src="https://images.pexels.com/photos/17483874/pexels-photo-17483874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Data analysis on screen"
+              decoding="async"
+              loading="lazy"
             />
           </div>
           <div className="story-split__content">
@@ -104,6 +109,8 @@ export function AboutPage() {
                         src={member.photo}
                         alt={member.name}
                         className="team-card__avatar-img"
+                        decoding="async"
+                        loading="lazy"
                       />
                     ) : (
                       member.name.charAt(0)

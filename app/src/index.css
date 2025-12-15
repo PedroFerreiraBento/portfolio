@@ -322,6 +322,27 @@
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 122, 26, 0.25);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
 }
 
 .btn--ghost {

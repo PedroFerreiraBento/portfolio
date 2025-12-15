@@ -1,4 +1,11 @@
 import type { Project } from "../types/domain";
+import StockRepositionImg from "../assets/images/components/Project/Stock_Reposition.png";
+import ClientKeepImg from "../assets/images/components/Project/Client_Keep.png";
+import SellingPageImg from "../assets/images/components/Project/Selling Page.png";
+import DeliverManagementImg from "../assets/images/components/Project/Deliver Management.png";
+import SoftwareUsageMapImg from "../assets/images/components/Project/Software Usage Map.png";
+import ClientRebuyImg from "../assets/images/components/Project/Client_Rebuy.png";
+import ProductionRequiredImg from "../assets/images/components/Project/ProductionRequired.png";
 
 export const projects: Project[] = [
   // DATA SCIENCE & ML
@@ -12,8 +19,7 @@ export const projects: Project[] = [
     ],
     techIds: ["python", "dbt", "airflow"],
     highlight: true,
-    thumbnail:
-      "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+    thumbnail: StockRepositionImg,
     gallery: [
       "https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
@@ -27,8 +33,7 @@ export const projects: Project[] = [
       { value: 15, unit: "%" },
     ],
     techIds: ["python", "dbt", "airflow"],
-    thumbnail:
-      "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800",
+    thumbnail: ClientKeepImg,
     gallery: [
       "https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
@@ -42,8 +47,7 @@ export const projects: Project[] = [
       { value: 12, unit: "%" },
     ],
     techIds: ["python", "dbt", "airflow"],
-    thumbnail:
-      "https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?auto=compress&cs=tinysrgb&w=800",
+    thumbnail: ClientRebuyImg,
     gallery: [
       "https://images.pexels.com/photos/4464438/pexels-photo-4464438.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
@@ -72,8 +76,7 @@ export const projects: Project[] = [
       { value: 8, unit: "%" },
     ],
     techIds: ["python", "dbt", "airflow"],
-    thumbnail:
-      "https://images.pexels.com/photos/37347/office-freelancer-computer-business-37347.jpeg?auto=compress&cs=tinysrgb&w=800",
+    thumbnail: ProductionRequiredImg,
     gallery: [
       "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
@@ -89,8 +92,7 @@ export const projects: Project[] = [
       { value: 18, unit: "%" },
     ],
     techIds: ["react", "typescript", "fastapi"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800",
+    thumbnail: SellingPageImg,
     gallery: [
       "https://images.pexels.com/photos/1181670/pexels-photo-1181670.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
@@ -181,8 +183,7 @@ export const projects: Project[] = [
       { value: 15, unit: "%" },
     ],
     techIds: ["react", "typescript", "dbt"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181460/pexels-photo-1181460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    thumbnail: DeliverManagementImg,
     gallery: [
       "https://images.pexels.com/photos/1181317/pexels-photo-1181317.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
@@ -196,8 +197,7 @@ export const projects: Project[] = [
       { value: 14, unit: "%" },
     ],
     techIds: ["react", "typescript", "dbt"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+    thumbnail: SoftwareUsageMapImg,
     gallery: [
       "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],

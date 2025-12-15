@@ -25,6 +25,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
           src={imageUrl}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          decoding="async"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-card/90 to-transparent opacity-60" />
       </div>
