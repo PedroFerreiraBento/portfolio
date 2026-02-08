@@ -83,3 +83,18 @@ export interface TeamMember {
   photo?: string;
   skills?: string[];
 }
+
+export type BlogPostId = string;
+
+export interface BlogPost {
+  id: BlogPostId;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string; // Markdown or HTML
+  authorId: TeamMemberId;
+  date: string; // ISO date
+  readTime: number; // minutes
+  imageUrl?: string;
+  categoryIds: CategoryId[];
+}

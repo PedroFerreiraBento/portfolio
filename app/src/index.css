@@ -1,34 +1,96 @@
 @import "tailwindcss";
 
+:root {
+  /* Base (fundo / superfícies) - LIGHT */
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-soft: #f9fafb;
+
+  /* Texto & neutros - LIGHT */
+  --text-strong: #111827;
+  --text-soft: #4b5563;
+  --text-muted: #9ca3af;
+  --border-subtle: #e5e7eb;
+  --border-strong: #d1d5db;
+
+  /* Marca (laranja CaosDomado) - LIGHT */
+  --brand: #ff7a1a;
+  --brand-hover: #e65f00;
+  --brand-soft: #fff3e5;
+
+  /* Acento secundário (azul/ciano) - LIGHT */
+  --accent: #0ea5e9;
+  --accent-soft: #e0f2fe;
+
+  /* Feedback - LIGHT */
+  --success-soft: #dcfce7;
+  --success: #16a34a;
+  --warning-soft: #fef9c3;
+  --warning: #facc15;
+  --error-soft: #fee2e2;
+  --error: #ef4444;
+}
+
+.dark {
+  /* Base (fundo / superfícies) - DARK */
+  --bg-page: #0f172a; /* slate-950 */
+  --bg-card: #1e293b; /* slate-800 */
+  --bg-soft: #334155; /* slate-700 */
+
+  /* Texto & neutros - DARK */
+  --text-strong: #f3f4f6; /* gray-100 */
+  --text-soft: #9ca3af; /* gray-400 */
+  --text-muted: #6b7280; /* gray-500 */
+  --border-subtle: #374151; /* gray-700 */
+  --border-strong: #4b5563; /* gray-600 */
+
+  /* Marca - DARK */
+  --brand: #ff7a1a;
+  --brand-hover: #fb923c; /* orange-400 */
+  --brand-soft: #431407; /* orange-950 */
+
+  /* Acento - DARK */
+  --accent: #38bdf8; /* sky-400 */
+  --accent-soft: #0c4a6e; /* sky-900 */
+
+  /* Feedback - DARK */
+  --success-soft: #064e3b;
+  --success: #4ade80;
+  --warning-soft: #422006;
+  --warning: #fde047;
+  --error-soft: #7f1d1d;
+  --error: #f87171;
+}
+
 @theme {
-  /* Base (fundo / superfícies) */
-  --color-bg-page: #f5f5f7;
-  --color-bg-card: #ffffff;
-  --color-bg-soft: #f9fafb;
+  /* Base */
+  --color-bg-page: var(--bg-page);
+  --color-bg-card: var(--bg-card);
+  --color-bg-soft: var(--bg-soft);
 
-  /* Texto & neutros */
-  --color-text-strong: #111827;
-  --color-text-soft: #4b5563;
-  --color-text-muted: #9ca3af;
-  --color-border-subtle: #e5e7eb;
-  --color-border-strong: #d1d5db;
+  /* Texto */
+  --color-text-strong: var(--text-strong);
+  --color-text-soft: var(--text-soft);
+  --color-text-muted: var(--text-muted);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
 
-  /* Marca (laranja CaosDomado) */
-  --color-brand: #ff7a1a;
-  --color-brand-hover: #e65f00;
-  --color-brand-soft: #fff3e5;
+  /* Marca */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
 
-  /* Acento secundário (azul/ciano) */
-  --color-accent: #0ea5e9;
-  --color-accent-soft: #e0f2fe;
+  /* Acento */
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
 
   /* Feedback */
-  --color-success-soft: #dcfce7;
-  --color-success: #16a34a;
-  --color-warning-soft: #fef9c3;
-  --color-warning: #facc15;
-  --color-error-soft: #fee2e2;
-  --color-error: #ef4444;
+  --color-success-soft: var(--success-soft);
+  --color-success: var(--success);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning: var(--warning);
+  --color-error-soft: var(--error-soft);
+  --color-error: var(--error);
 }
 
 /* Project Detail Page Styles */
@@ -831,8 +893,32 @@
 
 @media (min-width: 900px) {
   .contact-container {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 5rem;
+  }
+}
+
+.contact-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.contact-page-header .contact-title {
+  margin-bottom: 0;
+}
+
+.contact-page-header .contact-description {
+  max-width: 640px;
+}
+
+@media (min-width: 900px) {
+  .contact-page-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
   }
 }
 
@@ -996,6 +1082,25 @@
   gap: 1.5rem;
 }
 
+.form-helper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-helper-text {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.form-field-hint {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
 .form-row-split {
   display: grid;
   grid-template-columns: 1fr;
@@ -1071,6 +1176,12 @@
   border-color: var(--color-brand);
   box-shadow: 0 0 0 4px rgba(255, 122, 26, 0.1);
   background: var(--color-bg-card);
+}
+
+.form-input:disabled,
+.form-textarea:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .form-textarea {

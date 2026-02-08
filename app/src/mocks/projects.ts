@@ -7,6 +7,31 @@ import SoftwareUsageMapImg from "../assets/images/components/Project/Software Us
 import ClientRebuyImg from "../assets/images/components/Project/Client_Rebuy.png";
 import ProductionRequiredImg from "../assets/images/components/Project/ProductionRequired.png";
 
+// External Images
+import ImgStockRepositionGallery from "../assets/images/external/stock-reposition.jpg";
+import ImgClientKeepGallery from "../assets/images/external/client-keep.jpg";
+import ImgClientRebuyGallery from "../assets/images/external/client-rebuy.jpg";
+import ImgFraud1 from "../assets/images/external/fraud-detection-1.jpg";
+import ImgFraud2 from "../assets/images/external/fraud-detection-2.jpg";
+import ImgProductionReqGallery from "../assets/images/external/production-req.jpg";
+import ImgLandingSaasGallery from "../assets/images/external/landing-saas-1.jpg";
+import ImgPortalB2BThumb from "../assets/images/external/portal-b2b-1.jpg";
+import ImgPortalB2BGallery from "../assets/images/external/portal-b2b-2.jpg";
+import ImgAppSalesThumb from "../assets/images/external/app-sales-1.jpg";
+import ImgAppSalesGallery from "../assets/images/external/app-sales-2.jpg";
+import ImgBackofficeThumb from "../assets/images/external/backoffice-1.jpg";
+import ImgBackofficeGallery from "../assets/images/external/backoffice-2.jpg";
+import ImgMarketplaceThumb from "../assets/images/external/marketplace-1.jpg";
+import ImgMarketplaceGallery from "../assets/images/external/marketplace-2.jpg";
+import ImgDashExecThumb from "../assets/images/external/dash-exec-1.jpg";
+import ImgDashExecGallery from "../assets/images/external/landing-saas-1.jpg"; // Reused in original
+import ImgDashLogisticsGallery from "../assets/images/external/dash-logistics-1.jpg";
+import ImgDashSaasGallery from "../assets/images/external/dash-saas-1.jpg";
+import ImgDashMarketingThumb from "../assets/images/external/dash-marketing-1.jpg";
+import ImgDashMarketingGallery from "../assets/images/external/stock-reposition.jpg"; // Reused in original
+import ImgDashFinanceThumb from "../assets/images/external/dash-finance-1.jpg";
+import ImgDashFinanceGallery from "../assets/images/external/dash-finance-2.jpg";
+
 export const projects: Project[] = [
   // DATA SCIENCE & ML
   {
@@ -20,9 +45,7 @@ export const projects: Project[] = [
     techIds: ["python", "dbt", "airflow"],
     highlight: true,
     thumbnail: StockRepositionImg,
-    gallery: [
-      "https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    gallery: [ImgStockRepositionGallery],
   },
   {
     id: "proj-churn-saas-b2b",
@@ -34,9 +57,7 @@ export const projects: Project[] = [
     ],
     techIds: ["python", "dbt", "airflow"],
     thumbnail: ClientKeepImg,
-    gallery: [
-      "https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    gallery: [ImgClientKeepGallery],
   },
   {
     id: "proj-recomendacao-ecommerce",
@@ -48,9 +69,7 @@ export const projects: Project[] = [
     ],
     techIds: ["python", "dbt", "airflow"],
     thumbnail: ClientRebuyImg,
-    gallery: [
-      "https://images.pexels.com/photos/4464438/pexels-photo-4464438.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    gallery: [ImgClientRebuyGallery],
   },
   {
     id: "proj-deteccao-fraude-pagamentos",
@@ -61,11 +80,8 @@ export const projects: Project[] = [
       { value: 25, unit: "%" },
     ],
     techIds: ["python", "airflow"],
-    thumbnail:
-      "https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/3943725/pexels-photo-3943725.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgFraud1,
+    gallery: [ImgFraud2],
   },
   {
     id: "proj-previsao-demanda-industria",
@@ -77,9 +93,7 @@ export const projects: Project[] = [
     ],
     techIds: ["python", "dbt", "airflow"],
     thumbnail: ProductionRequiredImg,
-    gallery: [
-      "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    gallery: [ImgProductionReqGallery],
   },
 
   // PRODUTOS DIGITAIS
@@ -93,9 +107,7 @@ export const projects: Project[] = [
     ],
     techIds: ["react", "typescript", "fastapi"],
     thumbnail: SellingPageImg,
-    gallery: [
-      "https://images.pexels.com/photos/1181670/pexels-photo-1181670.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    gallery: [ImgLandingSaasGallery],
   },
   {
     id: "proj-portal-clientes-b2b",
@@ -106,11 +118,8 @@ export const projects: Project[] = [
       { value: 30, unit: "%" },
     ],
     techIds: ["react", "typescript", "fastapi"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/1181304/pexels-photo-1181304.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgPortalB2BThumb,
+    gallery: [ImgPortalB2BGallery],
   },
   {
     id: "proj-app-campo-vendas",
@@ -121,11 +130,8 @@ export const projects: Project[] = [
       { value: 17, unit: "%" },
     ],
     techIds: ["react", "typescript"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/1181265/pexels-photo-1181265.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgAppSalesThumb,
+    gallery: [ImgAppSalesGallery],
   },
   {
     id: "proj-backoffice-operacoes",
@@ -136,11 +142,8 @@ export const projects: Project[] = [
       { value: 20, unit: "%" },
     ],
     techIds: ["react", "typescript", "fastapi"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181275/pexels-photo-1181275.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/1181356/pexels-photo-1181356.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgBackofficeThumb,
+    gallery: [ImgBackofficeGallery],
   },
   {
     id: "proj-mvp-marketplace-nicho",
@@ -151,11 +154,8 @@ export const projects: Project[] = [
       { value: 28, unit: "%" },
     ],
     techIds: ["react", "typescript", "fastapi"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgMarketplaceThumb,
+    gallery: [ImgMarketplaceGallery],
   },
 
   // DASHBOARDS & BI
@@ -168,11 +168,8 @@ export const projects: Project[] = [
       { value: 50, unit: "%" },
     ],
     techIds: ["react", "typescript", "dbt"],
-    thumbnail:
-      "https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/1181670/pexels-photo-1181670.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgDashExecThumb,
+    gallery: [ImgDashExecGallery],
   },
   {
     id: "proj-dashboard-operacao-logistica",
@@ -184,9 +181,7 @@ export const projects: Project[] = [
     ],
     techIds: ["react", "typescript", "dbt"],
     thumbnail: DeliverManagementImg,
-    gallery: [
-      "https://images.pexels.com/photos/1181317/pexels-photo-1181317.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    gallery: [ImgDashLogisticsGallery],
   },
   {
     id: "proj-dashboard-produto-saas",
@@ -198,9 +193,7 @@ export const projects: Project[] = [
     ],
     techIds: ["react", "typescript", "dbt"],
     thumbnail: SoftwareUsageMapImg,
-    gallery: [
-      "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    gallery: [ImgDashSaasGallery],
   },
   {
     id: "proj-dashboard-marketing-performance",
@@ -211,11 +204,8 @@ export const projects: Project[] = [
       { value: 35, unit: "%" },
     ],
     techIds: ["react", "typescript", "dbt"],
-    thumbnail:
-      "https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgDashMarketingThumb,
+    gallery: [ImgDashMarketingGallery],
   },
   {
     id: "proj-dashboard-financeiro-cashflow",
@@ -226,10 +216,7 @@ export const projects: Project[] = [
       { value: 20, unit: "%" },
     ],
     techIds: ["react", "typescript", "dbt"],
-    thumbnail:
-      "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800",
-    gallery: [
-      "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
+    thumbnail: ImgDashFinanceThumb,
+    gallery: [ImgDashFinanceGallery],
   },
 ];

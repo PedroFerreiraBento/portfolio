@@ -71,6 +71,6 @@ export function ServicesPage() {
         <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
       </section>
-    </section>
+    </section >
   );
 }

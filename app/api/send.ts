@@ -1,52 +1,71 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { Resend } from "resend";
+import { Resend } from 'resend';
+
+export const config = {
+  runtime: 'edge',
+};
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(
-  request: VercelRequest,
-  response: VercelResponse
-) {
-  if (request.method !== "POST") {
-    return response.status(405).json({ error: "Method not allowed" });
+export default async function handler(request: Request) {
+  if (request.method !== 'POST') {
+    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+      status: 405,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   try {
-    const { name, email, message, company } = request.body;
+    const body = await request.json() as {
+      name?: string;
+      email?: string;
+      message?: string;
+      company?: string;
+    };
+    const { name, email, message, company } = body;
 
-    // TODO: Update the 'to' email to your actual email address
-    // TODO: Verify your domain in Resend to use a custom 'from' address
+    // Basic validation
+    if (!name || !email || !message) {
+      return new Response(
+        JSON.stringify({ error: 'Missing required fields' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     const { data, error } = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["delivered@resend.dev"], // Replace with your email
-      subject: `New Contact from Portfolio: ${name}`,
+      from: 'Caos Domado <onboarding@resend.dev>', // Update with verified domain when available
+      to: ['contato@caosdomado.com'],
       replyTo: email,
+      subject: `Novo contato: ${name}`,
       html: `
-        <div style="font-family: sans-serif; padding: 20px;">
-          <h2>New Contact Message</h2>
-          <p>You received a new message from your portfolio contact form.</p>
-          <hr />
-          <p><strong>Name:</strong> ${name}</p>
+        <div style="font-family: sans-serif; padding: 20px; color: #333;">
+          <h2 style="color: #ff7a1a;">Novo Contato do Portfólio</h2>
+          <p><strong>Nome:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Company:</strong> ${company || "Not specified"}</p>
-          <p><strong>Message:</strong></p>
-          <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-            ${message.replace(/\n/g, "<br>")}
-          </div>
+          <p><strong>Empresa:</strong> ${company || 'N/A'}</p>
+          <hr style="border: 1px solid #eee; margin: 20px 0;" />
+          <p><strong>Mensagem:</strong></p>
+          <div style="background-color: #f9fafb; padding: 15px; border-radius: 8px; white-space: pre-wrap;">${message}</div>
         </div>
       `,
     });
 
     if (error) {
-      console.error("Resend error:", error);
-      return response.status(400).json({ error });
+      console.error('Resend error:', error);
+      return new Response(JSON.stringify({ error: error.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
-    return response
-      .status(200)
-      .json({ message: "Email sent successfully", data });
-  } catch (error) {
-    console.error("Server error:", error);
-    return response.status(500).json({ error: "Internal Server Error" });
+    return new Response(JSON.stringify({ success: true, data }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (err) {
+    console.error('Server error:', err);
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }

@@ -17,6 +17,7 @@ export type TranslationDictionary = {
     home: string;
     projects: string;
     services: string;
+    blog: string;
     about: string;
     contact: string;
   };
@@ -92,6 +93,8 @@ export type TranslationDictionary = {
       filters: {
         categoryLabel: string;
         categoryAll: string;
+        techLabel: string;
+        techAll: string;
         searchLabel: string;
         searchPlaceholder: string;
       };

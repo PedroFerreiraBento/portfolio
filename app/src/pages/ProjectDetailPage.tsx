@@ -249,6 +249,6 @@ export function ProjectDetailPage() {
           </Link>
         </div>
       </section>
-    </section>
+    </section >
   );
 }

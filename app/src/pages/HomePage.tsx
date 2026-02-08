@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n";
+import { Seo } from "../components/common/Seo";
+import { ScrollReveal } from "../components/common/ScrollReveal";
 import { categories } from "../mocks/categories";
 import { projects } from "../mocks/projects";
 import { testimonials } from "../mocks/testimonials";
@@ -7,6 +9,7 @@ import heroImage from "../assets/images/components/heroImageUrl.png";
 import catProdutosDigitais from "../assets/images/components/categoryImages_cat-produtos-digitais.png";
 import catDataScience from "../assets/images/components/categoryImages_cat-data-science.png";
 import catDashboards from "../assets/images/components/categoryImages_cat-dashboards.png";
+import fallbackProjectImg from "../assets/images/external/fallback-project.jpg";
 
 export function HomePage() {
   const { t, locale } = useI18n();
@@ -31,9 +34,10 @@ export function HomePage() {
 
   return (
     <section className="space-y-12">
+      <Seo />
       {/* HERO MAIS VISUAL */}
       <header className="grid gap-8 border-b border-border-subtle pb-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2.2fr)] md:items-center">
-        <div className="space-y-4">
+        <ScrollReveal className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
             {t("common.tagline")}
           </p>
@@ -67,9 +71,9 @@ export function HomePage() {
               {t("home.hero.ctaContact")}
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
         <div className="md:justify-self-end">
-          <div className="overflow-hidden rounded-xl border border-border-subtle bg-bg-soft shadow-sm">
+          <ScrollReveal direction="left" delay={0.2} className="overflow-hidden rounded-xl border border-border-subtle bg-bg-soft shadow-sm">
             <img
               src={heroImageUrl}
               alt={t("home.hero.imageAlt")}
@@ -78,21 +82,23 @@ export function HomePage() {
               loading="eager"
               fetchPriority="high"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </header>
 
       {/* TIPOS DE PROJETO (CATEGORIAS) */}
       <section className="space-y-4">
         <header className="flex items-baseline justify-between gap-3">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-              {t("home.sections.categoriesEyebrow")}
-            </p>
-            <h2 className="mt-1 text-sm font-semibold text-text-strong">
-              {t("home.sections.categoriesTitle")}
-            </h2>
-          </div>
+          <ScrollReveal>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+                {t("home.sections.categoriesEyebrow")}
+              </p>
+              <h2 className="mt-1 text-sm font-semibold text-text-strong">
+                {t("home.sections.categoriesTitle")}
+              </h2>
+            </div>
+          </ScrollReveal>
           <Link
             to="/projetos"
             className="hidden rounded-md border border-brand bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80 sm:inline-flex sm:items-center"
@@ -101,31 +107,32 @@ export function HomePage() {
           </Link>
         </header>
         <div className="grid gap-4 sm:grid-cols-3">
-          {orderedCategories.map((category) => (
-            <Link
-              key={category.id}
-              to="/projetos"
-              className="group overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <div className="relative h-28 w-full overflow-hidden bg-bg-soft">
-                <img
-                  src={categoryImages[category.id]}
-                  alt={category.name}
-                  className="h-full w-full object-cover transition-transform group-hover:scale-[1.03]"
-                  decoding="async"
-                  loading="lazy"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-text-strong/80 via-text-strong/15 to-transparent" />
-              </div>
-              <div className="p-3 text-xs">
-                <p className="font-semibold text-text-strong">
-                  {category.name}
-                </p>
-                <p className="mt-1 line-clamp-2 text-[0.7rem] text-text-soft">
-                  {category.description}
-                </p>
-              </div>
-            </Link>
+          {orderedCategories.map((category, index) => (
+            <ScrollReveal key={category.id} delay={index * 0.1}>
+              <Link
+                to="/projetos"
+                className="block group overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="relative h-28 w-full overflow-hidden bg-bg-soft">
+                  <img
+                    src={categoryImages[category.id]}
+                    alt={category.name}
+                    className="h-full w-full object-cover transition-transform group-hover:scale-[1.03]"
+                    decoding="async"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-text-strong/80 via-text-strong/15 to-transparent" />
+                </div>
+                <div className="p-3 text-xs">
+                  <p className="font-semibold text-text-strong">
+                    {category.name}
+                  </p>
+                  <p className="mt-1 line-clamp-2 text-[0.7rem] text-text-soft">
+                    {category.description}
+                  </p>
+                </div>
+              </Link>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -133,14 +140,16 @@ export function HomePage() {
       {/* ALGUNS EXEMPLOS DE PROJETOS */}
       <section className="space-y-4">
         <header className="flex items-baseline justify-between gap-3">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-              {t("home.sections.examplesEyebrow")}
-            </p>
-            <h2 className="mt-1 text-sm font-semibold text-text-strong">
-              {t("home.sections.examplesTitle")}
-            </h2>
-          </div>
+          <ScrollReveal>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+                {t("home.sections.examplesEyebrow")}
+              </p>
+              <h2 className="mt-1 text-sm font-semibold text-text-strong">
+                {t("home.sections.examplesTitle")}
+              </h2>
+            </div>
+          </ScrollReveal>
           <Link
             to="/projetos"
             className="inline-flex items-center rounded-md border border-brand bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
@@ -176,47 +185,50 @@ export function HomePage() {
               buttonLabel: t("pages.projects.card.viewDetails"),
             },
           ].map(
-            (card) =>
+            (card, index) =>
               card.project && (
-                <article
+                <ScrollReveal
                   key={card.project.id}
+                  delay={index * 0.1}
                   className="flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm"
                 >
-                  <div className="h-32 w-full overflow-hidden bg-bg-soft">
-                    <img
-                      src={
-                        card.project.thumbnail ||
-                        "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800"
-                      }
-                      alt={t(`projectContent.${card.project.id}.title`)}
-                      className="h-full w-full object-cover"
-                      decoding="async"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col gap-2 p-3 text-xs">
-                    <p
-                      className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] ${card.badgeColor}`}
-                    >
-                      {card.hasDot && (
-                        <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                      )}
-                      {card.badge}
-                    </p>
-                    <h3 className="text-sm font-semibold text-text-strong">
-                      {t(`projectContent.${card.project.id}.title`)}
-                    </h3>
-                    <p className="line-clamp-3 text-[0.7rem] text-text-soft">
-                      {t(`projectContent.${card.project.id}.subtitle`)}
-                    </p>
-                    <Link
-                      to={`/projetos/${card.project.slug}`}
-                      className="mt-auto inline-flex items-center rounded-md border border-border-strong bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
-                    >
-                      {card.buttonLabel}
-                    </Link>
-                  </div>
-                </article>
+                  <article className="flex h-full flex-col">
+                    <div className="h-32 w-full overflow-hidden bg-bg-soft">
+                      <img
+                        src={
+                          card.project.thumbnail ||
+                          fallbackProjectImg
+                        }
+                        alt={t(`projectContent.${card.project.id}.title`)}
+                        className="h-full w-full object-cover"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col gap-2 p-3 text-xs">
+                      <p
+                        className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] ${card.badgeColor}`}
+                      >
+                        {card.hasDot && (
+                          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                        )}
+                        {card.badge}
+                      </p>
+                      <h3 className="text-sm font-semibold text-text-strong">
+                        {t(`projectContent.${card.project.id}.title`)}
+                      </h3>
+                      <p className="line-clamp-3 text-[0.7rem] text-text-soft">
+                        {t(`projectContent.${card.project.id}.subtitle`)}
+                      </p>
+                      <Link
+                        to={`/projetos/${card.project.slug}`}
+                        className="mt-auto inline-flex items-center rounded-md border border-border-strong bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
+                      >
+                        {card.buttonLabel}
+                      </Link>
+                    </div>
+                  </article>
+                </ScrollReveal>
               )
           )}
         </div>

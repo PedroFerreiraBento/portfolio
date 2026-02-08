@@ -44,6 +44,18 @@ const NotFoundPage = lazy(() =>
   }))
 );
 
+const BlogPage = lazy(() =>
+  import("../pages/BlogPage.tsx").then((module) => ({
+    default: module.BlogPage,
+  }))
+);
+
+const BlogPostPage = lazy(() =>
+  import("../pages/BlogPostPage.tsx").then((module) => ({
+    default: module.BlogPostPage,
+  }))
+);
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
@@ -73,6 +85,8 @@ export function AppRouter() {
           <Route path="projetos" element={<ProjectsPage />} />
           <Route path="projetos/:slug" element={<ProjectDetailPage />} />
           <Route path="servicos" element={<ServicesPage />} />
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="blog/:slug" element={<BlogPostPage />} />
           <Route path="sobre" element={<AboutPage />} />
           <Route path="contato" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />

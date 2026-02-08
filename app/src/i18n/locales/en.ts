@@ -17,6 +17,7 @@ export const en: TranslationDictionary = {
     home: "Home",
     projects: "Projects",
     services: "Services",
+    blog: "Blog",
     about: "About",
     contact: "Contact",
   },
@@ -437,6 +438,8 @@ export const en: TranslationDictionary = {
       filters: {
         categoryLabel: "Category",
         categoryAll: "All categories",
+        techLabel: "Technology",
+        techAll: "All technologies",
         searchLabel: "Search",
         searchPlaceholder: "Search by title or client",
       },
@@ -520,12 +523,12 @@ export const en: TranslationDictionary = {
       },
     },
     contact: {
-      title: "Contact",
+      title: "Let's talk",
       description:
-        "Tell us about your challenge and let’s think together about how to tame the chaos.",
-      infoTitle: "Let's talk?",
+        "Tell us about your challenge — we'll reply within 24 business hours.",
+      infoTitle: "Tell us about your project",
       infoDescription:
-        "Whether for a new project, consulting, or just to answer questions, we are available.",
+        "New project, consulting, or just a question — we'll reply within 24 business hours.",
       emailLabel: "Contact email",
       emailValue: "contact@caosdomado.com",
       locationLabel: "Location",
@@ -535,7 +538,7 @@ export const en: TranslationDictionary = {
       form: {
         nameLabel: "Name",
         namePlaceholder: "How should we call you?",
-        emailLabel: "Work email",
+        emailLabel: "Email",
         emailPlaceholder: "you@yourcompany.com",
         companyLabel: "Company (optional)",
         companyPlaceholder: "Your company name",
@@ -544,7 +547,7 @@ export const en: TranslationDictionary = {
           "Tell us a bit about the challenge you are facing...",
         submit: "Send message",
         sending: "Sending...",
-        success: "Message sent successfully! We will get back to you soon.",
+        success: "Message sent! We'll reply within 24 business hours.",
         errorMessage: "Failed to send message. Please try again.",
         sendAnother: "Send another message",
       },

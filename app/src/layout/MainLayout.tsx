@@ -2,6 +2,8 @@ import { Suspense, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "../components/common/LanguageSwitcher";
+import { ThemeToggle } from "../components/common/ThemeToggle";
+import { WhatsAppButton } from "../components/common/WhatsAppButton";
 import { useI18n } from "../i18n";
 
 const navLinkBase =
@@ -20,20 +22,21 @@ export function MainLayout() {
       ? "Fechar navegação"
       : "Close navigation"
     : locale === "pt"
-    ? "Abrir navegação"
-    : "Open navigation";
+      ? "Abrir navegação"
+      : "Open navigation";
   const mobileMenuLabel = mobileOpen
     ? locale === "pt"
       ? "Fechar menu"
       : "Close menu"
     : locale === "pt"
-    ? "Abrir menu"
-    : "Open menu";
+      ? "Abrir menu"
+      : "Open menu";
 
   const navItems = [
     { to: "/", labelKey: "nav.home" },
     { to: "/projetos", labelKey: "nav.projects" },
     { to: "/servicos", labelKey: "nav.services" },
+    { to: "/blog", labelKey: "nav.blog" },
     { to: "/sobre", labelKey: "nav.about" },
     { to: "/contato", labelKey: "nav.contact" },
   ];
@@ -42,7 +45,8 @@ export function MainLayout() {
   const closeMobileMenu = () => setMobileOpen(false);
 
   return (
-    <div className="flex min-h-screen flex-col bg-bg-page text-text-strong antialiased">
+    <div className="flex min-h-screen flex-col bg-bg-page text-text-strong antialiased transition-colors duration-300">
+      <WhatsAppButton />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-bg-card focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-text-strong focus:shadow"
@@ -50,7 +54,7 @@ export function MainLayout() {
         {locale === "pt" ? "Pular para o conteúdo" : "Skip to content"}
       </a>
       {/* HEADER */}
-      <header className="sticky top-0 z-40 border-b border-border-subtle bg-bg-card/80 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-border-subtle bg-bg-card/80 backdrop-blur transition-colors duration-300">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo + título */}
           <div className="flex items-center gap-3">
@@ -88,26 +92,31 @@ export function MainLayout() {
             ))}
           </nav>
 
-          {/* Ações (idioma + menu mobile) */}
+          {/* Ações (idioma + tema + menu mobile) */}
           <div className="flex items-center gap-3">
-            <div className="hidden md:block">
+            <div className="hidden items-center gap-3 md:flex">
+              <ThemeToggle />
               <LanguageSwitcher />
             </div>
-            <button
-              type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border-subtle bg-bg-card text-text-soft shadow-sm hover:bg-bg-soft md:hidden"
-              onClick={toggleMobile}
-              aria-label={mobileNavLabel}
-              aria-controls="mobile-navigation"
-              aria-expanded={mobileOpen}
-            >
-              <span className="sr-only">{mobileMenuLabel}</span>
-              {mobileOpen ? (
-                <X className="h-5 w-5" aria-hidden="true" />
-              ) : (
-                <Menu className="h-5 w-5" aria-hidden="true" />
-              )}
-            </button>
+
+            <div className="flex items-center gap-2 md:hidden">
+              <ThemeToggle />
+              <button
+                type="button"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border-subtle bg-bg-card text-text-soft shadow-sm hover:bg-bg-soft"
+                onClick={toggleMobile}
+                aria-label={mobileNavLabel}
+                aria-controls="mobile-navigation"
+                aria-expanded={mobileOpen}
+              >
+                <span className="sr-only">{mobileMenuLabel}</span>
+                {mobileOpen ? (
+                  <X className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Menu className="h-5 w-5" aria-hidden="true" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
 

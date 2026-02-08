@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n";
+import { Seo } from "../components/common/Seo";
 import { team } from "../mocks/team";
 import {
   ShieldCheck,
@@ -10,17 +11,43 @@ import {
   Lightbulb,
   ArrowRight,
 } from "lucide-react";
+import aboutHeroImg from "../assets/images/external/about-hero.jpg";
+import aboutStoryImg from "../assets/images/external/about-story.jpg";
 
 export function AboutPage() {
   const { t, locale } = useI18n();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": t("pages.about.title"),
+    "description": t("pages.about.description"),
+    "url": "https://caosdomado.com/sobre",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Caos Domado",
+      "logo": "https://caosdomado.com/logo.png",
+      "foundingDate": "2023",
+      "url": "https://caosdomado.com",
+      "sameAs": [
+        "https://www.linkedin.com/company/caosdomado",
+        "https://github.com/caosdomado"
+      ]
+    }
+  };
+
   return (
     <section className="page page--about-visual">
+      <Seo
+        title={t("nav.about")}
+        description={t("pages.about.hero.subheadline")}
+        jsonLd={jsonLd}
+      />
       {/* Hero Section with Background Image */}
       <header className="about-hero-visual">
         <div className="about-hero-visual__bg">
           <img
-            src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src={aboutHeroImg}
             alt="Team meeting strategy"
             decoding="async"
             loading="eager"
@@ -43,7 +70,7 @@ export function AboutPage() {
         <section className="page-section about-section about-section--story-split">
           <div className="story-split__image">
             <img
-              src="https://images.pexels.com/photos/17483874/pexels-photo-17483874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src={aboutStoryImg}
               alt="Data analysis on screen"
               decoding="async"
               loading="lazy"

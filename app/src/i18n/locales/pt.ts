@@ -17,6 +17,7 @@ export const pt: TranslationDictionary = {
     home: "Início",
     projects: "Projetos",
     services: "Serviços",
+    blog: "Blog",
     about: "Sobre",
     contact: "Contato",
   },
@@ -447,6 +448,8 @@ export const pt: TranslationDictionary = {
       filters: {
         categoryLabel: "Categoria",
         categoryAll: "Todas as categorias",
+        techLabel: "Tecnologia",
+        techAll: "Todas as tecnologias",
         searchLabel: "Busca",
         searchPlaceholder: "Buscar por título ou cliente",
       },
@@ -530,12 +533,12 @@ export const pt: TranslationDictionary = {
       },
     },
     contact: {
-      title: "Contato",
+      title: "Vamos conversar",
       description:
-        "Conte sobre o seu desafio e vamos pensar juntos em como domar o caos.",
-      infoTitle: "Vamos conversar?",
+        "Conte sobre seu desafio e receba uma resposta em até 24h úteis.",
+      infoTitle: "Me conte sobre seu projeto",
       infoDescription:
-        "Seja para um novo projeto, uma consultoria ou apenas para tirar dúvidas, estamos à disposição.",
+        "Seja um novo projeto, consultoria ou dúvida — respondo em até 24h úteis.",
       emailLabel: "E-mail para contato",
       emailValue: "contato@caosdomado.com",
       locationLabel: "Localização",
@@ -545,7 +548,7 @@ export const pt: TranslationDictionary = {
       form: {
         nameLabel: "Nome",
         namePlaceholder: "Como você prefere ser chamado?",
-        emailLabel: "E-mail corporativo",
+        emailLabel: "E-mail",
         emailPlaceholder: "voce@suaempresa.com",
         companyLabel: "Empresa (opcional)",
         companyPlaceholder: "Nome da sua empresa",
@@ -554,8 +557,7 @@ export const pt: TranslationDictionary = {
           "Conte um pouco sobre o desafio que você está enfrentando...",
         submit: "Enviar mensagem",
         sending: "Enviando...",
-        success:
-          "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+        success: "Mensagem enviada! Vou te responder em até 24h úteis.",
         errorMessage: "Falha ao enviar mensagem. Por favor, tente novamente.",
         sendAnother: "Enviar outra mensagem",
       },
