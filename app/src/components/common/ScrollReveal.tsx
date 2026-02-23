@@ -56,6 +56,7 @@ export function ScrollReveal({
                 variants={variants}
                 initial="hidden"
                 animate={mainControls}
+                style={{ willChange: "transform, opacity" }}
             >
                 {children}
             </motion.div>

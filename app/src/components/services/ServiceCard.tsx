@@ -20,7 +20,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
     .filter((text) => text && !text.includes(baseKey)); // Filter out if translation key is returned
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card transition-all hover:border-brand-soft hover:shadow-md">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card transition-all hover:border-brand-soft hover:shadow-md service-card">
       {service.thumbnail && (
         <div className="relative h-48 w-full overflow-hidden bg-bg-soft">
           <img
@@ -29,6 +29,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             decoding="async"
             loading="lazy"
+            style={{ willChange: "transform" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-bg-card/80 to-transparent opacity-60" />
         </div>
@@ -43,16 +44,16 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
         {deliverables.length > 0 && (
           <div className="mt-4 space-y-2">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-wider text-text-muted">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-wider text-text-muted service-deliverable-label">
               {t("pages.services.deliverablesLabel") || "O que entregamos"}
             </p>
             <ul className="space-y-1">
               {deliverables.map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center gap-2 text-xs text-text-soft"
+                  className="flex items-center gap-2 text-xs text-text-soft service-deliverable-item"
                 >
-                  <span className="block h-1 w-1 rounded-full bg-brand" />
+                  <span className="block h-1 w-1 rounded-full bg-brand service-deliverable-bullet" />
                   {item}
                 </li>
               ))}
@@ -63,11 +64,11 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <div className="mt-6 pt-4 border-t border-border-subtle">
           <Link
             to="/contato"
-            className="inline-flex w-full items-center justify-center rounded-md bg-brand-soft px-4 py-2 text-sm font-medium text-brand transition-colors hover:bg-brand hover:text-white group/btn"
+            className="hp-btn-outline hp-btn-outline--wide"
           >
             {t("pages.services.card.actionLabel") || "Tenho interesse"}
             <svg
-              className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1"
+              className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

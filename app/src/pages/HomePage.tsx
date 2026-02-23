@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "../i18n";
 import { Seo } from "../components/common/Seo";
 import { ScrollReveal } from "../components/common/ScrollReveal";
@@ -10,6 +12,18 @@ import catProdutosDigitais from "../assets/images/components/categoryImages_cat-
 import catDataScience from "../assets/images/components/categoryImages_cat-data-science.png";
 import catDashboards from "../assets/images/components/categoryImages_cat-dashboards.png";
 import fallbackProjectImg from "../assets/images/external/fallback-project.jpg";
+import {
+  ArrowRight,
+  Code2,
+  Database,
+  BarChart3,
+  Zap,
+  Github,
+  Linkedin,
+  Mail,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 export function HomePage() {
   const { t, locale } = useI18n();
@@ -22,7 +36,26 @@ export function HomePage() {
   const dashboardProject = projects.find(
     (project) => project.id === "proj-dashboard-operacao-logistica"
   );
-  const primaryTestimonial = testimonials[0];
+  // Testimonial Carousel State
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+
+  useEffect(() => {
+    if (testimonials.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const activeTestimonial = testimonials[currentTestimonialIndex];
 
   const categoryImages: Record<string, string> = {
     "cat-produtos-digitais": catProdutosDigitais,
@@ -30,106 +63,144 @@ export function HomePage() {
     "cat-dashboards": catDashboards,
   };
 
-  const heroImageUrl = heroImage;
+  const categoryIcons: Record<string, React.ReactNode> = {
+    "cat-produtos-digitais": <Code2 className="hp-service-icon" />,
+    "cat-data-science": <Database className="hp-service-icon" />,
+    "cat-dashboards": <BarChart3 className="hp-service-icon" />,
+  };
+
+  const stats = [
+    { value: "5+", label: locale === "pt" ? "Anos de experiência" : "Years of experience" },
+    { value: "15+", label: locale === "pt" ? "Projetos entregues" : "Projects delivered" },
+    { value: "98%", label: locale === "pt" ? "Satisfação dos clientes" : "Client satisfaction" },
+  ];
+
+  const featuredProjects = [
+    { project: highlightedProject, badge: t("home.sections.examplesHighlightedBadge") },
+    { project: landingProject, badge: landingProject ? t(`projectContent.${landingProject.id}.client`) : "" },
+    { project: dashboardProject, badge: dashboardProject ? t(`projectContent.${dashboardProject.id}.client`) : "" },
+  ];
 
   return (
-    <section className="space-y-12">
+    <div className="hp-root">
       <Seo />
-      {/* HERO MAIS VISUAL */}
-      <header className="grid gap-8 border-b border-border-subtle pb-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2.2fr)] md:items-center">
-        <ScrollReveal className="space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
-            {t("common.tagline")}
-          </p>
-          <h1 className="text-3xl font-semibold tracking-tight text-text-strong md:text-4xl">
-            {t("home.hero.title")}
-          </h1>
-          <p className="text-sm text-text-soft md:text-base">
-            {t("home.hero.subtitle")}
-          </p>
-          <div className="flex flex-wrap gap-2 text-[0.7rem] text-text-muted">
-            <span className="inline-flex items-center gap-1 rounded-full bg-brand-soft px-3 py-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              <span>{t("home.hero.pill1")}</span>
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-brand-soft px-3 py-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              <span>{t("home.hero.pill2")}</span>
-            </span>
-          </div>
-          <div className="mt-2 flex flex-wrap gap-3">
-            <Link
-              to="/projetos"
-              className="inline-flex items-center justify-center rounded-md bg-brand px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
-            >
-              {t("home.hero.ctaPrimary")}
-            </Link>
-            <Link
-              to="/contato"
-              className="inline-flex items-center justify-center rounded-md border border-brand bg-brand-soft px-4 py-2 text-sm font-medium text-brand shadow-sm hover:bg-brand-soft/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
-            >
-              {t("home.hero.ctaContact")}
-            </Link>
-          </div>
-        </ScrollReveal>
-        <div className="md:justify-self-end">
-          <ScrollReveal direction="left" delay={0.2} className="overflow-hidden rounded-xl border border-border-subtle bg-bg-soft shadow-sm">
-            <img
-              src={heroImageUrl}
-              alt={t("home.hero.imageAlt")}
-              className="h-56 w-full object-cover sm:h-64 md:h-72"
-              decoding="async"
-              loading="eager"
-              fetchPriority="high"
-            />
-          </ScrollReveal>
-        </div>
-      </header>
 
-      {/* TIPOS DE PROJETO (CATEGORIAS) */}
-      <section className="space-y-4">
-        <header className="flex items-baseline justify-between gap-3">
-          <ScrollReveal>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-                {t("home.sections.categoriesEyebrow")}
-              </p>
-              <h2 className="mt-1 text-sm font-semibold text-text-strong">
-                {t("home.sections.categoriesTitle")}
-              </h2>
+      {/* ═══════════════════════════════════════════
+          HERO SECTION
+      ═══════════════════════════════════════════ */}
+      <section className="hp-hero">
+        <div className="hp-hero-content">
+          <ScrollReveal className="hp-hero-left">
+            <p className="hp-hero-greeting">
+              {locale === "pt" ? "Olá, somos a" : "Hi, we are"}
+            </p>
+            <p className="hp-hero-name">{t("common.brandName")}</p>
+            <h1 className="hp-hero-title">
+              {locale === "pt" ? (
+                <>
+                  Engenharia de{" "}
+                  <span className="hp-accent">Software</span>
+                  <br />& Ciência de{" "}
+                  <span className="hp-accent">Dados</span>
+                </>
+              ) : (
+                <>
+                  Software{" "}
+                  <span className="hp-accent">Engineering</span>
+                  <br />& Data{" "}
+                  <span className="hp-accent">Science</span>
+                </>
+              )}
+            </h1>
+
+            <div className="hp-hero-social">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hp-social-link">
+                <Github size={18} />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hp-social-link">
+                <Linkedin size={18} />
+              </a>
+              <a href="mailto:contato@caosdomado.com" aria-label="Email" className="hp-social-link">
+                <Mail size={18} />
+              </a>
+            </div>
+
+            <div className="hp-hero-actions">
+              <Link to="/projetos" className="hp-btn-primary">
+                {t("home.hero.ctaPrimary")}
+              </Link>
+              <Link to="/contato" className="hp-btn-outline">
+                {t("home.hero.ctaContact")}
+              </Link>
+            </div>
+
+            {/* Stats bar */}
+            <ScrollReveal delay={0.4} width="100%">
+              <div className="hp-stats-bar">
+                {stats.map((stat, i) => (
+                  <div key={i} className="hp-stat">
+                    <span className="hp-stat-value">{stat.value}</span>
+                    <span className="hp-stat-label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </ScrollReveal>
+
+          <ScrollReveal direction="left" delay={0.2} className="hp-hero-right">
+            <div className="hp-hero-image-wrapper">
+              <img
+                src={heroImage}
+                alt={t("home.hero.imageAlt")}
+                className="hp-hero-image"
+                decoding="async"
+                loading="eager"
+                fetchPriority="high"
+              />
+              <div className="hp-hero-image-overlay" />
             </div>
           </ScrollReveal>
-          <Link
-            to="/projetos"
-            className="hidden rounded-md border border-brand bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80 sm:inline-flex sm:items-center"
-          >
-            {t("home.sections.categoriesSeePortfolio")}
-          </Link>
-        </header>
-        <div className="grid gap-4 sm:grid-cols-3">
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SERVICES / CATEGORIES
+      ═══════════════════════════════════════════ */}
+      <section className="hp-section">
+        <ScrollReveal width="100%">
+          <div className="hp-section-header">
+            <span className="hp-section-eyebrow">
+              {t("home.sections.categoriesEyebrow")}
+            </span>
+            <h2 className="hp-section-title">
+              {t("home.sections.categoriesTitle")}
+            </h2>
+          </div>
+        </ScrollReveal>
+
+        <div className="hp-services-grid">
           {orderedCategories.map((category, index) => (
-            <ScrollReveal key={category.id} delay={index * 0.1}>
-              <Link
-                to="/projetos"
-                className="block group overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <div className="relative h-28 w-full overflow-hidden bg-bg-soft">
+            <ScrollReveal key={category.id} delay={index * 0.12}>
+              <Link to="/projetos" className="hp-service-card">
+                <div className="hp-service-card-img">
                   <img
                     src={categoryImages[category.id]}
                     alt={category.name}
-                    className="h-full w-full object-cover transition-transform group-hover:scale-[1.03]"
                     decoding="async"
                     loading="lazy"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-text-strong/80 via-text-strong/15 to-transparent" />
+                  <div className="hp-service-card-img-overlay" />
                 </div>
-                <div className="p-3 text-xs">
-                  <p className="font-semibold text-text-strong">
-                    {category.name}
-                  </p>
-                  <p className="mt-1 line-clamp-2 text-[0.7rem] text-text-soft">
-                    {category.description}
-                  </p>
+                <div className="hp-service-card-body">
+                  <div className="hp-service-card-icon-wrap">
+                    {categoryIcons[category.id] || <Zap className="hp-service-icon" />}
+                  </div>
+                  <h3 className="hp-service-card-title">{category.name}</h3>
+                  <p className="hp-service-card-desc">{category.description}</p>
+                  <span className="hp-service-card-link">
+                    {locale === "pt" ? "Explorar" : "Explore"}
+                    <ArrowRight size={14} />
+                  </span>
                 </div>
               </Link>
             </ScrollReveal>
@@ -137,148 +208,169 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ALGUNS EXEMPLOS DE PROJETOS */}
-      <section className="space-y-4">
-        <header className="flex items-baseline justify-between gap-3">
-          <ScrollReveal>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-                {t("home.sections.examplesEyebrow")}
-              </p>
-              <h2 className="mt-1 text-sm font-semibold text-text-strong">
-                {t("home.sections.examplesTitle")}
-              </h2>
-            </div>
-          </ScrollReveal>
-          <Link
-            to="/projetos"
-            className="inline-flex items-center rounded-md border border-brand bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
-          >
-            {t("home.sections.examplesSeeCatalog")}
-          </Link>
-        </header>
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            {
-              project: highlightedProject,
-              badge: t("home.sections.examplesHighlightedBadge"),
-              badgeColor: "text-brand",
-              hasDot: true,
-              buttonLabel: t("home.sections.examplesHighlightedLinkLabel"),
-            },
-            {
-              project: landingProject,
-              badge: landingProject
-                ? t(`projectContent.${landingProject.id}.client`)
-                : "",
-              badgeColor: "text-text-muted",
-              hasDot: false,
-              buttonLabel: t("pages.projects.card.viewDetails"),
-            },
-            {
-              project: dashboardProject,
-              badge: dashboardProject
-                ? t(`projectContent.${dashboardProject.id}.client`)
-                : "",
-              badgeColor: "text-text-muted",
-              hasDot: false,
-              buttonLabel: t("pages.projects.card.viewDetails"),
-            },
-          ].map(
+      {/* ═══════════════════════════════════════════
+          FEATURED PROJECTS
+      ═══════════════════════════════════════════ */}
+      <section className="hp-section">
+        <ScrollReveal width="100%">
+          <div className="hp-section-header">
+            <span className="hp-section-eyebrow">
+              {t("home.sections.examplesEyebrow")}
+            </span>
+            <h2 className="hp-section-title">
+              {t("home.sections.examplesTitle")}
+            </h2>
+          </div>
+        </ScrollReveal>
+
+        <div className="hp-projects-grid">
+          {featuredProjects.map(
             (card, index) =>
               card.project && (
                 <ScrollReveal
                   key={card.project.id}
                   delay={index * 0.1}
-                  className="flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm"
                 >
-                  <article className="flex h-full flex-col">
-                    <div className="h-32 w-full overflow-hidden bg-bg-soft">
+                  <Link
+                    to={`/projetos/${card.project.slug}`}
+                    className="hp-project-card"
+                  >
+                    <div className="hp-project-card-img">
                       <img
-                        src={
-                          card.project.thumbnail ||
-                          fallbackProjectImg
-                        }
+                        src={card.project.thumbnail || fallbackProjectImg}
                         alt={t(`projectContent.${card.project.id}.title`)}
-                        className="h-full w-full object-cover"
                         decoding="async"
                         loading="lazy"
                       />
+                      <div className="hp-project-card-img-overlay" />
                     </div>
-                    <div className="flex flex-1 flex-col gap-2 p-3 text-xs">
-                      <p
-                        className={`inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] ${card.badgeColor}`}
-                      >
-                        {card.hasDot && (
-                          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                        )}
-                        {card.badge}
-                      </p>
-                      <h3 className="text-sm font-semibold text-text-strong">
+                    <div className="hp-project-card-body">
+                      <span className="hp-project-badge">{card.badge}</span>
+                      <h3 className="hp-project-card-title">
                         {t(`projectContent.${card.project.id}.title`)}
                       </h3>
-                      <p className="line-clamp-3 text-[0.7rem] text-text-soft">
+                      <p className="hp-project-card-desc">
                         {t(`projectContent.${card.project.id}.subtitle`)}
                       </p>
-                      <Link
-                        to={`/projetos/${card.project.slug}`}
-                        className="mt-auto inline-flex items-center rounded-md border border-border-strong bg-bg-card px-3 py-1 text-[0.7rem] font-medium text-brand shadow-sm hover:bg-bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80"
-                      >
-                        {card.buttonLabel}
-                      </Link>
+                      <span className="hp-project-card-link">
+                        {t("pages.projects.card.viewDetails")}
+                        <ArrowRight size={14} />
+                      </span>
                     </div>
-                  </article>
+                  </Link>
                 </ScrollReveal>
               )
           )}
         </div>
+
+        <div className="hp-projects-cta">
+          <Link to="/projetos" className="hp-btn-outline hp-btn-outline--wide">
+            {t("home.sections.examplesSeeCatalog")}
+            <ArrowRight size={16} />
+          </Link>
+        </div>
       </section>
 
-      {/* FAIXA DE DEPOIMENTO ENXUTA */}
-      {primaryTestimonial && (
-        <section className="rounded-xl border border-border-subtle bg-bg-card/90 px-4 py-4 text-xs text-text-soft shadow-sm md:px-6">
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <p className="md:max-w-xl">“{primaryTestimonial.quote[locale]}”</p>
-            <div className="flex flex-col items-start gap-1 text-[0.7rem] text-text-soft md:items-end">
-              <span className="font-semibold text-text-strong">
-                {primaryTestimonial.authorName}
-              </span>
-              <span>
-                {primaryTestimonial.authorRole}
-                {primaryTestimonial.company
-                  ? `, ${primaryTestimonial.company}`
-                  : ""}
-              </span>
+      {/* ═══════════════════════════════════════════
+          TESTIMONIAL CAROUSEL
+      ═══════════════════════════════════════════ */}
+      {activeTestimonial && (
+        <section className="hp-section">
+          <ScrollReveal width="100%">
+            <div className="hp-testimonial-card hp-testimonial-carousel">
+              {testimonials.length > 1 && (
+                <>
+                  <button
+                    onClick={prevTestimonial}
+                    className="hp-carousel-btn hp-carousel-btn-prev"
+                    aria-label="Previous testimonial"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="hp-carousel-btn hp-carousel-btn-next"
+                    aria-label="Next testimonial"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </>
+              )}
+
+              <div className="hp-testimonial-content-wrapper">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTestimonial.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="hp-testimonial-content"
+                    style={{ willChange: "transform, opacity" }}
+                  >
+                    <blockquote className="hp-testimonial-quote">
+                      "{activeTestimonial.quote[locale]}"
+                    </blockquote>
+                    <div className="hp-testimonial-author">
+                      <span className="hp-testimonial-name">
+                        {activeTestimonial.authorName}
+                      </span>
+                      <span className="hp-testimonial-role">
+                        {activeTestimonial.authorRole}
+                        {activeTestimonial.company
+                          ? `, ${activeTestimonial.company}`
+                          : ""}
+                      </span>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {testimonials.length > 1 && (
+                <div className="hp-carousel-dots">
+                  {testimonials.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentTestimonialIndex(idx)}
+                      className={`hp-carousel-dot ${idx === currentTestimonialIndex ? "active" : ""
+                        }`}
+                      aria-label={`Go to testimonial ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
       )}
 
-      {/* CTA FINAL SIMPLES */}
-      <section className="rounded-xl border border-brand-soft bg-brand-soft px-4 py-5 text-sm text-text-strong shadow-sm md:px-6 md:py-6">
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+      {/* ═══════════════════════════════════════════
+          FINAL CTA
+      ═══════════════════════════════════════════ */}
+      <section className="hp-section hp-cta-section">
+        <ScrollReveal width="100%">
+          <div className="hp-cta-card">
+            <span className="hp-cta-eyebrow">
               {t("home.sections.finalCtaEyebrow")}
-            </p>
-            <p className="mt-1 text-sm">{t("home.sections.finalCtaText")}</p>
+            </span>
+            <h2 className="hp-cta-title">
+              {locale === "pt"
+                ? "Vamos domar o seu caos."
+                : "Let's tame your chaos."}
+            </h2>
+            <p className="hp-cta-text">{t("home.sections.finalCtaText")}</p>
+            <div className="hp-cta-actions">
+              <Link to="/contato" className="hp-btn-primary hp-btn-primary--lg">
+                {t("home.sections.finalCtaContactLabel")}
+                <ArrowRight size={18} />
+              </Link>
+              <Link to="/projetos" className="hp-btn-outline">
+                {t("home.sections.finalCtaProjectsLabel")}
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2 text-xs">
-            <Link
-              to="/contato"
-              className="inline-flex items-center justify-center rounded-md bg-brand px-4 py-2 font-medium text-white shadow-sm hover:bg-brand-hover"
-            >
-              {t("home.sections.finalCtaContactLabel")}
-            </Link>
-            <Link
-              to="/projetos"
-              className="inline-flex items-center justify-center rounded-md border border-border-strong bg-bg-card px-4 py-2 font-medium text-brand shadow-sm hover:bg-bg-soft"
-            >
-              {t("home.sections.finalCtaProjectsLabel")}
-            </Link>
-          </div>
-        </div>
+        </ScrollReveal>
       </section>
-    </section>
+    </div>
   );
 }

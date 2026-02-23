@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "../components/common/LanguageSwitcher";
@@ -15,6 +15,15 @@ const navLinkInactive = "hover:text-brand";
 export function MainLayout() {
   const { t, locale } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const loadingLabel = locale === "pt" ? "Carregando…" : "Loading…";
   const mobileNavLabel = mobileOpen
@@ -54,7 +63,10 @@ export function MainLayout() {
         {locale === "pt" ? "Pular para o conteúdo" : "Skip to content"}
       </a>
       {/* HEADER */}
-      <header className="sticky top-0 z-40 border-b border-border-subtle bg-bg-card/80 backdrop-blur transition-colors duration-300">
+      <header
+        className={`sticky top-0 z-40 border-b border-border-subtle bg-bg-card/80 backdrop-blur transition-all duration-300 ${isScrolled ? "is-scrolled" : ""
+          }`}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo + título */}
           <div className="flex items-center gap-3">

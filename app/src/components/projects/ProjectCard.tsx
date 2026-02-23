@@ -19,45 +19,46 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const imageUrl = project.thumbnail || fallbackImage;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card transition-all hover:border-brand-soft hover:shadow-md">
-      <div className="relative h-40 w-full overflow-hidden bg-bg-soft">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card transition-all hover:border-brand-soft hover:shadow-md service-card">
+      <div className="relative h-44 w-full overflow-hidden bg-bg-soft">
         <img
           src={imageUrl}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           decoding="async"
           loading="lazy"
+          style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-card/90 to-transparent opacity-60" />
       </div>
 
-      <div className="flex flex-1 flex-col gap-3 p-4">
+      <div className="flex flex-1 flex-col gap-3 p-5">
         <header className="space-y-1">
-          <h3 className="text-base font-semibold text-text-strong line-clamp-2 group-hover:text-brand">
+          <h3 className="text-lg font-semibold text-text-strong line-clamp-2 group-hover:text-brand transition-colors">
             {title}
           </h3>
           {subtitle && (
-            <p className="line-clamp-3 text-sm text-text-soft">{subtitle}</p>
+            <p className="line-clamp-3 text-sm text-text-secondary leading-relaxed">{subtitle}</p>
           )}
         </header>
 
-        <div className="mt-auto pt-2">
+        <div className="mt-auto pt-4">
           {client && (
-            <div className="mb-3 flex items-center gap-2">
-              <span className="inline-flex items-center rounded-full bg-bg-soft px-2.5 py-0.5 text-xs font-medium text-text-muted border border-border-subtle">
+            <div className="mb-4 flex items-center gap-2">
+              <span className="inline-flex items-center rounded-full bg-brand-soft/20 px-2.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider text-brand border border-brand/20">
                 {client}
               </span>
             </div>
           )}
 
-          <footer className="flex flex-col gap-2 pt-2 border-t border-border-subtle">
+          <footer className="flex flex-col gap-2 pt-4 border-t border-border-subtle">
             <Link
               to={`/projetos/${project.slug}`}
-              className="inline-flex w-full items-center justify-center rounded-md bg-brand-soft px-3 py-2 text-sm font-medium text-brand transition-colors hover:bg-brand hover:text-white group/btn"
+              className="hp-btn-outline hp-btn-outline--wide"
             >
               {t("pages.projects.card.viewDetails")}
               <svg
-                className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1"
+                className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
