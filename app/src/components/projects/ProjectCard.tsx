@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "../../i18n";
 import type { Project } from "../../types/domain";
+import { OptimizedImage } from "../common/OptimizedImage";
 
 interface ProjectCardProps {
   project: Project;
@@ -20,14 +21,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card transition-all hover:border-brand-soft hover:shadow-md service-card">
-      <div className="relative h-44 w-full overflow-hidden bg-bg-soft">
-        <img
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-bg-soft">
+        <OptimizedImage
           src={imageUrl}
           alt={title}
+          width={800}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           decoding="async"
-          loading="lazy"
-          style={{ willChange: "transform" }}
+          fetchPriority="high"
+          style={{ willChange: "transform, opacity" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-card/90 to-transparent opacity-60" />
       </div>

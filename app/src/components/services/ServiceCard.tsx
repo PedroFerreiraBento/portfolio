@@ -1,6 +1,7 @@
 import { useI18n } from "../../i18n";
 import type { Service } from "../../types/domain";
 import { Link } from "react-router-dom";
+import { OptimizedImage } from "../common/OptimizedImage";
 
 interface ServiceCardProps {
   service: Service;
@@ -22,14 +23,14 @@ export function ServiceCard({ service }: ServiceCardProps) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-card transition-all hover:border-brand-soft hover:shadow-md service-card">
       {service.thumbnail && (
-        <div className="relative h-48 w-full overflow-hidden bg-bg-soft">
-          <img
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-bg-soft">
+          <OptimizedImage
             src={service.thumbnail}
             alt={name}
+            width={800}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             decoding="async"
-            loading="lazy"
-            style={{ willChange: "transform" }}
+            style={{ willChange: "transform, opacity" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-bg-card/80 to-transparent opacity-60" />
         </div>

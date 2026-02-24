@@ -1,6 +1,5 @@
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
 interface ScrollRevealProps {
@@ -15,23 +14,13 @@ interface ScrollRevealProps {
 
 export function ScrollReveal({
     children,
-    width = "fit-content",
+    width = "100%",
     className = "",
     delay = 0,
     direction = "up",
     distance = 50,
     duration = 0.5,
 }: ScrollRevealProps) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-50px" });
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        if (isInView) {
-            mainControls.start("visible");
-        }
-    }, [isInView, mainControls]);
-
     const variants: Variants = {
         hidden: {
             opacity: 0,
@@ -51,12 +40,17 @@ export function ScrollReveal({
     };
 
     return (
-        <div ref={ref} style={{ position: "relative", width }} className={className}>
+        <div style={{ position: "relative", width }} className={className}>
             <motion.div
                 variants={variants}
                 initial="hidden"
-                animate={mainControls}
-                style={{ willChange: "transform, opacity" }}
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                style={{
+                    willChange: "transform, opacity",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden"
+                }}
             >
                 {children}
             </motion.div>

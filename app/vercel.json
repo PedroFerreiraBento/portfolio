@@ -22,5 +22,28 @@
                 }
             ]
         }
-    ]
+    ],
+    "images": {
+        "domains": [
+            "images.pexels.com"
+        ],
+        "sizes": [
+            640,
+            750,
+            828,
+            1080,
+            1200
+        ],
+        "minimumCacheTTL": 60,
+        "formats": [
+            "image/avif",
+            "image/webp"
+        ],
+        "remotePatterns": [
+            {
+                "protocol": "https",
+                "hostname": "images.pexels.com"
+            }
+        ]
+    }
 }

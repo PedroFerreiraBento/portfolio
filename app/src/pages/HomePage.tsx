@@ -24,9 +24,19 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { useImagePreloader } from "../hooks/useImagePreloader";
 
 export function HomePage() {
   const { t, locale } = useI18n();
+
+  // Preload key images for smoother reveals
+  const imagesToPreload = [
+    catProdutosDigitais,
+    catDataScience,
+    catDashboards,
+    ...(projects.map(p => p.thumbnail).filter(Boolean) as string[])
+  ];
+  useImagePreloader(imagesToPreload);
 
   const orderedCategories = [...categories].sort((a, b) => a.order - b.order);
   const highlightedProject = projects.find((project) => project.highlight);
@@ -182,7 +192,7 @@ export function HomePage() {
           {orderedCategories.map((category, index) => (
             <ScrollReveal key={category.id} delay={index * 0.12}>
               <Link to="/projetos" className="hp-service-card">
-                <div className="hp-service-card-img">
+                <div className="hp-service-card-img aspect-[16/9]">
                   <img
                     src={categoryImages[category.id]}
                     alt={category.name}
@@ -235,7 +245,7 @@ export function HomePage() {
                     to={`/projetos/${card.project.slug}`}
                     className="hp-project-card"
                   >
-                    <div className="hp-project-card-img">
+                    <div className="hp-project-card-img aspect-[4/3]">
                       <img
                         src={card.project.thumbnail || fallbackProjectImg}
                         alt={t(`projectContent.${card.project.id}.title`)}
