@@ -170,7 +170,7 @@ export function MainLayout() {
         tabIndex={-1}
         className="flex-1 bg-gradient-to-b from-bg-page to-bg-soft"
       >
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl border border-border-subtle bg-bg-card/90 shadow-sm shadow-slate-200/70 backdrop-blur-sm">
             <div className="px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
               <Suspense
