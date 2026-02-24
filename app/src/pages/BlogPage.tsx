@@ -39,7 +39,7 @@ export function BlogPage() {
             <section className="hp-section space-y-12">
                 <ScrollReveal width="100%">
                     <header className="max-w-2xl border-b border-border-subtle pb-8">
-                        <p className="hp-section-eyebrow">
+                        <p className="hp-section-eyebrow !text-left">
                             {t("common.tagline")}
                         </p>
                         <h1 className="mt-2 text-4xl font-bold tracking-tight text-text-strong sm:text-5xl">

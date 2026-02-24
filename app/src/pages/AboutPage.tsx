@@ -174,7 +174,7 @@ export function AboutPage() {
               <div className="about-cta-content">
                 <h2>{t("pages.about.cta.title")}</h2>
               </div>
-              <Link to="/contato" className="hp-btn-primary group">
+              <Link to="/contato" className="hp-btn-primary group mt-8">
                 {t("pages.about.cta.button")}
                 <ArrowRight
                   size={20}

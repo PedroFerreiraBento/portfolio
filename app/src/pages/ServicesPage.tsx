@@ -18,7 +18,7 @@ export function ServicesPage() {
         <ScrollReveal width="100%">
           <header className="flex flex-col gap-6 border-b border-border-subtle pb-8 sm:flex-row sm:items-start sm:justify-between services-header-visual">
             <div className="max-w-2xl">
-              <p className="hp-section-eyebrow">
+              <p className="hp-section-eyebrow !text-left">
                 {t("common.tagline")}
               </p>
               <h1 className="mt-2 text-3xl font-semibold tracking-tight text-text-strong sm:text-4xl">
