@@ -64,8 +64,8 @@ export function MainLayout() {
       </a>
       {/* HEADER */}
       <header
-        className={`sticky top-0 z-40 border-b border-border-subtle bg-bg-card/80 backdrop-blur transition-all duration-300 ${isScrolled ? "is-scrolled" : ""
-          }`}
+        className={`sticky top-0 z-40 border-b border-border-subtle transition-all duration-300 ${mobileOpen ? "!bg-bg-card !backdrop-none is-menu-open" : "bg-bg-card/80 backdrop-blur"
+          } ${isScrolled && !mobileOpen ? "is-scrolled" : ""}`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo + título */}
@@ -136,7 +136,7 @@ export function MainLayout() {
         {mobileOpen && (
           <div
             id="mobile-navigation"
-            className="border-t border-border-subtle bg-bg-card/95 px-4 pb-4 pt-2 shadow-sm md:hidden"
+            className="border-t border-border-subtle bg-bg-card px-4 pb-4 pt-2 shadow-sm md:hidden"
           >
             <nav className="flex flex-col gap-1 text-sm">
               {navItems.map((item) => (

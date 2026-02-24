@@ -119,7 +119,7 @@ export function ProjectsPage() {
         <ScrollReveal width="100%">
           <header className="flex flex-col gap-6 border-b border-border-subtle pb-8 sm:flex-row sm:items-start sm:justify-between projects-header-visual">
             <div className="max-w-2xl">
-              <p className="hp-section-eyebrow">
+              <p className="hp-section-eyebrow !text-left">
                 {t("common.tagline")}
               </p>
               <h1 className="mt-2 text-3xl font-semibold tracking-tight text-text-strong sm:text-4xl">
@@ -129,11 +129,11 @@ export function ProjectsPage() {
                 {t("pages.projects.description")}
               </p>
             </div>
-            <div className="max-w-sm space-y-3 pt-2">
+            <div className="max-w-sm space-y-3 pt-2 flex flex-col items-center text-center sm:items-start sm:text-left">
               <p className="text-sm text-text-secondary">
                 {t("pages.projects.introCta.primaryDescription")}
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-3">
                 <Link
                   to="/contato"
                   className="hp-btn-primary"
@@ -152,7 +152,7 @@ export function ProjectsPage() {
         </ScrollReveal>
 
         {/* FILTERS */}
-        <ScrollReveal width="100%" delay={0.1} className="sticky top-[70px] z-30 -mx-4 px-4 py-2 bg-bg-page/95 backdrop-blur sm:static sm:top-0 sm:mx-0 sm:bg-transparent sm:p-0 projects-filters-sticky">
+        <ScrollReveal width="100%" delay={0.1} className="relative z-10 w-full mb-8 projects-filters-sticky">
           <section>
             <div className="flex flex-col gap-4 rounded-lg border border-border-subtle bg-bg-card/50 p-4 sm:flex-row sm:items-end sm:justify-between projects-filters-card">
               <div className="w-full sm:max-w-xs">

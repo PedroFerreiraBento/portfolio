@@ -1325,7 +1325,6 @@ html.dark body:has(.hp-root) {
   font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 
@@ -2134,7 +2133,7 @@ main:has(.hp-root)>div>div {
 }
 
 /* Make header exactly match the background when homepage is active */
-body:has(.hp-root) header.sticky {
+body:has(.hp-root) header.sticky:not(.is-menu-open) {
   background: var(--hp-bg) !important;
   border-bottom-color: transparent !important;
   backdrop-filter: none !important;
@@ -2142,7 +2141,7 @@ body:has(.hp-root) header.sticky {
 }
 
 /* Add transparency and blur ONLY on scroll */
-body:has(.hp-root) header.sticky.is-scrolled {
+body:has(.hp-root) header.sticky.is-scrolled:not(.is-menu-open) {
   background: var(--hp-bg-scroll) !important;
   border-bottom-color: var(--hp-border) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
