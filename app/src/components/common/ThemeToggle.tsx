@@ -3,14 +3,8 @@ import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
     const [isDark, setIsDark] = useState(() => {
-        // Check localStorage first
         if (typeof window !== "undefined") {
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme) {
-                return savedTheme === "dark";
-            }
-            // Fallback to system preference
-            return window.matchMedia("(prefers-color-scheme: dark)").matches;
+            return document.documentElement.classList.contains("dark");
         }
         return false;
     });
@@ -26,9 +20,25 @@ export function ThemeToggle() {
         }
     }, [isDark]);
 
+    // Handle system theme changes
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleChange = (e: MediaQueryListEvent) => {
+            // Only follow system if user has no manual preference
+            if (!localStorage.getItem("theme")) {
+                setIsDark(e.matches);
+            }
+        };
+
+        mediaQuery.addEventListener("change", handleChange);
+        return () => mediaQuery.removeEventListener("change", handleChange);
+    }, []);
+
+    const toggleTheme = () => setIsDark(!isDark);
+
     return (
         <button
-            onClick={() => setIsDark(!isDark)}
+            onClick={toggleTheme}
             className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border-subtle bg-bg-card text-text-soft hover:bg-bg-soft hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/80 transition-colors"
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             title={isDark ? "Switch to light mode" : "Switch to dark mode"}
