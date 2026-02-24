@@ -69,7 +69,7 @@ export function MainLayout() {
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo + título */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 pl-4 sm:pl-0">
             <NavLink to="/" className="group flex items-center gap-2">
               <img
                 src="/logo.png"
@@ -145,7 +145,7 @@ export function MainLayout() {
                   to={item.to}
                   className={({ isActive }) =>
                     [
-                      "flex items-center justify-between rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                      "flex items-center justify-between rounded-md px-4 py-2 text-sm font-medium transition-colors",
                       isActive
                         ? "bg-brand-soft text-brand"
                         : "text-text-soft hover:bg-bg-soft hover:text-brand",
@@ -157,7 +157,7 @@ export function MainLayout() {
                 </NavLink>
               ))}
             </nav>
-            <div className="mt-3 border-t border-border-subtle pt-3">
+            <div className="mt-3 border-t border-border-subtle px-4 pt-3">
               <LanguageSwitcher />
             </div>
           </div>
