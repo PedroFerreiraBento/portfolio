@@ -7,7 +7,13 @@ import { services } from "../mocks/services";
 import { testimonials } from "../mocks/testimonials";
 import { ScrollReveal } from "../components/common/ScrollReveal";
 import { Seo } from "../components/common/Seo";
-import { ArrowLeft } from "lucide-react";
+import {
+  ArrowLeft,
+  CheckCircle2,
+  ExternalLink,
+  Sparkles,
+  TrendingUp,
+} from "lucide-react";
 
 export function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -40,6 +46,33 @@ export function ProjectDetailPage() {
   const problem = t(`${projectKey}.problem`);
   const solution = t(`${projectKey}.solution`);
   const client = t(`${projectKey}.client`);
+  const businessContext = t(`${projectKey}.businessContext`);
+
+  const projectHighlights = Array.from({ length: 8 })
+    .map((_, index) => {
+      const key = `${projectKey}.highlights.${index}`;
+      const value = t(key);
+      return value === key ? null : value;
+    })
+    .filter((value): value is string => Boolean(value));
+
+  const projectModules = Array.from({ length: 8 })
+    .map((_, index) => {
+      const titleKey = `${projectKey}.modules.${index}.title`;
+      const descriptionKey = `${projectKey}.modules.${index}.description`;
+      const title = t(titleKey);
+      const description = t(descriptionKey);
+
+      if (title === titleKey || description === descriptionKey) {
+        return null;
+      }
+
+      return { title, description };
+    })
+    .filter(
+      (value): value is { title: string; description: string } =>
+        value !== null
+    );
 
   const projectCategories = categories.filter((category) =>
     project.categoryIds.includes(category.id)
@@ -56,6 +89,31 @@ export function ProjectDetailPage() {
   const projectTestimonials = testimonials.filter(
     (testimonial) => testimonial.relatedProjectId === project.id
   );
+  const repositoryUrl =
+    project.id === "proj-pdv-offline-first"
+      ? "https://github.com/PedroFerreiraBento/ProjetoPDV"
+      : null;
+  const labels = locale === "pt"
+    ? {
+      realProject: "Projeto real no GitHub",
+      before: "Antes",
+      after: "Depois",
+      inActionTitle: "Interface em ação",
+      inActionSubtitle:
+        "Telas reais do projeto mostrando a experiência de ponta a ponta, do acesso ao caixa e à gestão.",
+      screen: "Tela",
+      resultTag: "Resultado",
+    }
+    : {
+      realProject: "Real project on GitHub",
+      before: "Before",
+      after: "After",
+      inActionTitle: "Interface in action",
+      inActionSubtitle:
+        "Real screens showing the end-to-end experience, from access and checkout to management.",
+      screen: "Screen",
+      resultTag: "Outcome",
+    };
 
   return (
     <div className="hp-root">
@@ -67,16 +125,29 @@ export function ProjectDetailPage() {
         <header className="page-header py-8">
           <ScrollReveal>
             <div className="page-header__nav mb-8">
-              <Link to="/projetos" className="flex items-center gap-2 text-hp-accent hover:opacity-80 transition-opacity font-medium">
-                <ArrowLeft size={18} />
-                {t("pages.projectDetail.backButton")}
-              </Link>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link to="/projetos" className="flex items-center gap-2 text-hp-accent hover:opacity-80 transition-opacity font-medium">
+                  <ArrowLeft size={18} />
+                  {t("pages.projectDetail.backButton")}
+                </Link>
+                {repositoryUrl && (
+                  <a
+                    href={repositoryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-bg-card px-4 py-2 text-xs font-semibold uppercase tracking-wide text-text-soft hover:border-brand hover:text-brand transition-colors"
+                  >
+                    {labels.realProject}
+                    <ExternalLink size={14} />
+                  </a>
+                )}
+              </div>
             </div>
             <p className="hp-section-eyebrow">{t("pages.projects.title")}</p>
             <h1 className="text-4xl md:text-5xl font-bold text-text-strong mt-2">{title}</h1>
-            <p className="text-xl text-text-secondary mt-4 max-w-3xl leading-relaxed">{subtitle}</p>
+            <p className="text-xl text-text-secondary mt-4 max-w-2xl leading-relaxed">{subtitle}</p>
 
-            <div className="project-meta grid grid-cols-2 md:grid-cols-4 gap-6 bg-bg-elevated p-6 rounded-2xl border border-border-subtle mt-10">
+            <div className="project-meta grid grid-cols-2 md:grid-cols-4 gap-6 bg-bg-elevated/70 p-6 rounded-2xl border border-border-subtle mt-10">
               {client && (
                 <div className="project-meta__item">
                   <span className="project-meta__label block text-xs uppercase tracking-wider text-text-muted mb-1">
@@ -117,7 +188,7 @@ export function ProjectDetailPage() {
 
         {project.thumbnail && (
           <ScrollReveal delay={0.2}>
-            <div className="project-hero-image rounded-3xl overflow-hidden border border-border-subtle mb-16">
+            <div className="project-hero-image rounded-3xl overflow-hidden border border-border-subtle mb-14">
               <img
                 src={project.thumbnail}
                 alt={title}
@@ -130,12 +201,36 @@ export function ProjectDetailPage() {
           </ScrollReveal>
         )}
 
-        <div className="project-content space-y-20">
-          <section className="project-section--problem">
+        <div className="project-content space-y-16 md:space-y-20">
+          <section className="project-section--transformation">
             <ScrollReveal>
-              <h2 className="text-3xl font-bold text-text-strong mb-6">{t("pages.projectDetail.problemTitle")}</h2>
-              <p className="text-lg text-text-secondary leading-relaxed max-w-4xl">{problem}</p>
-              <div className="project-cta-inline mt-8 inline-flex items-center gap-4 bg-bg-elevated p-4 rounded-xl border border-border-subtle">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <article className="rounded-2xl border border-border-subtle bg-bg-elevated p-7">
+                  <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand">
+                    <Sparkles size={14} />
+                    {labels.before}
+                  </p>
+                  <h2 className="text-2xl font-bold text-text-strong mb-4">
+                    {t("pages.projectDetail.problemTitle")}
+                  </h2>
+                  <p className="text-base leading-relaxed text-text-secondary">
+                    {problem}
+                  </p>
+                </article>
+                <article className="rounded-2xl border border-border-subtle bg-bg-elevated p-7">
+                  <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
+                    <TrendingUp size={14} />
+                    {labels.after}
+                  </p>
+                  <h2 className="text-2xl font-bold text-text-strong mb-4">
+                    {t("pages.projectDetail.solutionTitle")}
+                  </h2>
+                  <p className="text-base leading-relaxed text-text-secondary">
+                    {solution}
+                  </p>
+                </article>
+              </div>
+              <div className="project-cta-inline mt-7 inline-flex flex-wrap items-center gap-4 bg-bg-elevated p-4 rounded-xl border border-border-subtle">
                 <span className="text-text-secondary">{t("pages.projectDetail.ctas.problem")}</span>
                 <Link to="/contato" className="text-hp-accent font-semibold hover:underline">
                   {t("pages.projectDetail.ctas.problemButton")} →
@@ -144,15 +239,78 @@ export function ProjectDetailPage() {
             </ScrollReveal>
           </section>
 
-          <section className="project-section--solution">
-            <ScrollReveal>
-              <h2 className="text-3xl font-bold text-text-strong mb-6">{t("pages.projectDetail.solutionTitle")}</h2>
-              <p className="text-lg text-text-secondary leading-relaxed max-w-4xl">{solution}</p>
-            </ScrollReveal>
-          </section>
+          {businessContext !== `${projectKey}.businessContext` && (
+            <section className="project-section--context">
+              <ScrollReveal>
+                <div className="rounded-2xl border border-border-subtle bg-gradient-to-br from-bg-elevated to-bg-card p-8">
+                  <h2 className="text-2xl font-bold text-text-strong mb-4">
+                    {t("pages.projectDetail.businessContextTitle")}
+                  </h2>
+                  <p className="text-base text-text-secondary leading-relaxed max-w-4xl">
+                    {businessContext}
+                  </p>
+                </div>
+              </ScrollReveal>
+            </section>
+          )}
+
+          {projectHighlights.length > 0 && (
+            <section className="project-section--highlights">
+              <ScrollReveal>
+                <h2 className="text-3xl font-bold text-text-strong mb-8">
+                  {t("pages.projectDetail.highlightsTitle")}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {projectHighlights.map((highlight, index) => (
+                    <div
+                      key={index}
+                      className="rounded-xl border border-border-subtle bg-bg-elevated p-5 text-text-secondary leading-relaxed flex items-start gap-3"
+                    >
+                      <CheckCircle2 size={18} className="mt-0.5 text-brand shrink-0" />
+                      <span>{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            </section>
+          )}
+
+          {projectModules.length > 0 && (
+            <section className="project-section--modules">
+              <ScrollReveal>
+                <h2 className="text-3xl font-bold text-text-strong mb-8">
+                  {t("pages.projectDetail.modulesTitle")}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {projectModules.map((module, index) => (
+                    <article
+                      key={index}
+                      className="rounded-2xl border border-border-subtle bg-bg-elevated p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-md"
+                    >
+                      <p className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand-soft text-xs font-bold text-brand">
+                        {index + 1}
+                      </p>
+                      <h3 className="text-lg font-semibold text-text-strong mb-2">{module.title}</h3>
+                      <p className="text-sm text-text-secondary leading-relaxed">
+                        {module.description}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </ScrollReveal>
+            </section>
+          )}
 
           {project.gallery && project.gallery.length > 0 && (
             <section className="project-section--gallery">
+              <ScrollReveal>
+                <h2 className="text-3xl font-bold text-text-strong mb-3">
+                  {labels.inActionTitle}
+                </h2>
+                <p className="text-text-secondary mb-8 max-w-2xl">
+                  {labels.inActionSubtitle}
+                </p>
+              </ScrollReveal>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {project.gallery.map((image, index) => (
                   <ScrollReveal key={index} delay={index * 0.1}>
@@ -165,6 +323,9 @@ export function ProjectDetailPage() {
                         className="w-full h-auto hover:scale-105 transition-transform duration-700"
                         style={{ willChange: "transform" }}
                       />
+                      <div className="border-t border-border-subtle bg-bg-elevated px-4 py-3 text-xs font-medium uppercase tracking-wide text-text-muted">
+                        {labels.screen} {index + 1}
+                      </div>
                     </div>
                   </ScrollReveal>
                 ))}
@@ -183,8 +344,12 @@ export function ProjectDetailPage() {
                     const description = t(`${base}.description`);
 
                     return (
-                      <div key={index} className="result-card bg-bg-elevated p-8 rounded-2xl border border-border-subtle hover:border-hp-accent/30 transition-colors">
+                      <div key={index} className="result-card bg-gradient-to-br from-bg-elevated to-bg-card p-8 rounded-2xl border border-border-subtle hover:border-hp-accent/30 transition-colors">
                         <div className="result-card__header mb-4">
+                          <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-brand">
+                            <TrendingUp size={14} />
+                            {labels.resultTag}
+                          </p>
                           {typeof result.value === "number" && result.unit && (
                             <span className="result-card__value text-4xl font-bold text-hp-accent block mb-2">
                               {result.value}

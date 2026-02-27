@@ -31,6 +31,14 @@ import ImgDashMarketingThumb from "../assets/images/external/dash-marketing-1.jp
 import ImgDashMarketingGallery from "../assets/images/external/stock-reposition.jpg"; // Reused in original
 import ImgDashFinanceThumb from "../assets/images/external/dash-finance-1.jpg";
 import ImgDashFinanceGallery from "../assets/images/external/dash-finance-2.jpg";
+import ImgPdvLoginChoice from "../assets/images/external/pdv/01-login-escolha.png";
+import ImgPdvLoginAdmin from "../assets/images/external/pdv/02-login-admin.png";
+import ImgPdvPortal from "../assets/images/external/pdv/03-portal.png";
+import ImgPdvDashboardOverview from "../assets/images/external/pdv/04-dashboard-overview.png";
+import ImgPdvDashboardSales from "../assets/images/external/pdv/05-dashboard-vendas.png";
+import ImgPdvBranchSettings from "../assets/images/external/pdv/06-dashboard-config-filiais.png";
+import ImgPdvTerminal from "../assets/images/external/pdv/07-pdv.png";
+import ImgPdvTabManagement from "../assets/images/external/pdv/08-pdv-fiados.png";
 
 export const projects: Project[] = [
   // DATA SCIENCE & ML
@@ -43,7 +51,6 @@ export const projects: Project[] = [
       { value: 18, unit: "%" },
     ],
     techIds: ["python", "dbt", "airflow"],
-    highlight: true,
     thumbnail: StockRepositionImg,
     gallery: [ImgStockRepositionGallery],
   },
@@ -97,6 +104,32 @@ export const projects: Project[] = [
   },
 
   // PRODUTOS DIGITAIS
+  {
+    id: "proj-pdv-offline-first",
+    slug: "pdv-offline-first-multiplataforma",
+    categoryIds: ["cat-produtos-digitais"],
+    results: [
+      { value: 42, unit: "%" },
+      { value: 63, unit: "%" },
+      { value: 37, unit: "%" },
+    ],
+    techIds: ["react", "typescript", "fastapi"],
+    year: 2025,
+    duration: "5 mo",
+    status: "em-producao",
+    highlight: true,
+    thumbnail: ImgPdvPortal,
+    gallery: [
+      ImgPdvPortal,
+      ImgPdvDashboardOverview,
+      ImgPdvDashboardSales,
+      ImgPdvBranchSettings,
+      ImgPdvTerminal,
+      ImgPdvTabManagement,
+      ImgPdvLoginChoice,
+      ImgPdvLoginAdmin,
+    ],
+  },
   {
     id: "proj-landing-saas-b2b",
     slug: "landing-page-saas-b2b",

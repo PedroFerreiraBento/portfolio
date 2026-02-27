@@ -61,8 +61,17 @@ export type TranslationDictionary = {
       title: string;
       subtitle: string;
       client: string;
+      businessContext?: string;
       problem: string;
       solution: string;
+      highlights?: Record<string, string>;
+      modules?: Record<
+        string,
+        {
+          title: string;
+          description: string;
+        }
+      >;
       results: Record<
         string,
         {
@@ -191,6 +200,9 @@ export type TranslationDictionary = {
     projectDetail: {
       problemTitle: string;
       solutionTitle: string;
+      businessContextTitle?: string;
+      highlightsTitle?: string;
+      modulesTitle?: string;
       resultsTitle: string;
       techsTitle: string;
       servicesTitle: string;

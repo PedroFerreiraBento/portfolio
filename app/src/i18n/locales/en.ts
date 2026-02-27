@@ -369,6 +369,78 @@ export const en: TranslationDictionary = {
         },
       },
     },
+    "proj-pdv-offline-first": {
+      title: "Retail Checkout and Store Management System",
+      subtitle:
+        "A POS built to sell more with shorter lines, stable operation, and clear day-to-day management visibility.",
+      client: "Retail store chain",
+      businessContext:
+        "Real project built for high-traffic stores where a few seconds at checkout can materially impact daily revenue.",
+      problem:
+        "Sales were being lost due to slow checkout, unstable internet, and low operational visibility. The outcome was longer lines, more stress, and reactive decisions.",
+      solution:
+        "An easy-to-use POS was implemented with a fast cashier flow, a management area for sales visibility, and tabs control. Even with internet oscillation, stores keep selling without interruption.",
+      highlights: {
+        "0": "Faster checkout flow, reducing queues and increasing conversion opportunity.",
+        "1": "More stable operation during peak hours, with less dependency on internet quality.",
+        "2": "Better cash control through integrated tabs tracking.",
+        "3": "Clearer management visibility to identify and fix bottlenecks quickly.",
+      },
+      modules: {
+        "0": {
+          title: "Role-based entry",
+          description:
+            "Each user lands in the right area (admin or cashier), improving organization and reducing mistakes.",
+        },
+        "1": {
+          title: "Management area",
+          description:
+            "Store settings and controls in one place, focused on day-to-day practicality.",
+        },
+        "2": {
+          title: "Management dashboard",
+          description:
+            "Sales and operations indicators to support quick business decisions.",
+        },
+        "3": {
+          title: "Sales dashboard",
+          description:
+            "Track performance and identify opportunities or losses across the day.",
+        },
+        "4": {
+          title: "Branch Configuration",
+          description:
+            "Standardized operation across stores to keep execution consistent.",
+        },
+        "5": {
+          title: "POS Terminal",
+          description:
+            "Objective checkout screen for faster order processing with less friction.",
+        },
+        "6": {
+          title: "Tabs Management",
+          description:
+            "Open balance and payment tracking to improve day-to-day cash predictability.",
+        },
+      },
+      results: {
+        "0": {
+          label: "Lower average checkout time",
+          description:
+            "With a streamlined cashier flow and operational shortcuts, checkout became faster and reduced peak-hour queues.",
+        },
+        "1": {
+          label: "Higher cashier team productivity",
+          description:
+            "Standardized flows and lower UI friction increased each operator's throughput across the shift.",
+        },
+        "2": {
+          label: "Fewer losses from operational downtime",
+          description:
+            "The offline-first approach kept sales running during internet oscillations, reducing direct revenue impact.",
+        },
+      },
+    },
   },
   serviceContent: {
     "service-produtos-digitais": {
@@ -553,9 +625,12 @@ export const en: TranslationDictionary = {
       },
     },
     projectDetail: {
-      problemTitle: "The Challenge",
-      solutionTitle: "The Solution Delivered",
-      resultsTitle: "Impact Generated",
+      problemTitle: "Before: what was slowing sales down",
+      solutionTitle: "After: how operations improved",
+      businessContextTitle: "Where this project creates value",
+      highlightsTitle: "Business value perception",
+      modulesTitle: "What the system delivers daily",
+      resultsTitle: "Perceived outcomes",
       techsTitle: "Technologies",
       servicesTitle: "Related Services",
       testimonialsTitle: "What they say",

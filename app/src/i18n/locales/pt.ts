@@ -379,6 +379,78 @@ export const pt: TranslationDictionary = {
         },
       },
     },
+    "proj-pdv-offline-first": {
+      title: "Sistema de Caixa e Gestão para Varejo",
+      subtitle:
+        "Um PDV pensado para vender mais com filas menores, operação estável e visão clara do que acontece na loja.",
+      client: "Rede de lojas de varejo",
+      businessContext:
+        "Projeto real criado para lojas com alto movimento diário, onde alguns segundos no atendimento fazem diferença no faturamento do fim do dia.",
+      problem:
+        "A equipe perdia vendas por lentidão no caixa, internet instável e falta de visibilidade em tempo real. Isso gerava fila, estresse e decisões no escuro.",
+      solution:
+        "Foi implementado um PDV com fluxo simples para o operador, área gerencial para acompanhamento das vendas e controle de fiados. Mesmo quando a internet oscila, a loja continua vendendo sem parar.",
+      highlights: {
+        "0": "Atendimento mais rápido no caixa, reduzindo fila e aumentando a chance de conversão.",
+        "1": "Operação mais segura em horários de pico, sem depender 100% da internet.",
+        "2": "Mais controle financeiro com gestão de fiados no dia a dia.",
+        "3": "Gestão com visão clara para agir rápido e corrigir gargalos da operação.",
+      },
+      modules: {
+        "0": {
+          title: "Entrada por perfil",
+          description:
+            "Cada pessoa entra no ambiente certo (admin ou caixa), com mais organização e menos erro.",
+        },
+        "1": {
+          title: "Área administrativa",
+          description:
+            "Configurações e controles da loja em um só lugar, com foco em praticidade.",
+        },
+        "2": {
+          title: "Painel de gestão",
+          description:
+            "Indicadores de vendas e operação para tomar decisão com rapidez.",
+        },
+        "3": {
+          title: "Painel comercial",
+          description:
+            "Acompanhamento das vendas para identificar oportunidades e perdas.",
+        },
+        "4": {
+          title: "Configuração de filiais",
+          description:
+            "Padronização da operação para manter consistência entre unidades.",
+        },
+        "5": {
+          title: "Frente de caixa",
+          description:
+            "Tela objetiva para registrar pedidos com rapidez e menos atrito para o operador.",
+        },
+        "6": {
+          title: "Controle de fiados",
+          description:
+            "Registro de pendências e recebimentos para melhorar o controle de caixa.",
+        },
+      },
+      results: {
+        "0": {
+          label: "Redução no tempo médio de atendimento",
+          description:
+            "Com fluxo de caixa enxuto e atalhos operacionais, o checkout ficou mais rápido e diminuiu filas em horários de maior movimento.",
+        },
+        "1": {
+          label: "Mais produtividade da equipe de caixa",
+          description:
+            "Padronização de processos e menor atrito no uso elevaram a capacidade de atendimento por operador ao longo do turno.",
+        },
+        "2": {
+          label: "Menos perdas por indisponibilidade operacional",
+          description:
+            "A estratégia offline-first sustentou a continuidade das vendas mesmo com oscilações de internet, reduzindo impacto direto no faturamento.",
+        },
+      },
+    },
   },
   serviceContent: {
     "service-produtos-digitais": {
@@ -563,9 +635,12 @@ export const pt: TranslationDictionary = {
       },
     },
     projectDetail: {
-      problemTitle: "O Desafio",
-      solutionTitle: "A Solução Entregue",
-      resultsTitle: "Impacto Gerado",
+      problemTitle: "Antes: o que estava travando as vendas",
+      solutionTitle: "Depois: como a operação melhorou",
+      businessContextTitle: "Onde este projeto gera valor",
+      highlightsTitle: "Percepção de valor para o negócio",
+      modulesTitle: "O que o sistema entrega no dia a dia",
+      resultsTitle: "Resultados percebidos",
       techsTitle: "Tecnologias",
       servicesTitle: "Serviços Relacionados",
       testimonialsTitle: "O que dizem",

@@ -5,7 +5,10 @@ export const services: Service[] = [
     id: "service-produtos-digitais",
     slug: "produtos-digitais",
     techIds: ["react", "typescript", "fastapi", "python"],
-    relatedProjectIds: ["proj-otimizacao-estoque-ecommerce"],
+    relatedProjectIds: [
+      "proj-otimizacao-estoque-ecommerce",
+      "proj-pdv-offline-first",
+    ],
     thumbnail:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426&ixlib=rb-4.0.3",
   },
