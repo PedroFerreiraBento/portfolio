@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "project": "Caos Domado",
+    "version": "v01",
+    "updated_at": "2026-03-01"
+  },
+  "brand": {
+    "primary": {
+      "main": "#f59a2b",
+      "hover": "#e65f00"
+    },
+    "accent": {
+      "secondary": "#0ea5e9"
+    }
+  },
+  "neutral": {
+    "50": "#f8fafc",
+    "100": "#f1f5f9",
+    "200": "#e2e8f0",
+    "300": "#cbd5e1",
+    "400": "#94a3b8",
+    "500": "#64748b",
+    "600": "#475569",
+    "700": "#334155",
+    "800": "#1f2937",
+    "900": "#111827",
+    "950": "#020617"
+  },
+  "state": {
+    "success": "#16a34a",
+    "warning": "#f59e0b",
+    "danger": "#dc2626"
+  },
+  "gradient": {
+    "brand_warm": {
+      "type": "linear",
+      "angle": "135deg",
+      "stops": [
+        "#f59a2b",
+        "#e65f00"
+      ]
+    },
+    "tech_signal": {
+      "type": "linear",
+      "angle": "135deg",
+      "stops": [
+        "#0ea5e9",
+        "#2563eb"
+      ]
+    },
+    "chaos_to_order": {
+      "type": "linear",
+      "angle": "135deg",
+      "stops": [
+        "#f59a2b",
+        "#111827",
+        "#0ea5e9"
+      ]
+    }
+  }
+}

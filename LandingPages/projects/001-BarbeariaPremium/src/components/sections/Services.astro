@@ -1,0 +1,59 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const services = [
+  {
+    title: "Corte de Cabelo",
+    description: "Técnicas clássicas e modernas adaptadas ao seu estilo único.",
+    price: "a partir de R$ 90",
+    image: "/images/service2.png"
+  },
+  {
+    title: "Barba & Toalha Quente",
+    description: "O ritual tradicional para uma barba impecável e pele renovada.",
+    price: "a partir de R$ 70",
+    image: "/images/service1.png"
+  },
+  {
+    title: "Combo Premium",
+    description: "Experiência completa com corte, barba e massagem capilar.",
+    price: "R$ 150",
+    featured: true
+  }
+];
+---
+<section id="servicos" class="section-padding bg-[#0A0A0A]">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="Nossos Serviços" 
+      title="A Experiência Completa" 
+      description="Oferecemos muito mais que um serviço, entregamos um momento de cuidado e sofisticação."
+    />
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <div class={`reveal group relative overflow-hidden border border-white/5 bg-[#151515] p-8 transition-all hover:border-[#D4AF37]/30 ${service.featured ? 'ring-1 ring-[#D4AF37]/50' : ''}`}>
+          {service.image && (
+            <div class="mb-6 h-48 w-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+              <img src={service.image} alt={service.title} class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+            </div>
+          )}
+          
+          <h3 class="text-xl font-bold uppercase tracking-tight text-white group-hover:text-[#D4AF37] transition-colors italic">
+            {service.title}
+          </h3>
+          <p class="mt-4 text-sm leading-relaxed text-white/50">
+            {service.description}
+          </p>
+          
+          <div class="mt-8 flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+              {service.price}
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/20 group-hover:text-[#D4AF37] transition-all group-hover:translate-x-2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

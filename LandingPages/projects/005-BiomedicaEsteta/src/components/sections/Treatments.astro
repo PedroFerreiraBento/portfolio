@@ -1,0 +1,58 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const treatments = [
+  {
+    title: "Harmonização Facial",
+    category: "Assinatura",
+    description: "Protocolo personalizado de preenchimento e toxina para realçar seus traços naturais.",
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    title: "Bioestimuladores",
+    category: "Estruturação",
+    description: "Tratamento de base para regeneração do colágeno e firmeza duradoura da pele.",
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    title: "Lipo de Papada",
+    category: "Contorno",
+    description: "Definição do contorno facial com técnicas enzimáticas e tecnologias associadas.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600"
+  }
+];
+---
+<section id="tratamentos" class="section-padding bg-[#FDFCFB]">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="Minha Curadoria" 
+      title="Protocolos de Alta Performance" 
+      description="Serviços selecionados que unem tecnologia de ponta e expertise técnica para resultados excepcionais."
+    />
+
+    <div class="grid gap-12 lg:grid-cols-3">
+      {treatments.map((t) => (
+        <div class="reveal group">
+          <div class="relative mb-10 overflow-hidden rounded-[40px] aspect-[4/5]">
+            <img 
+              src={t.image} 
+              alt={t.title} 
+              class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+            />
+            <div class="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0"></div>
+            <div class="absolute top-6 left-6 rounded-full bg-white/90 backdrop-blur-sm px-4 py-1 text-[9px] font-bold uppercase tracking-widest text-[#C5A059]">
+              {t.category}
+            </div>
+          </div>
+          <h3 class="text-2xl font-medium text-[#1A1A1A] mb-4 italic">{t.title}</h3>
+          <p class="text-sm leading-relaxed text-[#1A1A1A]/40 font-light mb-8">
+            {t.description}
+          </p>
+          <a href="#contato" class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C5A059] border-b border-[#C5A059]/30 pb-1 hover:border-[#C5A059] transition-all">
+            Saiba mais
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

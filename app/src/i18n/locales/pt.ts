@@ -52,6 +52,9 @@ export const pt: TranslationDictionary = {
       examplesCard2Title: "Monitoramento diário com alertas acionáveis",
       examplesCard2Description:
         "Painéis que conectam dados de diferentes fontes para apoiar decisões de operação e produto.",
+      landingShowcaseEyebrow: "Design & Conversão",
+      landingShowcaseTitle: "Landing Pages de Alta Performance",
+      landingShowcaseDescription: "Desenvolvemos páginas otimizadas para nichos específicos, unindo estética premium e foco total em resultados.",
       finalCtaEyebrow: "Próximo passo",
       finalCtaText:
         "Tem um cenário caótico em mente? Vamos olhar para os dados juntos.",
@@ -435,21 +438,93 @@ export const pt: TranslationDictionary = {
       },
       results: {
         "0": {
-          label: "Redução no tempo médio de atendimento",
-          description:
-            "Com fluxo de caixa enxuto e atalhos operacionais, o checkout ficou mais rápido e diminuiu filas em horários de maior movimento.",
-        },
-        "1": {
           label: "Mais produtividade da equipe de caixa",
           description:
             "Padronização de processos e menor atrito no uso elevaram a capacidade de atendimento por operador ao longo do turno.",
         },
-        "2": {
+        "1": {
           label: "Menos perdas por indisponibilidade operacional",
           description:
             "A estratégia offline-first sustentou a continuidade das vendas mesmo com oscilações de internet, reduzindo impacto direto no faturamento.",
         },
       },
+    },
+    "proj-lp-barbearia-premium": {
+      title: "Barbearia Premium",
+      subtitle: "Design clássico e agendamento focado em conversão.",
+      client: "Nicho: Barbearia",
+      problem: "Necessidade de uma presença online que transmita autoridade e facilite o agendamento.",
+      solution: "Landing page com estética vintage, galeria de cortes e CTA direto para WhatsApp.",
+      results: {
+        "0": { label: "Agendamentos", description: "Aumento na taxa de conversão de visitantes em clientes." },
+        "1": { label: "Performance", description: "Carregamento ultra-rápido com Astro e Tailwind." }
+      }
+    },
+    "proj-lp-odontologia-premium": {
+      title: "Odontologia Premium",
+      subtitle: "Limpeza visual e foco em confiança e higiene.",
+      client: "Nicho: Dentistas",
+      problem: "Páginas poluídas que não passam a segurança necessária para procedimentos médicos.",
+      solution: "Layout minimalista com foco em depoimentos, equipe e procedimentos claros.",
+      results: {
+        "0": { label: "Confiança", description: "Melhoria na percepção de valor dos procedimentos." },
+        "1": { label: "SEO", description: "Otimizada para buscas locais de clínicas odontológicas." }
+      }
+    },
+    "proj-lp-psicologia-viva": {
+      title: "Psicologia Viva",
+      subtitle: "Acolhimento e serenidade através do design.",
+      client: "Nicho: Psicólogos",
+      problem: "Dificuldade em expressar empatia e acolhimento através de uma tela digital.",
+      solution: "Uso de cores suaves, tipografia legível e fluxo de contato humanizado.",
+      results: {
+        "0": { label: "Conexão", description: "Aumento no tempo de permanência na página." },
+        "1": { label: "Contatos", description: "Crescimento nos pedidos de primeira sessão." }
+      }
+    },
+    "proj-lp-estetica-lux": {
+      title: "Clínica Estética Lux",
+      subtitle: "Elegância e brilho para o mercado de beleza.",
+      client: "Nicho: Estética",
+      problem: "Falta de sofisticação visual para atrair o público de alto padrão.",
+      solution: "Design com cores luxuosas (ouro/preto/branco) e animações suaves.",
+      results: {
+        "0": { label: "Posicionamento", description: "Marca posicionada como serviço de luxo." },
+        "1": { label: "Ticket Médio", description: "Atração de clientes interessados em procedimentos premium." }
+      }
+    },
+    "proj-lp-biomedica-esteta": {
+      title: "Biomédica Esteta",
+      subtitle: "Profissionalismo e resultados em destaque.",
+      client: "Nicho: Biomédicas",
+      problem: "Confusão entre serviços estéticos e procedimentos biomédicos especializados.",
+      solution: "Página focada em portfólio de resultados (antes/depois) e formação técnica.",
+      results: {
+        "0": { label: "Autoridade", description: "Destaque total na formação e segurança do profissional." },
+        "1": { label: "Engajamento", description: "Alto interesse na galeria de resultados reais." }
+      }
+    },
+    "proj-lp-salao-beleza-premium": {
+      title: "Salão de Beleza Premium",
+      subtitle: "Transformação visual em cada detalhe.",
+      client: "Nicho: Salão de Beleza",
+      problem: "Dificuldade em mostrar a diversidade de serviços de forma organizada.",
+      solution: "Grid de serviços dinâmico e integração com redes sociais.",
+      results: {
+        "0": { label: "Visibilidade", description: "Aumento na procura por serviços específicos do salão." },
+        "1": { label: "Retenção", description: "Visitantes retornam para ver novos trabalhos." }
+      }
+    },
+    "proj-lp-esmalteria-chic": {
+      title: "Esmalteria Chic",
+      subtitle: "Cores e detalhes que encantam.",
+      client: "Nicho: Esmalteria",
+      problem: "Nichos menores muitas vezes são negligenciados com sites genéricos.",
+      solution: "Micro-landing page focada em tendências e agendamento rápido.",
+      results: {
+        "0": { label: "Agilidade", description: "Processo de agendamento simplificado em 2 cliques." },
+        "1": { label: "Fidelidade", description: "Uso da página como catálogo de cores para clientes." }
+      }
     },
   },
   serviceContent: {

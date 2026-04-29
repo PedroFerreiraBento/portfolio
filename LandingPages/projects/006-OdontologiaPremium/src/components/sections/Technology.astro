@@ -1,0 +1,61 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const features = [
+  {
+    title: "Scanner Intraoral 3D",
+    desc: "Adeus moldagens desconfortáveis. Mapeamento digital 100% preciso."
+  },
+  {
+    title: "Planejamento Digital",
+    desc: "Veja seu novo sorriso antes mesmo de iniciar o tratamento."
+  },
+  {
+    title: "Sedação Consciente",
+    desc: "Protocolos para uma experiência relaxante e sem traumas."
+  }
+];
+---
+<section id="tecnologia" class="section-padding bg-white">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid gap-20 lg:grid-cols-2 lg:items-center">
+      <div class="reveal">
+        <span class="text-xs font-black uppercase tracking-[0.4em] text-[#2563EB] block mb-6">Odontologia Digital</span>
+        <h2 class="text-4xl font-black text-[#1E293B] sm:text-6xl uppercase mb-10">O Futuro do Seu Sorriso é Agora.</h2>
+        <p class="text-lg text-slate-400 font-medium mb-12">
+          Na Odonto Premium, a tecnologia não é apenas um luxo, é a garantia de que seu tratamento será mais rápido, preciso e confortável.
+        </p>
+        
+        <div class="space-y-8">
+          {features.map((f) => (
+            <div class="flex gap-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-slate-900">{f.title}</h4>
+                <p class="text-sm text-slate-400 mt-2 font-medium">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="reveal relative">
+        <div class="rounded-[40px] overflow-hidden shadow-2xl border-slate-50 border">
+          <img 
+            src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200" 
+            alt="Tecnologia Dental" 
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <!-- Decorative badge -->
+        <div class="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-[#2563EB] flex flex-col items-center justify-center text-white text-center shadow-2xl rotate-12 reveal">
+           <span class="text-[8px] font-black uppercase tracking-widest">Tecnologia</span>
+           <span class="text-2xl font-black">100%</span>
+           <span class="text-[8px] font-black uppercase tracking-widest">Digital</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

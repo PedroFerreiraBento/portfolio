@@ -1,0 +1,94 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Treatments from "../components/sections/Treatments.astro";
+import Technologies from "../components/sections/Technologies.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+
+const page = {
+  title: "Lux Clinique | Medicina Estética & Alta Tecnologia",
+  description: "A ciência da beleza aplicada com exclusividade no Itaim Bibi. Protocolos personalizados, laser e injetáveis com suporte médico.",
+};
+---
+
+<LandingLayout title={page.title} description={page.description}>
+  <Hero />
+  
+  <!-- Trust Bar -->
+  <section class="bg-white border-y border-slate-50 py-10">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-12 lg:gap-20 text-[10px] font-black uppercase tracking-[0.3em] text-slate-300 italic">
+      <div class="flex items-center gap-4">
+        Protocolos Médicos
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1 w-1 rounded-full bg-[#0EA5E9]"></span>
+        Segurança & Ética
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1 w-1 rounded-full bg-[#0EA5E9]"></span>
+        Resultados Naturais
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1 w-1 rounded-full bg-[#0EA5E9]"></span>
+        Alta Tecnologia
+      </div>
+    </div>
+  </section>
+
+  <Treatments />
+
+  <!-- Special Banner: Scientific Beauty -->
+  <section class="relative h-[60vh] min-h-[400px] w-full overflow-hidden bg-slate-900">
+    <img 
+      src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1200" 
+      alt="Science & Beauty" 
+      class="h-full w-full object-cover opacity-30"
+    />
+    <div class="absolute inset-0 flex items-center justify-center bg-blue-900/40 px-6 text-center">
+      <div class="max-w-4xl reveal">
+        <h3 class="text-4xl font-extrabold uppercase italic tracking-tighter text-white sm:text-7xl leading-[0.9] !text-white">
+          "A beleza sem ciência é <br /> 
+          apenas um momento."
+        </h3>
+        <div class="mt-12 h-px w-24 bg-[#0EA5E9] mx-auto"></div>
+      </div>
+    </div>
+  </section>
+
+  <Technologies />
+
+  <!-- Social Trust Section -->
+  <section id="especialistas" class="section-padding bg-[#F8FAFC]">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+        <div class="reveal">
+          <span class="text-xs font-black uppercase tracking-[0.3em] text-[#0EA5E9]">Excelência Humana</span>
+          <h2 class="mt-6 text-4xl font-extrabold uppercase tracking-tight text-[#0F172A] sm:text-6xl">Corpo Clínico Especializado</h2>
+          <p class="mt-8 text-lg text-slate-500 font-medium">
+            Nossa equipe é formada por médicos e especialistas certificados, dedicados a atualizações constantes nos maiores congressos mundiais de dermatologia e estética.
+          </p>
+          <div class="mt-10 space-y-4">
+            <div class="flex items-center gap-4 text-sm font-bold text-slate-900">
+              <div class="h-2 w-2 rounded-full bg-[#0EA5E9]"></div>
+              Suporte médico em todos os procedimentos
+            </div>
+            <div class="flex items-center gap-4 text-sm font-bold text-slate-900">
+              <div class="h-2 w-2 rounded-full bg-[#0EA5E9]"></div>
+              Protocolos aprovados pela ANVISA e FDA
+            </div>
+          </div>
+        </div>
+        <div class="reveal grid grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden aspect-square shadow-xl">
+             <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400" alt="Médica Especialista" class="h-full w-full object-cover" />
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square mt-8 shadow-xl">
+             <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400" alt="Clínica Lux" class="h-full w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</LandingLayout>

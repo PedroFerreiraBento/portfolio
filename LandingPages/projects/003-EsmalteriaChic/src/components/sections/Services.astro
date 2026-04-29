@@ -1,0 +1,56 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const services = [
+  {
+    title: "Manicure Designer",
+    description: "Cuidado completo com cutículas e esmaltação impecável com as melhores marcas mundiais.",
+    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    title: "Nail Art Exclusiva",
+    description: "Transforme suas unhas em telas. Designs feitos à mão, pedrarias e efeitos artísticos únicos.",
+    image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    title: "Spa de Mãos e Pés",
+    description: "Ritual de esfoliação, hidratação profunda e massagem para uma pele macia e rejuvenescida.",
+    image: "https://images.unsplash.com/photo-1522338140262-f46f5913618a?auto=format&fit=crop&q=80&w=600"
+  }
+];
+---
+<section id="servicos" class="section-padding bg-white">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="Nossas Especialidades" 
+      title="O Ritual da Perfeição" 
+      description="Oferecemos uma curadoria de serviços focada na saúde e estética das suas unhas."
+    />
+
+    <div class="grid gap-12 lg:grid-cols-3">
+      {services.map((service) => (
+        <div class="reveal group">
+          <div class="relative mb-8 overflow-hidden rounded-[40px] aspect-square">
+            <img 
+              src={service.image} 
+              alt={service.title} 
+              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            />
+            <div class="absolute inset-0 bg-black/5 opacity-0 transition-opacity group-hover:opacity-100"></div>
+          </div>
+          
+          <h3 class="text-2xl font-medium italic text-[#2D2D2D] mb-4">
+            {service.title}
+          </h3>
+          <p class="text-sm leading-relaxed text-[#2D2D2D]/50 font-light">
+            {service.description}
+          </p>
+          
+          <div class="mt-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#E29595] opacity-0 -translate-x-4 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+            Ver detalhes <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

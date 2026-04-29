@@ -25,4 +25,12 @@ export const categories: Category[] = [
     icon: "bar-chart",
     order: 3,
   },
+  {
+    id: "cat-landing-pages",
+    slug: "landing-pages",
+    name: "Páginas de Alta Performance",
+    description: "Páginas de alta performance focadas em design e taxa de conversão.",
+    icon: "zap",
+    order: 4,
+  },
 ];

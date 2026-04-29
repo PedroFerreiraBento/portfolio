@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, [data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --section-spacing: clamp(5rem, 10vw, 9rem);
+  --color-gold: #D4AF37;
+  --color-gold-hover: #B88746;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0A0A0A;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  @apply bg-black text-white antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+.section-padding {
+  padding-block: var(--section-spacing);
+}
+
+/* Custom Gold Button */
+.btn-gold {
+  @apply bg-[#D4AF37] text-black border-none hover:bg-[#B88746] transition-colors duration-300 rounded-none uppercase tracking-widest font-bold;
+}
+
+.btn-outline-gold {
+  @apply border border-[#D4AF37] text-[#D4AF37] bg-transparent hover:bg-[#D4AF37] hover:text-black transition-all duration-300 rounded-none uppercase tracking-widest font-bold;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -12,6 +12,10 @@ Esta pasta centraliza a **documentação do portfólio Caos Domado**.
   Arquivo atual: `../CAOS_DOMADO_ROUTES.md`  
   Descreve todas as rotas da SPA (paths, componentes, parâmetros, relação com i18n e fluxos de navegação).
 
+- **Brand kit base (Fase 1)**  
+  Arquivo: `BRAND_KIT_BASE.md`  
+  Descreve a aplicação de logos, tokens de cor e escala tipográfica no projeto.
+
 ## Organização sugerida
 
 Se quiser deixar tudo fisicamente dentro de `docs/`, você pode, no seu sistema de arquivos/IDE:

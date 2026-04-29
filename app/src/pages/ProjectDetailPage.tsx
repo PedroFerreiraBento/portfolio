@@ -103,6 +103,7 @@ export function ProjectDetailPage() {
         "Telas reais do projeto mostrando a experiência de ponta a ponta, do acesso ao caixa e à gestão.",
       screen: "Tela",
       resultTag: "Resultado",
+      liveDemo: "Ver Demo Online",
     }
     : {
       realProject: "Real project on GitHub",
@@ -113,6 +114,7 @@ export function ProjectDetailPage() {
         "Real screens showing the end-to-end experience, from access and checkout to management.",
       screen: "Screen",
       resultTag: "Outcome",
+      liveDemo: "Live Demo",
     };
 
   return (
@@ -138,6 +140,17 @@ export function ProjectDetailPage() {
                     className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-bg-card px-4 py-2 text-xs font-semibold uppercase tracking-wide text-text-soft hover:border-brand hover:text-brand transition-colors"
                   >
                     {labels.realProject}
+                    <ExternalLink size={14} />
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-xs font-bold uppercase tracking-wide text-white hover:bg-brand/90 transition-colors shadow-lg shadow-brand/20"
+                  >
+                    {labels.liveDemo}
                     <ExternalLink size={14} />
                   </a>
                 )}

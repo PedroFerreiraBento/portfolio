@@ -1,0 +1,80 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import About from "../components/sections/About.astro";
+import Approach from "../components/sections/Approach.astro";
+import SafeSpace from "../components/sections/SafeSpace.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+
+const page = {
+  title: "Psicologia Viva | Terapia Humanizada & Autoconhecimento",
+  description: "Dra. Marina Costa • Especialista em psicoterapia para adultos e jovens. Um espaço seguro para sua saúde mental.",
+};
+---
+
+<LandingLayout title={page.title} description={page.description}>
+  <Hero />
+  
+  <!-- Subtle Trust Divider -->
+  <section class="bg-[#FAF7F2] py-8 overflow-hidden">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-12 lg:gap-24 text-[9px] font-bold uppercase tracking-[0.4em] text-[#2D3436]/20">
+      <div class="flex items-center gap-3">
+        CRP Ativo 06/123456
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="h-1 w-1 rounded-full bg-[#84A59D]"></span>
+        Escuta Analítica
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="h-1 w-1 rounded-full bg-[#84A59D]"></span>
+        Sigilo Absoluto
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="h-1 w-1 rounded-full bg-[#84A59D]"></span>
+        Ética Profissional
+      </div>
+    </div>
+  </section>
+
+  <About />
+
+  <Approach />
+
+  <!-- Special Mindfulness Section -->
+  <section class="section-padding bg-[#FAF7F2]">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+        <div class="reveal">
+          <h2 class="text-4xl font-medium text-[#2D3436] italic leading-tight mb-8">
+            Um convite ao <br /> <span class="text-[#84A59D] font-normal not-italic underline decoration-[#E29578]/30 decoration-4 underline-offset-4">desacelerar.</span>
+          </h2>
+          <p class="text-lg text-[#2D3436]/50 font-light mb-10">
+            Vivemos em um mundo que exige produtividade constante. Na terapia, o único requisito é ser quem você é.
+          </p>
+          <ul class="space-y-6">
+            {[
+              "Ambiente projetado para o conforto",
+              "Sessões de 50 minutos de escuta plena",
+              "Opção de atendimento híbrido",
+              "Material de apoio e leitura recomendada"
+            ].map(item => (
+              <li class="flex items-center gap-4 text-sm font-medium text-[#2D3436]/70">
+                <div class="h-1.5 w-1.5 rounded-full bg-[#84A59D]"></div>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="reveal">
+           <div class="rounded-[60px] overflow-hidden shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80&w=1200" alt="Mindfulness" class="h-full w-full object-cover" />
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SafeSpace />
+
+  <FinalCTA />
+</LandingLayout>

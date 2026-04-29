@@ -1,0 +1,62 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Services from "../components/sections/Services.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+
+const page = {
+  title: "Bellezza | Salão de Beleza Premium & Spa",
+  description: "Redescubra sua beleza essencial em um ambiente de luxo e tranquilidade nos Jardins. Cabelo, estética e bem-estar.",
+};
+---
+
+<LandingLayout title={page.title} description={page.description}>
+  <Hero />
+  
+  <!-- Trust / Brand Statement -->
+  <section class="bg-white border-y border-[#151515]/5 py-12">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-12 lg:gap-20 text-[10px] font-bold uppercase tracking-[0.4em] text-[#151515]/30 italic">
+      <div class="flex items-center gap-4">
+        Especialistas Renomados
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1 w-1 rounded-full bg-[#B88746]"></span>
+        Ativos Premium
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1 w-1 rounded-full bg-[#B88746]"></span>
+        Ambiente Exclusivo
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1 w-1 rounded-full bg-[#B88746]"></span>
+        Padrão Internacional
+      </div>
+    </div>
+  </section>
+
+  <Services />
+
+  <!-- Mid-Page Brand Moment -->
+  <section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-[#151515] text-white">
+    <img 
+      src="/images/service1.png" 
+      alt="Bellezza Atmosphere" 
+      class="h-full w-full object-cover opacity-20 transition-all duration-[3000ms] hover:scale-110" 
+    />
+    <div class="absolute inset-0 flex items-center justify-center bg-black/40 px-6 text-center">
+      <div class="max-w-4xl reveal">
+        <h3 class="text-4xl font-bold italic tracking-tighter text-white sm:text-7xl leading-tight">
+          "A beleza começa no momento em <br /> que você decide ser você mesma."
+        </h3>
+        <p class="mt-10 text-xs font-bold uppercase tracking-[0.5em] text-[#B88746]">
+          — Coco Chanel
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <FinalCTA />
+</LandingLayout>

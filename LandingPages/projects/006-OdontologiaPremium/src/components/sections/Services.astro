@@ -1,0 +1,46 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const services = [
+  {
+    title: "Lentes de Contato Dental",
+    description: "Lâminas ultra-finas de porcelana que corrigem cor, forma e alinhamento com naturalidade absoluta.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/></svg>`
+  },
+  {
+    title: "Implantes de Carga Imediata",
+    description: "Recupere sua função mastigatória e estética em tempo recorde com cirurgia guiada por computador.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M7 16h10"/></svg>`
+  },
+  {
+    title: "Invisalign (Ortodontia Digital)",
+    description: "Alinhe seus dentes de forma invisível e confortável com os alinhadores mais avançados do mundo.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
+  }
+];
+---
+<section id="especialidades" class="section-padding bg-[#F1F5F9]/50">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="Nossas Especialidades" 
+      title="Excelência em Cada Detalhe" 
+      description="Oferecemos tratamentos de alta complexidade com foco em resultados estéticos duradouros."
+    />
+
+    <div class="grid gap-10 lg:grid-cols-3">
+      {services.map((service) => (
+        <div class="reveal service-card">
+          <div class="mb-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-[#2563EB]" set:html={service.icon} />
+          <h3 class="text-2xl font-black mb-6">{service.title}</h3>
+          <p class="text-sm leading-relaxed text-slate-400 font-medium mb-10">
+            {service.description}
+          </p>
+          <a href="#contato" class="group flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-[#2563EB]">
+            Saiba Mais 
+            <svg class="transition-transform group-hover:translate-x-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

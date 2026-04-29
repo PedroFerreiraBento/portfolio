@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, [data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --section-spacing: clamp(5rem, 10vw, 9rem);
+  --color-brand: #2563EB;
+  --color-slate-800: #1E293B;
+  --color-slate-400: #94A3B8;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FFFFFF;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-slate-800);
+  @apply bg-white antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Public Sans', sans-serif;
+  @apply tracking-tight;
+}
+
+.section-padding {
+  padding-block: var(--section-spacing);
+}
+
+/* Tech Button */
+.btn-tech {
+  @apply bg-[#2563EB] text-white border-none hover:bg-[#1D4ED8] transition-all duration-300 rounded-xl px-10 py-5 font-bold text-sm uppercase tracking-wider shadow-xl shadow-blue-600/20;
+}
+
+.btn-outline-tech {
+  @apply border-2 border-[#1E293B] text-[#1E293B] bg-transparent hover:bg-[#1E293B] hover:text-white transition-all duration-300 rounded-xl px-10 py-5 font-bold text-sm uppercase tracking-wider;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Service Card */
+.service-card {
+  @apply bg-white border border-slate-100 rounded-3xl p-10 transition-all hover:shadow-2xl hover:shadow-slate-200/60 hover:-translate-y-2;
+}

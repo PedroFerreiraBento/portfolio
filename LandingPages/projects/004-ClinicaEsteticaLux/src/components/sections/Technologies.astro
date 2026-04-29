@@ -1,0 +1,53 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const tech = [
+  {
+    title: "Ultraformer III",
+    category: "Lifting não invasivo",
+    size: "large",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Laser Lavieen",
+    category: "Rejuvenescimento",
+    size: "small",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    title: "Crifrequência",
+    category: "Gordura Localizada",
+    size: "small",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600"
+  }
+];
+---
+<section id="tecnologia" class="section-padding bg-white">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="O Futuro da Estética" 
+      title="Tecnologia de Ponta" 
+      description="Investimos nas plataformas mais renomadas do mundo para garantir precisão, conforto e resultados superiores."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[600px]">
+      <div class="reveal relative overflow-hidden rounded-3xl lg:col-span-2 group">
+        <img src={tech[0].image} class="h-full w-full object-cover transition-transform duration-[3s] group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent opacity-80"></div>
+        <div class="absolute bottom-10 left-10 text-white">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#0EA5E9]">{tech[0].category}</span>
+          <h3 class="mt-4 text-4xl font-extrabold uppercase tracking-tight text-white">{tech[0].title}</h3>
+        </div>
+      </div>
+      
+      <div class="reveal relative overflow-hidden rounded-3xl group">
+        <img src={tech[1].image} class="h-full w-full object-cover transition-transform duration-[3s] group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent opacity-80"></div>
+        <div class="absolute bottom-10 left-10 text-white">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#0EA5E9]">{tech[1].category}</span>
+          <h3 class="mt-4 text-2xl font-extrabold uppercase tracking-tight text-white">{tech[1].title}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

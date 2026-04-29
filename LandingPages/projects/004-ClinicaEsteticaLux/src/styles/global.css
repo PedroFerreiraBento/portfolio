@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, [data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --section-spacing: clamp(5rem, 10vw, 9rem);
+  --color-primary: #0EA5E9;
+  --color-slate-900: #0F172A;
+  --color-slate-500: #64748B;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FFFFFF;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-slate-900);
+  @apply bg-white antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  @apply tracking-tight;
+}
+
+.section-padding {
+  padding-block: var(--section-spacing);
+}
+
+/* Medical Button */
+.btn-medical {
+  @apply bg-[#0EA5E9] text-white border-none hover:bg-[#0284C7] transition-all duration-300 rounded-lg px-8 py-4 font-bold text-sm uppercase tracking-wide shadow-lg shadow-blue-500/20;
+}
+
+.btn-outline-medical {
+  @apply border-2 border-[#0F172A] text-[#0F172A] bg-transparent hover:bg-[#0F172A] hover:text-white transition-all duration-300 rounded-lg px-8 py-4 font-bold text-sm uppercase tracking-wide;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bento Grid Item */
+.bento-card {
+  @apply bg-[#F8FAFC] border border-slate-100 rounded-2xl p-8 transition-all hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1;
+}

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, [data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --section-spacing: clamp(5rem, 10vw, 8rem);
+  --color-sage: #84A59D;
+  --color-sand: #FAF7F2;
+  --color-terracotta: #E29578;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FAF7F2;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #2D3436;
+  @apply bg-[#FAF7F2] antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  @apply tracking-tight text-[#2D3436];
+}
+
+.section-padding {
+  padding-block: var(--section-spacing);
+}
+
+/* Mindful Button */
+.btn-mindful {
+  @apply bg-[#84A59D] text-white border-none hover:bg-[#6B8A83] transition-all duration-500 rounded-full px-10 py-4 font-semibold text-sm tracking-wide;
+}
+
+.btn-outline-mindful {
+  @apply border border-[#84A59D] text-[#84A59D] bg-transparent hover:bg-[#84A59D] hover:text-white transition-all duration-500 rounded-full px-10 py-4 font-semibold text-sm tracking-wide;
+}
+
+/* Organic Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1200ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 1200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Soft card */
+.mindful-card {
+  @apply bg-white/60 backdrop-blur-sm border border-white/40 rounded-[32px] p-10 shadow-sm transition-all hover:shadow-md hover:bg-white;
+}

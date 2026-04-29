@@ -1,0 +1,47 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const treatments = [
+  {
+    title: "Injetáveis de Alta Performance",
+    items: ["Toxina Botulínica", "Preenchimento Labial", "Bioestimuladores de Colágeno"],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-5 5"/><path d="m19 11-4-4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/><path d="m9 13 4 4"/><path d="m5 19 9-9"/><path d="M3 15l6 6"/></svg>`
+  },
+  {
+    title: "Tecnologia Facial & Laser",
+    items: ["Ultraformer III", "Lavieen (BB Laser)", "Luz Pulsada"],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`
+  },
+  {
+    title: "Harmonização Corporal",
+    items: ["Lipo Enzimática", "Radiofrequência", "Tratamento de Celulite"],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20a6 6 0 0 0-12 0"/><path d="M12 10V2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/></svg>`
+  }
+];
+---
+<section id="tratamentos" class="section-padding bg-[#F8FAFC]">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="Especialidades" 
+      title="Protocolos Personalizados" 
+      description="Cada face e corpo é único. Nossos tratamentos são desenhados para respeitar sua anatomia e entregar resultados harmônicos."
+    />
+
+    <div class="grid gap-8 lg:grid-cols-3">
+      {treatments.map((t) => (
+        <div class="reveal bento-card flex flex-col items-start bg-white">
+          <div class="mb-8 p-4 rounded-xl bg-blue-50 text-[#0EA5E9]" set:html={t.icon} />
+          <h3 class="text-2xl font-bold mb-6">{t.title}</h3>
+          <ul class="space-y-4 w-full">
+            {t.items.map((item) => (
+              <li class="flex items-center gap-3 text-sm text-slate-500 font-medium pb-4 border-b border-slate-50 last:border-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -52,6 +52,9 @@ export const en: TranslationDictionary = {
       examplesCard2Title: "Daily monitoring with actionable alerts",
       examplesCard2Description:
         "Dashboards that connect data from different sources to support operations and product decisions.",
+      landingShowcaseEyebrow: "Design & Conversion",
+      landingShowcaseTitle: "High-Performance Landing Pages",
+      landingShowcaseDescription: "We develop optimized pages for specific niches, combining premium aesthetics with a total focus on results.",
       finalCtaEyebrow: "Next step",
       finalCtaText:
         "Got a chaotic scenario in mind? Let’s look at the data together.",

@@ -1,0 +1,56 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Services from "../components/sections/Services.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+
+const page = {
+  title: "Ouro & Navalha | Barbearia Premium",
+  description: "A experiência definitiva em barbearia de luxo em São Paulo. Cortes clássicos, barboterapia e ambiente exclusivo.",
+};
+---
+
+<LandingLayout title={page.title} description={page.description}>
+  <Hero />
+  
+  <!-- Trust Strip -->
+  <section class="border-y border-white/5 bg-[#0D0D0D] px-6 py-10">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-12 text-[11px] font-bold uppercase tracking-[0.3em] text-white/40">
+      <div class="flex items-center gap-3">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#D4AF37]"></span>
+        Cortes Clássicos
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#D4AF37]"></span>
+        Barboterapia
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#D4AF37]"></span>
+        Ambiente Exclusivo
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#D4AF37]"></span>
+        Bebidas Premium
+      </div>
+    </div>
+  </section>
+
+  <Services />
+
+  <!-- Showcase / Brand Moment -->
+  <section class="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
+    <img src="/images/hero.png" alt="Barbearia Details" class="h-full w-full object-cover opacity-30 grayscale" />
+    <div class="absolute inset-0 flex items-center justify-center bg-black/60 px-6 text-center">
+      <div class="max-w-2xl reveal">
+        <h3 class="text-3xl font-bold uppercase italic tracking-tighter text-[#D4AF37] sm:text-5xl">
+          "Tradição não é o culto às cinzas, <br /> mas a preservação do fogo."
+        </h3>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <FinalCTA />
+</LandingLayout>

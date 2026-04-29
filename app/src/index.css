@@ -1,20 +1,25 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700&display=swap");
 
 :root {
+  /* Tipografia */
+  --font-heading: "Sora", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
   /* Base (fundo / superfícies) - LIGHT */
-  --bg-page: #f5f5f7;
+  --bg-page: #f8fafc;
   --bg-card: #ffffff;
-  --bg-soft: #f9fafb;
+  --bg-soft: #f1f5f9;
 
   /* Texto & neutros - LIGHT */
   --text-strong: #111827;
-  --text-soft: #4b5563;
-  --text-muted: #9ca3af;
-  --border-subtle: #e5e7eb;
-  --border-strong: #d1d5db;
+  --text-soft: #475569;
+  --text-muted: #64748b;
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
 
   /* Marca (laranja CaosDomado) - LIGHT */
-  --brand: #ff7a1a;
+  --brand: #f59a2b;
   --brand-hover: #e65f00;
   --brand-soft: #fff3e5;
 
@@ -25,53 +30,41 @@
   /* Feedback - LIGHT */
   --success-soft: #dcfce7;
   --success: #16a34a;
-  --warning-soft: #fef9c3;
-  --warning: #facc15;
+  --warning-soft: #fef3c7;
+  --warning: #f59e0b;
   --error-soft: #fee2e2;
-  --error: #ef4444;
+  --error: #dc2626;
 }
 
 .dark {
   /* Base (fundo / superfícies) - DARK */
-  --bg-page: #0a0a0a;
-  /* neutral dark */
-  --bg-card: #141414;
-  /* neutral black card */
-  --bg-soft: #1a1a1a;
-  /* neutral soft */
+  --bg-page: #020617;
+  --bg-card: #111827;
+  --bg-soft: #1f2937;
 
   /* Texto & neutros - DARK */
-  --text-strong: #f3f4f6;
-  /* gray-100 */
-  --text-soft: #9ca3af;
-  /* gray-400 */
-  --text-muted: #6b7280;
-  /* gray-500 */
-  --border-subtle: #374151;
-  /* gray-700 */
-  --border-strong: #4b5563;
-  /* gray-600 */
+  --text-strong: #f8fafc;
+  --text-soft: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-subtle: #334155;
+  --border-strong: #475569;
 
   /* Marca - DARK */
-  --brand: #ff7a1a;
-  --brand-hover: #fb923c;
-  /* orange-400 */
-  --brand-soft: #431407;
-  /* orange-950 */
+  --brand: #f59a2b;
+  --brand-hover: #e65f00;
+  --brand-soft: #3b1f0a;
 
   /* Acento - DARK */
-  --accent: #38bdf8;
-  /* sky-400 */
-  --accent-soft: #0c4a6e;
-  /* sky-900 */
+  --accent: #0ea5e9;
+  --accent-soft: #082f49;
 
   /* Feedback - DARK */
-  --success-soft: #064e3b;
-  --success: #4ade80;
-  --warning-soft: #422006;
-  --warning: #fde047;
-  --error-soft: #7f1d1d;
-  --error: #f87171;
+  --success-soft: #052e16;
+  --success: #16a34a;
+  --warning-soft: #451a03;
+  --warning: #f59e0b;
+  --error-soft: #450a0a;
+  --error: #dc2626;
 }
 
 @theme {
@@ -109,9 +102,20 @@ html,
 body {
   background-color: var(--bg-page);
   color: var(--text-strong);
+  font-family: var(--font-ui);
   transition: background-color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
 }
 
 /* Force hardware acceleration for common animated elements */
@@ -434,7 +438,7 @@ body {
 
 .btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(255, 122, 26, 0.25);
+  box-shadow: 0 0 0 4px rgba(245, 154, 43, 0.25);
 }
 
 .btn:disabled {
@@ -561,7 +565,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  box-shadow: 0 20px 40px -10px rgba(255, 122, 26, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(245, 154, 43, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -921,8 +925,8 @@ body {
   width: 600px;
   height: 600px;
   background: radial-gradient(circle,
-      rgba(255, 122, 26, 0.08) 0%,
-      rgba(255, 122, 26, 0) 70%);
+      rgba(245, 154, 43, 0.08) 0%,
+      rgba(245, 154, 43, 0) 70%);
   z-index: -1;
   pointer-events: none;
 }
@@ -1217,7 +1221,7 @@ body {
 .form-textarea:focus {
   outline: none;
   border-color: var(--color-brand);
-  box-shadow: 0 0 0 4px rgba(255, 122, 26, 0.1);
+  box-shadow: 0 0 0 4px rgba(245, 154, 43, 0.1);
   background: var(--color-bg-card);
 }
 

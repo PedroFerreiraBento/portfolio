@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, [data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --section-spacing: clamp(6rem, 12vw, 10rem);
+  --color-accent: #B88746;
+  --color-accent-hover: #966C35;
+  --bg-premium: #FAFAF7;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-premium);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #151515;
+  @apply bg-[#FAFAF7] antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+.section-padding {
+  padding-block: var(--section-spacing);
+}
+
+/* Premium Button */
+.btn-premium {
+  @apply bg-[#151515] text-white border-none hover:bg-[#333333] transition-all duration-300 rounded-full px-8 py-4 font-semibold text-sm tracking-wide;
+}
+
+.btn-outline-premium {
+  @apply border border-[#151515]/10 text-[#151515] bg-transparent hover:bg-[#151515] hover:text-white transition-all duration-300 rounded-full px-8 py-4 font-semibold text-sm tracking-wide;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms ease, transform 800ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Text Shadow for Hero */
+.text-premium-shadow {
+  text-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, [data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --section-spacing: clamp(5rem, 10vw, 8.5rem);
+  --color-gold: #C5A059;
+  --color-gold-hover: #A68546;
+  --bg-warm: #FDFCFB;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-warm);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #1A1A1A;
+  @apply bg-[#FDFCFB] antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', serif;
+  @apply tracking-tight text-[#1A1A1A];
+}
+
+.section-padding {
+  padding-block: var(--section-spacing);
+}
+
+/* Elegant Button */
+.btn-elegant {
+  @apply bg-[#1A1A1A] text-white border-none hover:bg-[#333333] transition-all duration-300 rounded-full px-10 py-4 font-semibold text-sm tracking-widest uppercase;
+}
+
+.btn-outline-gold {
+  @apply border border-[#C5A059] text-[#C5A059] bg-transparent hover:bg-[#C5A059] hover:text-white transition-all duration-300 rounded-full px-10 py-4 font-semibold text-sm tracking-widest uppercase;
+}
+
+/* Soft Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1000ms cubic-bezier(0.25, 1, 0.5, 1), transform 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Underline decoration */
+.title-underline {
+  @apply relative inline-block;
+}
+
+.title-underline::after {
+  content: '';
+  @apply absolute bottom-1 left-0 h-1.5 w-full bg-[#C5A059]/20 -z-10;
+}

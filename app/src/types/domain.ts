@@ -56,6 +56,7 @@ export interface Project {
   highlight?: boolean;
   thumbnail?: string;
   gallery?: string[];
+  liveUrl?: string;
 }
 
 export interface Service {

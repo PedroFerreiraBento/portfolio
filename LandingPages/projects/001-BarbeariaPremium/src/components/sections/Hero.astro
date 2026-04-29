@@ -1,0 +1,46 @@
+---
+---
+<section class="relative h-screen min-h-[700px] w-full overflow-hidden bg-black">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/images/hero.png" 
+      alt="Barbearia Premium Interior" 
+      class="h-full w-full object-cover opacity-60"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent lg:via-black/20"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 lg:px-8">
+    <div class="max-w-2xl reveal">
+      <span class="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.4em] text-[#D4AF37]">
+        <span class="h-px w-8 bg-[#D4AF37]"></span>
+        Bem-vindo à Excelência
+      </span>
+      
+      <h1 class="text-6xl font-bold leading-[1.1] text-white sm:text-8xl uppercase italic tracking-tighter">
+        Onde a Arte <br />
+        <span class="text-[#D4AF37]">Encontra o Luxo</span>
+      </h1>
+      
+      <p class="mt-8 max-w-lg text-lg leading-relaxed text-white/70">
+        Não é apenas um corte. É um ritual de cuidado e tradição para o homem que não aceita nada menos que a perfeição.
+      </p>
+      
+      <div class="mt-12 flex flex-col gap-6 sm:flex-row">
+        <a href="#contato" class="btn-gold px-10 py-5 text-sm tracking-[0.2em]">
+          Agendar Ritual
+        </a>
+        <a href="#servicos" class="btn-outline-gold px-10 py-5 text-sm tracking-[0.2em]">
+          Nossos Serviços
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+    <div class="h-12 w-px bg-gradient-to-b from-[#D4AF37] to-transparent"></div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const pillars = [
+  {
+    title: "Escuta Ativa",
+    desc: "Um espaço onde suas palavras têm peso e seu silêncio é compreendido.",
+    color: "bg-[#84A59D]/10"
+  },
+  {
+    title: "Acolhimento",
+    desc: "Acolher a dor sem pressa de curar, permitindo que o processo floresça no seu tempo.",
+    color: "bg-[#E29578]/10"
+  },
+  {
+    title: "Autonomia",
+    desc: "Ferramentas para que você se torne o protagonista da sua própria jornada emocional.",
+    color: "bg-[#2D3436]/5"
+  }
+];
+---
+<section id="abordagem" class="section-padding bg-[#FAF7F2]">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="Como Trabalhamos" 
+      title="Uma Abordagem Centrada em Você" 
+      description="A terapia não é sobre 'consertar' algo, mas sobre compreender as dinâmicas que moldam sua vida e escolher novos caminhos."
+    />
+
+    <div class="grid gap-8 lg:grid-cols-3">
+      {pillars.map((p) => (
+        <div class={`reveal mindful-card ${p.color} border-none`}>
+          <h3 class="text-2xl font-medium text-[#2D3436] mb-6 italic">{p.title}</h3>
+          <p class="text-sm leading-relaxed text-[#2D3436]/60 font-light">
+            {p.desc}
+          </p>
+          <div class="mt-8 h-1 w-12 bg-[#84A59D]/30"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

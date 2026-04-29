@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1500"
+  height="500"
+  viewBox="0 0 1500 500"
+  role="img"
+  aria-labelledby="title desc">
+  <title id="title">Caos Domado - Wordmark Isolado</title>
+  <desc id="desc">Wordmark tipografico sem icone, estilo editorial-tech, alta legibilidade.</desc>
+
+
+  <g text-anchor="middle" text-rendering="geometricPrecision" font-family="Montserrat, Poppins, 'Segoe UI', Arial, sans-serif">
+    <text x="750" y="285" font-size="176" font-weight="700" letter-spacing="1.4" fill="#FFFFFF">Caos Domado</text>
+    <rect x="855" y="314" width="300" height="10" rx="5" fill="#FFFFFF"/>
+  </g>
+</svg>
+

@@ -1,0 +1,52 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const testimonials = [
+  {
+    name: "Ricardo Santos",
+    role: "Empresário",
+    content: "A melhor barbearia que já frequentei. O atendimento é impecável e o ambiente transmite um luxo que poucas oferecem.",
+    rating: 5
+  },
+  {
+    name: "Carlos Eduardo",
+    role: "Advogado",
+    content: "O ritual da toalha quente é renovador. Recomendo o combo premium, vale cada centavo pela experiência.",
+    rating: 5
+  },
+  {
+    name: "Felipe Mendes",
+    role: "Designer",
+    content: "Design moderno, atendimento clássico. Exatamente o que eu procurava em São Paulo.",
+    rating: 5
+  }
+];
+---
+<section class="section-padding bg-black">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="O que dizem" 
+      title="Satisfação de Quem Entende" 
+      description="Nossos clientes buscam mais que um corte, buscam exclusividade."
+    />
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {testimonials.map((t) => (
+        <div class="reveal border border-white/5 bg-[#0D0D0D] p-10 transition-all hover:bg-[#111111]">
+          <div class="flex gap-1 mb-6">
+            {[...Array(t.rating)].map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            ))}
+          </div>
+          <p class="text-lg italic leading-relaxed text-white/80">
+            "{t.content}"
+          </p>
+          <div class="mt-8">
+            <h4 class="text-sm font-bold uppercase tracking-widest text-white">{t.name}</h4>
+            <span class="text-[11px] uppercase tracking-widest text-white/30">{t.role}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

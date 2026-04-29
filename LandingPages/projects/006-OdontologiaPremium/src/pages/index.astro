@@ -1,0 +1,83 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Services from "../components/sections/Services.astro";
+import Technology from "../components/sections/Technology.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+
+const page = {
+  title: "Odonto Premium | Especialistas em Lentes de Contato e Implantes Digitais",
+  description: "Clínica odontológica de alto padrão em São Paulo. Reabilitação oral estética com tecnologia digital 3D.",
+};
+---
+
+<LandingLayout title={page.title} description={page.description}>
+  <Hero />
+  
+  <!-- Trust Bar -->
+  <section class="bg-slate-50/50 py-12">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-12 lg:gap-20 text-[10px] font-black uppercase tracking-[0.4em] text-slate-300">
+      <div class="flex items-center gap-4">
+        Fluxo Digital 3D
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#2563EB]"></span>
+        Segurança Clínica
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#2563EB]"></span>
+        Conforto Absoluto
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#2563EB]"></span>
+        Alta Precisão
+      </div>
+    </div>
+  </section>
+
+  <Services />
+
+  <Technology />
+
+  <!-- Special Showcase: The Smile Experience -->
+  <section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-slate-900">
+    <img 
+      src="https://images.unsplash.com/photo-1597764690523-15bea4c581c9?auto=format&fit=crop&q=80&w=1600" 
+      alt="Experience Smile" 
+      class="h-full w-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000"
+    />
+    <div class="absolute inset-0 flex items-center justify-center bg-blue-900/20 px-6 text-center">
+      <div class="max-w-4xl reveal">
+        <span class="text-xs font-black uppercase tracking-[0.6em] text-[#2563EB] mb-10 block">Resultados Que Falam</span>
+        <h3 class="text-5xl font-black uppercase italic tracking-tighter text-white sm:text-8xl leading-[0.9] !text-white">
+          Sorria Sem Reservas. <br /> 
+          Viva Sem Limites.
+        </h3>
+        <div class="mt-14 h-px w-32 bg-[#2563EB] mx-auto"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ / Process Minimalist -->
+  <section class="section-padding bg-white">
+     <div class="mx-auto max-w-3xl px-6 lg:px-8">
+        <div class="reveal text-center mb-16">
+           <h2 class="text-3xl font-black uppercase text-[#1E293B]">Por que escolher a Odonto Premium?</h2>
+        </div>
+        <div class="space-y-6">
+           {[
+              { q: "O tratamento é doloroso?", a: "Utilizamos protocolos de anestesia computadorizada e sedação consciente para garantir uma experiência totalmente indolor." },
+              { q: "Quanto tempo dura o tratamento de lentes?", a: "Com o fluxo digital, conseguimos finalizar casos complexos em poucas sessões, muitas vezes em menos de 15 dias." },
+              { q: "Quais as formas de pagamento?", a: "Oferecemos condições flexíveis e parcelamento em até 12x para facilitar o seu acesso ao sorriso dos sonhos." }
+           ].map((item) => (
+              <div class="reveal rounded-2xl bg-slate-50 p-8 border border-slate-100">
+                 <h4 class="text-lg font-bold text-slate-900 mb-3">{item.q}</h4>
+                 <p class="text-sm text-slate-500 font-medium leading-relaxed">{item.a}</p>
+              </div>
+           ))}
+        </div>
+     </div>
+  </section>
+
+  <FinalCTA />
+</LandingLayout>

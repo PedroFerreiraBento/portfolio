@@ -1,0 +1,62 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+
+const services = [
+  {
+    category: "Cabelo",
+    title: "Corte & Coloração Editorial",
+    description: "Transformações personalizadas por especialistas em visagismo e tendências internacionais.",
+    image: "/images/service1.png"
+  },
+  {
+    category: "Estética",
+    title: "Tratamentos Faciais Avançados",
+    description: "Tecnologia e ativos premium para resultados visíveis e duradouros na sua pele.",
+    image: "/images/service2.png"
+  },
+  {
+    category: "Bem-estar",
+    title: "Rituais de Spa & Relaxamento",
+    description: "Massagens e terapias corporais desenhadas para renovar mente e corpo.",
+    image: "/images/hero.png" // Reusing hero as a placeholder for environment
+  }
+];
+---
+<section id="servicos" class="section-padding bg-white">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <SectionHeader 
+      eyebrow="Nossos Tratamentos" 
+      title="A Arte do Autocuidado" 
+      description="Cada detalhe foi pensado para proporcionar não apenas um serviço, mas uma jornada de bem-estar e sofisticação."
+    />
+
+    <div class="grid gap-12 lg:grid-cols-3">
+      {services.map((service) => (
+        <div class="reveal group">
+          <div class="relative mb-10 overflow-hidden rounded-t-[100px] rounded-b-[20px] aspect-[4/5] shadow-sm">
+            <img 
+              src={service.image} 
+              alt={service.title} 
+              class="h-full w-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" 
+            />
+          </div>
+          
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#B88746] block mb-4">
+            {service.category}
+          </span>
+          <h3 class="text-2xl font-bold tracking-tight text-[#151515] italic">
+            {service.title}
+          </h3>
+          <p class="mt-5 text-[15px] leading-relaxed text-[#151515]/50 font-medium">
+            {service.description}
+          </p>
+          
+          <a href="#contato" class="mt-8 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-[#151515] hover:text-[#B88746] transition-colors">
+            Saiba Mais
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
