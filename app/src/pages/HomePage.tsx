@@ -11,6 +11,7 @@ import heroImage from "../assets/images/components/heroImageUrl.png";
 import catProdutosDigitais from "../assets/images/components/categoryImages_cat-produtos-digitais.png";
 import catDataScience from "../assets/images/components/categoryImages_cat-data-science.png";
 import catDashboards from "../assets/images/components/categoryImages_cat-dashboards.png";
+import catLandingPages from "../assets/images/components/landing-pages-performance.png";
 import fallbackProjectImg from "../assets/images/external/fallback-project.jpg";
 import {
   ArrowRight,
@@ -34,6 +35,7 @@ export function HomePage() {
     catProdutosDigitais,
     catDataScience,
     catDashboards,
+    catLandingPages,
     ...(projects.map(p => p.thumbnail).filter(Boolean) as string[])
   ];
   useImagePreloader(imagesToPreload);
@@ -71,12 +73,14 @@ export function HomePage() {
     "cat-produtos-digitais": catProdutosDigitais,
     "cat-data-science": catDataScience,
     "cat-dashboards": catDashboards,
+    "cat-landing-pages": catLandingPages,
   };
 
   const categoryIcons: Record<string, React.ReactNode> = {
     "cat-produtos-digitais": <Code2 className="hp-service-icon" />,
     "cat-data-science": <Database className="hp-service-icon" />,
     "cat-dashboards": <BarChart3 className="hp-service-icon" />,
+    "cat-landing-pages": <Zap className="hp-service-icon" />,
   };
 
   const stats = [
@@ -191,7 +195,7 @@ export function HomePage() {
         <div className="hp-services-grid">
           {orderedCategories.map((category, index) => (
             <ScrollReveal key={category.id} delay={index * 0.12}>
-              <Link to="/projetos" className="hp-service-card">
+              <Link to={`/projetos?category=${category.id}`} className="hp-service-card">
                 <div className="hp-service-card-img aspect-[16/9]">
                   <img
                     src={categoryImages[category.id]}
@@ -277,6 +281,57 @@ export function HomePage() {
           <Link to="/projetos" className="hp-btn-outline hp-btn-outline--wide">
             {t("home.sections.examplesSeeCatalog")}
             <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          LANDING PAGES SHOWCASE
+      ═══════════════════════════════════════════ */}
+      <section className="hp-section bg-bg-card/30 py-24 -mx-6 px-6 sm:-mx-12 sm:px-12 border-y border-border-subtle">
+        <ScrollReveal width="100%">
+          <div className="hp-section-header text-center mx-auto">
+            <span className="hp-section-eyebrow">
+              {t("home.sections.landingShowcaseEyebrow")}
+            </span>
+            <h2 className="hp-section-title">
+              {t("home.sections.landingShowcaseTitle")}
+            </h2>
+            <p className="mt-4 text-text-secondary max-w-2xl mx-auto">
+              {t("home.sections.landingShowcaseDescription")}
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {projects.filter(p => p.categoryIds.includes("cat-landing-pages")).slice(0, 4).map((lp, idx) => (
+            <ScrollReveal key={lp.id} delay={idx * 0.1}>
+              <Link to={`/projetos/${lp.slug}`} className="group block">
+                <div className="relative overflow-hidden rounded-2xl aspect-[9/16] bg-bg-card border border-border-subtle shadow-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:border-brand/40">
+                  <img 
+                    src={lp.thumbnail} 
+                    alt={t(`projectContent.${lp.id}.title`)}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-lg font-bold text-text-strong italic tracking-tight">
+                      {t(`projectContent.${lp.id}.title`)}
+                    </h3>
+                    <p className="text-xs text-text-muted mt-1 uppercase tracking-widest font-black">
+                      {t(`projectContent.${lp.id}.client`)}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link to="/projetos?category=cat-landing-pages" className="hp-btn-outline">
+            Explorar todos os nichos
+            <ArrowRight size={16} className="ml-2" />
           </Link>
         </div>
       </section>

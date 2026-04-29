@@ -49,6 +49,9 @@ export type TranslationDictionary = {
       examplesCard2Badge: string;
       examplesCard2Title: string;
       examplesCard2Description: string;
+      landingShowcaseEyebrow: string;
+      landingShowcaseTitle: string;
+      landingShowcaseDescription: string;
       finalCtaEyebrow: string;
       finalCtaText: string;
       finalCtaContactLabel: string;

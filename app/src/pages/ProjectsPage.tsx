@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { useI18n } from "../i18n";
 import { Seo } from "../components/common/Seo";
 import { ScrollReveal } from "../components/common/ScrollReveal";
@@ -11,15 +11,27 @@ import { ProjectCard } from "../components/projects/ProjectCard";
 
 export function ProjectsPage() {
   const { t } = useI18n();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category");
+  const initialCategoryId = categories.some(
+    (category) => category.id === categoryFromUrl
+  )
+    ? (categoryFromUrl as CategoryId)
+    : "all";
   const [selectedCategoryId, setSelectedCategoryId] = useState<
     CategoryId | "all"
-  >("all");
+  >(initialCategoryId);
   const [selectedTechId, setSelectedTechId] = useState<TechId | "all">("all");
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    setSelectedCategoryId(initialCategoryId);
+  }, [initialCategoryId]);
 
   const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value as CategoryId | "all";
     setSelectedCategoryId(value);
+    setSearchParams(value === "all" ? {} : { category: value });
   };
 
   const handleTechChange = (event: ChangeEvent<HTMLSelectElement>) => {

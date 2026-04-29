@@ -39,6 +39,13 @@ import ImgPdvDashboardSales from "../assets/images/external/pdv/05-dashboard-ven
 import ImgPdvBranchSettings from "../assets/images/external/pdv/06-dashboard-config-filiais.png";
 import ImgPdvTerminal from "../assets/images/external/pdv/07-pdv.png";
 import ImgPdvTabManagement from "../assets/images/external/pdv/08-pdv-fiados.png";
+import ImgLpBarbeariaPremium from "../assets/images/external/landing-pages/lp-barbearia-premium.jpg";
+import ImgLpOdontologiaPremium from "../assets/images/external/landing-pages/lp-odontologia-premium.jpg";
+import ImgLpPsicologiaViva from "../assets/images/external/landing-pages/lp-psicologia-viva.jpg";
+import ImgLpEsteticaLux from "../assets/images/external/landing-pages/lp-estetica-lux.jpg";
+import ImgLpBiomedicaEsteta from "../assets/images/external/landing-pages/lp-biomedica-esteta.jpg";
+import ImgLpSalaoBelezaPremium from "../assets/images/external/landing-pages/lp-salao-beleza-premium.jpg";
+import ImgLpEsmalteriaChic from "../assets/images/external/landing-pages/lp-esmalteria-chic.jpg";
 
 export const projects: Project[] = [
   // DATA SCIENCE & ML
@@ -251,5 +258,98 @@ export const projects: Project[] = [
     techIds: ["react", "typescript", "dbt"],
     thumbnail: ImgDashFinanceThumb,
     gallery: [ImgDashFinanceGallery],
+  },
+
+  // LANDING PAGES DE ALTA PERFORMANCE
+  {
+    id: "proj-lp-barbearia-premium",
+    slug: "landing-page-barbearia-premium",
+    categoryIds: ["cat-landing-pages"],
+    results: [
+      { value: 45, unit: "%" },
+      { value: 20, unit: "%" },
+    ],
+    techIds: ["astro", "tailwind"],
+    thumbnail: ImgLpBarbeariaPremium,
+    gallery: [ImgLpBarbeariaPremium],
+    liveUrl: "/demos/barbearia-premium/index.html",
+  },
+  {
+    id: "proj-lp-odontologia-premium",
+    slug: "landing-page-odontologia-premium",
+    categoryIds: ["cat-landing-pages"],
+    results: [
+      { value: 38, unit: "%" },
+      { value: 15, unit: "%" },
+    ],
+    techIds: ["astro", "tailwind"],
+    thumbnail: ImgLpOdontologiaPremium,
+    gallery: [ImgLpOdontologiaPremium],
+    liveUrl: "/demos/odontologia-premium/index.html",
+  },
+  {
+    id: "proj-lp-psicologia-viva",
+    slug: "landing-page-psicologia-viva",
+    categoryIds: ["cat-landing-pages"],
+    results: [
+      { value: 50, unit: "%" },
+      { value: 25, unit: "%" },
+    ],
+    techIds: ["astro", "tailwind"],
+    thumbnail: ImgLpPsicologiaViva,
+    gallery: [ImgLpPsicologiaViva],
+    liveUrl: "/demos/psicologia-viva/index.html",
+  },
+  {
+    id: "proj-lp-estetica-lux",
+    slug: "landing-page-clinica-estetica-lux",
+    categoryIds: ["cat-landing-pages"],
+    results: [
+      { value: 42, unit: "%" },
+      { value: 30, unit: "%" },
+    ],
+    techIds: ["astro", "tailwind"],
+    thumbnail: ImgLpEsteticaLux,
+    gallery: [ImgLpEsteticaLux],
+    liveUrl: "/demos/clinica-estetica-lux/index.html",
+  },
+  {
+    id: "proj-lp-biomedica-esteta",
+    slug: "landing-page-biomedica-esteta",
+    categoryIds: ["cat-landing-pages"],
+    results: [
+      { value: 55, unit: "%" },
+      { value: 22, unit: "%" },
+    ],
+    techIds: ["astro", "tailwind"],
+    thumbnail: ImgLpBiomedicaEsteta,
+    gallery: [ImgLpBiomedicaEsteta],
+    liveUrl: "/demos/biomedica-esteta/index.html",
+  },
+  {
+    id: "proj-lp-salao-beleza-premium",
+    slug: "landing-page-salao-beleza-premium",
+    categoryIds: ["cat-landing-pages"],
+    results: [
+      { value: 40, unit: "%" },
+      { value: 18, unit: "%" },
+    ],
+    techIds: ["astro", "tailwind"],
+    thumbnail: ImgLpSalaoBelezaPremium,
+    gallery: [ImgLpSalaoBelezaPremium],
+    liveUrl: "/demos/salao-beleza-premium/index.html",
+  },
+  {
+    id: "proj-lp-esmalteria-chic",
+    slug: "landing-page-esmalteria-chic",
+    categoryIds: ["cat-landing-pages"],
+    results: [
+      { value: 35, unit: "%" },
+      { value: 12, unit: "%" },
+    ],
+    techIds: ["astro", "tailwind"],
+    thumbnail: ImgLpEsmalteriaChic,
+    gallery: [ImgLpEsmalteriaChic],
+    liveUrl: "/demos/esmalteria-chic/index.html",
   },
 ];
