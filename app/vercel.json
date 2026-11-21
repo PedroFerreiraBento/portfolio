@@ -1,1 +1,26 @@
-{"framework":null,"outputDirectory":".","regions":["gru1"],"headers":[{"source":"/crm/:path*","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow"},{"key":"Referrer-Policy","value":"same-origin"},{"key":"Content-Security-Policy","value":"default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"}]}]}
+{
+  "framework": null,
+  "outputDirectory": ".",
+  "regions": [
+    "gru1"
+  ],
+  "headers": [
+    {
+      "source": "/crm(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
+        }
+      ]
+    }
+  ]
+}
