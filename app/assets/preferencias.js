@@ -527,6 +527,7 @@
   ['Recebemos seu projeto. Se preferir, continue no WhatsApp.', 'We received your project. You can continue on WhatsApp if you prefer.'],
   ['Não conseguimos confirmar o recebimento. Tente novamente ou envie pelo WhatsApp.', 'We could not confirm receipt. Try again or send your project on WhatsApp.']
  ]) dictionary.set(pt, en);
+ for (const [pt, en] of window.caosPreferenceTranslations ?? []) dictionary.set(pt, en);
  window.caosTranslate = translate;
  for (const [pt, en] of [["Identidade da Caos Domado aplicada a um site no monitor e a uma prova impressa.", "Caos Domado branding on a website shown on a monitor beside a printed proof."], ["Painel de projetos com o site institucional selecionado, status Em revisão e checklist de entrega.", "Project dashboard showing a company website under review and its delivery checklist."], ["O pedido do Estúdio Aurora aparece preenchido no tablet e marcado como recebido no painel do notebook.", "Estúdio Aurora’s request is filled in on the tablet and marked as received on the laptop."], ["Preencha este campo com pelo menos ", "Enter at least "], [" caracteres.", " characters."]]) dictionary.set(pt, en);
 
@@ -540,14 +541,14 @@
   }
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-   if (node.parentElement.closest('script, style, .header-preferences')) continue;
+   if (node.parentElement.closest('script, style, .header-preferences, [data-no-translate]')) continue;
    const original = originals.get(node) || node.nodeValue;
    if (!dictionary.has(original.trim())) continue;
    originals.set(node, original);
    node.nodeValue = original.replace(original.trim(), translate(original.trim()));
   }
   for (const element of document.querySelectorAll('[placeholder], [aria-label], img[alt]')) {
-   if (element.closest('.header-preferences')) continue;
+   if (element.closest('.header-preferences, [data-no-translate]')) continue;
    const original = originals.get(element) || {};
    for (const attribute of attributes) {
     const value = original[attribute] ?? element.getAttribute(attribute);
@@ -569,7 +570,7 @@
   language.setAttribute('aria-label', locale === 'en' ? 'Language' : 'Idioma');
   languageMenu.setAttribute('aria-label', language.getAttribute('aria-label'));
   const menu = document.querySelector('.menu-toggle');
-  menu.querySelector('.sr-only').textContent = translate(menu.getAttribute('aria-expanded') === 'true' ? 'Fechar menu' : 'Abrir menu');
+  if (menu) menu.querySelector('.sr-only').textContent = translate(menu.getAttribute('aria-expanded') === 'true' ? 'Fechar menu' : 'Abrir menu');
   applyTheme();
   document.dispatchEvent(new Event('caos-language-change'));
  }

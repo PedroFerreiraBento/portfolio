@@ -5,17 +5,39 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="robots" content="noindex, nofollow">
  <title>Oportunidades | Caos Domado</title>
- <link rel="icon" href="/assets/caos-domado-marca.webp">
+ <link rel="icon" href="/assets/caos-domado-marca.webp" data-theme-icon data-light="/assets/caos-domado-marca.webp" data-dark="/assets/caos-domado-marca-escura.svg">
+ <script src="/assets/padrao-dispositivo.js"></script>
  <link rel="stylesheet" href="/assets/fonts/inter.css">
  <link rel="stylesheet" href="/crm/crm.css">
  <link rel="stylesheet" href="/crm/funnel.css">
+ <script src="/crm/idioma.js" defer></script>
+ <script src="/assets/preferencias.js" defer></script>
  <script type="module" src="/crm/crm.js"></script>
 </head>
 <body>
  <header class="bar">
   <div class="frame navigation">
    <a class="brand" href="/"><img src="/assets/caos-domado-marca.webp" class="mark-light" alt="" width="32" height="32"><img class="mark-dark" src="/assets/caos-domado-marca-escura.svg" alt="" width="32" height="32">Caos Domado</a>
-   <button id="logout" class="quiet" type="button" hidden>Sair</button>
+   <div class="crm-header-actions">
+<div class="header-preferences" hidden>
+<button class="theme-control" type="button" data-theme-toggle aria-label="Usar tema escuro">
+<svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 14.1A8.8 8.8 0 0 1 9.9 3.2a9 9 0 1 0 10.9 10.9Z"/></svg>
+<svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M19 5l-1.4 1.4M6.4 17.6 5 19"/></svg>
+</button>
+<div class="language-control">
+<button class="language-trigger" type="button" data-language aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu" aria-label="Idioma">
+<svg class="language-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+<span data-language-code>PT</span>
+<svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+</button>
+<div id="language-menu" class="language-menu" role="menu" aria-label="Idioma" hidden>
+<button type="button" role="menuitemradio" aria-checked="true" tabindex="-1" data-locale="pt-BR"><img class="language-flag" src="/assets/bandeira-br.svg" width="26" height="18" alt=""><span class="language-names"><strong data-localized-label>Português</strong><small lang="pt-BR">Português</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+<button type="button" role="menuitemradio" aria-checked="false" tabindex="-1" data-locale="en"><img class="language-flag" src="/assets/bandeira-us.svg" width="26" height="18" alt=""><span class="language-names"><strong data-localized-label>Inglês</strong><small lang="en">English</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+</div>
+</div>
+</div>
+    <button id="logout" class="primary" type="button" hidden>Sair</button>
+   </div>
   </div>
  </header>
  <main class="frame">
@@ -52,7 +74,7 @@
       <button class="quiet" type="button" data-followup="late" aria-pressed="false">Atrasados <span id="late-count"></span></button>
      </div>
      <p id="list-status" role="status"></p>
-     <ul id="leads" class="leads"></ul>
+     <ul id="leads" class="leads" data-no-translate></ul>
     </section>
     <section id="editor" aria-labelledby="editor-heading" hidden>
      <div class="section-heading"><h2 id="editor-heading" tabindex="-1">Novo contato</h2><button id="close" class="quiet" type="button">Fechar</button></div>
@@ -84,7 +106,21 @@
      </form>
     </section>
    </div>
-   <section id="campaign-report" class="report"></section>
+   <section id="campaign-report" class="report" aria-labelledby="report-heading">
+    <h2 id="report-heading">Campanhas e vendas</h2>
+  <form class="funnel-filters" method="get">
+   <label>De<input type="date" name="start" required></label>
+   <label>Até<input type="date" name="end" required></label>
+   <label>Ver por<select name="breakdown">
+    <option value="campaign">Campanha</option>
+    <option value="creative">Meio e criativo</option>
+   </select></label>
+   <button type="submit" class="quiet">Aplicar filtros</button>
+  </form>
+  <p id="funnel-status" role="status"></p>
+  <p id="funnel-coverage" class="funnel-note"></p>
+  <ul class="funnel-results" aria-label="Resultados por campanha"></ul>
+   </section>
   </section>
  </main>
 </body>

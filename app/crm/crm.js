@@ -1,5 +1,6 @@
 import { initFunnel } from './funnel.js';
 
+const t = text => window.caosTranslate?.(text) ?? text;
 const $ = id => document.getElementById(id);
 const stages = {novo: 'Novo', conversa: 'Em conversa', proposta: 'Proposta enviada', ganho: 'Fechado', perdido: 'Perdido'};
 const channels = {site: 'Formulário do site', whatsapp: 'WhatsApp', email: 'E-mail', outro: 'Outro'};
@@ -27,8 +28,8 @@ const dateLabel = new Intl.DateTimeFormat('pt-BR', {timeZone:'UTC', day:'2-digit
 const funnel = initFunnel(query => api('funnel&' + query));
 
 for (const [value, label] of Object.entries(stages)) {
- field('stage').add(new Option(label, value));
- $('filter').add(new Option(label, value));
+ field('stage').add(new Option(t(label), value));
+ $('filter').add(new Option(t(label), value));
 }
 
 async function api(action, method = 'GET', payload) {
@@ -50,7 +51,8 @@ async function api(action, method = 'GET', payload) {
 
 function status(id, message = '', error = false) {
  const item = $(id);
- item.textContent = message;
+ item.dataset.crmMessage = message;
+ item.textContent = t(message);
  item.dataset.error = String(error);
 }
 
@@ -121,18 +123,18 @@ function renderList() {
   button.setAttribute('aria-pressed', String(current?.reference === row.reference));
   const left = el('span');
   left.append(el('span', 'lead-title', row.name),
-   el('span', 'lead-meta', [row.company, channels[row.channel], campaignKey(row)].filter(Boolean).join(' · ')));
+   el('span', 'lead-meta', [row.company, t(channels[row.channel]), campaignKey(row)].filter(Boolean).join(' · ')));
   if (row.next_step) left.append(el('span', 'lead-next', row.next_step));
-  if (row.notification_status === 'failed') left.append(el('span','lead-alert','Falha no aviso por e-mail'));
-  if (row.notification_status === 'pending') left.append(el('span','lead-meta','Aviso por e-mail na fila'));
+  if (row.notification_status === 'failed') left.append(el('span','lead-alert',t('Falha no aviso por e-mail')));
+  if (row.notification_status === 'pending') left.append(el('span','lead-meta',t('Aviso por e-mail na fila')));
   if (due) {
    const date = dateLabel.format(new Date(row.due_on + 'T00:00:00Z'));
    const text = due === 'late' ? 'Retorno atrasado' : due === 'due' ? 'Retorno hoje' : 'Retorno em';
-   const caption = el('span','lead-due', text + ' · ' + date);
+   const caption = el('span','lead-due', t(text) + ' · ' + date);
    caption.dataset.due = due;
    left.append(caption);
   }
-  const badge = el('span', 'lead-stage', stages[row.stage]);
+  const badge = el('span', 'lead-stage', t(stages[row.stage]));
   badge.dataset.stage = row.stage;
   button.append(left, badge);
   button.addEventListener('click', () => openEditor(row, row.reference));
@@ -171,7 +173,7 @@ function openEditor(row, trigger) {
  $('paste').hidden = Boolean(row);
  $('paste').open = false;
  $('reference').textContent = reference;
- $('editor-heading').textContent = row ? 'Editar contato' : 'Novo contato';
+ $('editor-heading').textContent = t(row ? 'Editar contato' : 'Novo contato');
  status('editor-status');
  $('editor').hidden = false;
  renderList();
@@ -294,6 +296,16 @@ for (const button of followupButtons) {
   renderList();
  });
 }
+document.addEventListener('caos-language-change', () => {
+ for (const select of [field('stage'), $('filter')]) {
+  for (const option of select.options) {
+   if (option.value) option.textContent = t(stages[option.value]);
+  }
+ }
+ for (const item of document.querySelectorAll('[data-crm-message]')) item.textContent = t(item.dataset.crmMessage);
+ $('editor-heading').textContent = t(current ? 'Editar contato' : 'Novo contato');
+ if (!$('workspace').hidden) renderList();
+});
 window.addEventListener('focus', () => {
  if (!$('workspace').hidden) renderList();
 });
