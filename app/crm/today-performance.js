@@ -12,6 +12,10 @@ const copy = {
  'Valor fechado':'Won value',
  'Atividades por semana':'Weekly activity',
  'Por responsável':'By owner',
+ 'Equipe':'Team',
+ 'Sem responsável':'Unassigned',
+ 'Filtrar desempenho por pessoa':'Filter performance by person',
+ 'Inativa':'Inactive',
  'Responsável':'Owner',
  'Como os números são calculados':'How the numbers are calculated',
  'Ligações contam tentativas registradas. Atendimentos contam contatos confirmados e reuniões realizadas. O gráfico reúne todas as atividades registradas, exceto notas internas.':'Calls include logged attempts. Conversations include confirmed contacts and completed meetings. The chart includes all logged activities except internal notes.',
@@ -26,7 +30,7 @@ const months = {
 };
 const labels = ['Ligações','Atendimentos','Vendas','No prazo','Valor fechado'];
 
-function weekLabel(start, end, english) {
+export function weekLabel(start, end, english) {
  const [, startMonth, startDay] = start.split('-').map(Number);
  const [, endMonth, endDay] = end.split('-').map(Number);
  const month = english ? months.en : months.pt;
@@ -37,18 +41,19 @@ function weekLabel(start, end, english) {
  return english ? a + '–' + endDay : startDay + '–' + b;
 }
 
-export function initTodayPerformance(api) {
+export function initTodayPerformance(api, getActor) {
  const root = document.getElementById('today-performance');
  let report = null;
  let pending = false;
  let failed = false;
  let serial = 0;
+ let people = [];
 
  root.setAttribute('aria-labelledby','today-performance-title');
  root.innerHTML = [
   '<div class="operations-section-heading today-performance-heading">',
   '<h2 id="today-performance-title"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="13" width="4" height="8" rx=".7"/><rect x="10" y="8" width="4" height="13" rx=".7"/><rect x="17.5" y="3" width="4" height="18" rx=".7"/></svg><span data-performance-copy="Desempenho"></span></h2>',
-  '<div class="today-performance-tools"><span class="today-performance-scope" data-performance-copy="Operação local"></span>',
+  '<div class="today-performance-tools"><span class="today-performance-scope"></span><select id="today-performance-person" hidden></select>',
   '<select id="today-performance-period"><option value="7" data-performance-copy="Últimos 7 dias"></option><option value="30" data-performance-copy="Últimos 30 dias" selected></option><option value="90" data-performance-copy="Últimos 90 dias"></option></select></div>',
   '</div>',
   '<div class="today-performance-feedback"><p id="today-performance-status" role="status"></p><button type="button" class="quiet" id="today-performance-retry" data-performance-copy="Tentar novamente" hidden></button></div>',
@@ -59,7 +64,7 @@ export function initTodayPerformance(api) {
   '</figure><section class="today-performance-owner" aria-labelledby="today-performance-owner-title">',
   '<h3 id="today-performance-owner-title" data-performance-copy="Por responsável"></h3>',
   '<table><thead><tr><th scope="col" data-performance-copy="Responsável"></th><th scope="col" data-performance-copy="Atendimentos"></th><th scope="col" data-performance-copy="Vendas"></th></tr></thead>',
-  '<tbody><tr><th scope="row" data-performance-copy="Operação local"></th><td class="today-performance-owner-encounters"></td><td class="today-performance-owner-won"></td></tr></tbody></table>',
+  '<tbody></tbody></table>',
   '</section></div>',
   '<details class="today-performance-help"><summary data-performance-copy="Como os números são calculados"></summary>',
   '<p data-performance-copy="Ligações contam tentativas registradas. Atendimentos contam contatos confirmados e reuniões realizadas. O gráfico reúne todas as atividades registradas, exceto notas internas."></p>',
@@ -68,7 +73,9 @@ export function initTodayPerformance(api) {
  ].join('');
  root.dataset.noTranslate = '';
 
- const select = root.querySelector('select');
+ const select = root.querySelector('#today-performance-period');
+ const person = root.querySelector('#today-performance-person');
+ const scope = root.querySelector('.today-performance-scope');
  const results = root.querySelector('.today-performance-results');
  const metrics = root.querySelector('.today-performance-metrics');
  const bars = root.querySelector('.today-performance-bars');
@@ -95,6 +102,15 @@ export function initTodayPerformance(api) {
    item.textContent = t(item.dataset.performanceCopy);
   });
   select.setAttribute('aria-label', t('Período do desempenho'));
+  const actor=getActor();
+  person.hidden = actor?.role !== 'admin';
+  scope.hidden = !person.hidden;
+  scope.textContent = actor?.name || t('Operação local');
+  person.setAttribute('aria-label',t('Filtrar desempenho por pessoa'));
+  const selected = person.value || 'all';
+  const labelFor = member => member.id ? member.name + (member.active ? '' : ' · ' + t('Inativa')) : t('Sem responsável');
+  person.replaceChildren(new Option(t('Equipe'),'all'),...people.map(member => new Option(labelFor(member),member.id || 'unassigned')));
+  person.value = [...person.options].some(option=>option.value===selected) ? selected : 'all';
   status.textContent = pending ? t('Carregando desempenho…') : failed ? t('Não foi possível carregar o desempenho.') : '';
   results.hidden = failed;
   results.setAttribute('aria-busy', String(pending));
@@ -109,8 +125,17 @@ export function initTodayPerformance(api) {
    figure.append(node('dt', t(label)), node('dd', values[index]));
    return figure;
   }));
-  root.querySelector('.today-performance-owner-encounters').textContent = values[1];
-  root.querySelector('.today-performance-owner-won').textContent = values[2];
+  const owner = root.querySelector('.today-performance-owner tbody');
+  const byPerson = report?.members?.filter(member=>person.value==='all' || person.value===(member.id || 'unassigned'));
+  const rows = byPerson?.map(member=>[labelFor(member),number.format(member.encounters),number.format(member.won)]) ??
+   (actor ? [] : [[t('Operação local'),values[1],values[2]]]);
+  owner.replaceChildren(...rows.map(([name,encounters,won])=>{
+   const row = node('tr');
+   const heading = node('th',name);
+   heading.scope = 'row';
+   row.append(heading,node('td',encounters),node('td',won));
+   return row;
+  }));
   const weeks = report?.weeks ?? [];
   const max = Math.max(4, Math.ceil(Math.max(0, ...weeks.map(week => week.count)) / 4) * 4);
   scale.replaceChildren(...[1, .75, .5, .25, 0].map(factor => node('li', number.format(max * factor))));
@@ -135,9 +160,12 @@ export function initTodayPerformance(api) {
   failed = false;
   render();
   try {
-   const result = await api('performance&days=' + select.value);
+   const query = new URLSearchParams({days:select.value});
+   if (getActor()?.role==='admin') query.set('member',person.value || 'all');
+   const result = await api('performance&' + query);
    if (request !== serial) return;
    report = result;
+   people = result.members ?? [];
   } catch {
    if (request !== serial) return;
    failed = true;
@@ -155,10 +183,13 @@ export function initTodayPerformance(api) {
   pending = false;
   failed = false;
   select.value = '30';
+  person.value = 'all';
+  people = [];
   render();
  }
 
  select.addEventListener('change', refresh);
+ person.addEventListener('change',refresh);
  retry.addEventListener('click', refresh);
  document.addEventListener('caos-language-change',render);
  render();

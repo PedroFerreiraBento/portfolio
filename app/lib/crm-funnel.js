@@ -62,7 +62,7 @@ export async function handleFunnel({action, sql, schema, data, query, reply, lim
     " 0 AS contacts, 0 AS proposals, 0 AS wins, 0 AS cents FROM " + events + ' CROSS JOIN span' +
     ' WHERE recorded_at >= start_at AND recorded_at < end_at AND ' + real + ' GROUP BY ' + groups +
     ' UNION ALL SELECT ' + columns + ', 0, 0, 0, 0, count(*),' +
-    " count(*) FILTER (WHERE stage='proposta'), 0, 0 FROM " + opportunities + ' CROSS JOIN span' +
+    " count(*) FILTER (WHERE stage IN ('proposta','negociacao')), 0, 0 FROM " + opportunities + ' CROSS JOIN span' +
     ' WHERE created_at >= start_at AND created_at < end_at AND ' + real + ' GROUP BY ' + groups +
     ' UNION ALL SELECT ' + columns + ', 0, 0, 0, 0, 0, 0, count(*), sum(value_cents) FROM ' + opportunities + ' CROSS JOIN span' +
     " WHERE stage='ganho' AND won_at >= start_at AND won_at < end_at AND " + real + ' GROUP BY ' + groups +

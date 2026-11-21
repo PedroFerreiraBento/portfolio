@@ -1,4 +1,4 @@
-import { createHash, randomBytes } from 'node:crypto';
+import { randomBytes } from 'node:crypto';
 import { readFile, mkdir } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { createRequire } from 'node:module';
@@ -13,7 +13,16 @@ const { PGlite } = require('@electric-sql/pglite');
 const port = Number(process.env.CRM_LOCAL_PORT || 4388);
 const address = '127.0.0.1';
 const host = address + ':' + port;
-const key = process.env.CRM_LOCAL_KEY || 'crm-local';
+const fixturesEnabled = process.env.CRM_LOCAL_NO_SEED !== '1';
+const admin = {
+  id: '30000000-0000-4000-8000-000000000001', name: 'Pedro', role: 'admin',
+  email: (process.env.CRM_LOCAL_ADMIN_EMAIL || 'pedro@crm.local').trim().toLowerCase(),
+  password: process.env.CRM_LOCAL_ADMIN_PASSWORD || 'crm-local-pedro'
+};
+const demoMember = {
+  id: '30000000-0000-4000-8000-000000000002', name: 'Marina', role: 'member',
+  email: 'marina@crm.local', password: 'crm-local-marina'
+};
 const dataDir = process.env.CRM_LOCAL_DATA_DIR ||
   join(process.env.LOCALAPPDATA || homedir(), 'CaosDomado', 'CRM-local', 'pgdata');
 
@@ -28,7 +37,8 @@ const publicRootFiles = new Set(['index.html', 'contato.html', 'styles.css', 'ap
 const publicFolders = new Set(['assets', 'crm', 'demos']);
 const migrations = [
   'crm-runtime-role.sql', 'crm-intake-followup.sql', 'crm-funnel.sql',
-  'crm-notifications.sql', 'crm-operations.sql', 'crm-today-experiments.sql'
+  'crm-notifications.sql', 'crm-operations.sql', 'crm-today-experiments.sql',
+  'crm-team.sql', 'crm-team-assignment.sql', 'crm-clients.sql', 'crm-pipeline.sql'
 ];
 
 class RequestError extends Error {
@@ -86,11 +96,21 @@ async function bootstrap(db) {
   for (const migration of migrations) {
     await db.exec(await readFile(resolve(root, 'docs', migration), 'utf8'));
   }
-  if (process.env.CRM_LOCAL_NO_SEED === '1') return;
+  const { hashPassword } = await import(pathToFileURL(resolve(app, 'lib/crm-team.js')));
+  for (const account of fixturesEnabled ? [admin, demoMember] : [admin]) {
+    const { rows } = await db.query('SELECT id FROM crm_preview.team_members WHERE id=$1', [account.id]);
+    if (rows.length) continue;
+    await db.query('INSERT INTO crm_preview.team_members (id,name,email,role,password_hash) VALUES ($1,$2,$3,$4,$5) ON CONFLICT (id) DO NOTHING',
+      [account.id, account.name, account.email, account.role, await hashPassword(account.password)]);
+  }
+  if (!fixturesEnabled) return;
   await db.exec('CREATE SCHEMA IF NOT EXISTS crm_local; CREATE TABLE IF NOT EXISTS crm_local.fixtures (version integer PRIMARY KEY)');
   const sampleFiles = [
     ['crm-local-fixtures.sql'],
-    ['crm-today-performance-fixtures.sql', 'crm-today-experiments-fixtures.sql']
+    ['crm-today-performance-fixtures.sql', 'crm-today-experiments-fixtures.sql'],
+    ['crm-local-team-fixtures.sql'],
+    ['crm-local-clients-fixtures.sql'],
+    ...((process.env.CRM_PIPELINE_ENABLED ?? '1') === '1' ? [['crm-local-pipeline-fixtures.sql']] : [])
   ];
   await db.transaction(async tx => {
     for (const [index, files] of sampleFiles.entries()) {
@@ -119,7 +139,9 @@ try {
   delete process.env.VERCEL;
   process.env.VERCEL_ENV = 'development';
   process.env.CRM_DB_DATABASE_URL = 'local-only';
-  process.env.CRM_ACCESS_KEY_HASH = createHash('sha256').update(key).digest('hex');
+  process.env.CRM_TEAM_ENABLED = '1';
+  process.env.CRM_CLIENTS_ENABLED = '1';
+  process.env.CRM_PIPELINE_ENABLED ??= '1';
   process.env.CRM_SESSION_SECRET = randomBytes(32).toString('hex');
   const { makeHandler } = await import(pathToFileURL(resolve(app, 'api/crm.js')));
   const handler = makeHandler(() => ({
@@ -152,7 +174,7 @@ try {
     }
   });
   console.log('CRM local: http://' + host + '/crm');
-  if (key === 'crm-local') console.log('Chave local: crm-local');
+  console.log('Contas de demonstração em docs/crm-local.md.');
   for (const signal of ['SIGINT','SIGTERM']) {
     process.once(signal, () => server.close(() => { void db.close(); }));
   }

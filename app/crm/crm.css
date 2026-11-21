@@ -38,6 +38,17 @@ button:disabled { opacity: .6; cursor: wait; }
 .primary:hover:not(:disabled) { background: #ffad4f; }
 .quiet { background: transparent; border: 1px solid var(--control); }
 .quiet:hover:not(:disabled) { background: var(--paper); }
+.client-form-dialog {
+ width: min(42rem, calc(100% - 2rem)); max-height: min(91dvh, 52rem); padding: 1.25rem;
+ color: var(--text); background: var(--paper); border: 1px solid var(--line); border-radius: .75rem;
+}
+.client-form-dialog::backdrop { background: rgb(23 17 12 / .54); }
+.client-form-dialog > #editor, .client-form-dialog > .operations-editor {
+ width: 100%; min-width: 0; margin: 0; padding: 0; border: 0; box-shadow: none;
+}
+@media (max-width: 580px) {
+ .client-form-dialog { width: calc(100% - 1rem); padding: .9rem; }
+}
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 input, select, textarea { width: 100%; border: 1px solid var(--control); background: var(--paper); padding: .58rem .65rem; min-height: 2.75rem; }
 textarea { resize: vertical; }
@@ -74,6 +85,8 @@ label { display: grid; gap: .25rem; min-width: 0; font-weight: 600; font-size: .
 #reference { font-size: .8125rem; }
 [role="status"]:not(:empty) { margin-top: .625rem; font-size: .875rem; }
 [data-error="true"] { color: var(--error); }
+.crm-session-notice:empty { display: none; }
+.crm-session-notice:not(:empty) { padding-block: .7rem; margin: 0; }
 .report { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .report p { margin-top: .5rem; }
 table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: .625rem; font-size: .875rem; font-variant-numeric: tabular-nums; }
