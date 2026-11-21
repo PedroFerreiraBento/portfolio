@@ -80,7 +80,7 @@ schema de cada ambiente.
    exibida no contato e não contém e-mail, nome ou mensagem.
 3. `docs/crm-notifications.sql` enfileira o aviso junto com a gravação de um
    pedido novo do formulário. O worker recebe o segredo `CRON_SECRET` pela
-   Vercel, usa `RESEND_API_KEY`, `CRM_NOTIFICATION_FROM` e
+   Vercel, usa uma chave de envio `CRM_RESEND_API_KEY`, `CRM_NOTIFICATION_FROM` e
    `CRM_NOTIFICATION_TO` e faz novas tentativas com idempotência. A agenda
    de produção é executada a cada cinco minutos. O aviso contém a referência
    e o link privado, com os detalhes disponíveis dentro do CRM.

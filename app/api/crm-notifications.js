@@ -114,7 +114,7 @@ export function makeNotificationsHandler({ connect = neon, fetcher = globalThis.
     }
     const database = config.CRM_DB_DATABASE_URL?.trim();
     const env = {
-      key: config.RESEND_API_KEY?.trim(),
+      key: config.CRM_RESEND_API_KEY?.trim() || config.RESEND_API_KEY?.trim(),
       from: config.CRM_NOTIFICATION_FROM?.trim(),
       to: config.CRM_NOTIFICATION_TO?.trim(),
       url: config.VERCEL_ENV === 'preview' && /^[a-z0-9-]+\.vercel\.app$/.test(config.VERCEL_URL || '') ?
