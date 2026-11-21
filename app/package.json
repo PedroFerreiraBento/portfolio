@@ -4,5 +4,11 @@
   "type": "module",
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.17"
+  },
+  "scripts": {
+    "crm:local": "node ../tools/crm-local.mjs"
   }
 }

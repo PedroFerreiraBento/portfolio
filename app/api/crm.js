@@ -1,6 +1,7 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import { neon } from '@neondatabase/serverless';
 import { handleFunnel } from '../lib/crm-funnel.js';
+import { handleOperations } from '../lib/crm-operations.js';
 
 const stages = ['novo', 'conversa', 'proposta', 'ganho', 'perdido'];
 const channels = ['site', 'whatsapp', 'email', 'outro'];
@@ -121,6 +122,9 @@ export function makeHandler(connect = neon) {
     }
 
     try {
+      if (['operations', 'appointment', 'activity'].includes(action)) {
+        return await handleOperations({action, method:req.method, sql, schema, data, query:req.query, reply});
+      }
       if ((action === 'funnel' && req.method === 'GET') || (publicTracking && req.method === 'POST')) {
         return await handleFunnel({action, sql, schema, data, query: req.query, reply, limit});
       }

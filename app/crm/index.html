@@ -10,6 +10,7 @@
  <link rel="stylesheet" href="/assets/fonts/inter.css">
  <link rel="stylesheet" href="/crm/crm.css">
  <link rel="stylesheet" href="/crm/funnel.css">
+ <link rel="stylesheet" href="/crm/operations.css">
  <script src="/crm/idioma.js" defer></script>
  <script src="/assets/preferencias.js" defer></script>
  <script type="module" src="/crm/crm.js"></script>
@@ -40,6 +41,14 @@
    </div>
   </div>
  </header>
+ <svg class="operations-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="op-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="op-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4m8-4v4"/></symbol>
+  <symbol id="op-task" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="op-funnel" viewBox="0 0 24 24"><path d="M3 4h18l-7 8v5l-4 3v-8z"/></symbol>
+  <symbol id="op-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="op-history" viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 1 2 6M4 6v5h5m3-3v5l3 2"/></symbol>
+ </svg>
  <main class="frame">
   <p id="initial" role="status">Abrindo painel…</p>
   <section id="login" class="sign-in" hidden>
@@ -50,7 +59,122 @@
    </form>
    <p id="login-status" role="status"></p>
   </section>
-  <section id="workspace" aria-labelledby="heading" hidden>
+  <section id="workspace" hidden>
+   <nav class="operations-nav" aria-label="Navegação do CRM">
+    <a href="#hoje" data-op-nav="hoje" aria-current="page">Hoje</a>
+    <a href="#clientes" data-op-nav="clientes">Clientes</a>
+    <a href="#agenda" data-op-nav="agenda">Agenda</a>
+    <a href="#atendimentos" data-op-nav="atendimentos">Atendimentos</a>
+    <a href="#oportunidades" data-op-nav="oportunidades">Oportunidades</a>
+    <a href="#desempenho" data-op-nav="desempenho">Desempenho</a>
+   </nav>
+   <section id="operations" aria-labelledby="operations-title">
+    <div class="operations-heading">
+     <div>
+      <h1 id="operations-title" tabindex="-1">Hoje</h1>
+      <div class="operations-subtitle"><p id="operations-date" data-no-translate></p><span id="operations-local" hidden>Ambiente local</span></div>
+     </div>
+     <div id="operations-actions" class="operations-actions">
+      <button id="register-activity" class="primary" type="button"><svg aria-hidden="true"><use href="#op-plus"/></svg><span>Registrar atividade</span></button>
+      <button id="schedule-appointment" class="quiet" type="button"><svg aria-hidden="true"><use href="#op-calendar"/></svg><span>Agendar</span></button>
+     </div>
+    </div>
+    <p id="operations-status" class="operations-status" role="status" data-no-translate></p>
+    <button id="operations-retry" class="quiet" type="button" hidden>Tentar novamente</button>
+    <section id="operations-editor" class="operations-editor" aria-labelledby="operations-editor-title" hidden>
+     <div class="section-heading">
+      <div><h2 id="operations-editor-title" tabindex="-1" data-no-translate>Registrar atividade</h2><p id="operations-editor-summary" data-no-translate></p></div>
+      <button id="operations-close" class="quiet" type="button">Fechar</button>
+     </div>
+     <form id="operations-form" method="post">
+      <div class="form-grid operations-form-contact">
+       <label>Buscar contato<input id="operations-contact-search" type="search" placeholder="Nome, empresa ou referência" autocomplete="off"></label>
+       <label>Contato<select name="reference" required data-no-translate></select></label>
+      </div>
+      <div class="form-grid operations-fields">
+       <label>Tipo<select name="kind" required data-no-translate></select></label>
+       <label id="operations-title-field">Título do compromisso<input name="title" maxlength="120" placeholder="Ex. revisão da proposta"></label>
+       <label id="operations-outcome-field">Resultado<select name="outcome" data-no-translate></select></label>
+       <label>Data<input name="date" type="date" min="2000-01-01" max="2100-12-31" required></label>
+       <label>Hora<input name="time" type="time" required></label>
+       <label id="operations-duration-field">Duração (min)<input name="duration_minutes" type="number" inputmode="numeric" min="5" max="480" value="30"></label>
+      </div>
+      <label>Anotações<textarea name="notes" maxlength="2000" rows="3"></textarea></label>
+      <fieldset id="operations-next-step">
+       <legend>Próximo retorno</legend>
+       <div class="form-grid">
+        <label>Próxima ação<input name="next_step" maxlength="240" placeholder="Ex. enviar proposta"></label>
+        <label>Data de retorno<input name="due_on" type="date" min="2000-01-01" max="2100-12-31"></label>
+       </div>
+       <label class="operations-check"><input name="clear_followup" type="checkbox">Encerrar retorno atual</label>
+      </fieldset>
+      <div class="operations-actions operations-editor-actions">
+       <button id="operations-save" class="primary" type="submit" data-no-translate>Salvar atividade</button>
+       <button class="quiet" type="button" data-appointment-status="completed" hidden>Concluir</button>
+       <button class="quiet" type="button" data-appointment-status="no_show" hidden>Marcar ausência</button>
+       <button class="quiet" type="button" data-appointment-status="cancelled" hidden>Cancelar compromisso</button>
+      </div>
+      <p id="operations-editor-status" role="status" data-no-translate></p>
+     </form>
+     <div id="operations-appointment-record" data-no-translate hidden></div>
+    </section>
+    <div id="operations-today">
+     <div class="operations-today-grid">
+      <section class="operations-agenda" aria-labelledby="today-agenda-title">
+       <div class="operations-section-heading">
+        <h2 id="today-agenda-title"><svg aria-hidden="true"><use href="#op-calendar"/></svg>Agenda de hoje</h2>
+        <a class="operations-link" href="#agenda">Ver agenda<svg aria-hidden="true"><use href="#op-chevron"/></svg></a>
+       </div>
+       <div id="today-agenda" data-no-translate></div>
+      </section>
+      <section class="operations-pending" aria-labelledby="today-pending-title">
+       <div class="operations-section-heading">
+        <h2 id="today-pending-title"><svg aria-hidden="true"><use href="#op-task"/></svg>Pendências</h2>
+        <label class="operations-filter"><span class="operations-sr">Filtrar pendências</span><select id="operations-pending-filter"><option value="all">Meus atendimentos</option><option value="late">Atrasados</option><option value="due">Para hoje</option><option value="inactive">Sem contato</option></select></label>
+       </div>
+       <div id="today-pending" data-no-translate></div>
+      </section>
+     </div>
+     <section class="operations-band" aria-labelledby="today-opportunities-title">
+      <div class="operations-section-heading">
+       <h2 id="today-opportunities-title"><svg aria-hidden="true"><use href="#op-funnel"/></svg>Oportunidades</h2>
+       <a class="operations-link" href="#oportunidades">Ver oportunidades<svg aria-hidden="true"><use href="#op-chevron"/></svg></a>
+      </div>
+      <div id="today-opportunities" data-no-translate></div>
+     </section>
+     <section class="operations-band" aria-labelledby="today-activity-title">
+      <div class="operations-section-heading">
+       <h2 id="today-activity-title"><svg aria-hidden="true"><use href="#op-history"/></svg>Atividades recentes</h2>
+       <a class="operations-link" href="#atendimentos">Ver atendimentos<svg aria-hidden="true"><use href="#op-chevron"/></svg></a>
+      </div>
+      <div id="today-activities" data-no-translate></div>
+     </section>
+    </div>
+    <section id="operations-agenda" aria-label="Agenda" hidden>
+     <div class="operations-toolbar">
+      <div class="operations-actions">
+       <button id="agenda-previous" class="quiet icon-action" type="button" aria-label="Período anterior"><svg aria-hidden="true"><use href="#op-chevron"/></svg></button>
+       <button id="agenda-today" class="quiet" type="button">Hoje</button>
+       <button id="agenda-next" class="quiet icon-action" type="button" aria-label="Próximo período"><svg aria-hidden="true"><use href="#op-chevron"/></svg></button>
+       <input id="agenda-date" type="date" min="2000-01-01" max="2100-12-31" aria-label="Dia da agenda">
+      </div>
+      <div class="operations-segment" role="group" aria-label="Visualização da agenda">
+       <button type="button" data-agenda-mode="day" aria-pressed="true">Dia</button><button type="button" data-agenda-mode="week" aria-pressed="false">Semana</button>
+      </div>
+     </div>
+     <div id="agenda-content" data-no-translate></div>
+    </section>
+    <section id="operations-activities" aria-label="Histórico de atendimentos" hidden>
+     <div class="operations-toolbar operations-history-filters">
+      <label>De<input id="activity-start" type="date" min="2000-01-01" max="2100-12-31"></label>
+      <label>Até<input id="activity-end" type="date" min="2000-01-01" max="2100-12-31"></label>
+      <label>Buscar contato<input id="activity-search" type="search" placeholder="Nome, empresa ou referência"></label>
+      <label>Tipo<select id="activity-filter" data-no-translate></select></label>
+     </div>
+     <div id="activity-content" data-no-translate></div>
+    </section>
+   </section>
+   <section id="legacy-workspace" aria-labelledby="heading" hidden>
    <div class="page-heading">
     <div><h1 id="heading">Oportunidades</h1><p>Acompanhe seus contatos, propostas e vendas.</p></div>
     <button id="new" class="primary" type="button">Novo contato</button>
@@ -79,6 +203,7 @@
     <section id="editor" aria-labelledby="editor-heading" hidden>
      <div class="section-heading"><h2 id="editor-heading" tabindex="-1">Novo contato</h2><button id="close" class="quiet" type="button">Fechar</button></div>
      <form id="lead-form" method="post">
+      <button id="history-contact" class="quiet operations-contact-history" type="button" hidden>Ver atendimentos deste contato</button>
       <details id="paste">
        <summary>Trazer do WhatsApp ou e-mail</summary>
        <label>Mensagem recebida<textarea id="pasted" rows="3" maxlength="6000" placeholder="Cole a mensagem com a referência da campanha."></textarea></label>
@@ -120,6 +245,7 @@
   <p id="funnel-status" role="status"></p>
   <p id="funnel-coverage" class="funnel-note"></p>
   <ul class="funnel-results" aria-label="Resultados por campanha"></ul>
+   </section>
    </section>
   </section>
  </main>

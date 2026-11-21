@@ -1,4 +1,5 @@
 import { initFunnel } from './funnel.js';
+import { initOperations } from './operations.js';
 
 const t = text => window.caosTranslate?.(text) ?? text;
 const $ = id => document.getElementById(id);
@@ -15,7 +16,11 @@ const errorText = {
  duplicate: 'Essa referência já está cadastrada. Busque o contato para editar.',
  stale: 'Esse contato foi alterado em outra aba. Reabra o registro atualizado antes de salvar.',
  key: 'Chave de acesso incorreta.',
- invalid: 'Revise os campos e envie novamente.'
+ invalid: 'Revise os campos e envie novamente.',
+ missing_contact: 'Não encontrei este contato. Atualize a lista e tente novamente.',
+ missing_appointment: 'Não encontrei este compromisso. Atualize a agenda.',
+ conflict: 'Já existe um registro com esta referência. Atualize antes de tentar novamente.',
+ state: 'Este compromisso já foi encerrado. Atualize a agenda.'
 };
 let rows = [];
 let current = null;
@@ -26,6 +31,10 @@ const followupButtons = [...document.querySelectorAll('[data-followup]')];
 const localDay = new Intl.DateTimeFormat('sv-SE', {timeZone:'America/Sao_Paulo', year:'numeric', month:'2-digit', day:'2-digit'});
 const dateLabel = new Intl.DateTimeFormat('pt-BR', {timeZone:'UTC', day:'2-digit', month:'2-digit', year:'numeric'});
 const funnel = initFunnel(query => api('funnel&' + query));
+const operations = initOperations(api, navigate, openContact);
+const operationalRoutes = new Set(['hoje','agenda','atendimentos']);
+const navigation = [...document.querySelectorAll('[data-op-nav]')];
+let currentRoute;
 
 for (const [value, label] of Object.entries(stages)) {
  field('stage').add(new Option(t(label), value));
@@ -45,7 +54,10 @@ async function api(action, method = 'GET', payload) {
   if (!response.ok) throw new Error(data.error);
   return data;
  } catch (error) {
-  throw new Error(errorText[error.message] || errorText.unavailable);
+  const copy = action==='appointment' && error.message==='stale'
+   ? 'Este compromisso mudou em outra aba. Atualize a agenda antes de salvar.'
+   : errorText[error.message] || errorText.unavailable;
+  throw new Error(copy);
  }
 }
 
@@ -153,7 +165,7 @@ async function refresh() {
   ({rows} = await api('list'));
   renderList();
   renderTotals();
-  funnel.refresh();
+  if (currentRoute==='desempenho') funnel.refresh();
  } catch (error) {
   status('list-status', error.message, true);
  } finally {
@@ -171,6 +183,7 @@ function openEditor(row, trigger) {
   field('amount').value = row.value_cents ? decimal.format(row.value_cents / 100) : '';
  }
  $('paste').hidden = Boolean(row);
+ $('history-contact').hidden = !row;
  $('paste').open = false;
  $('reference').textContent = reference;
  $('editor-heading').textContent = t(row ? 'Editar contato' : 'Novo contato');
@@ -233,7 +246,7 @@ leadForm.addEventListener('submit', async event => {
   rows = [row, ...rows.filter(item => item.reference !== row.reference)];
   openEditor(row, returnFocus);
   renderTotals();
-  funnel.refresh();
+  if (currentRoute==='desempenho') funnel.refresh();
   status('editor-status', 'Contato salvo.');
  } catch (error) {
   status('editor-status', error.message, true);
@@ -242,12 +255,62 @@ leadForm.addEventListener('submit', async event => {
  }
 });
 
+async function showRoute(route, focus = false) {
+ if ($('workspace').hidden) return;
+ const destination = navigation.find(link=>link.dataset.opNav===route);
+ if (!destination) route='hoje';
+ currentRoute=route;
+ for (const link of navigation) {
+  if (link.dataset.opNav===route) link.setAttribute('aria-current','page');
+  else link.removeAttribute('aria-current');
+ }
+ const operational = operationalRoutes.has(route);
+ const reports = route==='desempenho';
+ $('legacy-workspace').hidden=operational;
+ $('legacy-workspace').querySelector('.page-heading').hidden=reports;
+ $('legacy-workspace').querySelector('.workspace-grid').hidden=reports;
+ $('legacy-workspace').querySelector('.totals').hidden=route==='clientes';
+ $('campaign-report').hidden=!reports;
+ $('heading').textContent=t(route==='clientes'?'Clientes':'Oportunidades');
+ if (focus) {
+  window.scrollTo(0,0);
+ }
+ let ready;
+ if (operational) ready=operations.show(route);
+ else {
+  operations.hide();
+  ready=refresh();
+ }
+ if (focus) {
+  const heading = $(operational?'operations-title':reports?'report-heading':'heading');
+  heading.setAttribute('tabindex','-1');
+  heading.focus({preventScroll:true});
+ }
+ return ready;
+}
+
+function navigate(route) {
+ if (route!==location.hash.slice(1)) history.pushState(null,'','#'+route);
+ return showRoute(route,true);
+}
+
+async function openContact(ref) {
+ $('search').value='';
+ $('filter').value='';
+ followupFilter='';
+ for (const button of followupButtons) button.setAttribute('aria-pressed',String(button.dataset.followup===''));
+ await navigate('clientes');
+ const lead=rows.find(row=>row.reference===ref);
+ if (lead) openEditor(lead,ref);
+}
+
 function showWorkspace(signedIn) {
  $('initial').hidden = true;
  $('login').hidden = signedIn;
  $('workspace').hidden = !signedIn;
  $('logout').hidden = !signedIn;
- if (signedIn) return refresh();
+ if (signedIn) return showRoute(location.hash.slice(1) || 'hoje');
+ operations.hide();
 }
 
 $('login-form').addEventListener('submit', async event => {
@@ -261,7 +324,9 @@ $('login-form').addEventListener('submit', async event => {
   form.reset();
   status('login-status');
   await showWorkspace(true);
-  $('new').focus();
+  const title = $(operationalRoutes.has(currentRoute)?'operations-title':currentRoute==='desempenho'?'report-heading':'heading');
+  title.setAttribute('tabindex','-1');
+  title.focus();
  } catch (error) {
   status('login-status', error.message, true);
  } finally {
@@ -304,12 +369,29 @@ document.addEventListener('caos-language-change', () => {
  }
  for (const item of document.querySelectorAll('[data-crm-message]')) item.textContent = t(item.dataset.crmMessage);
  $('editor-heading').textContent = t(current ? 'Editar contato' : 'Novo contato');
+ $('heading').textContent = t(currentRoute==='clientes'?'Clientes':'Oportunidades');
  if (!$('workspace').hidden) renderList();
 });
 window.addEventListener('focus', () => {
  if (!$('workspace').hidden) renderList();
 });
 $('refresh').addEventListener('click', refresh);
+$('history-contact').addEventListener('click',()=>{
+ if (!current) return;
+ operations.selectHistory(current.reference);
+ navigate('atendimentos');
+});
+for (const link of document.querySelectorAll('[data-op-nav], .operations-link')) {
+ link.addEventListener('click',event=>{
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  navigate(link.hash.slice(1));
+ });
+}
+window.addEventListener('hashchange',()=>{
+ const route=location.hash.slice(1) || 'hoje';
+ if (route!==currentRoute) showRoute(route,true);
+});
 api('session').then(() => showWorkspace(true)).catch(error => {
  showWorkspace(false);
  if (error.message !== errorText.session) status('login-status', error.message, true);
