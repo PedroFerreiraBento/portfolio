@@ -28,7 +28,7 @@ const publicRootFiles = new Set(['index.html', 'contato.html', 'styles.css', 'ap
 const publicFolders = new Set(['assets', 'crm', 'demos']);
 const migrations = [
   'crm-runtime-role.sql', 'crm-intake-followup.sql', 'crm-funnel.sql',
-  'crm-notifications.sql', 'crm-operations.sql'
+  'crm-notifications.sql', 'crm-operations.sql', 'crm-today-experiments.sql'
 ];
 
 class RequestError extends Error {
@@ -88,9 +88,16 @@ async function bootstrap(db) {
   }
   if (process.env.CRM_LOCAL_NO_SEED === '1') return;
   await db.exec('CREATE SCHEMA IF NOT EXISTS crm_local; CREATE TABLE IF NOT EXISTS crm_local.fixtures (version integer PRIMARY KEY)');
+  const sampleFiles = [
+    ['crm-local-fixtures.sql'],
+    ['crm-today-performance-fixtures.sql', 'crm-today-experiments-fixtures.sql']
+  ];
   await db.transaction(async tx => {
-    const { rows } = await tx.query('INSERT INTO crm_local.fixtures VALUES (1) ON CONFLICT DO NOTHING RETURNING version');
-    if (rows.length) await tx.exec(await readFile(resolve(root, 'tools/crm-local-fixtures.sql'), 'utf8'));
+    for (const [index, files] of sampleFiles.entries()) {
+      const { rows } = await tx.query('INSERT INTO crm_local.fixtures VALUES ($1) ON CONFLICT DO NOTHING RETURNING version', [index+1]);
+      if (!rows.length) continue;
+      for (const file of files) await tx.exec(await readFile(resolve(root, 'tools', file), 'utf8'));
+    }
   });
 }
 

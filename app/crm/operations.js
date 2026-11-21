@@ -1,3 +1,6 @@
+import { initTodayPerformance } from './today-performance.js';
+import { initTodayExperiments } from './today-experiments.js';
+
 const t = text => window.caosTranslate?.(text) ?? text;
 const $ = id => document.getElementById(id);
 const zone = 'America/Sao_Paulo';
@@ -89,6 +92,8 @@ function overlapsDay(item, day) {
 }
 
 export function initOperations(api, navigate, openContact) {
+ const performance = initTodayPerformance(api);
+ const experiments = initTodayExperiments(api);
  const form = $('operations-form');
  const fields = form.elements;
  const pages = {hoje:$('operations-today'),agenda:$('operations-agenda'),atendimentos:$('operations-activities')};
@@ -307,16 +312,20 @@ export function initOperations(api, navigate, openContact) {
     strip.append(part);
    }
   }
-  const queue = state.contacts.filter(item=>!['ganho','perdido'].includes(item.stage)).slice(0,4);
+  const queue = state.contacts.filter(item=>!['ganho','perdido'].includes(item.stage)).slice(0,5);
+  const columns = node('div','operations-opportunities-head');
+  columns.append(node('span','',t('Cliente')),node('span','operations-owner',t('Responsável')),node('span','',t('Próximo passo')));
   const links = node('ul','operations-opportunities-list');
   for (const lead of queue) {
    const item = node('li');
    const button = action('operations-summary-row','openReference',lead.reference,'');
-   button.append(node('strong','operations-ellipsis',contactName(lead)),node('span','operations-ellipsis',lead.next_step || t(stageNames[lead.stage])),icon('chevron'));
+   button.append(node('strong','operations-ellipsis',contactName(lead)),
+    node('span','operations-owner',t('Operação local')),
+    node('span','operations-ellipsis',lead.next_step || t(stageNames[lead.stage])),icon('chevron'));
    item.append(button);
    links.append(item);
   }
-  root.replaceChildren(summary,strip,links);
+  root.replaceChildren(summary,strip,columns,links);
  }
 
  function renderActivities(root, items) {
@@ -529,6 +538,10 @@ export function initOperations(api, navigate, openContact) {
     }
    }
    await refresh();
+   if (page==='hoje') {
+    performance.refresh();
+    experiments.refresh();
+   }
    if (!loadError) status(confirmation);
   } catch (error) {
    editorStatus(error.message,true);
@@ -649,6 +662,10 @@ export function initOperations(api, navigate, openContact) {
    for (const id of ['today-agenda','today-pending','today-opportunities','today-activities','agenda-content','activity-content']) $(id).replaceChildren();
    state=undefined;
    paint();
+   if (next==='hoje') {
+    performance.refresh();
+    experiments.refresh();
+   }
    return refresh();
   },
   hide() {
@@ -657,6 +674,8 @@ export function initOperations(api, navigate, openContact) {
    state=undefined;
    closeEditor(false);
    $('operations').hidden=true;
+   performance.reset();
+   experiments.reset();
   },
   selectHistory(reference) {
    $('activity-search').value=reference;

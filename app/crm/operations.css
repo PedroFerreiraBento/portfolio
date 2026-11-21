@@ -224,3 +224,19 @@ body:has(#workspace:not([hidden])) main.frame { padding-block-start: 0; }
  .operations-counts dt { font-size: .7rem; }
  .operations-summary-row { grid-template-columns: minmax(0,1fr) minmax(0,.8fr) auto; gap: .35rem; }
 }
+
+.operations-opportunities-head, .operations-opportunities-list .operations-summary-row {
+ display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.7fr) minmax(0,1.2fr) 1rem;
+ gap: .85rem; align-items: center;
+}
+.operations-opportunities-head {
+ margin-top: .7rem; padding: .5rem .3rem; border-bottom: 1px solid var(--ops-line);
+ color: var(--muted); font-size: .78rem; font-weight: 600;
+}
+.operations-opportunities-list { margin-top: 0; }
+@media (max-width: 610px) {
+ .operations-opportunities-head, .operations-opportunities-list .operations-summary-row {
+  grid-template-columns: minmax(0,1fr) minmax(0,.95fr) 1rem; gap: .45rem;
+ }
+ .operations-opportunities-head .operations-owner, .operations-opportunities-list .operations-owner { display: none; }
+}

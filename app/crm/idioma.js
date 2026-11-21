@@ -1,4 +1,8 @@
 window.caosPreferenceTranslations = [
+ ["Cliente", "Client"],
+ ["Responsável", "Owner"],
+ ["Próximo passo", "Next step"],
+ ["Operação local", "Local operator"],
  ["Oportunidades | Caos Domado", "Opportunities | Caos Domado"],
  ["Sair", "Sign out"],
  ["Abrindo painel…", "Opening dashboard…"],

@@ -1,0 +1,39 @@
+.today-experiments { padding-block-end: 1rem; }
+.experiments-actions { display: flex; align-items: center; justify-content: end; gap: .6rem; flex-wrap: wrap; }
+.experiments-state { background: var(--ops-band); border-radius: .45rem; padding: .35rem .55rem; font-weight: 650; white-space: nowrap; }
+.experiments-form { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; align-items: end; gap: .65rem; margin-block: 0 1rem; }
+.experiments-status:empty { display: none; }
+.experiments-status { margin-block-end: .65rem; color: var(--muted); }
+.experiments-retry { margin-block-end: .65rem; }
+.today-experiments table { width: 100%; border-collapse: collapse; }
+.today-experiments th, .today-experiments td { padding: .7rem .5rem; text-align: left; overflow-wrap: normal; }
+.today-experiments thead th { font-size: .84rem; font-weight: 550; border-bottom: 1px solid var(--ops-line); }
+.today-experiments tbody tr + tr { border-top: 1px solid var(--ops-line); }
+.today-experiments tbody th { font-size: .97rem; }
+.today-experiments tbody td { font-variant-numeric: tabular-nums; }
+.today-experiments thead th:first-child, .today-experiments tbody th { width: 24%; }
+.today-experiments thead th:nth-child(2) { width: 15%; }
+.today-experiments thead th:nth-child(3), .today-experiments thead th:nth-child(4) { width: 17%; }
+.today-experiments thead th.experiments-rate { width: 27%; }
+.experiments-rate-detail { color: var(--muted); }
+.experiments-progress { display: flex; align-items: center; gap: .65rem; white-space: nowrap; }
+.experiments-progress progress { appearance: none; inline-size: 100%; block-size: .62rem; min-inline-size: 0; color: var(--accent); }
+.experiments-progress progress::-webkit-progress-bar { background: var(--ops-band); border-radius: 1rem; }
+.experiments-progress progress::-webkit-progress-value { background: var(--accent); border-radius: 1rem; }
+.experiments-progress progress::-moz-progress-bar { background: var(--accent); border-radius: 1rem; }
+.experiments-progress span { min-inline-size: 2.2rem; text-align: end; }
+.experiments-note { margin-block: .5rem 0; color: var(--muted); font-size: .79rem; line-height: 1.5; max-width: 94ch; }
+@media (max-width: 650px) {
+  .experiments-form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .experiments-form button { justify-self: start; }
+  .today-experiments .experiments-rate { display: none; }
+  .today-experiments thead th:first-child, .today-experiments tbody th { width: 34%; }
+  .today-experiments thead th:nth-child(2) { width: 18%; }
+  .today-experiments thead th:nth-child(3), .today-experiments thead th:nth-child(4) { width: 24%; }
+  .today-experiments th, .today-experiments td { padding: .55rem .25rem; font-size: .8rem; }
+  .today-experiments tbody th { font-size: .84rem; }
+}
+@media (max-width: 420px) {
+  .experiments-form { grid-template-columns: minmax(0, 1fr); }
+  .experiments-rate-detail { display: block; }
+}
