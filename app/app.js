@@ -21,7 +21,7 @@ document.addEventListener('keydown', event => {
 if (!form) return;
 form.querySelector('button[type=submit]').disabled = false;
 form.addEventListener('input', event => event.target.setCustomValidity?.(''));
-form.addEventListener('submit', event => {
+form.addEventListener('submit', async event => {
  event.preventDefault();
  for(const key of ['name', 'message']) {
   const field = form.elements.namedItem(key);
@@ -41,9 +41,26 @@ form.addEventListener('submit', event => {
  ].join('\n');
  const baseUrl = 'https://wa.me/5519974149650?text=' + encodeURIComponent(message);
  const url = window.portfolioCampaign?.whatsappUrl(baseUrl) || baseUrl;
- const trackBriefing = () => window.portfolioCampaign?.contact('briefing');
+ const submit = form.querySelector('button[type=submit]');
+ submit.disabled = true;
  formStatus.removeAttribute('data-state');
- formStatus.textContent = translate('Seu briefing está pronto. Revise e envie a mensagem na conversa do WhatsApp.') + ' ';
+ formStatus.textContent = translate('Enviando seu projeto…');
+ let received = false;
+ try {
+  const response = await fetch('/api/crm?action=intake', {
+   method: 'POST',
+   headers: {'Content-Type': 'application/json'},
+   body: JSON.stringify({...data, ...window.portfolioCampaign?.attribution, accepted: data.accepted === 'on'}),
+   signal: AbortSignal.timeout(8000)
+  });
+  received = response.ok;
+  if (response.status === 201) window.portfolioCampaign?.record('portfolio_projeto_enviado', {}, 'briefing');
+ } catch {
+  // Keep the WhatsApp option available when intake is offline.
+ }
+ formStatus.dataset.state = received ? 'success' : 'error';
+ formStatus.textContent = translate(received ? 'Recebemos seu projeto. Se preferir, continue no WhatsApp.' :
+  'Não conseguimos confirmar o recebimento. Tente novamente ou envie pelo WhatsApp.') + ' ';
  const fallback = document.createElement('a');
  fallback.href = url;
  fallback.target = '_blank';
@@ -52,10 +69,10 @@ form.addEventListener('submit', event => {
  fallback.textContent = translate('Abrir conversa no WhatsApp');
  const whatsappIcon = document.querySelector('.header-cta .whatsapp-icon');
  if (whatsappIcon) fallback.prepend(whatsappIcon.cloneNode(true));
- fallback.addEventListener('click', trackBriefing);
+ fallback.addEventListener('click', () => window.portfolioCampaign?.contact('briefing'));
  formStatus.append(fallback);
- trackBriefing();
- window.open(url, '_blank', 'noopener,noreferrer');
+ if (received) form.reset();
+ submit.disabled = false;
 });
 })();
 const gallery = document.querySelector('.work-index');

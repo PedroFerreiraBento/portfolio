@@ -44,13 +44,15 @@
  <div class="contact-page-grid">
   <section id="briefing" class="contact-card" aria-labelledby="form-titulo">
    <h2 id="form-titulo">Me conte sobre seu projeto</h2>
-   <p>Preencha o briefing e revise sua mensagem com o Pedro no WhatsApp.</p>
+   <p>Envie os detalhes do seu projeto para a Caos Domado. Você pode continuar no WhatsApp depois.</p>
    <form id="briefing-form" method="post">
 <noscript><p>Abra o WhatsApp para enviar seu projeto. O formulário precisa de JavaScript.</p><a href="https://wa.me/5519974149650">Conversar no WhatsApp</a></noscript>
 <div class="form-grid"><label>Seu nome<input name="name" autocomplete="name" required minlength="2" maxlength="120" placeholder="Como posso chamar você?"></label><label>E-mail<input type="email" name="email" autocomplete="email" required maxlength="254" placeholder="voce@empresa.com"></label></div>
-<label>Empresa ou agência <span>(opcional)</span><input name="company" autocomplete="organization" maxlength="160" placeholder="Nome da empresa"></label>
+<label>Empresa ou agência <span>(opcional)</span><input name="company" autocomplete="organization" maxlength="120" placeholder="Nome da empresa"></label>
 <label>O que você quer construir?<textarea name="message" required minlength="10" maxlength="1500" rows="4" placeholder="Conte o objetivo, o que precisa funcionar e se já existe um prazo."></textarea></label>
-<div class="form-bottom"><button type="submit" class="button" disabled><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2a9.94 9.94 0 0 0-8.59 14.94L2.04 22l5.18-1.36A10 10 0 1 0 12.04 2Zm0 18.3a8.3 8.3 0 0 1-4.23-1.15l-.30-.18-3.07.81.82-3-.2-.31a8.31 8.31 0 1 1 6.98 3.83Z"/><path d="M8.52 7.19c-.22 0-.57.09-.87.41-.3.33-1.14 1.11-1.14 2.71 0 1.6 1.17 3.15 1.33 3.37.16.21 2.29 3.5 5.55 4.91.78.33 1.38.53 1.85.68.78.25 1.48.21 2.04.13.62-.1 1.92-.79 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38-.33-.16-1.93-.95-2.23-1.05-.3-.11-.51-.17-.73.16s-.84 1.05-1.03 1.27c-.19.22-.38.24-.7.08-.33-.16-1.38-.51-2.63-1.62-.97-.86-1.62-1.93-1.81-2.25-.19-.32-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.33.33-.54.11-.22.05-.41-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55-.19-.01-.4-.01-.59-.01Z" transform="translate(1.55 1) scale(.79)"/></svg>Continuar no WhatsApp</button></div>
+<div hidden><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label class="contact-consent"><input type="checkbox" name="accepted" required><span>Autorizo o uso dos meus dados para responder a este pedido.</span></label>
+<div class="form-bottom"><button type="submit" class="button" disabled>Enviar projeto</button></div>
 <p id="form-status" role="status" aria-live="polite"></p>
 </form>
   </section>

@@ -71,7 +71,10 @@
   recorded.add(key);
   record('portfolio_' + channel + '_clique', {portfolio_cta: placement}, placement);
  }
- window.portfolioCampaign = {whatsappUrl,record,contact};
+ window.portfolioCampaign = {
+  whatsappUrl, record, contact,
+  attribution: {reference, origin: originName, campaign: campaignName}
+ };
 
  const vercelAnalytics = location.protocol === 'https:' &&
   (['caosdomado.com.br','www.caosdomado.com.br'].includes(location.hostname) ||

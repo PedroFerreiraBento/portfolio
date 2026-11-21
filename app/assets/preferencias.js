@@ -519,6 +519,14 @@
  ]) dictionary.set(pt, en);
  dictionary.set("Conversar sobre meu layout", "Talk about my design");
  dictionary.set("Quero uma página de orçamento", "I want a quote request page");
+ for (const [pt, en] of [
+  ['Envie os detalhes do seu projeto para a Caos Domado. Você pode continuar no WhatsApp depois.', 'Send the details of your project to Caos Domado. You can continue on WhatsApp afterwards.'],
+  ['Autorizo o uso dos meus dados para responder a este pedido.', 'I agree to the use of my information to respond to this request.'],
+  ['Enviar projeto', 'Send project'],
+  ['Enviando seu projeto…', 'Sending your project…'],
+  ['Recebemos seu projeto. Se preferir, continue no WhatsApp.', 'We received your project. You can continue on WhatsApp if you prefer.'],
+  ['Não conseguimos confirmar o recebimento. Tente novamente ou envie pelo WhatsApp.', 'We could not confirm receipt. Try again or send your project on WhatsApp.']
+ ]) dictionary.set(pt, en);
  window.caosTranslate = translate;
  for (const [pt, en] of [["Identidade da Caos Domado aplicada a um site no monitor e a uma prova impressa.", "Caos Domado branding on a website shown on a monitor beside a printed proof."], ["Painel de projetos com o site institucional selecionado, status Em revisão e checklist de entrega.", "Project dashboard showing a company website under review and its delivery checklist."], ["O pedido do Estúdio Aurora aparece preenchido no tablet e marcado como recebido no painel do notebook.", "Estúdio Aurora’s request is filled in on the tablet and marked as received on the laptop."], ["Preencha este campo com pelo menos ", "Enter at least "], [" caracteres.", " characters."]]) dictionary.set(pt, en);
 
