@@ -1,5 +1,6 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import { neon } from '@neondatabase/serverless';
+import { handleFunnel } from '../lib/crm-funnel.js';
 
 const stages = ['novo', 'conversa', 'proposta', 'ganho', 'perdido'];
 const channels = ['site', 'whatsapp', 'email', 'outro'];
@@ -7,6 +8,7 @@ const secure = process.env.VERCEL === '1';
 const schema = process.env.VERCEL_ENV === 'production' ? 'crm' : 'crm_preview';
 const cookieName = secure ? '__Host-caos-crm' : 'caos-crm';
 const sessionSeconds = 12 * 60 * 60;
+const referencePattern = /^CD-[A-Z0-9]{12}$/;
 const digest = value => createHash('sha256').update(value).digest('hex');
 const same = (left, right) => typeof right === 'string' &&
   Buffer.byteLength(left) === Buffer.byteLength(right) &&
@@ -39,24 +41,38 @@ function slug(value) {
   return typeof value === 'string' && /^[a-z0-9_-]{1,48}$/.test(value) ? value : 'direto';
 }
 
+function dateOnly(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value < '2000-01-01' || value > '2100-12-31') return null;
+  const date = new Date(value + 'T00:00:00Z');
+  return !Number.isNaN(date.valueOf()) && date.toISOString().slice(0, 10) === value ? value : null;
+}
+
+function optionalSlug(value) {
+  return slug(value) === 'direto' && value !== 'direto' ? '' : value;
+}
+
 function opportunity(data, isPublic) {
   const email = boundedText(data.email, 254, isPublic ? 5 : 0);
   const name = boundedText(data.name, 120, 2);
   const company = boundedText(data.company, 120);
   const message = boundedText(data.message, 3000, isPublic ? 10 : 0);
   const nextStep = boundedText(data.next_step, 240);
+  const dueOn = isPublic || !data.due_on ? null : dateOnly(data.due_on);
   const stage = isPublic ? 'novo' : data.stage;
   const channel = isPublic ? 'site' : data.channel;
   const cents = isPublic ? null : data.value_cents ?? null;
   if (!name || [email, company, message, nextStep].includes(null) ||
       (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ||
+      (!isPublic && data.due_on && !dueOn) ||
       !stages.includes(stage) || !channels.includes(channel) ||
       (stage === 'ganho' && cents === null) ||
       (cents !== null && (!Number.isInteger(cents) || cents <= 0 || cents > 2147483647))) return null;
-  const reference = typeof data.reference === 'string' && /^CD-[A-Z0-9]{12}$/.test(data.reference) ?
+  const reference = typeof data.reference === 'string' && referencePattern.test(data.reference) ?
     data.reference : 'CD-' + randomBytes(6).toString('hex').toUpperCase();
   return { reference, origin: slug(data.origin), campaign: slug(data.campaign), channel,
-    name, company, email: email.toLowerCase(), message, nextStep: isPublic ? '' : nextStep, stage, cents };
+    name, company, email: email.toLowerCase(), message, nextStep: isPublic ? '' : nextStep, stage, cents, dueOn,
+    visit: typeof data.visit_reference === 'string' && referencePattern.test(data.visit_reference) ? data.visit_reference : null,
+    medium: optionalSlug(data.medium), creative: optionalSlug(data.creative) };
 }
 
 export function makeHandler(connect = neon) {
@@ -68,6 +84,7 @@ export function makeHandler(connect = neon) {
     const action = req.query.action;
     const publicIntake = action === 'intake';
     const login = action === 'login';
+    const publicTracking = action === 'track';
     if (!['GET', 'POST', 'PATCH'].includes(req.method)) return reply(405, {error: 'method'});
     if (req.method !== 'GET') {
       const expected = (secure ? 'https://' : 'http://') + req.headers.host;
@@ -81,7 +98,7 @@ export function makeHandler(connect = neon) {
     if (!secret || !keyHash || !database) return reply(503, {error: 'unavailable'});
     const signedIn = isSignedIn(req, secret);
     if (action === 'session' && req.method === 'GET') return signedIn ? reply(200, {signedIn}) : reply(401, {error: 'session'});
-    if (!signedIn && !((publicIntake || login) && req.method === 'POST')) return reply(401, {error: 'session'});
+    if (!signedIn && !((publicIntake || publicTracking || login) && req.method === 'POST')) return reply(401, {error: 'session'});
 
     const data = req.body ?? {};
     if (typeof data !== 'object' || Array.isArray(data)) return reply(400, {error: 'invalid'});
@@ -104,6 +121,9 @@ export function makeHandler(connect = neon) {
     }
 
     try {
+      if ((action === 'funnel' && req.method === 'GET') || (publicTracking && req.method === 'POST')) {
+        return await handleFunnel({action, sql, schema, data, query: req.query, reply, limit});
+      }
       if (login && req.method === 'POST') {
         if (!(await limit('login', 12))) return reply(429, {error: 'rate'});
         const password = boundedText(data.password, 160, 1);
@@ -119,7 +139,13 @@ export function makeHandler(connect = neon) {
       if (publicIntake && req.method === 'POST' && data.website) return reply(400, {error: 'invalid'});
       if (req.method === 'GET') {
         if (action !== 'list') return reply(404, {error: 'action'});
-        const rows = await sql.query('SELECT * FROM ' + links + ' ORDER BY updated_at DESC, reference ASC');
+        const rows = await sql.query('SELECT o.reference,o.origin,o.campaign,o.medium,o.creative,o.channel,' +
+          'o.name,o.company,o.email,o.message,o.next_step,o.stage,o.value_cents,o.won_at,o.revision,o.created_at,o.updated_at,' +
+          'o.due_on::text AS due_on, CASE ' +
+          "WHEN n.failed_at IS NOT NULL THEN 'failed' WHEN n.sent_at IS NOT NULL THEN 'accepted' " +
+          "WHEN n.reference IS NOT NULL THEN 'pending' END AS notification_status " +
+          'FROM ' + links + ' o LEFT JOIN ' + schema + '.notification_outbox n ON n.reference=o.reference ' +
+          'ORDER BY o.updated_at DESC, o.reference ASC');
         return reply(200, {rows});
       }
       if (!(publicIntake || action === 'save') || (publicIntake && req.method !== 'POST')) return reply(404, {error: 'action'});
@@ -127,23 +153,32 @@ export function makeHandler(connect = neon) {
       const lead = opportunity(data, publicIntake);
       if (!lead) return reply(400, {error: 'invalid'});
       const params = [lead.reference, lead.origin, lead.campaign, lead.channel, lead.name, lead.company,
-        lead.email, lead.message, lead.nextStep, lead.stage, lead.cents];
+        lead.email, lead.message, lead.nextStep, lead.stage, lead.cents, lead.dueOn, lead.medium, lead.creative];
       if (req.method === 'PATCH') {
         if (!Number.isInteger(data.revision) || data.reference !== lead.reference) return reply(400, {error: 'invalid'});
         const [updated] = await sql.query('UPDATE ' + links + ' SET origin=$2, campaign=$3, channel=$4, ' +
           'name=$5, company=$6, email=$7, message=$8, next_step=$9, stage=$10, value_cents=$11, ' +
           "won_at=CASE WHEN $10='ganho' THEN COALESCE(won_at,now()) END, revision=revision+1, updated_at=now()" +
-          ' WHERE reference=$1 AND revision=$12 RETURNING *', [...params, data.revision]);
+          ', due_on=CASE WHEN $16 THEN $12::date ELSE due_on END, ' +
+          'medium=CASE WHEN $17 THEN $13 ELSE medium END, creative=CASE WHEN $18 THEN $14 ELSE creative END' +
+          ' WHERE reference=$1 AND revision=$15 RETURNING reference,origin,campaign,medium,creative,channel,name,company,' +
+          'email,message,next_step,stage,value_cents,won_at,revision,created_at,updated_at,due_on::text AS due_on,' +
+          "(SELECT CASE WHEN failed_at IS NOT NULL THEN 'failed' WHEN sent_at IS NOT NULL THEN 'accepted' ELSE 'pending' END " +
+          'FROM ' + schema + '.notification_outbox WHERE reference=$1) AS notification_status', [
+            ...params, data.revision, Object.hasOwn(data,'due_on'), Object.hasOwn(data,'medium'), Object.hasOwn(data,'creative')
+          ]);
         return updated ? reply(200, {row: updated}) : reply(409, {error: 'stale'});
       }
       if (publicIntake && !(await limit('intake', 12))) return reply(429, {error: 'rate'});
-      const [created] = await sql.query('INSERT INTO ' + links + ' (reference,origin,campaign,channel,name,company,email,message,next_step,stage,value_cents,won_at)' +
-        " VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,CASE WHEN $10='ganho' THEN now() END)" +
-        ' ON CONFLICT (reference) DO NOTHING RETURNING *', params);
+      const fingerprint = publicIntake ? digest(JSON.stringify([lead.email, lead.message, lead.name, lead.company])) : null;
+      const [created] = await sql.query('INSERT INTO ' + links + ' (reference,origin,campaign,channel,name,company,email,message,next_step,stage,value_cents,won_at,due_on,medium,creative,visit_reference,intake_hash)' +
+        " VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,CASE WHEN $10='ganho' THEN now() END,$12,$13,$14,$15,$16)" +
+        ' ON CONFLICT (reference) DO NOTHING RETURNING reference,origin,campaign,medium,creative,channel,name,company,email,message,next_step,stage,value_cents,won_at,revision,created_at,updated_at,due_on::text AS due_on', [...params, lead.visit, fingerprint]);
       if (created) return reply(201, publicIntake ? {reference: lead.reference} : {row: created});
       if (publicIntake) {
-        const [prior] = await sql.query('SELECT 1 AS accepted FROM ' + links + ' WHERE reference=$1 AND email=$2 AND message=$3 AND name=$4 AND company=$5',
-          [lead.reference, lead.email, lead.message, lead.name, lead.company]);
+        const [prior] = await sql.query('SELECT 1 AS accepted FROM ' + links + ' WHERE reference=$1 AND (' +
+          'intake_hash=$2 OR (intake_hash IS NULL AND email=$3 AND message=$4 AND name=$5 AND company=$6))',
+          [lead.reference, fingerprint, lead.email, lead.message, lead.name, lead.company]);
         if (prior) return reply(200, {reference: lead.reference});
       }
       return reply(409, {error: 'duplicate'});

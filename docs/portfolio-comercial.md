@@ -22,7 +22,13 @@ privado em `/crm/` do próprio portfólio. Os pedidos enviados em
 conversa que chegou diretamente pelo WhatsApp ou e-mail, use **Novo contato**
 e **Trazer do WhatsApp ou e-mail**. O painel abre o contato existente se a
 referência já estiver cadastrada. Atualize a etapa e registre o valor real
-ao fechar a venda. A seção **Campanhas e vendas** agrupa por origem e campanha.
+ao fechar a venda. A seção **Campanhas e vendas** reúne entradas, demos, cliques, contatos,
+propostas abertas e valor fechado por período. A visualização também agrupa
+por meio e criativo. Cliques registram intenção. Pedidos enviados são
+oportunidades gravadas no CRM, e vendas usam a data de fechamento.
+A coleta do painel começa no primeiro evento gravado após a ativação.
+O histórico anterior permanece na Vercel Analytics. Identificadores de teste
+reservados: origem `verificacao` ou campanha com prefixo `qa-`.
 
 Na Vercel, os eventos `portfolio_entrada`, `portfolio_demo_aberta`,
 `portfolio_whatsapp_clique`, `portfolio_email_clique` e
@@ -58,3 +64,32 @@ Para validar uma prévia, abra uma campanha de teste, navegue até o contato,
 envie um pedido fictício, confirme a origem no painel e registre uma venda.
 Confirme o valor no resumo da campanha depois de recarregar a página. Teste
 também o retorno de acesso não autorizado ao consultar o painel sem sessão.
+
+### Evolução da operação comercial
+
+Aplique estas migrações na ordem, com a credencial administrativa. Elas são
+aditivas em `crm` e `crm_preview`, com permissões de runtime restritas ao
+schema de cada ambiente.
+
+1. `docs/crm-intake-followup.sql` adiciona a data de retorno e distingue a
+   referência do pedido da referência da visita. O formulário conserva a
+   referência do pedido para uma repetição após falha de rede.
+2. `docs/crm-funnel.sql` adiciona os dados de meio e criativo e a coleta
+   agregada no painel. A API valida os eventos e deduplica por visita, ação
+   e posição. O identificador de visita da coleta é diferente da referência
+   exibida no contato e não contém e-mail, nome ou mensagem.
+3. `docs/crm-notifications.sql` enfileira o aviso junto com a gravação de um
+   pedido novo do formulário. O worker recebe o segredo `CRON_SECRET` pela
+   Vercel, usa `RESEND_API_KEY`, `CRM_NOTIFICATION_FROM` e
+   `CRM_NOTIFICATION_TO` e faz novas tentativas com idempotência. A agenda
+   de produção é executada a cada cinco minutos. O aviso contém a referência
+   e o link privado, com os detalhes disponíveis dentro do CRM.
+   Falhas definitivas aparecem no contato. O campo `sent_at` significa
+   aceitação pelo Resend.
+
+Use **Para hoje** e **Atrasados** para ver as oportunidades abertas que
+precisam de retorno. A data segue o fuso de São Paulo. Ao testar a prévia,
+simule a perda da resposta depois do primeiro envio, repita o envio e abra
+um segundo pedido na mesma aba. Confira as referências distintas, atualize
+a data de retorno e marque uma venda. Teste o processamento do aviso na
+prévia com destinatário de teste da operação e dados fictícios.

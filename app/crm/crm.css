@@ -101,3 +101,10 @@ th:first-child, td:first-child { width: 42%; }
  input, select, textarea { font-size: 1rem; }
  table { font-size: .8rem; }
 }
+
+.followup-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: .75rem; }
+.followup-filters button[aria-pressed="true"] { background: var(--text); color: var(--page); border-color: var(--text); }
+.followup-filters button span { margin-inline-start: .2rem; font-variant-numeric: tabular-nums; }
+.lead-due { margin-top: .25rem; font-size: .8125rem; font-weight: 600; }
+.lead-due[data-due="late"] { color: var(--error); }
+.lead-alert { margin-top: .25rem; color: var(--error); font-size: .8125rem; font-weight: 600; }

@@ -22,5 +22,16 @@
         }
       ]
     }
+  ],
+  "functions": {
+    "api/crm-notifications.js": {
+      "maxDuration": 90
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/crm-notifications",
+      "schedule": "*/5 * * * *"
+    }
   ]
 }
