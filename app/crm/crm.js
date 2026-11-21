@@ -1,3 +1,5 @@
+import { initFunnel } from './funnel.js';
+
 const $ = id => document.getElementById(id);
 const stages = {novo: 'Novo', conversa: 'Em conversa', proposta: 'Proposta enviada', ganho: 'Fechado', perdido: 'Perdido'};
 const channels = {site: 'Formulário do site', whatsapp: 'WhatsApp', email: 'E-mail', outro: 'Outro'};
@@ -18,6 +20,11 @@ let rows = [];
 let current = null;
 let reference = '';
 let returnFocus;
+let followupFilter = '';
+const followupButtons = [...document.querySelectorAll('[data-followup]')];
+const localDay = new Intl.DateTimeFormat('sv-SE', {timeZone:'America/Sao_Paulo', year:'numeric', month:'2-digit', day:'2-digit'});
+const dateLabel = new Intl.DateTimeFormat('pt-BR', {timeZone:'UTC', day:'2-digit', month:'2-digit', year:'numeric'});
+const funnel = initFunnel(query => api('funnel&' + query));
 
 for (const [value, label] of Object.entries(stages)) {
  field('stage').add(new Option(label, value));
@@ -66,51 +73,47 @@ function campaignKey(row) {
  return row.origin + '/' + row.campaign;
 }
 
-function renderReport() {
- const groups = new Map();
+function renderTotals() {
  let wins = 0;
  let proposals = 0;
  let revenue = 0;
  let newContacts = 0;
  for (const row of rows) {
-  const key = campaignKey(row);
-  const group = groups.get(key) || {leads: 0, wins: 0, revenue: 0};
-  group.leads++;
   if (row.stage === 'novo') newContacts++;
   if (row.stage === 'proposta') proposals++;
   if (row.stage === 'ganho') {
    const cents = Number(row.value_cents);
-   group.wins++;
-   group.revenue += cents;
    wins++;
    revenue += cents;
   }
-  groups.set(key, group);
  }
  $('total-new').textContent = newContacts;
  $('total-proposals').textContent = proposals;
  $('total-won').textContent = wins;
  $('total-revenue').textContent = currency.format(revenue / 100);
- $('report-empty').hidden = groups.size > 0;
- $('report-table').hidden = !groups.size;
- const fragment = document.createDocumentFragment();
- for (const [key, group] of [...groups].sort(([a, first], [b, second]) => second.revenue - first.revenue || second.leads - first.leads || a.localeCompare(b))) {
-  const row = el('tr');
-  row.append(el('th', '', key), el('td', '', String(group.leads)), el('td', '', String(group.wins)), el('td', '', currency.format(group.revenue / 100)));
-  row.firstChild.scope = 'row';
-  fragment.append(row);
- }
- $('campaigns').replaceChildren(fragment);
+
+}
+
+function followupState(row, today) {
+ if (!row.due_on || row.stage === 'ganho' || row.stage === 'perdido') return '';
+ if (row.due_on < today) return 'late';
+ return row.due_on === today ? 'due' : 'future';
 }
 
 const searchable = value => value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
 function renderList() {
  const query = searchable($('search').value.trim());
  const stage = $('filter').value;
- const visible = rows.filter(row => (!stage || stage === row.stage) &&
+ const today = localDay.format(new Date());
+ const followups = rows.map(row => ({row, due: followupState(row,today)}));
+ $('due-count').textContent = followups.filter(entry => entry.due === 'due').length;
+ $('late-count').textContent = followups.filter(entry => entry.due === 'late').length;
+ const visible = followups.filter(({row,due}) => (!stage || stage === row.stage) &&
+  (!followupFilter || followupFilter === due) &&
   searchable([row.name, row.company, row.email, row.reference, campaignKey(row)].join(' ')).includes(query));
+ if (followupFilter) visible.sort((a,b) => a.row.due_on.localeCompare(b.row.due_on));
  const fragment = document.createDocumentFragment();
- for (const row of visible) {
+ for (const {row,due} of visible) {
   const item = el('li');
   const button = el('button', 'lead');
   button.type = 'button';
@@ -120,6 +123,15 @@ function renderList() {
   left.append(el('span', 'lead-title', row.name),
    el('span', 'lead-meta', [row.company, channels[row.channel], campaignKey(row)].filter(Boolean).join(' · ')));
   if (row.next_step) left.append(el('span', 'lead-next', row.next_step));
+  if (row.notification_status === 'failed') left.append(el('span','lead-alert','Falha no aviso por e-mail'));
+  if (row.notification_status === 'pending') left.append(el('span','lead-meta','Aviso por e-mail na fila'));
+  if (due) {
+   const date = dateLabel.format(new Date(row.due_on + 'T00:00:00Z'));
+   const text = due === 'late' ? 'Retorno atrasado' : due === 'due' ? 'Retorno hoje' : 'Retorno em';
+   const caption = el('span','lead-due', text + ' · ' + date);
+   caption.dataset.due = due;
+   left.append(caption);
+  }
   const badge = el('span', 'lead-stage', stages[row.stage]);
   badge.dataset.stage = row.stage;
   button.append(left, badge);
@@ -138,7 +150,8 @@ async function refresh() {
  try {
   ({rows} = await api('list'));
   renderList();
-  renderReport();
+  renderTotals();
+  funnel.refresh();
  } catch (error) {
   status('list-status', error.message, true);
  } finally {
@@ -152,7 +165,7 @@ function openEditor(row, trigger) {
  reference = row?.reference || '';
  leadForm.reset();
  if (row) {
-  for (const key of ['name', 'company', 'email', 'channel', 'stage', 'origin', 'campaign', 'next_step', 'message']) field(key).value = row[key];
+  for (const key of ['name', 'company', 'email', 'channel', 'stage', 'origin', 'campaign', 'medium', 'creative', 'next_step', 'due_on', 'message']) field(key).value = row[key] ?? '';
   field('amount').value = row.value_cents ? decimal.format(row.value_cents / 100) : '';
  }
  $('paste').hidden = Boolean(row);
@@ -191,6 +204,8 @@ $('read-message').addEventListener('click', () => {
  $('reference').textContent = reference;
  field('origin').value = read('Origem') || 'direto';
  field('campaign').value = read('Campanha') || 'direto';
+ field('medium').value = read('Meio') || '';
+ field('creative').value = read('Criativo') || '';
  field('message').value = pasted.slice(0, 3000);
  status('editor-status', 'Campanha preenchida. Confira o nome e o canal antes de salvar.');
 });
@@ -210,11 +225,13 @@ leadForm.addEventListener('submit', async event => {
  try {
   const {row} = await api('save', current ? 'PATCH' : 'POST', {
    ...data, origin: data.origin.toLowerCase(), campaign: data.campaign.toLowerCase(),
+   medium: data.medium.toLowerCase(), creative: data.creative.toLowerCase(),
    reference, revision: current?.revision, value_cents: amount
   });
   rows = [row, ...rows.filter(item => item.reference !== row.reference)];
   openEditor(row, returnFocus);
-  renderReport();
+  renderTotals();
+  funnel.refresh();
   status('editor-status', 'Contato salvo.');
  } catch (error) {
   status('editor-status', error.message, true);
@@ -255,7 +272,8 @@ $('logout').addEventListener('click', async () => {
   await api('logout', 'POST', {});
   rows = [];
   closeEditor();
-  renderReport();
+  renderTotals();
+  funnel.reset();
   await showWorkspace(false);
   $('login-form').elements.namedItem('password').focus();
  } catch (error) {
@@ -269,6 +287,16 @@ $('new').addEventListener('click', () => openEditor(null, 'new'));
 $('close').addEventListener('click', closeEditor);
 $('search').addEventListener('input', renderList);
 $('filter').addEventListener('change', renderList);
+for (const button of followupButtons) {
+ button.addEventListener('click', () => {
+  followupFilter = button.dataset.followup;
+  for (const option of followupButtons) option.setAttribute('aria-pressed', String(option === button));
+  renderList();
+ });
+}
+window.addEventListener('focus', () => {
+ if (!$('workspace').hidden) renderList();
+});
 $('refresh').addEventListener('click', refresh);
 api('session').then(() => showWorkspace(true)).catch(error => {
  showWorkspace(false);

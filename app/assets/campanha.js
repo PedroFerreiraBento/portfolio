@@ -12,12 +12,16 @@
   try { sessionStorage.setItem(key,JSON.stringify(value)); } catch { /* The page still works without storage. */ }
  }
  const previousCampaign = load('portfolio-campanha') || {};
- const campaign = Object.keys(incoming).length ? incoming : previousCampaign;
+ const replacedCampaign = ['utm_source', 'utm_campaign'].some(key =>
+  Object.hasOwn(incoming, key) && previousCampaign[key] !== incoming[key]);
+ const campaign = replacedCampaign ? incoming : {...previousCampaign, ...incoming};
  const newCampaign = keys.some(key => previousCampaign[key] !== campaign[key]);
  save('portfolio-campanha',campaign);
  const id = () => globalThis.crypto?.randomUUID?.() || Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
  const reference = (!newCampaign && load('portfolio-contact-ref')) || 'CD-' + id().replaceAll('-','').slice(0,12).toUpperCase();
  save('portfolio-contact-ref',reference);
+ const visitId = (!newCampaign && load('portfolio-funnel-visit')) || id();
+ save('portfolio-funnel-visit',visitId);
  const demo = document.body.dataset.campaignDemo || '';
  const hero = document.querySelector('.hero-copy');
  const audience = campaign.publico;
@@ -35,8 +39,8 @@
  const campaignKey = originName + '/' + campaignName;
  const medium = campaignSlug(campaign.utm_medium);
  const creative = campaignSlug(campaign.utm_content);
- const contactDetails = [
-  'Referência: ' + reference,
+ const contactDetails = contactReference => [
+  'Referência: ' + contactReference,
   'Campanha: ' + campaignName,
   'Origem: ' + originName,
   ...(medium ? ['Meio: ' + medium] : []),
@@ -44,20 +48,37 @@
  ].join('\n');
  const recorded = new Set();
 
- function whatsappUrl(value) {
+ function whatsappUrl(value, contactReference = reference) {
   const url = new URL(value);
-  url.searchParams.set('text', (url.searchParams.get('text') || '') + '\n\n' + contactDetails);
+  url.searchParams.set('text', (url.searchParams.get('text') || '') + '\n\n' + contactDetails(contactReference));
   return url.href;
  }
  function emailUrl(url) {
   url.searchParams.set('subject', url.searchParams.get('subject') || 'Caos Domado — ' + reference);
-  url.searchParams.set('body', (url.searchParams.get('body') || '') + '\r\n\r\n' + contactDetails.replaceAll('\n', '\r\n'));
+  url.searchParams.set('body', (url.searchParams.get('body') || '') + '\r\n\r\n' + contactDetails(reference).replaceAll('\n', '\r\n'));
   url.search = url.searchParams.toString().replaceAll('+', '%20');
   return url.href;
+ }
+ const trackedKinds = {
+  portfolio_demo_aberta: 'demo',
+  portfolio_whatsapp_clique: 'whatsapp',
+  portfolio_email_clique: 'email'
+ };
+ const surface = demo || (hero ? 'home' : 'contato');
+ function track(kind, placement) {
+  return fetch('/api/crm?action=track', {
+   method: 'POST',
+   headers: {'Content-Type': 'application/json'},
+   body: JSON.stringify({
+    visit_id: visitId, kind, placement, origin: originName, campaign: campaignName, medium, creative
+   }),
+   keepalive: true
+  }).then(response => response.ok, () => false);
  }
  function record(event, fields = {}, placement) {
   const entry = {event,...campaign,portfolio_demo:demo,page:location.pathname,reference,event_id:id(),...fields};
   (window.dataLayer ||= []).push(entry);
+  if (placement && trackedKinds[event]) track(trackedKinds[event], surface + '-' + placement);
   if (vercelAnalytics && placement) {
    window.va('event', {name: event, data: {campanha: campaignKey, cta: placement}});
   }
@@ -73,7 +94,7 @@
  }
  window.portfolioCampaign = {
   whatsappUrl, record, contact,
-  attribution: {reference, origin: originName, campaign: campaignName}
+  attribution: {reference, origin: originName, campaign: campaignName, medium, creative}
  };
 
  const vercelAnalytics = location.protocol === 'https:' &&
@@ -160,6 +181,11 @@
    action.append(contextualLink('demo-completion'));
    completion.append(action);
   }
+ }
+ if (load('portfolio-funnel-entry') !== visitId) {
+  track('entry', surface).then(accepted => {
+   if (accepted) save('portfolio-funnel-entry', visitId);
+  });
  }
  if (load('portfolio-measured-entry') !== reference) {
   record('portfolio_entrada', {}, demo ? 'demo' : hero ? 'home' : 'contato');

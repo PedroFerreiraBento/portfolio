@@ -19,10 +19,13 @@ document.addEventListener('keydown', event => {
  if(event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {toggleMenu(false);menuButton.focus();}
 });
 if (!form) return;
-form.querySelector('button[type=submit]').disabled = false;
+const submit = form.querySelector('button[type=submit]');
+submit.disabled = false;
+let draft;
 form.addEventListener('input', event => event.target.setCustomValidity?.(''));
 form.addEventListener('submit', async event => {
  event.preventDefault();
+ if (submit.disabled) return;
  for(const key of ['name', 'message']) {
   const field = form.elements.namedItem(key);
   field.setCustomValidity(field.value.trim().length < field.minLength ? translate('Preencha este campo com pelo menos ') + field.minLength + translate(' caracteres.') : '');
@@ -39,9 +42,14 @@ form.addEventListener('submit', async event => {
   'Meu projeto:',
   data.message.trim()
  ].join('\n');
+ const attribution = window.portfolioCampaign?.attribution;
+ const content = JSON.stringify([data.name.trim(), data.email.trim().toLowerCase(), data.company.trim(), data.message.trim()]);
+ if (draft?.content !== content) {
+  draft = {content, reference: 'CD-' + crypto.randomUUID().replaceAll('-', '').slice(0,12).toUpperCase()};
+ }
+ const reference = draft.reference;
  const baseUrl = 'https://wa.me/5519974149650?text=' + encodeURIComponent(message);
- const url = window.portfolioCampaign?.whatsappUrl(baseUrl) || baseUrl;
- const submit = form.querySelector('button[type=submit]');
+ const url = window.portfolioCampaign?.whatsappUrl(baseUrl, reference) || baseUrl;
  submit.disabled = true;
  formStatus.removeAttribute('data-state');
  formStatus.textContent = translate('Enviando seu projeto…');
@@ -50,7 +58,7 @@ form.addEventListener('submit', async event => {
   const response = await fetch('/api/crm?action=intake', {
    method: 'POST',
    headers: {'Content-Type': 'application/json'},
-   body: JSON.stringify({...data, ...window.portfolioCampaign?.attribution, accepted: data.accepted === 'on'}),
+   body: JSON.stringify({...data, ...attribution, reference, visit_reference: attribution?.reference, accepted: data.accepted === 'on'}),
    signal: AbortSignal.timeout(8000)
   });
   received = response.ok;
@@ -71,7 +79,10 @@ form.addEventListener('submit', async event => {
  if (whatsappIcon) fallback.prepend(whatsappIcon.cloneNode(true));
  fallback.addEventListener('click', () => window.portfolioCampaign?.contact('briefing'));
  formStatus.append(fallback);
- if (received) form.reset();
+ if (received) {
+  form.reset();
+  draft = undefined;
+ }
  submit.disabled = false;
 });
 })();

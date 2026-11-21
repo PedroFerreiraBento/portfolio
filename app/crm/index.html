@@ -8,7 +8,8 @@
  <link rel="icon" href="/assets/caos-domado-marca.webp">
  <link rel="stylesheet" href="/assets/fonts/inter.css">
  <link rel="stylesheet" href="/crm/crm.css">
- <script src="/crm/crm.js" defer></script>
+ <link rel="stylesheet" href="/crm/funnel.css">
+ <script type="module" src="/crm/crm.js"></script>
 </head>
 <body>
  <header class="bar">
@@ -36,7 +37,7 @@
     <div><dt>Novos contatos</dt><dd id="total-new">—</dd></div>
     <div><dt>Propostas abertas</dt><dd id="total-proposals">—</dd></div>
     <div><dt>Vendas fechadas</dt><dd id="total-won">—</dd></div>
-    <div><dt>Receita fechada</dt><dd id="total-revenue">—</dd></div>
+    <div><dt>Valor fechado</dt><dd id="total-revenue">—</dd></div>
    </dl>
    <div class="workspace-grid">
     <section aria-labelledby="list-title">
@@ -44,6 +45,11 @@
      <div class="filters">
       <label>Buscar<input id="search" type="search" placeholder="Nome, empresa ou referência"></label>
       <label>Etapa<select id="filter"><option value="">Todas</option></select></label>
+     </div>
+     <div class="followup-filters" role="group" aria-label="Prazo de retorno">
+      <button class="quiet" type="button" data-followup="" aria-pressed="true">Todos</button>
+      <button class="quiet" type="button" data-followup="due" aria-pressed="false">Para hoje <span id="due-count"></span></button>
+      <button class="quiet" type="button" data-followup="late" aria-pressed="false">Atrasados <span id="late-count"></span></button>
      </div>
      <p id="list-status" role="status"></p>
      <ul id="leads" class="leads"></ul>
@@ -65,24 +71,20 @@
        <label>Valor da venda (R$)<input name="amount" inputmode="decimal" maxlength="15" placeholder="0,00"></label>
        <label>Origem<input name="origin" maxlength="48" pattern="[a-zA-Z0-9_-]+"></label>
        <label>Campanha<input name="campaign" maxlength="48" pattern="[a-zA-Z0-9_-]+"></label>
+       <label>Meio<input name="medium" maxlength="48" pattern="[a-zA-Z0-9_-]+"></label>
+       <label>Criativo<input name="creative" maxlength="48" pattern="[a-zA-Z0-9_-]+"></label>
       </div>
-      <label>Próxima ação<input name="next_step" maxlength="240" placeholder="Ex. enviar proposta na quinta"></label>
+      <div class="form-grid">
+       <label>Próxima ação<input name="next_step" maxlength="240" placeholder="Ex. enviar proposta"></label>
+       <label>Data de retorno<input type="date" name="due_on" min="2000-01-01" max="2100-12-31"></label>
+      </div>
       <label>Detalhes<textarea name="message" rows="4" maxlength="3000"></textarea></label>
       <div class="editor-actions"><button class="primary">Salvar contato</button><span id="reference"></span></div>
       <p id="editor-status" role="status"></p>
      </form>
     </section>
    </div>
-   <section class="report" aria-labelledby="report-heading">
-    <h2 id="report-heading">Campanhas e vendas</h2>
-    <p id="report-empty">Os resultados aparecem quando você recebe ou cadastra contatos.</p>
-    <div id="report-table" hidden>
-     <table>
-      <thead><tr><th scope="col">Origem e campanha</th><th scope="col">Contatos</th><th scope="col">Vendas</th><th scope="col">Receita</th></tr></thead>
-      <tbody id="campaigns"></tbody>
-     </table>
-    </div>
-   </section>
+   <section id="campaign-report" class="report"></section>
   </section>
  </main>
 </body>
