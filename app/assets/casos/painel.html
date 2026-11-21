@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Aprovação de site pelo cliente — Caos Domado</title>
+<link rel="stylesheet" href="../../styles.css">
+
+<link rel="stylesheet" href="../caos-domado.css">
+
+<script src="painel-revisao.js" defer></script>
+<link rel="stylesheet" href="painel-revisao.css">
+<link rel="stylesheet" href="conversar.css">
+<script src="../campanha.js" defer></script>
+<link rel="stylesheet" href="../whatsapp.css"></head>
+<body data-campaign-demo="painel" data-demo="painel"><a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="approval-bar">
+ <a class="approval-brand" href="../../index.html"><img src="../caos-domado-marca.webp" width="34" height="34" alt="">Caos Domado</a>
+ <a class="approval-back" href="../../index.html#card-painel"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m10 6-6 6 6 6M4 12h16"/></svg> Voltar aos trabalhos</a>
+</header>
+<main id="conteudo" class="approval-main">
+ <div class="approval-intro">
+  <div><p class="approval-eyebrow">Casa Âmbar <span aria-hidden="true">/</span> Nova coleção</p>
+  <h1>Seu site está pronto para revisão.</h1></div>
+  <p>Confira a campanha e escolha se ela pode ir ao ar ou precisa de ajustes.</p>
+ </div>
+ <noscript><p>Ative o JavaScript para experimentar o fluxo de aprovação.</p></noscript>
+ <div class="approval-grid">
+  <section class="approval-preview" aria-labelledby="preview-title">
+   <div class="approval-preview-head">
+    <div><h2 id="preview-title">Página da campanha</h2><p id="version-label">Versão 1 · Pronta para revisar</p></div>
+    <div class="approval-switch" role="group" aria-label="Tamanho da prévia">
+     <button data-preview="desktop" type="button" aria-pressed="true">Computador</button>
+     <button data-preview="mobile" type="button" aria-pressed="false">Celular</button>
+    </div>
+   </div>
+   <div class="approval-versions" id="version-tools" role="group" aria-label="Comparar versões" hidden>
+    <button type="button" data-version="previous" aria-pressed="false">Versão anterior</button>
+    <button type="button" data-version="latest" aria-pressed="true">Versão atual</button>
+   </div>
+   <div class="approval-canvas" id="approval-canvas" data-view="desktop">
+    <div class="approval-site">
+     <div class="approval-site-bar"><strong>Casa Âmbar</strong><span>Fragrâncias</span></div>
+     <div class="approval-site-hero" id="campaign-preview">
+      <img src="painel-campanha.webp" width="1000" height="500" alt="Frasco de perfume âmbar iluminado sobre uma pedra">
+      <div class="approval-site-copy"><span>Nova linha de fragrâncias</span><strong>Uma coleção<br> para lembrar.</strong><span class="approval-site-action" id="preview-action">Conhecer a coleção</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="approval-version-note" id="version-note" hidden></p>
+  </section>
+  <aside class="approval-decision" aria-label="Decisão do cliente">
+   <div id="delivery-state" class="approval-status" role="status">Aguardando sua aprovação</div>
+   <div id="approval-review">
+    <h2>Podemos publicar?</h2>
+    <p>A aprovação registra qual versão a equipe pode publicar.</p>
+    <div class="approval-actions">
+     <button type="button" class="approval-primary" id="approve">Aprovar para publicação</button>
+     <button type="button" class="approval-secondary" id="open-adjust" aria-expanded="false" aria-controls="review-note">Pedir ajuste</button>
+    </div>
+    <form id="review-note" hidden>
+     <fieldset><legend>O que precisa mudar?</legend>
+      <label><input type="checkbox" name="change" value="contrast"> Dar mais destaque ao botão</label>
+      <label><input type="checkbox" name="change" value="label"> Usar “Ver fragrâncias” no botão</label>
+     </fieldset>
+     <label class="approval-note" for="note-text">Observação <small>(opcional)</small></label>
+     <textarea id="note-text" name="note" rows="2" maxlength="240" placeholder="Conte por que esse ajuste é importante."></textarea>
+     <button class="approval-primary" type="submit">Registrar pedido de ajuste</button>
+     <p id="adjust-error" role="alert" hidden>Escolha ao menos um ajuste para continuar.</p>
+    </form>
+   </div>
+   <div id="approval-waiting" hidden>
+    <h2>Ajuste registrado</h2>
+    <p>A publicação fica pendente enquanto a equipe prepara a revisão.</p>
+    <ul id="requested-changes"></ul>
+    <button type="button" class="approval-primary" id="receive">Ver nova versão da demo</button>
+   </div>
+   <div id="approval-receipt" hidden>
+    <h2>Aprovação registrada</h2>
+    <dl>
+     <div><dt>Página</dt><dd>Página da campanha</dd></div>
+     <div><dt>Versão aprovada</dt><dd id="approved-version"></dd></div>
+     <div><dt>Próximo passo</dt><dd>Publicação pela equipe</dd></div>
+    </dl>
+    <button type="button" class="approval-primary" id="download-review">Baixar comprovante ↓</button>
+   </div>
+   <p class="approval-demo-note">Demonstração interativa com dados fictícios.</p>
+   <button type="button" class="approval-reset" id="reset-demo" hidden>Reiniciar demonstração</button>
+  </aside>
+ </div>
+</main>
+<aside class="project-conversation approval-commercial" aria-label="Contato com a Caos Domado"><p>Quer uma solução parecida para o seu negócio?</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20do%20painel%20para%20ag%C3%AAncias%20e%20quero%20conversar%20sobre%20um%20painel%20para%20minha%20equipe." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2a9.94 9.94 0 0 0-8.59 14.94L2.04 22l5.18-1.36A10 10 0 1 0 12.04 2Zm0 18.3a8.3 8.3 0 0 1-4.23-1.15l-.30-.18-3.07.81.82-3-.2-.31a8.31 8.31 0 1 1 6.98 3.83Z"/><path d="M8.52 7.19c-.22 0-.57.09-.87.41-.3.33-1.14 1.11-1.14 2.71 0 1.6 1.17 3.15 1.33 3.37.16.21 2.29 3.5 5.55 4.91.78.33 1.38.53 1.85.68.78.25 1.48.21 2.04.13.62-.1 1.92-.79 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38-.33-.16-1.93-.95-2.23-1.05-.3-.11-.51-.17-.73.16s-.84 1.05-1.03 1.27c-.19.22-.38.24-.7.08-.33-.16-1.38-.51-2.63-1.62-.97-.86-1.62-1.93-1.81-2.25-.19-.32-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.33.33-.54.11-.22.05-.41-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55-.19-.01-.4-.01-.59-.01Z" transform="translate(1.55 1) scale(.79)"/></svg>Quero um fluxo de aprovação assim </a></aside>
+</body>
+</html>

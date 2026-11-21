@@ -1,0 +1,11 @@
+.whatsapp-icon {
+ display:inline-block; flex:none; width:1.18em; height:1.18em; margin-inline-end:.38em;
+ vertical-align:-.19em; fill:currentColor; stroke:none;
+}
+a:has(> .whatsapp-icon):is(.button,.header-cta,.project-whatsapp,.contact-channel),
+button:has(> .whatsapp-icon).button { gap:8px; }
+:is(.button,.header-cta,.project-whatsapp,.contact-channel) > .whatsapp-icon { margin:0; }
+.header-actions .header-cta > .whatsapp-icon { width:18px; height:18px; margin:0; }
+@media(max-width:475px) {
+ .brand-header .header-actions .header-cta > .whatsapp-icon { width:21px; height:21px; margin:0; }
+}

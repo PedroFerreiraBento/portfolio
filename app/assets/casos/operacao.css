@@ -1,0 +1,55 @@
+/* Production board */
+.case-main {padding-top:clamp(25px,3.8vw,60px)}
+.case-main h1 {font-family:Georgia,serif;font-weight:400;letter-spacing:-.045em;font-size:clamp(38px,4.8vw,68px);max-width:26ch}
+.case-main .intro {font-size:clamp(16px,1.35vw,20px);max-width:67ch}
+.desk {gap:0;background:#fff9f1;border:1px solid #c3ab94;border-radius:8px;overflow:hidden;align-items:stretch;box-shadow:0 9px 22px #6e4a3310}
+.queue {padding:clamp(16px,2.3vw,31px);margin:0;background:#e9dcca;position:relative;min-width:0}
+.queue legend {float:left;width:100%;font:600 20px/1.25 DM,Arial,sans-serif;margin-bottom:14px}
+.queue label {clear:both;position:relative;padding:12px 9px;gap:10px;border:1px solid transparent;background:transparent;border-top-color:#cdb9a4;margin:0;font-weight:600}
+.queue label:has(:checked) {border:1px solid #aa724c;background:#fff5e6;border-radius:4px}
+.queue label:has(:focus-visible) {outline:3px solid #97431d;outline-offset:-3px}
+.queue input {position:absolute;opacity:0}
+.queue label::before {content:'';width:48px;height:58px;flex:none;border-radius:2px;background:url('painel.webp') 90% 52% / 940% auto}
+.queue label:nth-of-type(2)::before {background-position:27% 35%;background-size:1200% auto}
+.queue label:nth-of-type(3)::before {background-position:27% 55%;background-size:1200% auto}
+.queue small {font-size:12px;padding:2px 6px;border:1px solid #d0b591}
+.queue small[data-approved] {background:#e1ebd5;color:#293f22;border-color:#b1c39f}
+.desk .detail {border:0;min-width:0}
+.desk .section-head h2 {font-family:Georgia,serif;font-weight:400}
+#delivery-meta {font-size:14px;color:#664d3e}
+.campaign {border-radius:4px;background-position:center,84% 47%}
+.review legend {display:flex;align-items:baseline;gap:14px}
+#progress {font-size:14px;font-variant-numeric:tabular-nums;color:#654833}
+.review label {border-bottom:1px solid #e6d6c5}
+.review input:checked + span {color:#684e3d}
+.action-row {display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.secondary-action {min-height:44px;padding:6px 1px;border:0;border-bottom:1px solid currentColor;background:none;color:inherit;font:inherit;cursor:pointer}
+.case-button {border-radius:4px}
+/* Packing desk */
+body[data-demo="integracao"] {background:#eeeee7;color:#252c28}
+[data-demo="integracao"] .case-header {background:#f5f3e9;border-color:#c7cbbe}
+[data-demo="integracao"] .case-main h1 {font-family:Inter,Arial,sans-serif;font-weight:700}
+.relay {align-items:stretch;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:clamp(14px,2vw,26px)}
+.relay .detail {border-radius:5px;min-width:0;border:1px solid #b4bbaa;background:#fafbf5}
+.relay .store {background:#26392f;color:#f5f4e8;padding:0;overflow:hidden;border-color:#26392f}
+.store .shipment-photo {height:clamp(112px,12vw,170px);background:linear-gradient(0deg,#26392f 0%,transparent 50%),url('integracao.webp') center 40% / cover}
+.store .receipt {padding:clamp(16px,2vw,30px);padding-top:0}
+.store .section-head h2 {font-size:18px;letter-spacing:0}
+.store .order-id {font:400 clamp(32px,4vw,52px)/1.05 Georgia,serif}
+.store .facts div {border-color:#526455}
+.store .case-button {background:#f7eac9;color:#26392f}
+.relay .history {list-style:none;padding:0}
+.relay .history li {display:grid;grid-template-columns:auto 1fr;gap:10px;padding:9px 0;border-top:1px solid #d7ddcf}
+.history time {color:#4e6557;font:500 12px/1.6 monospace}
+.relay .records {padding:12px;border-left:3px solid #537a4c}
+#order-empty {padding:15px 0;border-block:1px dashed #aeb6a5;color:#47584d}
+@media(max-width:720px){
+ .relay {grid-template-columns:1fr}
+ .queue {padding:14px}
+ .queue label {min-height:44px}
+ .queue label::before {width:32px;height:38px}
+ .queue label>span {flex:1;display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:14px}
+ .queue small {margin:0;flex:none}
+}
+@media(max-width:380px){.queue label>span{display:block}.queue small{margin-top:2px}}
+

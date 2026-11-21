@@ -1,0 +1,18 @@
+.collection-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(24px, 3vw, 42px);
+}
+.collection-actions[hidden] { display: none; }
+.collection-toggle {
+  padding: 12px 22px;
+  border: 1px solid #73513d;
+  border-radius: 4px;
+  background: transparent;
+  color: #39261e;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+.collection-toggle:hover { background: #ead9c7; }
+.work-cover-study img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
