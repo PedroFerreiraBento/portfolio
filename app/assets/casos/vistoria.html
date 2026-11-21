@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Vistoria pelo celular — Caos Domado</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="conversar.css">
+<link rel="stylesheet" href="../whatsapp.css">
+<link rel="stylesheet" href="vistoria-painel.css">
+<script src="vistoria-painel.js" defer></script>
+<script src="../campanha.js" defer></script>
+</head>
+<body data-campaign-demo="vistoria" data-showcase="vistoria">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="visit-header">
+ <a href="../../index.html"><img src="../caos-domado-marca.webp" width="28" height="28" alt="">Caos Domado</a>
+ <a href="../../index.html?acervo=aberto#card-vistoria"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6-6 6 6 6M4 12h16"/></svg>Voltar aos trabalhos</a>
+</header>
+<main id="conteudo" class="visit-page">
+ <div class="visit-intro">
+  <h1>Vistoria pelo celular</h1>
+  <p>Confira o equipamento, registre o que precisa de ajuste e entregue à manutenção um relatório com as evidências da visita.</p>
+ </div>
+ <div class="visit-workspace">
+  <aside class="visit-context" aria-labelledby="visit-context-title">
+   <div class="visit-context-image">
+    <img src="vistoria.webp" width="1200" height="800" alt="Técnico registrando a inspeção de equipamentos no tablet">
+   </div>
+   <div class="visit-context-copy">
+    <h2 id="visit-context-title">Unidade Centro</h2>
+    <p>Sala de máquinas</p>
+    <dl>
+     <div><dt>Equipamento</dt><dd>Unidade de ventilação UV-03</dd></div>
+     <div><dt>Vistoria</dt><dd>VST-024</dd></div>
+     <div><dt>Responsável</dt><dd>Ana Ribeiro · Manutenção</dd></div>
+    </dl>
+    <small>Demonstração com dados fictícios</small>
+   </div>
+  </aside>
+  <section class="visit-checklist" aria-labelledby="visit-form-title">
+   <div class="visit-checklist-head">
+    <h2 id="visit-form-title" tabindex="-1">Checklist da visita</h2>
+    <div class="visit-progress">
+     <div><label id="visit-status" for="visit-meter" aria-live="polite">0 de 3 verificados</label><span id="visit-pending">0 pendências</span></div>
+     <progress id="visit-meter" max="3" value="0"></progress>
+    </div>
+   </div>
+   <noscript><p class="visit-noscript">Ative o JavaScript para preencher a vistoria e gerar o relatório.</p></noscript>
+   <form id="inspection-form">
+     <fieldset class="visit-item" data-item="identificacao" aria-describedby="help-identificacao">
+      <legend>Identificação do equipamento</legend>
+      <p id="help-identificacao">Confira se a etiqueta está legível e corresponde à unidade UV-03.</p>
+      <div class="visit-options">
+       <label><input type="radio" name="identificacao" value="Conforme"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Conforme</span></label>
+       <label><input type="radio" name="identificacao" value="Requer ajuste"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v8m0 4v1"/></svg>Requer ajuste</span></label>
+      </div>
+      <div class="visit-issue" hidden>
+       <label for="note-identificacao">O que precisa ser corrigido?</label>
+       <textarea rows="2" maxlength="400" id="note-identificacao" placeholder="Ex.: etiqueta ilegível. Substituir por uma nova com o código UV-03."></textarea>
+       <div class="visit-photo-control">
+        <input id="photo-identificacao" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Anexar foto para Identificação do equipamento">
+        <label for="photo-identificacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h4l2-3h4l2 3h4v13H4z"/><circle cx="12" cy="13" r="3"/></svg>Anexar foto <small>(opcional)</small></label>
+       </div>
+       <p class="visit-photo-error" role="status" hidden></p>
+       <div class="visit-photo-preview" hidden><button class="visit-link-button" type="button">Remover foto</button></div>
+      </div>
+     </fieldset>
+     <fieldset class="visit-item" data-item="instalacao" aria-describedby="help-instalacao">
+      <legend>Condição da instalação</legend>
+      <p id="help-instalacao">Observe a fixação e procure sinais visíveis de desgaste ou avaria.</p>
+      <div class="visit-options">
+       <label><input type="radio" name="instalacao" value="Conforme"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Conforme</span></label>
+       <label><input type="radio" name="instalacao" value="Requer ajuste"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v8m0 4v1"/></svg>Requer ajuste</span></label>
+      </div>
+      <div class="visit-issue" hidden>
+       <label for="note-instalacao">O que precisa ser corrigido?</label>
+       <textarea rows="2" maxlength="400" id="note-instalacao" placeholder="Ex.: suporte lateral com folga. Solicitar reaperto."></textarea>
+       <div class="visit-photo-control">
+        <input id="photo-instalacao" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Anexar foto para Condição da instalação">
+        <label for="photo-instalacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h4l2-3h4l2 3h4v13H4z"/><circle cx="12" cy="13" r="3"/></svg>Anexar foto <small>(opcional)</small></label>
+       </div>
+       <p class="visit-photo-error" role="status" hidden></p>
+       <div class="visit-photo-preview" hidden><button class="visit-link-button" type="button">Remover foto</button></div>
+      </div>
+     </fieldset>
+     <fieldset class="visit-item" data-item="acesso" aria-describedby="help-acesso">
+      <legend>Acesso para manutenção</legend>
+      <p id="help-acesso">Veja se há espaço livre para abrir o painel e inspecionar o equipamento.</p>
+      <div class="visit-options">
+       <label><input type="radio" name="acesso" value="Conforme"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Conforme</span></label>
+       <label><input type="radio" name="acesso" value="Requer ajuste"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v8m0 4v1"/></svg>Requer ajuste</span></label>
+      </div>
+      <div class="visit-issue" hidden>
+       <label for="note-acesso">O que precisa ser corrigido?</label>
+       <textarea rows="2" maxlength="400" id="note-acesso" placeholder="Ex.: caixas obstruindo a abertura. Liberar o espaço à frente do painel."></textarea>
+       <div class="visit-photo-control">
+        <input id="photo-acesso" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Anexar foto para Acesso para manutenção">
+        <label for="photo-acesso"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h4l2-3h4l2 3h4v13H4z"/><circle cx="12" cy="13" r="3"/></svg>Anexar foto <small>(opcional)</small></label>
+       </div>
+       <p class="visit-photo-error" role="status" hidden></p>
+       <div class="visit-photo-preview" hidden><button class="visit-link-button" type="button">Remover foto</button></div>
+      </div>
+     </fieldset>
+    <div class="visit-finish">
+     <button class="visit-primary" disabled type="submit">Gerar relatório</button>
+     <p id="visit-feedback" role="status"></p>
+    </div>
+   </form>
+  </section>
+ </div>
+ <section class="visit-report" id="visit-report" aria-labelledby="report-title" hidden>
+  <div class="visit-report-heading"><h2 id="report-title" tabindex="-1">Relatório da visita</h2><strong>VST-024</strong></div>
+  <p class="visit-report-meta">Unidade Centro · Sala de máquinas · UV-03</p>
+  <p class="visit-report-meta">Ana Ribeiro · Manutenção · <time id="report-date"></time></p>
+  <p id="report-next"></p>
+  <ol id="report-items"></ol>
+  <p id="report-disclaimer">Demonstração com dados fictícios.</p>
+  <div class="visit-report-actions">
+   <button type="button" class="visit-primary" id="print-report">Imprimir ou salvar PDF</button>
+   <a id="download" class="visit-secondary" download>Baixar resumo (.txt)</a>
+   <button type="button" class="visit-link-button" id="edit-report">Voltar ao checklist</button>
+  </div>
+ </section>
+ <aside class="project-conversation" aria-label="Contato com a Caos Domado"><p>Quer uma solução parecida para o seu negócio?</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro!%20Vi%20o%20checklist%20de%20vistoria%20e%20quero%20conversar%20sobre%20como%20digitalizar%20minhas%20vistorias." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2a9.94 9.94 0 0 0-8.59 14.94L2.04 22l5.18-1.36A10 10 0 1 0 12.04 2Zm0 18.3a8.3 8.3 0 0 1-4.23-1.15l-.30-.18-3.07.81.82-3-.2-.31a8.31 8.31 0 1 1 6.98 3.83Z"/><path d="M8.52 7.19c-.22 0-.57.09-.87.41-.3.33-1.14 1.11-1.14 2.71 0 1.6 1.17 3.15 1.33 3.37.16.21 2.29 3.5 5.55 4.91.78.33 1.38.53 1.85.68.78.25 1.48.21 2.04.13.62-.1 1.92-.79 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38-.33-.16-1.93-.95-2.23-1.05-.3-.11-.51-.17-.73.16s-.84 1.05-1.03 1.27c-.19.22-.38.24-.7.08-.33-.16-1.38-.51-2.63-1.62-.97-.86-1.62-1.93-1.81-2.25-.19-.32-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.33.33-.54.11-.22.05-.41-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55-.19-.01-.4-.01-.59-.01Z" transform="translate(1.55 1) scale(.79)"/></svg>Quero digitalizar minhas vistorias </a></aside>
+</main>
+<template id="visit-report-row">
+ <li><div><h3></h3><span class="visit-result"></span></div><p hidden></p><figure hidden><figcaption>Foto anexada durante a vistoria</figcaption></figure></li>
+</template>
+</body>
+</html>

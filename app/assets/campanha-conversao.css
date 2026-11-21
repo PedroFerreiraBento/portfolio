@@ -1,0 +1,24 @@
+.hero-actions .campaign-hero-contact,.campaign-gallery-action .button {
+ display:inline-flex; align-items:center; min-height:46px; width:fit-content;
+ background:var(--brand-amber,#f4992b); border-color:var(--brand-amber,#f4992b); color:#1b1a19;
+}
+.hero-actions .campaign-hero-contact:hover,.campaign-gallery-action .button:hover { background:var(--brand-action-hover,#ffad4f); }
+.campaign-gallery-action { margin-top:15px; text-align:center; }
+.hero-actions .text-link { min-height:44px; display:inline-flex; align-items:center; }
+.hero-actions:has(.campaign-hero-contact) { gap:6px; }
+.campaign-demo-bar {
+ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:4px 12px;
+ background:#faf2e7; color:#1b1a19; border-bottom:1px solid #b3a18e;
+ padding:4px max(5vw,12px); font-size:14px; font-weight:700;
+}
+.campaign-demo-bar .project-whatsapp { min-height:44px; color:#1b1a19; background:#f4992b; padding:7px 10px; font-size:14px; }
+.campaign-demo-bar .project-whatsapp:hover,.campaign-demo-completion .project-whatsapp:hover { background:#ffad4f; }
+.campaign-demo-completion { margin-top:14px; }
+.campaign-demo-completion .project-whatsapp { color:#1b1a19; background:#f4992b; }
+@media(max-width:520px) {
+ .campaign-demo-bar { font-size:12px; }
+ .campaign-demo-bar .project-whatsapp { font-size:13px; }
+}
+@media print {
+ .campaign-demo-bar,.campaign-demo-completion { display:none; }
+}

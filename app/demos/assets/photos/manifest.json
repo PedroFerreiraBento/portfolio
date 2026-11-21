@@ -1,0 +1,80 @@
+{
+  "purpose": "Assets fotográficos fictícios gerados para a demonstração ClimaPro. Não representam equipe, instalações ou serviços reais.",
+  "generatedAt": "2026-11-17",
+  "method": "Built-in image_gen; cada PNG copiado do output original, sem recorte, redimensionamento ou conversão. Prompt incorporado em metadados PNG.",
+  "references": ".impeccable/mocks/masterpieces/footer-completo/{plano,arquitetura,tradicional}.png (direção visual inspecionada, não usada como pixels finais)",
+  "assets": [
+    {
+      "file": "technician.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-5fc74770-3161-48e1-971f-216fdcd95534.png",
+      "prompt": "Use case: photorealistic-natural. Create a premium documentary photograph for a fictional commercial air-conditioning maintenance website. Landscape 3:2, high resolution. A competent adult HVAC technician in clean navy-blue work uniform without any logo, clear safety glasses and black protective work gloves is carefully removing the rectangular washable mesh filter from an opened ceiling cassette commercial air conditioner in a bright contemporary office. Correct believable hands and equipment geometry. Technician occupies the right half, shown chest up in three-quarter side profile looking up toward the cassette at top right. The left 40 percent remains uncluttered soft pale office wall and ceiling for later HTML text; no text inside the photo. Neutral daylight, authentic fine material texture, professional editorial architectural photography, crisp subject and restrained colors. Floor-level camera framed from chest upwards; no unstable climbing or unsafe action visible. No lettering, branding, watermark, graphic overlay, border or user interface. Output one standalone photograph.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    },
+    {
+      "file": "office.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-b4b25426-1a06-404e-a3e5-94588ff4195c.png",
+      "prompt": "Use case: photorealistic-natural. Create a premium architectural interior photograph for a fictional commercial air-conditioning maintenance website. Wide landscape 3:2 high resolution. Sophisticated sunlit contemporary commercial office, exposed light concrete ceiling and column, warm oak vertical slat wall, clean worktables with neutral black mesh office chairs, abundant healthy broad-leaf plants beside floor-to-ceiling windows, subtle linear lighting and a clearly visible professionally installed white ceiling cassette air-conditioning unit centered above the work area. Balanced generous interior architecture composition, eye-level wide lens without extreme distortion, warm natural sunlight and soft shadows, authentic materials, quiet high-end editorial photography with precise believable construction. No people. This is a real-world office photo, not a rendered website. No text, logos, lettering, watermark, graphic elements, borders or UI. Output one standalone photograph.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    },
+    {
+      "file": "equipment.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-1e2c52d0-0ab1-4c16-9292-42e8eaea61fe.png",
+      "prompt": "Use case: photorealistic-natural. Create one premium documentary close-up photograph for a fictional commercial air-conditioning maintenance website. Landscape 3:2 high resolution. A commercial white ceiling cassette air conditioner with its intake grille hinged down in a bright office. Two anatomically correct hands wearing matte black protective work gloves carefully guide a rectangular dark fine-mesh reusable air filter out of its proper rails; just the navy uniform forearms and hands visible at lower right. Clearly legible physical mechanism with plausible hinge and mesh detail, clean surfaces with light ordinary dust on the filter, no electrical wiring exposed, no liquid, no tools or gauges. Tight clean composition on filter, gloved hands and machine, daylight, sharp editorial industrial photography, natural restrained colors, shallow but useful depth of field. No text, logo, branding, watermark, border or UI. Output one standalone photograph.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    },
+    {
+      "file": "technician-green.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-77fe4987-d1ed-49c2-94cb-64deec958b68.png",
+      "prompt": "Use case: photorealistic-natural. Generate a clean standalone landscape 3:2 editorial photograph for the green ClimaPro website. Close waist-up three-quarter profile of a male HVAC technician, short dark hair and trimmed beard, wearing a dark forest-green unbranded short-sleeve work polo and matching plain green baseball cap, clear protective glasses and black protective work gloves. He is removing a rectangular black fine-mesh filter from an open white ceiling cassette commercial air conditioner above him. All anatomy and equipment must be physically plausible. Technician positioned on right side occupying right half, his raised right forearm and hands in upper-right, looking up. White cassette fills top-right. Left 40% is pale cream office wall/ceiling and airy negative space for subsequent HTML text. Warm off-white contemporary office, soft daylight, restrained warm highlights, close professional portrait like an authentic premium service brochure. Photo only, no text or logo anywhere, no UI, no border, no watermark. Do not put any lettering on clothing or equipment. Generate one high-resolution photograph.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    },
+    {
+      "file": "condenser.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-a4db1a65-c127-4406-acc1-ac99bf296b21.png",
+      "prompt": "Use case: photorealistic-natural. Generate one clean standalone premium editorial photograph, landscape 3:2. Four commercial air-conditioning outdoor condenser units in an orderly row mounted at ground height along the clean light-gray exterior wall of a modern commercial building. Low three-quarter perspective along the row, daylight, subtle blue sky, modern exterior concrete and aluminum architecture. Believable fins, grilles, pipe routes and installed clearances, clean realistic industrial texture, neutral pale grey palette. Photographic rather than CGI, natural sunlit atmosphere. No people, logos, legible text, signs, UI, borders or watermark. This image will be used as a small architectural maintenance service photograph.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    },
+    {
+      "file": "cassette.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-daa40281-d38a-489a-aea3-e6cbfae14952.png",
+      "prompt": "Use case: photorealistic-natural. Create a high-end authentic architectural photograph, landscape 3:2. A CLOSED white commercial ceiling cassette air-conditioning unit installed flush in a clean white office ceiling; central square intake grille and four directional vents clearly visible and physically plausible. Camera looks gently upward from below at a three-quarter angle. Out-of-focus broad green indoor plant leaves frame the left foreground, while crisp cassette occupies upper central-right. Background lower-right includes modern office black-framed glass partitions, daylight and warm wood accents. Bright soft natural daylight, restrained pale cream whites, realistic fine material textures, premium commercial interior editorial photography. No people, no text, no logos, branding, watermark, borders, graphic elements or UI. Standalone high-resolution photograph, not a website screenshot.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    },
+    {
+      "file": "repair.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-7895947e-f858-4996-9f4e-b314025c2395.png",
+      "prompt": "Use case: photorealistic-natural. Generate a premium documentary industrial close-up photograph, landscape 3:2, for a fictional air-conditioning maintenance website. Tight view of a commercial air conditioner service compartment with one anatomically correct black protective work-gloved hand and navy sleeve using an insulated screwdriver to adjust a mounting screw on the metal bracket beside a green circuit board. No electricity is connected; no sparks or dangerous gesture. Plausible board layout and tidy colored wire harnesses, focus on glove, screwdriver and equipment detail, shallow photographic depth of field, clean professional setting and natural workshop daylight. Only an illustrative maintenance scene, no diagrams or technical instructions. Photorealistic fine texture, authentic restrained colors, premium editorial service photography. No legible text or labels, no logos, watermark, borders or UI. One standalone photograph.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    },
+    {
+      "file": "cleaning.png",
+      "source": "C:\\Users\\pedro\\.codex\\generated_images\\01a1e9fd-a24f-7a31-b614-e4b7f391dcf5\\exec-47b2e57d-2a41-4367-ad98-57a2f4eaeca8.png",
+      "prompt": "Use case: photorealistic-natural. Create a premium professional maintenance close-up photograph, landscape 3:2. A pair of anatomically correct hands in black waterproof protective work gloves, navy uniform sleeve, gently cleaning a REMOVED rectangular reusable air-conditioner mesh filter with a low-pressure water spray wand over a utility wash tray. Focus on dark fine mesh, small natural water droplets and gloved hand at right. Clean commercial maintenance environment with a neutral softly blurred background. Filter is removed from the machine, no electrical equipment or wires exposed to water. Correct believable tools and geometry, natural daylight, professional documentary industrial photography with crisp material texture, restrained cool neutral palette. No text, logo, watermark, borders, diagrams, graphic overlays or UI. One standalone high-resolution photograph.",
+      "width": 1536,
+      "height": 1024,
+      "media": "image/png",
+      "synthetic": true
+    }
+  ]
+}

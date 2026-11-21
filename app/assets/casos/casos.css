@@ -1,0 +1,37 @@
+html { color-scheme:light; }
+body { background:#f3e8db; color:#291e17; }
+.case-header { border-bottom:1px solid #cdb7a4; }
+.case-header .wrap { display:flex; align-items:center; justify-content:space-between; min-height:66px; gap:12px; }
+.case-header a:last-child { padding:12px 0; text-decoration:underline; text-underline-offset:4px; }
+.case-main { max-width:1200px; padding-block:clamp(30px,5vw,74px); }
+.case-main h1 { max-width:21ch; font-size:clamp(35px,5.2vw,73px); }
+.case-main .intro { max-width:62ch; margin:14px 0 28px; font-size:clamp(16px,1.6vw,21px); line-height:1.5; }
+.desk,.relay { display:grid; gap:clamp(14px,2vw,28px); align-items:start; }
+.desk { grid-template-columns:minmax(210px,1fr) minmax(0,2.1fr); }
+.relay { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.detail { background:#fff8ef; border:1px solid #c7b29f; padding:clamp(15px,3vw,34px); }
+.section-head { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:9px; margin-bottom:12px; }
+.section-head h2 { font-size:clamp(22px,2.5vw,34px); }
+.badge,.queue small { display:inline-block; background:#f2dfbb; color:#613914; padding:4px 9px; border-radius:3px; font-weight:700; font-size:13px; }
+.badge.good { background:#e1ebd5; color:#293f22; }
+.queue,.review { min-width:0; padding:0; margin:0 0 16px; border:0; }
+.queue legend,.review legend,.detail h3 { font-weight:700; margin-bottom:10px; }
+.queue label,.review label { display:flex; align-items:center; gap:9px; min-height:44px; cursor:pointer; }
+.queue label { padding:10px; border:1px solid #c7b29f; background:#fff8ef; margin-bottom:7px; }
+.queue label:has(:checked) { border-color:#9a3717; background:#f8e0ce; }
+.queue small { display:table; margin-top:6px; }
+.case-main input[type=radio],.case-main input[type=checkbox] { accent-color:#983a1c; width:auto; min-height:0; flex:none; margin:0; }
+.campaign { margin-block:16px; padding:clamp(19px,3vw,42px); aspect-ratio:3.4; background:linear-gradient(90deg,#2b1a13 2%,#2b1a13 45%,#2b1a1322 66%), url("painel.webp") 86% 47% / 235% auto; color:#fff2e4; }
+.campaign strong { display:block; font:clamp(30px,5vw,64px)/.95 Georgia,serif; margin-top:12px; }
+.case-button { background:#913715; color:#fff; border:0; padding:12px 18px; min-height:44px; font-weight:700; }
+.case-button:disabled { background:#e7d9ca; color:#614e3e; cursor:default; }
+.feedback { margin-top:12px; color:#583a2a; min-height:1.4em; }
+.order-id { font-weight:700; font-size:clamp(20px,3vw,34px); }
+.facts { margin:16px 0; }
+.facts div { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:9px 0; border-top:1px solid #d8c8b9; }
+.facts dd { margin:0; font-weight:700; }
+.records { list-style:none; margin:9px 0 16px; padding:10px; background:#edf2e6; }
+.detail h3 { margin-top:18px; }
+.history { padding-left:22px; margin:0; }
+.history li { padding:5px 0; }
+@media(max-width:720px) { .desk,.relay { grid-template-columns:1fr; } }
