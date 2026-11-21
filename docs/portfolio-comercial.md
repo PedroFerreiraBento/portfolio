@@ -16,11 +16,17 @@ e demonstrações. A versão anterior fica disponível no histórico do Git.
 Use `publico=agencias` ou `publico=prestadores` e acrescente `utm_source`,
 `utm_medium` e `utm_campaign`. Prefira identificadores curtos em minúsculas,
 como `linkedin/prospeccao-agencias`. Tanto o WhatsApp quanto o e-mail
-incluem a referência, a campanha e a origem. Cole o texto com a referência
-no CRM privado e atualize a etapa até registrar a venda e o valor.
+incluem a referência, a campanha e a origem, no formato usado no painel
+privado em `/crm/` do próprio portfólio. Os pedidos enviados em
+`/contato.html` aparecem automaticamente como novos contatos. Para uma
+conversa que chegou diretamente pelo WhatsApp ou e-mail, use **Novo contato**
+e **Trazer do WhatsApp ou e-mail**. O painel abre o contato existente se a
+referência já estiver cadastrada. Atualize a etapa e registre o valor real
+ao fechar a venda. A seção **Campanhas e vendas** agrupa por origem e campanha.
 
 Na Vercel, os eventos `portfolio_entrada`, `portfolio_demo_aberta`,
-`portfolio_whatsapp_clique` e `portfolio_email_clique` usam as propriedades
+`portfolio_whatsapp_clique`, `portfolio_email_clique` e
+`portfolio_projeto_enviado` usam as propriedades
 `campanha` (origem/campanha) e `cta` (página de entrada, demo ou posição
 do botão, conforme o evento). A entrada é contada uma vez por sessão e
 referência da campanha. Clique é um sinal de intenção, enquanto o CRM
@@ -28,3 +34,27 @@ registra conversas recebidas, propostas e vendas.
 
 Guarde nomes, e-mails e telefones apenas no CRM privado. O repositório
 público é destinado ao código e aos arquivos publicados.
+
+## Operação do CRM
+
+A hospedagem está no projeto Vercel `portfolio`, na equipe
+`pedrobentos-projects`. O projeto de banco exclusivo do CRM pertence à
+conta Neon `caosdomado@gmail.com`. Na Vercel, configure as variáveis
+sensíveis `CRM_DB_DATABASE_URL`, `CRM_ACCESS_KEY_HASH` e
+`CRM_SESSION_SECRET`. Use uma chave aleatória longa para o painel, seu
+SHA-256 hexadecimal em `CRM_ACCESS_KEY_HASH` e um segredo aleatório
+independente para as sessões. Use chaves e segredos distintos em cada ambiente.
+
+Execute `docs/crm-schema.sql` com a credencial administrativa do banco antes
+do primeiro deploy. Use `docs/crm-runtime-role.sql` com duas conexões
+de aplicação, uma com acesso apenas ao schema `crm` e outra com acesso apenas
+ao schema `crm_preview`. Use a conexão correspondente em cada ambiente.
+Mantenha a credencial de migração fora da aplicação. O formulário original do
+portfólio continua oferecendo WhatsApp como alternativa quando o envio ao CRM
+não é confirmado. O painel não depende de uma planilha para registrar contatos
+e vendas.
+
+Para validar uma prévia, abra uma campanha de teste, navegue até o contato,
+envie um pedido fictício, confirme a origem no painel e registre uma venda.
+Confirme o valor no resumo da campanha depois de recarregar a página. Teste
+também o retorno de acesso não autorizado ao consultar o painel sem sessão.

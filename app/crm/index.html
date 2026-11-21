@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, nofollow">
+ <title>Oportunidades | Caos Domado</title>
+ <link rel="icon" href="/assets/caos-domado-marca.webp">
+ <link rel="stylesheet" href="/assets/fonts/inter.css">
+ <link rel="stylesheet" href="/crm/crm.css">
+ <script src="/crm/crm.js" defer></script>
+</head>
+<body>
+ <header class="bar">
+  <div class="frame navigation">
+   <a class="brand" href="/"><img src="/assets/caos-domado-marca.webp" class="mark-light" alt="" width="32" height="32"><img class="mark-dark" src="/assets/caos-domado-marca-escura.svg" alt="" width="32" height="32">Caos Domado</a>
+   <button id="logout" class="quiet" type="button" hidden>Sair</button>
+  </div>
+ </header>
+ <main class="frame">
+  <p id="initial" role="status">Abrindo painel…</p>
+  <section id="login" class="sign-in" hidden>
+   <h1>Painel comercial</h1>
+   <form id="login-form" method="post">
+    <label>Chave de acesso<input name="password" type="password" autocomplete="current-password" maxlength="160" required></label>
+    <button class="primary">Entrar</button>
+   </form>
+   <p id="login-status" role="status"></p>
+  </section>
+  <section id="workspace" aria-labelledby="heading" hidden>
+   <div class="page-heading">
+    <div><h1 id="heading">Oportunidades</h1><p>Acompanhe seus contatos, propostas e vendas.</p></div>
+    <button id="new" class="primary" type="button">Novo contato</button>
+   </div>
+   <dl class="totals">
+    <div><dt>Novos contatos</dt><dd id="total-new">—</dd></div>
+    <div><dt>Propostas abertas</dt><dd id="total-proposals">—</dd></div>
+    <div><dt>Vendas fechadas</dt><dd id="total-won">—</dd></div>
+    <div><dt>Receita fechada</dt><dd id="total-revenue">—</dd></div>
+   </dl>
+   <div class="workspace-grid">
+    <section aria-labelledby="list-title">
+     <div class="section-heading"><h2 id="list-title">Contatos</h2><button id="refresh" class="quiet" type="button">Atualizar</button></div>
+     <div class="filters">
+      <label>Buscar<input id="search" type="search" placeholder="Nome, empresa ou referência"></label>
+      <label>Etapa<select id="filter"><option value="">Todas</option></select></label>
+     </div>
+     <p id="list-status" role="status"></p>
+     <ul id="leads" class="leads"></ul>
+    </section>
+    <section id="editor" aria-labelledby="editor-heading" hidden>
+     <div class="section-heading"><h2 id="editor-heading" tabindex="-1">Novo contato</h2><button id="close" class="quiet" type="button">Fechar</button></div>
+     <form id="lead-form" method="post">
+      <details id="paste">
+       <summary>Trazer do WhatsApp ou e-mail</summary>
+       <label>Mensagem recebida<textarea id="pasted" rows="3" maxlength="6000" placeholder="Cole a mensagem com a referência da campanha."></textarea></label>
+       <button id="read-message" class="quiet" type="button">Preencher campanha</button>
+      </details>
+      <div class="form-grid">
+       <label>Nome<input name="name" required minlength="2" maxlength="120"></label>
+       <label>Empresa<input name="company" maxlength="120"></label>
+       <label>E-mail<input name="email" type="email" maxlength="254"></label>
+       <label>Canal<select name="channel"><option value="whatsapp">WhatsApp</option><option value="email">E-mail</option><option value="site">Formulário do site</option><option value="outro">Outro</option></select></label>
+       <label>Etapa<select name="stage"></select></label>
+       <label>Valor da venda (R$)<input name="amount" inputmode="decimal" maxlength="15" placeholder="0,00"></label>
+       <label>Origem<input name="origin" maxlength="48" pattern="[a-zA-Z0-9_-]+"></label>
+       <label>Campanha<input name="campaign" maxlength="48" pattern="[a-zA-Z0-9_-]+"></label>
+      </div>
+      <label>Próxima ação<input name="next_step" maxlength="240" placeholder="Ex. enviar proposta na quinta"></label>
+      <label>Detalhes<textarea name="message" rows="4" maxlength="3000"></textarea></label>
+      <div class="editor-actions"><button class="primary">Salvar contato</button><span id="reference"></span></div>
+      <p id="editor-status" role="status"></p>
+     </form>
+    </section>
+   </div>
+   <section class="report" aria-labelledby="report-heading">
+    <h2 id="report-heading">Campanhas e vendas</h2>
+    <p id="report-empty">Os resultados aparecem quando você recebe ou cadastra contatos.</p>
+    <div id="report-table" hidden>
+     <table>
+      <thead><tr><th scope="col">Origem e campanha</th><th scope="col">Contatos</th><th scope="col">Vendas</th><th scope="col">Receita</th></tr></thead>
+      <tbody id="campaigns"></tbody>
+     </table>
+    </div>
+   </section>
+  </section>
+ </main>
+</body>
+</html>
