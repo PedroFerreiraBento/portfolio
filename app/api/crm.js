@@ -75,9 +75,9 @@ export function makeHandler(connect = neon) {
       if (!req.headers['content-type']?.startsWith('application/json')) return reply(415, {error: 'content_type'});
       if (Number(req.headers['content-length']) > 12000) return reply(413, {error: 'size'});
     }
-    const secret = process.env.CRM_SESSION_SECRET;
-    const keyHash = process.env.CRM_ACCESS_KEY_HASH;
-    const database = process.env.CRM_DB_DATABASE_URL;
+    const secret = process.env.CRM_SESSION_SECRET?.trim();
+    const keyHash = process.env.CRM_ACCESS_KEY_HASH?.trim();
+    const database = process.env.CRM_DB_DATABASE_URL?.trim();
     if (!secret || !keyHash || !database) return reply(503, {error: 'unavailable'});
     const signedIn = isSignedIn(req, secret);
     if (action === 'session' && req.method === 'GET') return signedIn ? reply(200, {signedIn}) : reply(401, {error: 'session'});
