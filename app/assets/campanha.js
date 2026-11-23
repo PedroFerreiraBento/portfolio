@@ -168,13 +168,22 @@
    link.dataset.campaignPlacement = placement;
    return link;
   }
-  const banner = document.createElement('aside');
-  banner.className = 'campaign-demo-bar';
-  banner.setAttribute('aria-label','Contato com a Caos Domado');
-  const notice = document.createElement('span');
-  notice.textContent = 'Demonstração da Caos Domado';
-  banner.append(notice,contextualLink('demo-opening'));
-  document.querySelector('body > header')?.after(banner);
+  const opening = contextualLink('demo-opening');
+  const navigationContact = document.querySelector('[data-demo-navigation-contact]');
+  if (navigationContact) {
+   const label = navigationContact.dataset.contactLabel;
+   const textNode = [...opening.childNodes].find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+   if (label && textNode) textNode.textContent = ' ' + label;
+   navigationContact.append(opening);
+  } else {
+   const banner = document.createElement('aside');
+   banner.className = 'campaign-demo-bar';
+   banner.setAttribute('aria-label','Contato com a Caos Domado');
+   const notice = document.createElement('span');
+   notice.textContent = 'Demonstração da Caos Domado';
+   banner.append(notice,opening);
+   document.querySelector('body > header')?.after(banner);
+  }
   const completion = document.querySelector('#approval-receipt,#catalog-review,#visit-report,#agenda-confirmation,[data-step="done"],[data-receipt]');
   if (completion) {
    const action = document.createElement('div');
