@@ -10,6 +10,11 @@
  const tray = find('.catalog-mobile-tray');
  const download = find('#download');
  const sheet = find('#download-sheet');
+ const simulate = find('#catalog-simulate');
+ const preview = find('#catalog-whatsapp-preview');
+ const previewMessage = find('#catalog-whatsapp-message');
+ const send = find('#catalog-whatsapp-send');
+ const sendStatus = find('.catalog-whatsapp-status');
  const products = [...form.querySelectorAll('[data-product]')].map(card => ({
   card,
   input: card.querySelector('input'),
@@ -39,6 +44,11 @@
  function refresh() {
   review.hidden = true;
   feedback.textContent = '';
+  preview.hidden = true;
+  simulate.setAttribute('aria-expanded', 'false');
+  previewMessage.textContent = '';
+  send.disabled = false;
+  sendStatus.textContent = '';
   for (const link of [download, sheet]) {
    if (!link.hasAttribute('href')) continue;
    URL.revokeObjectURL(link.href);
@@ -87,6 +97,17 @@
   return '"' + safe.replaceAll('"', '""') + '"';
  }
 
+ simulate.addEventListener('click', () => {
+  preview.hidden = !preview.hidden;
+  simulate.setAttribute('aria-expanded', String(!preview.hidden));
+  if (!preview.hidden) find('#catalog-whatsapp-title').focus();
+ });
+
+ send.addEventListener('click', () => {
+  send.disabled = true;
+  sendStatus.textContent = 'Envio simulado. Nenhuma mensagem real foi enviada.';
+ });
+
  filters.forEach(filter => filter.addEventListener('click', () => selectCategory(filter.dataset.filter)));
  products.forEach(({input, controls}) => controls.forEach(control => control.addEventListener('click', () => {
   const current = Math.trunc(input.valueAsNumber) || 0;
@@ -128,16 +149,21 @@
    item.append(title, detail);
    return item;
   }));
-  const lines = [
-   'Solicitação de cotação — catálogo demonstrativo Luz & Forma',
-   date,
-   ...(project ? ['Projeto: ' + project] : []),
-   '',
-   'Olá! Por favor, informe preços e prazos para as peças abaixo.',
-   '',
+  const projectLines = project ? ['Projeto: ' + project] : [];
+  const quoteLines = [
    ...selected.flatMap(({quantity, name, code, specs}) => [quantity + ' × ' + name, [code, ...specs].join(' · ')]),
    '',
    units + ' na cotação'
+  ];
+  const greeting = 'Olá! Por favor, informe preços e prazos para as peças abaixo.';
+  const lines = [
+   'Solicitação de cotação — catálogo demonstrativo Luz & Forma',
+   date,
+   ...projectLines,
+   '',
+   greeting,
+   '',
+   ...quoteLines
   ];
   const headings = ['Código','Produto','Quantidade','Acabamento','Medidas','Indicação'];
   const csv = [
@@ -148,6 +174,7 @@
   refresh();
   setDownload(download, lines.join('\r\n'), 'text/plain;charset=utf-8', 'lista-de-cotacao.txt');
   setDownload(sheet, '\uFEFF' + csv, 'text/csv;charset=utf-8', 'lista-de-cotacao.csv');
+  previewMessage.textContent = [greeting, '', ...projectLines, ...quoteLines].join('\n');
   tray.hidden = true;
   review.hidden = false;
   feedback.textContent = 'Cotação pronta para compartilhar.';

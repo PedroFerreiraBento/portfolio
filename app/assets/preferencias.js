@@ -550,7 +550,7 @@
   ["Exemplo de lista de cotação", "Sample quote list"],
   ["Pendente Vale", "Vale pendant light"],
   ["Abajur Serra", "Serra table lamp"],
-  ["Na demonstração, você pode baixar uma lista de teste com luminárias.", "In the Portuguese-language demo, you can download a sample quote list for lighting products."],
+  ["Escolha luminárias e simule o envio da lista pelo WhatsApp.", "Choose lighting products and simulate sending the quote list on WhatsApp."],
   ["O que está incluído", "What’s included"],
   ["Para lojas que já recebem pedidos de orçamento pelo WhatsApp, de floriculturas e lojas de jardinagem a outros comércios com produtos para cotar.", "For shops that already receive quote requests through WhatsApp, from florists and garden centers to other retailers that sell by quote."],
   ["Catálogo online para uma linha de produtos, com cadastro inicial de até 15 itens.", "An online catalog for one product line, with up to 15 items added for you."],

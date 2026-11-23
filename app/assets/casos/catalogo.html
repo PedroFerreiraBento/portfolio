@@ -117,11 +117,19 @@
     <a href="#catalog-products">Editar seleção</a>
    </div>
    <ul id="catalog-items"></ul>
-   <p class="catalog-review-note">Compartilhe a lista com o fornecedor para receber preços e prazos.</p>
+   <p class="catalog-review-note">Confira os itens antes de compartilhar a lista com a loja.</p>
    <div class="catalog-actions">
-    <a class="catalog-primary" id="download" download>Baixar lista de cotação</a>
+    <button class="catalog-primary" id="catalog-simulate" type="button" aria-controls="catalog-whatsapp-preview" aria-expanded="false">Simular envio pelo WhatsApp</button>
+    <a class="catalog-outline" id="download" download>Baixar lista de cotação</a>
     <a class="catalog-outline" id="download-sheet" download>Baixar para planilha</a>
    </div>
+   <section class="catalog-whatsapp-preview" id="catalog-whatsapp-preview" aria-labelledby="catalog-whatsapp-title" hidden>
+    <h3 id="catalog-whatsapp-title" tabindex="-1">Mensagem para Luz &amp; Forma</h3>
+    <p class="catalog-whatsapp-note">Conversa de teste. Nenhuma mensagem real será enviada.</p>
+    <p class="catalog-whatsapp-message" id="catalog-whatsapp-message"></p>
+    <button class="catalog-primary" id="catalog-whatsapp-send" type="button">Confirmar envio de teste</button>
+    <p class="catalog-whatsapp-status" role="status"></p>
+   </section>
   </section>
   <p class="catalog-note">Catálogo demonstrativo. As peças e referências são fictícias. A cotação é preparada no navegador.</p>
   <aside class="project-conversation" aria-label="Contato com a Caos Domado"><p>Quer uma solução parecida para o seu negócio?</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro!%20Vi%20o%20cat%C3%A1logo%20B2B%20demonstrativo%20e%20quero%20conversar%20sobre%20um%20cat%C3%A1logo%20para%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2a9.94 9.94 0 0 0-8.59 14.94L2.04 22l5.18-1.36A10 10 0 1 0 12.04 2Zm0 18.3a8.3 8.3 0 0 1-4.23-1.15l-.30-.18-3.07.81.82-3-.2-.31a8.31 8.31 0 1 1 6.98 3.83Z"/><path d="M8.52 7.19c-.22 0-.57.09-.87.41-.3.33-1.14 1.11-1.14 2.71 0 1.6 1.17 3.15 1.33 3.37.16.21 2.29 3.5 5.55 4.91.78.33 1.38.53 1.85.68.78.25 1.48.21 2.04.13.62-.1 1.92-.79 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38-.33-.16-1.93-.95-2.23-1.05-.3-.11-.51-.17-.73.16s-.84 1.05-1.03 1.27c-.19.22-.38.24-.7.08-.33-.16-1.38-.51-2.63-1.62-.97-.86-1.62-1.93-1.81-2.25-.19-.32-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.33.33-.54.11-.22.05-.41-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55-.19-.01-.4-.01-.59-.01Z" transform="translate(1.55 1) scale(.79)"/></svg>Quero um catálogo para cotação </a></aside>

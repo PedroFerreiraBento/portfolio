@@ -128,6 +128,15 @@ body[data-showcase=catalogo] {
 #catalog-items li { display:grid; gap:4px; border-top:1px solid var(--catalog-line); padding:10px 0; }
 #catalog-items span { color:var(--catalog-muted); }
 .catalog-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.catalog-whatsapp-preview { margin-top:24px; padding-top:19px; border-top:1px solid var(--catalog-line); }
+.catalog-whatsapp-preview h3 { margin:0; font:700 clamp(19px,2.4vw,24px)/1.2 var(--catalog-display); }
+.catalog-whatsapp-note { margin-top:6px; font-size:14px; color:var(--catalog-muted); }
+.catalog-whatsapp-message {
+ width:fit-content; max-width:min(100%,65ch); margin:14px 0; padding:12px 15px;
+ border-radius:10px 10px 3px 10px; background:#e5ebd9; color:var(--catalog-ink);
+ font-size:15px; line-height:1.5; white-space:pre-wrap;
+}
+.catalog-whatsapp-status:not(:empty) { margin-top:10px; font-weight:700; color:var(--catalog-green); }
 .catalog-note { margin-top:26px; font-size:14px; color:var(--catalog-muted); }
 .catalog-wrap .project-conversation { padding-inline:0; background:var(--catalog-paper); }
 .catalog-mobile-tray { display:none; }
