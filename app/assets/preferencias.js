@@ -420,12 +420,12 @@
   "Chat directly with Pedro"
  ],
  [
-  "Caos Domado — Desenvolvimento web para agências e empresas",
-  "Caos Domado — Web development for agencies and businesses"
+  "Sites para pequenos negócios e agências | Caos Domado",
+  "Websites for Small Businesses and Agencies | Caos Domado"
  ],
  [
-  "Contato — Caos Domado",
-  "Contact — Caos Domado"
+  "Contato para projetos de sites e integrações | Caos Domado",
+  "Contact About Websites and Integrations | Caos Domado"
  ],
  [
   "Seu time cria.",
@@ -533,7 +533,7 @@
 
  for (const [pt, en] of [
   ["Ver oferta do Catálogo Online", "See the Online Catalog offer"],
-  ["Catálogo Online para cotação no WhatsApp | Caos Domado", "Online Catalog for WhatsApp Quotes | Caos Domado"],
+  ["Catálogo online para orçamento pelo WhatsApp | Caos Domado", "Online Catalog for WhatsApp Quotes | Caos Domado"],
   ["Seus clientes escolhem os produtos e", "Your customers pick products and"],
   ["pedem orçamento pelo WhatsApp.", "request a quote on WhatsApp."],
   ["Um catálogo online para a sua loja. O comprador escolhe as quantidades e envia a lista de cotação em uma única mensagem.", "An online catalog for your shop. Buyers choose quantities and send their quote list in a single message."],

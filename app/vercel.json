@@ -4,6 +4,10 @@
   "regions": [
     "gru1"
   ],
+  "redirects": [
+    {"source": "/index.html", "destination": "/", "permanent": true},
+    {"source": "/catalogo-online.html", "destination": "/catalogo-online", "permanent": true}
+  ],
   "rewrites": [
     {"source": "/catalogo-online", "destination": "/catalogo-online.html"}
   ],

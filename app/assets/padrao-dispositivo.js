@@ -31,12 +31,16 @@
 
  root.lang = storedLanguage() ?? deviceLanguage();
  root.dataset.theme = storedTheme() ?? deviceTheme();
- const { heroPt, heroEn } = document.currentScript.dataset;
+ const { heroPt, heroEn, heroMobilePt, heroMobileEn } = document.currentScript.dataset;
  if (heroPt && heroEn) {
   const preload = document.createElement('link');
   preload.rel = 'preload';
   preload.as = 'image';
-  preload.href = root.lang === 'en' ? heroEn : heroPt;
+  const english = root.lang === 'en';
+  const mobile = window.matchMedia('(max-width: 480px)').matches;
+  preload.href = mobile && heroMobilePt && heroMobileEn
+   ? (english ? heroMobileEn : heroMobilePt)
+   : (english ? heroEn : heroPt);
   preload.fetchPriority = 'high';
   document.head.append(preload);
  }
