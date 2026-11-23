@@ -1,0 +1,177 @@
+(() => {
+ const root = document.querySelector('.work-showcase');
+ const items = [
+  {"type": "orcamento", "title": "Salão de beleza", "description": "Salão de beleza com uma vitrine de serviços e um pedido de atendimento.", "aliases": "cabeleireiro salão de cabelo cabeleireira", "id": "salao", "dest": "/exemplos/sites/salao/", "mobile": true, "brand": "Bellezza", "tone": "beleza", "english": {"title": "Hair salon", "description": "Browse salon services and try requesting an appointment."}},
+  {"type": "orcamento", "title": "Barbearia", "description": "Conheça os serviços e simule a reserva de um corte.", "aliases": "", "id": "barbearia", "dest": "/exemplos/sites/barbearia/", "mobile": false, "brand": "Barbearia", "tone": "produto", "english": {"title": "Barbershop", "description": "Explore the services and try booking a haircut.", "brand": "Barbershop"}},
+  {"type": "orcamento", "title": "Esmalteria", "description": "Veja os estilos e experimente o pedido de atendimento.", "aliases": "", "id": "esmalteria", "dest": "/exemplos/sites/esmalteria/", "mobile": false, "brand": "Esmalteria", "tone": "produto", "english": {"title": "Nail salon", "description": "Browse the styles and try requesting an appointment.", "brand": "Nail salon"}},
+  {"type": "orcamento", "title": "Clínica de estética", "description": "Explore os serviços e simule um pedido de avaliação.", "aliases": "", "id": "clinica-estetica", "dest": "/exemplos/sites/clinica-estetica/", "mobile": false, "brand": "Clínica de estética", "tone": "produto", "english": {"title": "Aesthetics clinic", "description": "Explore the services and try requesting a consultation.", "brand": "Aesthetics clinic"}},
+  {"type": "orcamento", "title": "Estética biomédica", "description": "Conheça o atendimento e teste o pedido de contato.", "aliases": "", "id": "biomedicina", "dest": "/exemplos/sites/biomedicina/", "mobile": false, "brand": "Estética biomédica", "tone": "produto", "english": {"title": "Advanced aesthetics", "description": "Explore the treatments and try sending an enquiry.", "brand": "Advanced aesthetics"}},
+  {"type": "orcamento", "title": "Dentista", "description": "Uma página de clínica com os atendimentos e o caminho para solicitar avaliação.", "aliases": "odontologia clínica odontológica", "id": "dentista", "dest": "/exemplos/sites/dentista/", "mobile": true, "brand": "Odonto Premium", "tone": "saude", "english": {"title": "Dental practice", "description": "Explore the treatments and see how to request a consultation."}},
+  {"type": "orcamento", "title": "Psicologia", "description": "Conheça a abordagem e simule o primeiro contato.", "aliases": "", "id": "psicologia", "dest": "/exemplos/sites/psicologia/", "mobile": false, "brand": "Psicologia", "tone": "produto", "english": {"title": "Psychology practice", "description": "Learn about the approach and try making an enquiry.", "brand": "Psychology practice"}},
+  {"type": "orcamento", "title": "Advocacia", "description": "Áreas de atuação e um primeiro contato reservado, em um site completo.", "aliases": "advogado advogada escritório jurídico", "id": "advocacia", "dest": "/exemplos/profissionais/advocacia/", "mobile": true, "brand": "Pátio Advocacia", "tone": "legal", "english": {"title": "Law firm", "description": "Explore practice areas and try making an initial enquiry."}},
+  {"type": "orcamento", "title": "Arquitetura", "description": "Explore os estudos de projeto e monte um pedido de proposta.", "aliases": "", "id": "arquitetura", "dest": "/exemplos/profissionais/arquitetura/", "mobile": false, "brand": "Arquitetura", "tone": "produto", "english": {"title": "Architecture studio", "description": "Explore the projects and put together a proposal request.", "brand": "Architecture studio"}},
+  {"type": "orcamento", "title": "Contabilidade", "description": "Escolha o que sua empresa precisa e simule a triagem.", "aliases": "", "id": "contabilidade", "dest": "/exemplos/profissionais/contabilidade/", "mobile": false, "brand": "Contabilidade", "tone": "produto", "english": {"title": "Accounting firm", "description": "Choose what your business needs and try the enquiry form.", "brand": "Accounting firm"}},
+  {"type": "orcamento", "title": "Fotografia", "description": "Veja o portfólio e teste uma consulta para seu evento.", "aliases": "", "id": "fotografia", "dest": "/exemplos/servicos/fotografia/", "mobile": false, "brand": "Fotografia", "tone": "produto", "english": {"title": "Photographer", "description": "Browse the portfolio and try an event enquiry.", "brand": "Photographer"}},
+  {"type": "orcamento", "title": "Aulas particulares", "description": "Escolha a matéria e simule um pedido de aula.", "aliases": "", "id": "aulas", "dest": "/exemplos/profissionais/aulas/", "mobile": false, "brand": "Aulas particulares", "tone": "produto", "english": {"title": "Private tutoring", "description": "Choose a subject and try requesting a lesson.", "brand": "Private tutoring"}},
+  {"type": "orcamento", "title": "Buffet para eventos", "description": "Informe o tipo de evento e o número de convidados para cotar.", "aliases": "", "id": "buffet", "dest": "/exemplos/profissionais/buffet/", "mobile": false, "brand": "Buffet para eventos", "tone": "produto", "english": {"title": "Event catering", "description": "Enter the event type and number of guests to request a quote.", "brand": "Event catering"}},
+  {"type": "orcamento", "title": "Personal trainer", "description": "Conheça os formatos e teste o pedido de uma conversa inicial.", "aliases": "", "id": "treinamento", "dest": "/exemplos/profissionais/treinamento/", "mobile": false, "brand": "Personal trainer", "tone": "produto", "english": {"title": "Personal trainer", "description": "Explore the formats and try requesting an introductory call.", "brand": "Personal trainer"}},
+  {"type": "orcamento", "title": "Ar-condicionado", "description": "Página para pedir orçamento de manutenção empresarial, com três direções visuais.", "aliases": "climatização climapro", "id": "climapro", "dest": "/demos/plano/index.html", "mobile": true, "brand": "ClimaPro", "tone": "clima", "english": {"title": "Air conditioning", "description": "Request a commercial maintenance quote in one of three visual styles."}},
+  {"type": "orcamento", "title": "Reformas", "description": "Escolha o tipo de reforma e teste o pedido de orçamento.", "aliases": "", "id": "reformas", "dest": "/exemplos/servicos/reformas/", "mobile": false, "brand": "Entre Obra", "tone": "produto", "english": {"title": "Home renovations", "description": "Choose a renovation type and try asking for a quote."}},
+  {"type": "orcamento", "title": "Jardinagem", "description": "Defina o cuidado que o espaço precisa e simule o contato.", "aliases": "", "id": "jardinagem", "dest": "/exemplos/servicos/jardinagem/", "mobile": false, "brand": "Jardinagem", "tone": "produto", "english": {"title": "Gardening", "description": "Choose what the space needs and try sending an enquiry.", "brand": "Gardening"}},
+  {"type": "orcamento", "title": "Oficina mecânica", "description": "Selecione o serviço e simule a solicitação para seu veículo.", "aliases": "", "id": "oficina", "dest": "/exemplos/servicos/oficina/", "mobile": false, "brand": "Oficina mecânica", "tone": "produto", "english": {"title": "Auto repair shop", "description": "Choose a service and try requesting an estimate.", "brand": "Auto repair shop"}},
+  {"type": "orcamento", "title": "Marcenaria", "description": "Escolha o ambiente e simule um orçamento de móveis sob medida.", "aliases": "", "id": "marcenaria", "dest": "/exemplos/servicos/marcenaria/", "mobile": false, "brand": "Marcenaria", "tone": "produto", "english": {"title": "Custom furniture", "description": "Choose a room and try requesting a custom furniture quote.", "brand": "Custom furniture"}},
+  {"type": "orcamento", "title": "Vidraçaria", "description": "Indique a peça e as dimensões para testar um pedido.", "aliases": "", "id": "vidracaria", "dest": "/exemplos/servicos/vidracaria/", "mobile": false, "brand": "Vidraçaria", "tone": "produto", "english": {"title": "Glass installation", "description": "Enter the piece and its dimensions to try a request.", "brand": "Glass installation"}},
+  {"type": "catalogo", "title": "Loja de iluminação", "description": "Escolha luminárias, monte uma cotação e veja a mensagem pronta para o WhatsApp.", "aliases": "", "id": "catalogo", "dest": "/assets/casos/catalogo.html", "mobile": true, "brand": "Luz & Forma", "tone": "produto", "english": {"title": "Lighting store", "description": "Choose fixtures, build a quote request and see the message ready for WhatsApp."}},
+  {"type": "agendamento", "title": "Agenda para conversar sobre um projeto", "description": "Confira os dias livres e simule a escolha de um horário.", "aliases": "", "id": "agenda", "dest": "/assets/casos/agenda.html", "mobile": true, "brand": "Agenda online", "tone": "saude", "english": {"title": "Project consultation", "description": "Check available days and try booking a time."}},
+  {"type": "operacao", "title": "Aprovação de site", "description": "Revise uma entrega, registre um ajuste e veja a aprovação.", "aliases": "", "id": "painel", "dest": "/assets/casos/painel.html", "mobile": true, "brand": "Aprovação de site", "tone": "legal", "english": {"title": "Website approval", "description": "Review a delivery, request a change and see the approval step.", "brand": "Website approval"}},
+  {"type": "operacao", "title": "Da loja à expedição", "description": "Acompanhe um pedido simulado até a fila de separação.", "aliases": "", "id": "integracao", "dest": "/assets/casos/integracao.html", "mobile": false, "brand": "Da loja à expedição", "tone": "produto", "english": {"title": "Order to dispatch", "description": "Follow a sample order to the packing queue.", "brand": "Order to dispatch"}},
+  {"type": "operacao", "title": "Vistoria pelo celular", "description": "Preencha uma inspeção de teste e veja o relatório.", "aliases": "", "id": "vistoria", "dest": "/assets/casos/vistoria.html", "mobile": false, "brand": "Vistoria pelo celular", "tone": "produto", "english": {"title": "Mobile inspection", "description": "Complete a sample inspection and see the report.", "brand": "Mobile inspection"}}
+ ];
+ const find = id => document.getElementById(id);
+ const typeButtons = [...root.querySelectorAll('[data-type]')];
+ const list = find('showcase-list');
+ const search = find('showcase-search');
+ const more = find('showcase-more');
+ const featured = ['salao','dentista','advocacia','climapro'];
+ const searchable = text => text.toLowerCase().normalize('NFD').replace(/\p{M}/gu,'').replace(/[^a-z0-9]+/g,' ').trim();
+ const params = new URLSearchParams(location.search);
+ const legacy = {
+  '#card-captacao':'climapro', '#card-catalogo':'catalogo', '#card-agenda':'agenda',
+  '#card-painel':'painel', '#card-integracao':'integracao', '#card-vistoria':'vistoria'
+ };
+ const validType = typeButtons.some(button => button.dataset.type === params.get('tipo'));
+ const incomingProject = items.find(item => item.id === (params.get('projeto') || legacy[location.hash]));
+ const campaignProject = items.find(item => item.id === root.dataset.defaultProject);
+ let category = validType ? params.get('tipo') : (incomingProject || campaignProject)?.type || 'orcamento';
+ let selected = [incomingProject, campaignProject].find(item => item?.type === category) || items.find(item => item.type === category);
+ let expanded = category === 'orcamento' && !featured.includes(selected.id);
+ const english = () => document.documentElement.lang === 'en';
+ const localized = (pt,en) => english() ? en : pt;
+ const nameOf = item => english() ? item.english.brand || item.brand : item.brand;
+
+ function rememberSelection() {
+  const url = new URL(location.href);
+  url.searchParams.set('tipo',category);
+  url.searchParams.set('projeto',selected.id);
+  url.hash = 'trabalhos';
+  history.replaceState(null,'',url);
+ }
+
+ function showProject(project) {
+  selected = project;
+  find('showcase-image').dataset.tone = project.tone;
+  const desktop = find('showcase-desktop');
+  desktop.src = '/assets/trabalhos/' + project.id + '.jpg';
+  desktop.alt = localized('Prévia de ' + nameOf(project) + ' no computador', nameOf(project) + ' desktop preview');
+  const phone = find('showcase-phone');
+  find('showcase-phone-box').hidden = !project.mobile;
+  if (project.mobile) {
+   phone.src = '/assets/trabalhos/' + project.id + '-mobile.jpg';
+   phone.alt = localized('Prévia de ' + nameOf(project) + ' no celular', nameOf(project) + ' mobile preview');
+  }
+  find('showcase-project-title').textContent = nameOf(project);
+  find('showcase-project-copy').textContent = localized(project.description, project.english.description);
+  const url = new URL(project.dest, location.origin);
+  for (const [key,value] of new URLSearchParams(location.search)) {
+   if (key === 'publico' || key.startsWith('utm_')) url.searchParams.set(key,value);
+  }
+  find('showcase-open').href = url;
+  find('showcase-open').firstChild.nodeValue = category === 'orcamento'
+   ? localized('Abrir site completo ', 'Open full website ') : localized('Abrir demonstração ', 'Open demo ');
+  const variants = new URL('/demos/index.html',location.origin);
+  variants.search = url.search;
+  find('showcase-variants').href = variants;
+  find('showcase-variants').hidden = project.id !== 'climapro';
+  root.querySelectorAll('[data-project]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.project === project.id)));
+  find('showcase-status').textContent = localized('Prévia de ' + nameOf(project) + ' carregada.', nameOf(project) + ' preview ready.');
+ }
+
+ function renderPicker() {
+  const available = items.filter(item => item.type === category);
+  const term = searchable(search.value);
+  const matched = available.filter(item => searchable([item.title,item.brand,item.aliases,item.english.title,item.english.brand].join(' ')).includes(term));
+  const shown = category === 'orcamento' && !expanded && !term
+   ? featured.map(id => matched.find(item => item.id === id)).filter(Boolean) : matched;
+  find('showcase-picker-title').textContent = category === 'orcamento'
+   ? localized('Escolha o ramo', 'Choose your industry') : localized('Escolha um exemplo', 'Choose an example');
+  find('showcase-count').textContent = available.length + (category === 'orcamento'
+   ? localized(' ramos', ' industries')
+   : available.length === 1 ? localized(' exemplo', ' example') : localized(' exemplos', ' examples'));
+  find('showcase-search-box').hidden = category !== 'orcamento';
+  list.replaceChildren(...shown.map(item => {
+   const li = document.createElement('li');
+   const button = document.createElement('button');
+   button.type = 'button';
+   button.dataset.project = item.id;
+   button.setAttribute('aria-pressed',String(item === selected));
+   button.textContent = localized(item.title, item.english.title);
+   button.addEventListener('click', event => {
+    showProject(item);
+    rememberSelection();
+    if (event.detail && matchMedia('(max-width:700px)').matches) {
+     find('showcase-open').scrollIntoView({block:'nearest'});
+    }
+   });
+   li.append(button);
+   return li;
+  }));
+  more.hidden = category !== 'orcamento' || Boolean(term);
+  more.textContent = expanded ? localized('Voltar aos destaques', 'Back to highlights') : localized('Ver todos os ramos', 'See all industries');
+  more.setAttribute('aria-expanded', String(expanded));
+  find('showcase-empty').textContent = shown.length ? '' : localized('Nenhum ramo encontrado. Tente um nome mais curto.', 'No industries found. Try a shorter search.');
+ }
+
+ typeButtons.forEach(button => button.addEventListener('click',() => {
+  category = button.dataset.type;
+  search.value = '';
+  expanded = false;
+  syncTypeButtons();
+  showProject(category === 'orcamento' ? items.find(item => item.id === 'salao') : items.find(item => item.type === category));
+  renderPicker();
+  rememberSelection();
+ }));
+ search.addEventListener('input',renderPicker);
+ more.addEventListener('click',() => {
+  expanded = !expanded;
+  if (!expanded && !featured.includes(selected.id)) {
+   showProject(items.find(item => item.id === 'salao'));
+   rememberSelection();
+  }
+  renderPicker();
+  list.scrollTop = 0;
+ });
+ function renderLanguage() {
+  root.lang = english() ? 'en' : 'pt-BR';
+  for (const element of root.querySelectorAll('[data-en]')) {
+   element.dataset.pt ??= element.textContent;
+   element.textContent = localized(element.dataset.pt,element.dataset.en);
+  }
+  const searchLabel = localized('Buscar ramo', 'Search industries');
+  find('showcase-search-label').textContent = searchLabel;
+  search.placeholder = searchLabel;
+  root.querySelector('.showcase-types').setAttribute('aria-label',localized('Soluções','Solutions'));
+  showProject(selected);
+  renderPicker();
+ }
+
+ function syncTypeButtons() {
+  typeButtons.forEach(option => option.setAttribute('aria-pressed',String(option.dataset.type === category)));
+ }
+
+ addEventListener('hashchange', () => {
+  const project = items.find(item => item.id === legacy[location.hash]);
+  if (!project) return;
+  category = project.type;
+  search.value = '';
+  expanded = category === 'orcamento' && !featured.includes(project.id);
+  syncTypeButtons();
+  showProject(project);
+  renderPicker();
+ });
+ document.addEventListener('caos-language-change',renderLanguage);
+ more.setAttribute('aria-controls',list.id);
+ syncTypeButtons();
+ renderLanguage();
+ root.querySelector('.showcase-types').hidden = false;
+ root.querySelector('.showcase-picker').hidden = false;
+})();

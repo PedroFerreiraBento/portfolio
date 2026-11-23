@@ -46,7 +46,7 @@
 }
 </script>
 <script src="assets/padrao-dispositivo.js" data-hero-pt="assets/caos-domado-editorial-projeto.webp" data-hero-en="assets/caos-domado-editorial-projeto-en.webp" data-hero-mobile-pt="assets/caos-domado-editorial-projeto-mobile.webp" data-hero-mobile-en="assets/caos-domado-editorial-projeto-en-mobile.webp"></script>
-<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/acervo.css"><link rel="stylesheet" href="assets/caos-domado.css"><script src="assets/campanha.js" defer></script><script src="assets/preferencias.js" defer></script><script src="app.js" defer></script>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/acervo.css"><link rel="stylesheet" href="assets/caos-domado.css"><script src="assets/campanha.js" defer></script><script src="assets/preferencias.js" defer></script><link rel="stylesheet" href="assets/trabalhos.css"><script src="app.js" defer></script><script src="assets/trabalhos.js" defer></script>
 <link rel="stylesheet" href="assets/whatsapp.css"></head>
 <body>
 <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 5l7 7-7 7"/></symbol><symbol id="mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol></svg>
@@ -92,56 +92,53 @@
 </div>
 </div>
 </section>
-<section id="trabalhos" class="work-index" aria-labelledby="work-title">
-<div class="wrap">
-<div class="work-heading">
-<div class="work-intro"><h2 id="work-title">Trabalhos selecionados</h2><p>Abra um trabalho para ver como funciona na prática.</p><a class="services-guide-link" href="/exemplos.html">Encontrar exemplos por ramo</a></div>
-<div class="work-filters" role="group" aria-label="Filtrar trabalhos" hidden>
-<button type="button" data-filter="all" aria-pressed="true">Todos</button><button type="button" data-filter="sites" aria-pressed="false">Sites</button><button type="button" data-filter="interfaces" aria-pressed="false">Ferramentas</button><button type="button" data-filter="integracoes" aria-pressed="false">Automações</button>
-</div>
-<p id="work-results" class="sr-only" role="status"></p>
-</div>
-<div class="work-grid" id="colecao">
-<article class="work-entry work-feature" id="card-captacao" data-categories="sites">
-<a href="demos/plano/index.html" class="work-link">
-<div class="work-cover work-cover-study"><img src="assets/casos/captacao-tablet.webp" data-en-src="assets/casos/captacao-tablet-en.webp" width="1200" height="800" alt="" decoding="async" loading="lazy" fetchpriority="low"></div>
-<div class="work-label"><div><p>Site</p><h3>Site para pedir orçamento</h3><span>Escolha um serviço e simule um pedido de orçamento pelo celular.</span></div><svg aria-hidden="true"><use href="#arrow"/></svg></div>
-</a>
-</article>
-<article class="work-entry" id="card-painel" data-categories="interfaces">
-<a href="assets/casos/painel.html" class="work-link">
-<div class="work-cover work-cover-study"><img src="assets/casos/painel-perfil.webp" data-en-src="assets/casos/painel-perfil-en.webp" width="1200" height="800" alt="" decoding="async" loading="lazy" fetchpriority="low"></div>
-<div class="work-label"><div><p>Ferramenta de trabalho</p><h3>Aprovação de site pelo cliente</h3><span>Veja como o cliente pede ajustes e aprova o site antes de publicar.</span></div><svg aria-hidden="true"><use href="#arrow"/></svg></div>
-</a>
-</article>
-<article class="work-entry" id="card-integracao" data-categories="integracoes">
-<a href="assets/casos/integracao.html" class="work-link">
-<div class="work-cover work-cover-study"><img src="assets/casos/integracao.webp" data-en-src="assets/casos/integracao-en.webp" width="1200" height="800" alt="" decoding="async" loading="lazy" fetchpriority="low"></div>
-<div class="work-label"><div><p>Automação</p><h3>Da loja à expedição</h3><span>Simule uma venda e acompanhe o pedido do pagamento até a coleta.</span></div><svg aria-hidden="true"><use href="#arrow"/></svg></div>
-</a>
-</article>
-<article class="work-entry" id="card-catalogo" data-categories="sites">
-<a href="assets/casos/catalogo.html" class="work-link">
-<div class="work-cover work-cover-study"><img src="assets/casos/catalogo.webp" data-en-src="assets/casos/catalogo-en.webp" width="1200" height="800" loading="lazy" fetchpriority="low" decoding="async" alt=""></div>
-<div class="work-label"><div><p>Site</p><h3>Catálogo para pedir cotação</h3><span>Escolha luminárias e quantidades para baixar uma lista de cotação.</span></div><svg aria-hidden="true"><use href="#arrow"/></svg></div>
-</a>
-</article>
-<article class="work-entry" id="card-vistoria" data-categories="interfaces">
-<a href="assets/casos/vistoria.html" class="work-link">
-<div class="work-cover work-cover-study"><img src="assets/casos/vistoria.webp" data-en-src="assets/casos/vistoria-en.webp" width="1200" height="800" loading="lazy" fetchpriority="low" decoding="async" alt=""></div>
-<div class="work-label"><div><p>Ferramenta de trabalho</p><h3>Vistoria pelo celular</h3><span>Confira os itens, anote o que precisa de ajuste e baixe o relatório.</span></div><svg aria-hidden="true"><use href="#arrow"/></svg></div>
-</a>
-</article>
-<article class="work-entry" id="card-agenda" data-categories="interfaces integracoes">
-<a href="assets/casos/agenda.html" class="work-link">
-<div class="work-cover work-cover-study"><img src="assets/casos/agenda.webp" data-en-src="assets/casos/agenda-en.webp" width="1200" height="800" loading="lazy" fetchpriority="low" decoding="async" alt=""></div>
-<div class="work-label"><div><p>Automação</p><h3>Agenda online</h3><span>Escolha um horário e salve o compromisso no seu calendário.</span></div><svg aria-hidden="true"><use href="#arrow"/></svg></div>
-</a>
-</article>
-</div>
-<div class="collection-actions" hidden><button type="button" class="collection-toggle" aria-controls="colecao" aria-expanded="false">Ver mais trabalhos</button></div>
-</div>
+<section id="trabalhos" class="work-showcase" aria-labelledby="showcase-title" lang="pt-BR" data-no-translate>
+ <div class="wrap">
+  <span id="card-captacao"></span><span id="card-catalogo"></span><span id="card-agenda"></span><span id="card-painel"></span><span id="card-integracao"></span><span id="card-vistoria"></span>
+  <header class="showcase-heading">
+   <h2 id="showcase-title" data-en="Selected work">Trabalhos selecionados</h2>
+   <p data-en="Choose a solution and see how it works for a business like yours.">Escolha uma solução e veja como ela funciona em um negócio como o seu.</p>
+  </header>
+  <div class="showcase-types" hidden role="group" aria-label="Soluções">
+   <button type="button" data-type="orcamento" data-en="Quote request websites" aria-pressed="true">Páginas de orçamento</button>
+   <button type="button" data-type="catalogo" data-en="Online catalogs" aria-pressed="false">Catálogos online</button>
+   <button type="button" data-type="agendamento" data-en="Online booking" aria-pressed="false">Agendamento online</button>
+   <button type="button" data-type="operacao" data-en="Tools for teams" aria-pressed="false">Ferramentas para equipes</button>
+  </div>
+  <div class="showcase-explorer">
+   <aside class="showcase-picker" hidden aria-labelledby="showcase-picker-title">
+    <div class="showcase-picker-head">
+     <h3 id="showcase-picker-title">Escolha o ramo</h3>
+     <span id="showcase-count"></span>
+    </div>
+    <div id="showcase-search-box">
+     <label class="sr-only" id="showcase-search-label" for="showcase-search">Buscar ramo</label>
+     <input id="showcase-search" type="search" placeholder="Buscar ramo" autocomplete="off">
+    </div>
+    <ul id="showcase-list"></ul>
+    <p class="showcase-empty" id="showcase-empty" role="status"></p>
+    <button type="button" class="showcase-more" id="showcase-more">Mais ramos</button>
+   </aside>
+   <article class="showcase-project" aria-labelledby="showcase-project-title">
+    <div class="showcase-image" id="showcase-image">
+     <div class="showcase-desktop"><img loading="lazy" decoding="async" id="showcase-desktop" src="/assets/trabalhos/salao.jpg" width="935" height="548" alt="Página inicial de Bellezza no computador"></div>
+     <div class="showcase-phone" id="showcase-phone-box"><img loading="lazy" decoding="async" id="showcase-phone" src="/assets/trabalhos/salao-mobile.jpg" width="265" height="503" alt="Página inicial de Bellezza no celular"></div>
+    </div>
+    <div class="showcase-caption">
+     <div><h3 id="showcase-project-title">Bellezza</h3><p id="showcase-project-copy">Salão de beleza com uma vitrine de serviços e um pedido de atendimento.</p></div>
+     <div class="showcase-cta">
+      <a class="showcase-open" id="showcase-open" href="/exemplos/sites/salao/">Abrir site completo <span aria-hidden="true">↗</span></a>
+      <a class="showcase-variants" id="showcase-variants" data-en="Compare 3 versions" href="/demos/index.html" hidden>Comparar 3 versões</a>
+     </div>
+    </div>
+   </article>
+  </div>
+  <noscript><p><a href="/exemplos.html">Ver todos os exemplos por ramo</a></p></noscript>
+  <p class="sr-only" id="showcase-status" role="status"></p>
+ </div>
 </section>
+
+
 <section id="estudio" class="studio-case" aria-labelledby="estudio-titulo">
 <div class="wrap studio-inner">
 <img src="assets/pedro-studio.webp" data-en-src="assets/pedro-studio-en.webp" width="1774" height="887" alt="Identidade visual do portfólio Pedro aplicada a um notebook e um celular" loading="lazy" decoding="async">

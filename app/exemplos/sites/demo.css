@@ -75,6 +75,8 @@ body[data-campaign-demo=dentista] main > section:first-child h1 + p + div + div 
  body[data-campaign-demo=clinica-estetica] main > section:first-child .grid > div:first-child > .inline-flex { max-width:100%; }
  body[data-campaign-demo=clinica-estetica] main > section:first-child h1 + p + div + div { flex-wrap:wrap; gap:15px; }
  body[data-campaign-demo=clinica-estetica] #tecnologia .absolute.bottom-10 { inset-inline:24px; }
+ body[data-campaign-demo=clinica-estetica] :is(#tratamentos,#tecnologia,#especialistas) h2 { font-size:clamp(28px,8.2vw,38px); overflow-wrap:anywhere; }
+ body[data-campaign-demo=clinica-estetica] #tecnologia .absolute.bottom-10 h3 { font-size:clamp(25px,7.4vw,36px); overflow-wrap:anywhere; }
  body[data-campaign-demo=biomedicina] main { overflow-x:clip; }
 }
 @media (prefers-reduced-motion:reduce) {

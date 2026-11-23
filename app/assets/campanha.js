@@ -26,8 +26,8 @@
  const hero = document.querySelector('.hero-copy');
  const audience = campaign.publico;
  const offers = {
-  agencias:{title:'Seu time cria.',accent:'Eu desenvolvo.',copy:'Seu layout aprovado vira um site ou interface navegável, com revisão e repasse para a sua agência.',link:'assets/casos/painel.html',demo:'Experimentar uma revisão com o cliente',cta:'Conversar sobre meu layout',message:'Olá, Pedro! Tenho um layout ou briefing e quero conversar sobre a implementação para a minha agência.',card:'card-painel'},
-  prestadores:{title:'Mais pedidos de',accent:'orçamento.',copy:'Veja como seu cliente escolhe um serviço e pede orçamento pelo celular.',link:'demos/plano/index.html',demo:'Testar a página de captação',cta:'Quero uma página de orçamento',message:'Olá, Pedro! Quero uma página de orçamento para receber pedidos dos meus clientes.',card:'card-captacao'}
+  agencias:{title:'Seu time cria.',accent:'Eu desenvolvo.',copy:'Seu layout aprovado vira um site ou interface navegável, com revisão e repasse para a sua agência.',link:'assets/casos/painel.html',demo:'Experimentar uma revisão com o cliente',cta:'Conversar sobre meu layout',message:'Olá, Pedro! Tenho um layout ou briefing e quero conversar sobre a implementação para a minha agência.'},
+  prestadores:{title:'Mais pedidos de',accent:'orçamento.',copy:'Veja como seu cliente escolhe um serviço e pede orçamento pelo celular.',link:'demos/plano/index.html',demo:'Testar a página de captação',cta:'Quero uma página de orçamento',message:'Olá, Pedro! Quero uma página de orçamento para receber pedidos dos meus clientes.'}
  };
  const offer = Object.hasOwn(offers,audience) ? offers[audience] : null;
  const defaultMessage = 'Olá, Pedro! Quero conversar sobre um projeto.';
@@ -130,8 +130,8 @@
    hero.querySelector('p').textContent = offer.copy;
    exploration.href = offer.link;
    exploration.firstChild.textContent = offer.demo + ' ';
-   const featured = document.getElementById(offer.card);
-   featured?.parentElement.prepend(featured);
+   const showcase = document.querySelector('.work-showcase');
+   if (showcase) showcase.dataset.defaultProject = audience === 'agencias' ? 'painel' : 'climapro';
   }
   const direct = document.createElement('a');
   direct.className = 'button campaign-hero-contact';
@@ -150,7 +150,7 @@
    link.className = 'button';
    link.dataset.campaignPlacement = 'gallery';
    followUp.append(link);
-   document.querySelector('.collection-actions')?.after(followUp);
+   document.querySelector('.showcase-explorer')?.after(followUp);
   }
  }
  const demoCTA = document.querySelector('[data-project-whatsapp]');
