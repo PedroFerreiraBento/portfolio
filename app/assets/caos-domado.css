@@ -583,3 +583,8 @@
 .service-exhibit .service-view .catalog-offer-link {
  color:var(--brand-accent-text); text-decoration:underline; text-underline-offset:4px;
 }
+.service-exhibit .services-guide-link {
+ display:inline-flex; align-items:center; min-height:44px; margin-top:4px;
+ color:var(--brand-accent-text); font-weight:700;
+ text-decoration:underline; text-underline-offset:.2em;
+}
