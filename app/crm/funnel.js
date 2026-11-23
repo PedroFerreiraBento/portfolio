@@ -47,7 +47,7 @@ export function initFunnel(loadFunnel) {
   name.className = 'funnel-campaign';
   const campaign = document.createElement('strong');
   const source = document.createElement('span');
-  campaign.textContent = entry.campaign;
+  campaign.textContent = entry.campaign === 'sem-atribuicao' ? t('Sem atribuição') : entry.campaign;
   source.textContent = breakdown === 'creative'
    ? [entry.origin, entry.medium || t('Sem meio'), entry.creative || t('Sem criativo')].join(' · ')
    : entry.origin;
@@ -64,7 +64,16 @@ export function initFunnel(loadFunnel) {
    field('Vendas', pt.format(entry.wins)),
    field('Valor fechado', brl.format(Number(entry.cents) / 100))
   );
-  element.append(name, metrics);
+  const payments = document.createElement('dl');
+  payments.className = 'funnel-receipts';
+  payments.append(
+   field('Entradas recebidas', pt.format(entry.deposits ?? 0)),
+   field('Total recebido', brl.format(Number(entry.deposit_cents ?? 0) / 100))
+  );
+  const data = document.createElement('div');
+  data.className = 'funnel-data';
+  data.append(metrics, payments);
+  element.append(name, data);
   return element;
  }
 
@@ -76,6 +85,7 @@ export function initFunnel(loadFunnel) {
      ? t('Entradas e cliques disponíveis a partir de {date}.').replace('{date}', displayDay(report.trackingFrom))
      : '';
    const notes = [t('Contatos e propostas abertas usam a data de entrada. Vendas e valor fechado usam a data de fechamento.'), metricNote];
+   notes.push(t('Entradas recebidas usam a data do recebimento.'));
    if (report.truncated) notes.push(t('Mostrando 200 resultados. Reduza o período para detalhar os demais.'));
    coverage.textContent = notes.filter(Boolean).join(' ');
    results.replaceChildren(...report.rows.map(entry => row(entry, tracking, report.breakdown)));

@@ -35,8 +35,22 @@ const copy={
  'Ligação':'Call','WhatsApp':'WhatsApp','E-mail':'Email','Reunião':'Meeting','Anotação':'Note',
  'Contato realizado':'Reached','Sem resposta':'No answer','Enviado':'Sent','Realizada':'Completed',
  'Não compareceu':'No-show','Registrada':'Logged','Atualizar esta etapa':'Update this stage','Fechada por':'Won by',
+ 'Visita e campanha':'Visit and campaign','Origem e campanha informadas no cadastro.':'Source and campaign entered manually.',
+ 'Referência sem visita correspondente.':'No matching visit for this reference.',
+ 'A referência está associada a dados conflitantes.':'This reference is associated with conflicting data.',
+ 'Visita vinculada':'Linked visit','Página acessada':'Page opened','Demo aberta':'Demo opened',
+ 'Clique no WhatsApp':'WhatsApp click','Clique no e-mail':'Email click',
+ 'Entrada do projeto':'Project deposit','Sem entrada registrada':'No deposit recorded','Pendente':'Pending','Recebida':'Received',
+ 'Registrar entrada':'Record deposit','Editar entrada':'Edit deposit','Situação da entrada':'Deposit status',
+ 'Valor da entrada (R$)':'Deposit amount (BRL)','Data do recebimento':'Received date',
+ 'Salvar entrada pendente':'Save pending deposit','Confirmar entrada recebida':'Confirm deposit received','Entrada salva.':'Deposit saved.',
+ 'A data do recebimento precisa ser igual ou anterior a hoje.':'The receipt date must be today or earlier.',
+ 'Informe o valor e confira a situação e a data da entrada.':'Enter an amount and check the deposit status and date.',
+ 'Histórico de entradas':'Deposit history',
  'Proposta atualizada':'Proposal updated','Negociação atualizada':'Negotiation updated','Fechamento anterior':'Previous closing',
 };
+const trackKinds={entry:'Página acessada',demo:'Demo aberta',whatsapp:'Clique no WhatsApp',email:'Clique no e-mail'};
+const depositState={pending:'Pendente',received:'Recebida'};
 const stageNames={novo:'Novo',conversa:'Em conversa',proposta:'Proposta enviada',negociacao:'Negociação',ganho:'Ganha',perdido:'Perdida'};
 const boardStages=['novo','conversa','proposta','negociacao'];
 const states={open:'Em andamento',ganho:'Ganhas',perdido:'Perdidas'};
@@ -71,6 +85,9 @@ function dateLabel(value,full=false) {
  const civil=value.length===10;
  return new Intl.DateTimeFormat(lang(),{timeZone:civil?'UTC':zone,day:'numeric',month:'short',
   ...(full&&{year:'numeric'})}).format(new Date(civil?value+'T12:00:00Z':value));
+}
+function eventTimeLabel(value) {
+ return new Intl.DateTimeFormat(lang(),{timeZone:zone,dateStyle:'short',timeStyle:'short'}).format(new Date(value));
 }
 function dueLabel(row,day) {
  return row.due_on===day?t('Hoje'):isLate(row,day)?t('Atrasado')+' · '+dateLabel(row.due_on):dateLabel(row.due_on);
@@ -424,13 +441,26 @@ export function initPipeline(api,getActor,callbacks) {
   for (const record of records) list.append(makeItem(record));
   return list;
  }
- async function loadHistory(row,history) {
+ async function loadHistory(row,history,attribution) {
   const serial=++panelRequest;
   history.replaceChildren(el('p',t('Carregando histórico…')));
   history.setAttribute('aria-busy','true');
   try {
    const result=await api('pipeline-detail&'+new URLSearchParams({reference:row.reference}));
    if (serial!==panelRequest||!active||panelMode!=='detail') return;
+   const visit=result.attribution ?? {status:'manual',events:[]};
+   const summary={
+    linked:'Visita vinculada',unmatched:'Referência sem visita correspondente.',
+    conflict:'A referência está associada a dados conflitantes.',manual:'Origem e campanha informadas no cadastro.'
+   };
+   attribution.replaceChildren(el('h3',t('Visita e campanha')),
+    el('p',[row.origin,row.campaign,row.medium,row.creative].filter(Boolean).join(' · ')),
+    el('p',[t(summary[visit.status]),row.visit_reference].filter(Boolean).join(' · '),'pipeline-section-note'));
+   if (visit.events.length) attribution.append(historyList(visit.events,event=>{
+    const item=el('li');
+    item.append(el('strong',t(trackKinds[event.kind])),el('small',eventTimeLabel(event.recorded_at)));
+    return item;
+   },''));
    const changes=historyList(result.events||[],event=>{
     const item=el('li');
     const change=event.from_stage===event.to_stage?t(event.to_stage==='proposta'?'Proposta atualizada':'Negociação atualizada'):
@@ -460,10 +490,19 @@ export function initPipeline(api,getActor,callbacks) {
     return item;
    },'Nenhuma atividade registrada.');
    history.replaceChildren(el('h3',t('Histórico de etapas')),changes,el('h3',t('Atividades')),log);
+   if (result.depositEvents?.length) {
+    const deposits=historyList(result.depositEvents,event=>{
+     const item=el('li');
+     item.append(el('strong',[t(depositState[event.status]),money(event.value_cents,true),dateLabel(event.received_on,true)].filter(Boolean).join(' · ')),
+      el('small',[eventTimeLabel(event.occurred_at),event.actor_name].filter(Boolean).join(' · ')));
+     return item;
+    },'');
+    history.append(el('h3',t('Histórico de entradas')),deposits);
+   }
   } catch {
    if (serial!==panelRequest) return;
    history.replaceChildren(el('p',t('Não foi possível carregar o histórico.')),
-    button(t('Tentar novamente'),'quiet',()=>loadHistory(row,history)));
+    button(t('Tentar novamente'),'quiet',()=>loadHistory(row,history,attribution)));
   } finally { history.removeAttribute('aria-busy'); }
  }
  function paintPanel(row) {
@@ -498,9 +537,10 @@ export function initPipeline(api,getActor,callbacks) {
   if (isOpen(row)) actions.append(button(t('Registrar atividade'),'quiet',()=>invoke('logActivity',row.reference)));
   actions.append(button(t('Editar'),'quiet',()=>invoke('editOpportunity',row.reference)),
    button(t('Ver cliente'),'quiet',()=>invoke('openClient',row.client_reference||row.reference)));
+  const attribution=el('section',null,'pipeline-commercial-section');
   const history=el('div',null,'pipeline-history');
-  panel.append(meta,actions,history);
-  loadHistory(row,history);
+  panel.append(meta,actions,attribution,depositSection(row),history);
+  loadHistory(row,history,attribution);
  }
  function formField(label,name,type,value='',attributes={}) {
   const field=el('label',t(label));
@@ -510,6 +550,66 @@ export function initPipeline(api,getActor,callbacks) {
   Object.assign(input,{value,required:true,...attributes});
   field.append(input);
   return field;
+ }
+ function depositSection(row) {
+  const section=el('section',null,'pipeline-commercial-section');
+  const title=el('h3',t('Entrada do projeto'));
+  const summary=row.deposit_status
+   ? [t(depositState[row.deposit_status]),money(row.deposit_cents,true),dateLabel(row.deposit_received_on,true)].filter(Boolean).join(' · ')
+   : t('Sem entrada registrada');
+  const details=el('details',null,'pipeline-deposit-editor');
+  const toggle=el('summary',t(row.deposit_status?'Editar entrada':'Registrar entrada'));
+  const form=el('form',null,'pipeline-stage-form');
+  const controls=el('div',null,'pipeline-stage-fields');
+  const stateLabel=el('label',t('Situação da entrada'));
+  const state=el('select');
+  state.name='status';
+  options(state,Object.entries(depositState).map(([value,label])=>[value,t(label)]),row.deposit_status||'pending');
+  stateLabel.append(state);
+  const amount=formField('Valor da entrada (R$)','amount','text',amountInput(row.deposit_cents),{inputMode:'decimal',maxLength:15});
+  const date=formField('Data do recebimento','received_on','date',row.deposit_received_on||'',{min:'2000-01-01',max:today()});
+  const dateInput=date.querySelector('input');
+  const submit=el('button',null,'primary');
+  submit.type='submit';
+  const help=el('p',null,'pipeline-stage-help');
+  help.setAttribute('role','status');
+  controls.append(stateLabel,amount,date);
+  form.append(controls,submit,help);
+  const updateStatus=()=>{
+   const received=state.value==='received';
+   date.hidden=!received;
+   dateInput.disabled=!received;
+   dateInput.required=received;
+   submit.textContent=t(received?'Confirmar entrada recebida':'Salvar entrada pendente');
+  };
+  updateStatus();
+  state.addEventListener('change',updateStatus);
+  form.addEventListener('submit',async event=>{
+   event.preventDefault();
+   const cents=parseAmount(form.elements.amount.value);
+   if (cents===null) {
+    help.textContent=t('Informe um valor em reais, como 7.200,00.');
+    form.elements.amount.focus();
+    return;
+   }
+   help.textContent='';
+   submit.disabled=true;
+   try {
+    await api('pipeline-deposit','PATCH',{reference:row.reference,revision:row.revision,
+     status:state.value,value_cents:cents,received_on:dateInput.disabled?null:dateInput.value});
+    await refresh();
+    if (active&&selected===row.reference) $('pipeline-panel').querySelector('.pipeline-deposit-editor summary')?.focus();
+    notify('Entrada salva.');
+   } catch (error) {
+    const messages={invalid_deposit_date:'A data do recebimento precisa ser igual ou anterior a hoje.',
+     invalid_deposit:'Informe o valor e confira a situação e a data da entrada.'};
+    help.textContent=t(messages[error.code]||failureMessage(error));
+    submit.disabled=false;
+   }
+  });
+  details.append(toggle,form);
+  section.append(title,el('p',summary,'pipeline-deposit-summary'),details);
+  return section;
  }
  function moveForm(row,initialStage='') {
   const form=el('form',null,'pipeline-stage-form');

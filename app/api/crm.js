@@ -1,11 +1,12 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import { neon } from '@neondatabase/serverless';
-import { handleFunnel } from '../lib/crm-funnel.js';
+import { contactReferencePattern as referencePattern, handleFunnel, matchingVisit } from '../lib/crm-funnel.js';
 import { handleOperations } from '../lib/crm-operations.js';
 import { handleTodayPerformance } from '../lib/crm-today-performance.js';
 import { handleTodayExperiments } from '../lib/crm-today-experiments.js';
 import { getTeamActor, handleTeamDirectory, loginTeam, logoutTeam, teamMemberId } from '../lib/crm-team.js';
 import { handleClients, updateClientFollowup, validClientReference } from '../lib/crm-clients.js';
+import { recordDeposit } from '../lib/crm-deposits.js';
 import { changePipelineStage, handlePipeline, pipelineStages } from '../lib/crm-pipeline.js';
 
 const stages = ['novo', 'conversa', 'proposta', 'ganho', 'perdido'];
@@ -14,7 +15,6 @@ const secure = process.env.VERCEL === '1';
 const schema = process.env.VERCEL_ENV === 'production' ? 'crm' : 'crm_preview';
 const cookieName = secure ? '__Host-caos-crm' : 'caos-crm';
 const sessionSeconds = 12 * 60 * 60;
-const referencePattern = /^CD-[A-Z0-9]{12}$/;
 const digest = value => createHash('sha256').update(value).digest('hex');
 const same = (left, right) => typeof right === 'string' &&
   Buffer.byteLength(left) === Buffer.byteLength(right) &&
@@ -77,12 +77,14 @@ function opportunity(data, isPublic, allowedStages=stages) {
       !allowedStages.includes(stage) || !channels.includes(channel) ||
       (stage === 'ganho' && cents === null) ||
       (cents !== null && (!Number.isInteger(cents) || cents <= 0 || cents > 2147483647))) return null;
-  const reference = typeof data.reference === 'string' && referencePattern.test(data.reference) ?
-    data.reference : 'CD-' + randomBytes(6).toString('hex').toUpperCase();
+  const visit = typeof data.visit_reference === 'string' && referencePattern.test(data.visit_reference)
+    ? data.visit_reference : null;
+  const reference = typeof data.reference === 'string' && referencePattern.test(data.reference)
+    ? data.reference
+    : (!isPublic && channel === 'whatsapp' && visit) || 'CD-' + randomBytes(6).toString('hex').toUpperCase();
   return { reference, origin: slug(data.origin), campaign: slug(data.campaign), channel,
     name, company, email: email.toLowerCase(), message, nextStep: isPublic ? '' : nextStep, stage, cents, dueOn,
-    visit: typeof data.visit_reference === 'string' && referencePattern.test(data.visit_reference) ? data.visit_reference : null,
-    medium: optionalSlug(data.medium), creative: optionalSlug(data.creative) };
+    visit, medium: optionalSlug(data.medium), creative: optionalSlug(data.creative) };
 }
 
 export function makeHandler(connect = neon) {
@@ -176,6 +178,9 @@ export function makeHandler(connect = neon) {
       if (pipeline && action === 'pipeline-stage') {
         return await changePipelineStage({method:req.method, sql, schema, data, reply, actor, dateOnly});
       }
+      if (pipeline && action === 'pipeline-deposit') {
+        return await recordDeposit({method:req.method, sql, schema, data, reply, actor, dateOnly});
+      }
       if (clients && ['clients', 'client'].includes(action)) {
         return await handleClients({action, method:req.method, sql, schema, query:req.query, reply, actor});
       }
@@ -206,6 +211,7 @@ export function makeHandler(connect = neon) {
         if (action !== 'list') return reply(404, {error: 'action'});
         const rows = await sql.query('SELECT o.reference,o.origin,o.campaign,o.medium,o.creative,o.channel,' +
           'o.name,o.company,o.email,o.message,o.next_step,o.stage,o.value_cents,o.won_at,o.revision,o.created_at,o.updated_at,' +
+          'o.visit_reference,o.attributed_visit_id,' +
           (clients ? 'o.project_name,COALESCE(o.client_reference,o.reference) AS client_reference,' : '') +
           (team ? 'o.owner_id, o.won_by_id, owner.name AS owner_name, ' : '') + 'o.due_on::text AS due_on, CASE ' +
           "WHEN n.failed_at IS NOT NULL THEN 'failed' WHEN n.sent_at IS NOT NULL THEN 'accepted' " +
@@ -243,6 +249,9 @@ export function makeHandler(connect = neon) {
       }
       const lead = opportunity(input, publicIntake, pipeline ? pipelineStages : stages);
       if (!lead) return reply(400, {error: 'invalid'});
+      if (!publicIntake && data.visit_reference != null && data.visit_reference !== '' && !lead.visit) {
+        return reply(400, {error:'invalid_visit_reference'});
+      }
       const explicitOwner = team && !publicIntake && !linked && Object.hasOwn(data, 'owner_id');
       const requestedOwner = explicitOwner && data.owner_id !== '' ? data.owner_id : null;
       if (explicitOwner && requestedOwner !== null &&
@@ -255,7 +264,7 @@ export function makeHandler(connect = neon) {
         if (!member) return reply(400, {error:'invalid'});
       }
       const fields = 'reference,origin,campaign,medium,creative,channel,name,company,email,message,next_step,stage,' +
-        'value_cents,won_at,revision,created_at,updated_at,due_on::text AS due_on' +
+        'value_cents,won_at,revision,created_at,updated_at,due_on::text AS due_on,visit_reference,attributed_visit_id' +
         (clients ? ',project_name,COALESCE(o.client_reference,o.reference) AS client_reference' : '');
       const ownershipFields = team ? ',owner_id,won_by_id,(SELECT m.name FROM ' + schema + '.team_members m WHERE m.id=o.owner_id) AS owner_name' : '';
       const params = [lead.reference, lead.origin, lead.campaign, lead.channel, lead.name, lead.company,
@@ -272,18 +281,26 @@ export function makeHandler(connect = neon) {
         const teamFields = team ? ', owner_id=' + owner +
           ", won_by_id=CASE WHEN $10 <> 'ganho' THEN NULL WHEN o.stage='ganho' THEN o.won_by_id" +
           ' ELSE COALESCE(' + owner + ',$21::uuid) END' : '';
-        const [updated] = await sql.query('UPDATE ' + links + ' AS o SET origin=$2, campaign=$3, channel=$4, ' +
+        const visitArgument = '$' + (19 + (team ? 3 : 0) + (clients ? 1 : 0)) + '::text';
+        const provenance = (column, fallback) =>
+          column + '=CASE WHEN o.attributed_visit_id IS NOT NULL THEN o.' + column +
+          ' ELSE COALESCE((SELECT ' + column + ' FROM attribution),' + fallback + ') END';
+        const [updated] = await sql.query('WITH attribution AS (' + matchingVisit(schema, visitArgument, '$4::text') + ')' +
+          ' UPDATE ' + links + ' AS o SET ' + provenance('origin','$2') + ',' + provenance('campaign','$3') + ',channel=$4,' +
           identityFields + 'message=$8, next_step=$9, stage=$10, value_cents=$11, ' +
           "won_at=CASE WHEN $10='ganho' THEN COALESCE(won_at,now()) END, revision=revision+1, updated_at=now()" +
           ', due_on=CASE WHEN $16 THEN $12::date ELSE due_on END, ' +
-          'medium=CASE WHEN $17 THEN $13 ELSE medium END, creative=CASE WHEN $18 THEN $14 ELSE creative END' + teamFields + projectField +
+          provenance('medium','CASE WHEN $17 THEN $13 ELSE o.medium END') + ',' +
+          provenance('creative','CASE WHEN $18 THEN $14 ELSE o.creative END') + ',' +
+          'visit_reference=CASE WHEN o.attributed_visit_id IS NOT NULL THEN o.visit_reference ELSE COALESCE(' + visitArgument + ',o.visit_reference) END,' +
+          'attributed_visit_id=COALESCE(o.attributed_visit_id,(SELECT visit_id FROM attribution))' + teamFields + projectField +
           ' WHERE reference=$1 AND revision=$15' + (ownOnly ? ' AND o.owner_id=$21::uuid' : '') +
           ' RETURNING ' + fields + ownershipFields + ',' +
           "(SELECT CASE WHEN failed_at IS NOT NULL THEN 'failed' WHEN sent_at IS NOT NULL THEN 'accepted' ELSE 'pending' END " +
           'FROM ' + schema + '.notification_outbox WHERE reference=$1) AS notification_status', [
             ...params, data.revision, Object.hasOwn(data,'due_on'), Object.hasOwn(data,'medium'), Object.hasOwn(data,'creative'),
             ...(team ? [requestedOwner, explicitOwner && !ownOnly, actor.id] : []),
-            ...(clients ? [projectName ?? null] : [])
+            ...(clients ? [projectName ?? null] : []), lead.visit
           ]);
         if (updated) return reply(200, {row:updated});
         if (ownOnly) {
@@ -293,18 +310,18 @@ export function makeHandler(connect = neon) {
         return reply(409, {error:'stale'});
       }
       if (linked) {
-        const [result] = await sql.query('WITH parent AS (' +
+        const [result] = await sql.query('WITH attribution AS (' + matchingVisit(schema, '$16::text', '$6::text') + '), parent AS (' +
           'SELECT reference,name,company,email,owner_id FROM ' + links +
           ' WHERE reference=$1 AND client_reference IS NULL AND ($2::uuid IS NULL OR owner_id=$2) FOR UPDATE' +
           '), created AS (INSERT INTO ' + links + ' AS o (reference,origin,campaign,channel,name,company,email,' +
-          'message,next_step,stage,value_cents,won_at,due_on,medium,creative,owner_id,won_by_id,project_name,client_reference)' +
-          ' SELECT $3,$4,$5,$6,parent.name,parent.company,parent.email,$7,$8,$9,$10,' +
-          "CASE WHEN $9='ganho' THEN now() END,$11,$12,$13,parent.owner_id," +
-          "CASE WHEN $9='ganho' THEN COALESCE(parent.owner_id,$14::uuid) END,$15,parent.reference FROM parent" +
+          'message,next_step,stage,value_cents,won_at,due_on,medium,creative,owner_id,won_by_id,project_name,client_reference,visit_reference,attributed_visit_id)' +
+          ' SELECT $3,COALESCE(a.origin,$4),COALESCE(a.campaign,$5),$6,parent.name,parent.company,parent.email,$7,$8,$9,$10,' +
+          "CASE WHEN $9='ganho' THEN now() END,$11,COALESCE(a.medium,$12),COALESCE(a.creative,$13),parent.owner_id," +
+          "CASE WHEN $9='ganho' THEN COALESCE(parent.owner_id,$14::uuid) END,$15,parent.reference,$16,a.visit_id FROM parent LEFT JOIN attribution a ON true" +
           ' ON CONFLICT (reference) DO NOTHING RETURNING ' + fields + ownershipFields +
           ') SELECT (SELECT to_jsonb(created) FROM created) AS row, EXISTS (SELECT 1 FROM parent) AS parent_visible',
           [data.client_reference,ownOnly ? actor.id : null,lead.reference,lead.origin,lead.campaign,lead.channel,
-            lead.message,lead.nextStep,lead.stage,lead.cents,lead.dueOn,lead.medium,lead.creative,actor?.id ?? null,projectName ?? '']);
+            lead.message,lead.nextStep,lead.stage,lead.cents,lead.dueOn,lead.medium,lead.creative,actor?.id ?? null,projectName ?? '',lead.visit]);
         if (result.row) return reply(201, {row:result.row});
         return result.parent_visible ? reply(409, {error:'duplicate'}) : reply(404, {error:'missing_contact'});
       }
@@ -312,12 +329,13 @@ export function makeHandler(connect = neon) {
       const fingerprint = publicIntake ? digest(JSON.stringify([lead.email, lead.message, lead.name, lead.company])) : null;
       const ownerId = explicitOwner ? requestedOwner : actor?.id ?? null;
       const wonBy = lead.stage === 'ganho' ? ownerId ?? actor?.id ?? null : null;
-      const [created] = await sql.query('INSERT INTO ' + links + ' AS o (reference,origin,campaign,channel,name,company,' +
+      const [created] = await sql.query('WITH attribution AS (' + matchingVisit(schema, '$15::text', '$4::text') + ')' +
+        ' INSERT INTO ' + links + ' AS o (reference,origin,campaign,channel,name,company,' +
         'email,message,next_step,stage,value_cents,won_at,due_on,medium,creative,visit_reference,intake_hash' +
-        (team ? ',owner_id,won_by_id' : '') + (clients ? ',project_name' : '') + ')' +
-        " VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,CASE WHEN $10='ganho' THEN now() END,$12,$13,$14,$15,$16" +
+        (team ? ',owner_id,won_by_id' : '') + (clients ? ',project_name' : '') + ',attributed_visit_id)' +
+        " SELECT $1,COALESCE(a.origin,$2),COALESCE(a.campaign,$3),$4,$5,$6,$7,$8,$9,$10,$11,CASE WHEN $10='ganho' THEN now() END,$12,COALESCE(a.medium,$13),COALESCE(a.creative,$14),$15,$16" +
         (team ? ',$17,$18' : '') + (clients ? (team ? ',$19' : ',$17') : '') +
-        ') ON CONFLICT (reference) DO NOTHING RETURNING ' + fields + ownershipFields,
+        ',a.visit_id FROM (VALUES (1)) seed LEFT JOIN attribution a ON true ON CONFLICT (reference) DO NOTHING RETURNING ' + fields + ownershipFields,
         [...params, lead.visit, fingerprint, ...(team ? [ownerId, wonBy] : []), ...(clients ? [projectName ?? ''] : [])]);
       if (created) return reply(201, publicIntake ? {reference: lead.reference} : {row: created});
       if (publicIntake) {

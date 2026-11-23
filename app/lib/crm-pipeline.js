@@ -1,4 +1,5 @@
 import { validClientReference } from './crm-clients.js';
+import { matchingVisit } from './crm-funnel.js';
 
 const openStages = ['novo', 'conversa', 'proposta', 'negociacao'];
 export const pipelineStages = [...openStages, 'ganho', 'perdido'];
@@ -12,6 +13,7 @@ function rowFields(schema) {
     "COALESCE(o.closed_on,(o.won_at AT TIME ZONE 'America/Sao_Paulo')::date)::text AS closed_on," +
     "COALESCE(o.stage_changed_at,CASE WHEN o.stage='novo' THEN o.created_at END) AS stage_since," +
     'o.loss_reason,o.owner_id,o.won_by_id,owner.name AS owner_name,' +
+    'o.visit_reference,o.attributed_visit_id,o.deposit_status,o.deposit_cents,o.deposit_received_on::text AS deposit_received_on,' +
     '(SELECT name FROM ' + schema + '.team_members WHERE id=o.won_by_id) AS won_by_name,' +
     'EXISTS (SELECT 1 FROM ' + schema + '.activities a WHERE a.reference=o.reference AND ' +
     confirmed + ') AS has_confirmed_contact';
@@ -37,7 +39,8 @@ export async function handlePipeline({action, method, sql, schema, query, reply,
   const [row] = await sql.query(scopedRows + ' AND o.reference=$2',[scope,reference]);
   if (!row) return reply(404, {error:'missing_contact'});
   const where = ' WHERE o.reference=$2 AND ($1::uuid IS NULL OR o.owner_id=$1)';
-  const [events,activities] = await Promise.all([
+  const visitSource = matchingVisit(schema, '$3::text', '$4::text');
+  const [events,activities,depositEvents,visitTrail] = await Promise.all([
     sql.query('SELECT e.reference,e.revision,e.from_stage,e.to_stage,e.actor_id,person.name AS actor_name,e.reason,' +
       'e.value_cents,e.proposal_on::text,e.closed_on::text,e.next_step,e.due_on::text,e.occurred_at,' +
       'e.won_by_id,e.previous_won_by_id,e.previous_value_cents,e.previous_closed_on::text,' +
@@ -48,9 +51,21 @@ export async function handlePipeline({action, method, sql, schema, query, reply,
     sql.query('SELECT a.id,a.reference,a.kind,a.outcome,a.occurred_at,a.notes,a.actor_id,person.name AS actor_name' +
       ' FROM ' + schema + '.activities a JOIN ' + opportunities + ' o ON o.reference=a.reference' +
       ' LEFT JOIN ' + team + ' person ON person.id=a.actor_id' + where +
-      ' AND ($1::uuid IS NULL OR a.actor_id=$1) ORDER BY a.occurred_at DESC,a.id',[scope,reference])
+      ' AND ($1::uuid IS NULL OR a.actor_id=$1) ORDER BY a.occurred_at DESC,a.id',[scope,reference]),
+    sql.query('SELECT d.revision,d.status,d.value_cents,d.received_on::text,d.occurred_at,person.name AS actor_name' +
+      ' FROM ' + schema + '.deposit_events d JOIN ' + opportunities + ' o ON o.reference=d.reference' +
+      ' LEFT JOIN ' + team + ' person ON person.id=d.actor_id' + where + ' ORDER BY d.revision DESC',[scope,reference]),
+    !row.attributed_visit_id ? [] : sql.query(
+      `WITH visit AS (${visitSource})
+       SELECT e.kind,e.placement,e.recorded_at FROM visit JOIN ${schema}.funnel_events e USING (visit_id)
+       JOIN ${opportunities} o ON o.attributed_visit_id=visit.visit_id${where}
+       AND e.contact_reference=$3 ORDER BY e.recorded_at,e.kind,e.placement LIMIT 50`,
+      [scope,reference,row.visit_reference,row.channel])
   ]);
-  return reply(200, {row,events,activities});
+  const attribution = row.attributed_visit_id
+    ? {status: visitTrail.length ? 'linked' : 'conflict', events: visitTrail}
+    : {status: row.visit_reference ? 'unmatched' : 'manual', events: []};
+  return reply(200, {row,events,activities,attribution,depositEvents});
 }
 
 function optionalText(value,max) {

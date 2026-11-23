@@ -70,7 +70,7 @@
    method: 'POST',
    headers: {'Content-Type': 'application/json'},
    body: JSON.stringify({
-    visit_id: visitId, kind, placement, origin: originName, campaign: campaignName, medium, creative
+    visit_id: visitId, contact_reference: reference, kind, placement, origin: originName, campaign: campaignName, medium, creative
    }),
    keepalive: true
   }).then(response => response.ok, () => false);

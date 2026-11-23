@@ -151,3 +151,13 @@
  .pipeline-panel-heading { flex-direction:column-reverse; align-items:flex-start; }
  .pipeline-stage-fields { grid-template-columns:minmax(0,1fr); }
 }
+
+.pipeline-commercial-section { border-top:1px solid var(--line); margin-top:1rem; padding-top:.8rem; }
+.pipeline-commercial-section:empty { display:none; }
+.pipeline-commercial-section h3 { font-size:1rem; margin:0 0 .3rem; }
+.pipeline-commercial-section p { margin:.2rem 0 .5rem; overflow-wrap:anywhere; }
+.pipeline-section-note { color:var(--muted); font-size:.86rem; }
+.pipeline-deposit-summary { font-variant-numeric:tabular-nums; font-weight:600; }
+.pipeline-deposit-editor summary { cursor:pointer; width:fit-content; padding:.4rem 0; }
+.pipeline-deposit-editor form { margin-top:.5rem; max-width:37rem; }
+.pipeline-deposit-editor form > button { justify-self:start; }

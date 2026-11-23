@@ -23,6 +23,7 @@ const errorText = {
  duplicate: 'Essa referência já está cadastrada. Busque o contato para editar.',
  stale: 'Esse contato foi alterado em outra aba. Reabra o registro atualizado antes de salvar.',
  key: 'Chave de acesso incorreta.',
+ invalid_visit_reference: 'Use a referência CD- seguida de 12 letras maiúsculas ou números.',
  invalid: 'Revise os campos e envie novamente.',
  missing_contact: 'Não encontrei este contato. Atualize a lista e tente novamente.',
  missing_client: 'Não encontrei este contato. Atualize a lista e tente novamente.',
@@ -260,10 +261,12 @@ function openEditor(row, trigger, options = {}) {
  projectEditor = Boolean(options.project || relatedClient || linkedProject);
  leadForm.reset();
  if (row) {
-  for (const key of ['name', 'company', 'email', 'channel', 'stage', 'origin', 'campaign', 'medium', 'creative', 'next_step', 'due_on', 'message']) field(key).value = row[key] ?? '';
+  for (const key of ['name', 'company', 'email', 'channel', 'stage', 'origin', 'campaign', 'medium', 'creative', 'visit_reference', 'next_step', 'due_on', 'message']) field(key).value = row[key] ?? '';
   field('amount').value = row.value_cents ? decimal.format(row.value_cents / 100) : '';
   field('project_name').value = row.project_name ?? '';
  }
+ field('visit_reference').readOnly = Boolean(row?.attributed_visit_id);
+ for (const key of ['origin', 'campaign', 'medium', 'creative']) field(key).readOnly = Boolean(row?.attributed_visit_id);
  if (relatedClient) for (const key of ['name','company','email','channel']) field(key).value=relatedClient[key] ?? '';
  renderContactFields(Boolean(relatedClient || linkedProject));
  $('lead-client-field').hidden=true;
@@ -408,6 +411,7 @@ $('read-message').addEventListener('click', async () => {
   return;
  }
  reference = match;
+ field('visit_reference').value = match;
  $('reference').textContent = reference;
  field('origin').value = read('Origem') || 'direto';
  field('campaign').value = read('Campanha') || 'direto';
@@ -439,6 +443,7 @@ leadForm.addEventListener('submit', async event => {
    ...data, origin: data.origin.toLowerCase(), campaign: data.campaign.toLowerCase(),
    medium: data.medium.toLowerCase(), creative: data.creative.toLowerCase(),
    reference, revision: current?.revision, value_cents: amount,
+   visit_reference: data.visit_reference.trim().toUpperCase(),
    ...(relatedClient ? {client_reference:relatedClient.reference} : {}),
    ...(data.owner_id === undefined || (current && (data.owner_id || null) === current.owner_id) ? {} :
     {owner_id:data.owner_id || null})
