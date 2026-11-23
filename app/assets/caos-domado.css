@@ -4,7 +4,7 @@
 .brand-lockup strong { color:#963715; font-weight:800; font-size:18px; }
 .brand-lockup small { margin-top:4px; color:#584335; font-size:12px; }
 .brand-header .header nav { gap:clamp(13px,2vw,30px); }
-.brand-header nav [aria-current=page] { text-decoration:underline; text-underline-offset:6px; color:#963715; }
+.brand-header nav [aria-current=page] { text-decoration:underline; text-underline-offset:6px; }
 .footer-brand { font-size:clamp(17px,2vw,26px); font-weight:800; letter-spacing:-.04em; line-height:1.05; }
 .brand-contact { background:#f7eee3; color:#281e18; color-scheme:light; }
 .contact-page { padding-block:clamp(38px,6vw,96px); }
@@ -125,6 +125,7 @@
  --brand-charcoal:#1b1a19;
  --brand-ivory:#faf2e7;
  --brand-text:var(--brand-charcoal);
+ --brand-accent-text:var(--copper);
  --brand-canvas:var(--brand-ivory);
  --brand-surface:#fffaf2;
  --brand-inset:#f2e7d9;
@@ -137,6 +138,7 @@
 :root[data-theme=dark] {
  color-scheme:dark;
  --brand-text:var(--brand-ivory);
+ --brand-accent-text:var(--brand-amber);
  --brand-canvas:var(--brand-charcoal);
  --brand-surface:#282521;
  --brand-inset:#302b25;
@@ -162,9 +164,11 @@
 .work-link,.faq-list details,.faq-list details:last-of-type,.service-picker label,.service-picker label:last-child {
  border-color:var(--brand-border);
 }
-.brand-lockup strong,.brand-header nav [aria-current=page],.work-label p,.work-link:hover h3,
+.brand-lockup strong,.work-label p,
 .faq-list summary svg,.faq-list summary:hover,.faq-list details[open] summary,.faq-contact,
 .service-picker label:has(:checked),.contact-channel svg { color:var(--brand-text); }
+.brand-header nav a:is([aria-current=page],:hover),
+.work-index .work-link:hover h3 { color:var(--brand-accent-text); }
 .work-link:hover h3,.faq-list summary:hover { text-decoration:underline; text-underline-offset:4px; }
 .brand-lockup small,.work-label p,.work-label span,.service-view figcaption,
 .faq-list details p,.contact-card h2 + p,.contact-channel small,.language-names small,
