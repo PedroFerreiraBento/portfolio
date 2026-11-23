@@ -124,6 +124,7 @@
   const actions = hero.querySelector('.hero-actions');
   const exploration = actions.querySelector('a');
   if (offer) {
+   hero.querySelector('.hero-offers')?.setAttribute('hidden', '');
    hero.querySelector('h1').firstChild.textContent = offer.title;
    hero.querySelector('h1 .accent').textContent = offer.accent;
    hero.querySelector('p').textContent = offer.copy;

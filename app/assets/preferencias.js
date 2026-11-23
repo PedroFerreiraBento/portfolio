@@ -88,17 +88,26 @@
   "for businesses and agencies."
  ],
  [
-  "Design e código",
-  "Design and code"
+  "Sites para",
+  "Websites for"
  ],
  [
-  "Criamos sites, interfaces e integrações para agências e empresas, do seu layout ou briefing à entrega.",
-  "We build websites, interfaces and integrations for agencies and businesses, from your design or brief through delivery."
+  "Receba pedidos de orçamento pelo WhatsApp, apresente seus produtos e organize agendamentos online.",
+  "Receive quote requests on WhatsApp, showcase your products and let customers book online."
  ],
  [
   "Explorar trabalhos",
   "Explore our work"
  ],
+ ["pequenos negócios.", "small businesses."],
+ ["Ofertas do Caos Domado", "Caos Domado services"],
+ ["Página de Orçamento", "Quote Request Page"],
+ ["Catálogo Online", "Online Catalog"],
+ ["Agendamento Online", "Online Scheduling"],
+ ["Ver demo", "View demo"],
+ ["Ver demo da Página de Orçamento", "View the Quote Request Page demo"],
+ ["Ver demo do Catálogo Online", "View the Online Catalog demo"],
+ ["Ver demo do Agendamento Online", "View the Online Scheduling demo"],
  [
   "Trabalhos selecionados",
   "Selected work"
