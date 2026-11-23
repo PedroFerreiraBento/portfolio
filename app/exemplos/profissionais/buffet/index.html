@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,nofollow"><title>Mesa de Festa Buffet — demonstração</title>
+ <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
+</head>
+<body class="catering">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="demo-bar"><a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
+<header class="header wrap">
+ <a class="wordmark" href="#">Mesa de Festa</a>
+ <nav aria-label="Navegação principal"><a href="#formatos">Formatos de buffet</a><a href="#evento">Pedir proposta</a></nav>
+</header>
+<main id="conteudo">
+ <section class="catering-hero">
+  <div class="wrap">
+   <div class="hero-copy"><h1>Uma boa festa começa à mesa.</h1><p>Buffet para celebrações e encontros de empresa. Comece pelo tipo de evento, pelo número de pessoas e pelo formato que combina com a ocasião.</p><a class="button" href="#evento">Planejar meu evento</a></div>
+  </div>
+  <img src="../mesa-buffet.webp" alt="Buffet com empadas, frutas e pequenos doces sobre mesa de linho" width="1440" height="1080" fetchpriority="high">
+ </section>
+ <section class="catering-menu wrap" id="formatos">
+  <h2>Da primeira xícara à última sobremesa.</h2>
+  <div class="catering-formats">
+   <article><h3>Coffee break</h3><p>Café, frutas e salgados em porções pequenas para pausas de trabalho.</p></article>
+   <article><h3>Coquetel</h3><p>Petiscos e doces individuais para encontros em que os convidados circulam.</p></article>
+   <article><h3>Almoço ou jantar</h3><p>Uma proposta de refeição completa, organizada de acordo com o espaço e o horário.</p></article>
+  </div>
+ </section>
+ <section class="request" id="evento"><div class="wrap request-grid">
+  <div><h2>Conte como será o evento</h2><p>O tipo de ocasião, o número de pessoas e a forma de servir ajudam a equipe a preparar a proposta.</p><p class="note">Este é um pedido de teste. Ele não reserva uma data.</p></div>
+  <form method="post" action="#evento" data-demo-form>
+   <label for="buffet-evento">Ocasião</label>
+   <select id="buffet-evento" name="Ocasião" required><option value="">Escolha a ocasião</option><option>Aniversário</option><option>Evento de empresa</option><option>Encontro em família</option></select>
+   <label for="buffet-convidados">Número de convidados</label>
+   <select id="buffet-convidados" name="Convidados" required><option value="">Escolha uma quantidade</option><option>Até 30 pessoas</option><option>De 31 a 80 pessoas</option><option>Mais de 80 pessoas</option></select>
+   <label for="buffet-formato">Formato de buffet</label>
+   <select id="buffet-formato" name="Formato" required><option value="">Escolha como servir</option><option>Coffee break</option><option>Coquetel</option><option>Almoço ou jantar</option></select>
+   <button class="button" type="submit" disabled>Ver pedido de proposta</button>
+   <section class="receipt" data-receipt hidden aria-labelledby="buffet-recibo"><h3 id="buffet-recibo" tabindex="-1">Resumo do evento</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
+   <noscript><p>Ative o JavaScript para testar a prévia da proposta.</p></noscript>
+  </form>
+ </div></section>
+</main>
+<footer class="footer wrap"><strong>Mesa de Festa Buffet</strong><p>Buffet fictício criado para demonstrar o site.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
+</body></html>

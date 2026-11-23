@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,nofollow"><title>Vetor Treinamento — demonstração</title>
+ <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
+</head>
+<body class="training">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="demo-bar"><a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
+<header class="header wrap">
+ <a class="wordmark" href="#">Vetor <span>treinamento</span></a>
+ <nav aria-label="Navegação principal"><a href="#formatos">Formatos de treino</a><a href="#pedido">Consultar horários</a></nav>
+</header>
+<main id="conteudo">
+ <section class="training-hero wrap">
+  <img src="../estudio-treinamento.webp" alt="Praticante treinando com kettlebell em estúdio bem iluminado" width="1440" height="1080" fetchpriority="high">
+  <div class="hero-copy"><h1>Treino que cabe na sua rotina.</h1><p>Personal trainer com sessões presenciais, treinos em dupla e acompanhamento online. Conheça os formatos e consulte horários.</p><a class="button" href="#pedido">Escolher formato e horário</a></div>
+ </section>
+ <section class="training-method" id="formatos"><div class="wrap">
+  <h2>Escolha como quer treinar</h2>
+  <dl>
+   <div><dt>Presencial individual</dt><dd>Sessão acompanhada em horário combinado.</dd></div>
+   <div><dt>Presencial em dupla</dt><dd>Horário compartilhado com alguém que quer treinar com você.</dd></div>
+   <div><dt>Acompanhamento online</dt><dd>Treino orientado à distância, com revisão da rotina em encontros online.</dd></div>
+  </dl>
+ </div></section>
+ <section class="request" id="pedido"><div class="wrap request-grid">
+  <div><h2>Combine sua disponibilidade</h2><p>A equipe começa pelo formato do treino, pela frequência e pelo período do dia.</p><p class="note">Este exemplo consulta preferências. Os horários são ilustrativos.</p></div>
+  <form method="post" action="#pedido" data-demo-form>
+   <label for="treino-formato">Formato</label>
+   <select id="treino-formato" name="Formato" required><option value="">Selecione um formato</option><option>Presencial individual</option><option>Presencial em dupla</option><option>Acompanhamento online</option></select>
+   <fieldset><legend>Frequência preferida</legend><label class="radio"><input type="radio" name="Frequência" value="1 vez por semana" required> 1 vez por semana</label><label class="radio"><input type="radio" name="Frequência" value="2 vezes por semana"> 2 vezes por semana</label><label class="radio"><input type="radio" name="Frequência" value="3 vezes por semana"> 3 vezes por semana</label></fieldset>
+   <label for="treino-turno">Período do dia</label>
+   <select id="treino-turno" name="Período" required><option value="">Selecione um período</option><option>De manhã</option><option>À tarde</option><option>À noite</option></select>
+   <button class="button" type="submit" disabled>Ver consulta de exemplo</button>
+   <section class="receipt" data-receipt hidden aria-labelledby="treino-recibo"><h3 id="treino-recibo" tabindex="-1">Resumo da consulta de horários</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
+   <noscript><p>Ative o JavaScript para testar a consulta de horários.</p></noscript>
+  </form>
+ </div></section>
+</main>
+<footer class="footer wrap"><strong>Vetor Treinamento</strong><p>Estúdio fictício criado para demonstrar o site.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
+</body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Oficina independente. Site demonstrativo do Caos Domado.">
+ <title>Pista 22 | Oficina independente</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="../demo.css">
+ <script src="../demo.js" defer></script>
+</head>
+<body class="oficina">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
+ <a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
+</aside>
+<header class="site-header">
+ <a class="wordmark" href="#conteudo">Pista 22</a>
+ <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
+</header>
+<main id="conteudo">
+ <section class="hero"><div class="hero-copy"><h1>Seu carro.<br><em>Sem mistério.</em></h1><p>Revisão, diagnóstico e manutenção. Você explica o que percebeu no carro e a oficina orienta a próxima etapa.</p><a class="action" href="#pedido">Iniciar triagem</a></div><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Mecânico examina o motor de um carro azul com o capô aberto."><figcaption>Imagem ilustrativa</figcaption></figure></section>
+ <section class="section services" id="servicos"><h2>Serviços da oficina</h2><div><article><h3>Revisão preventiva</h3><p>Verificação dos itens de manutenção conforme o uso do veículo.</p></article><article><h3>Freios e suspensão</h3><p>Inspeção dos componentes antes de definir o reparo.</p></article><article><h3>Diagnóstico</h3><p>Investigação de ruído, luz no painel ou mudança de desempenho.</p></article></div></section>
+ <aside class="section note"><h2>Você aprova antes do reparo.</h2><p>A equipe confirma os serviços propostos e conversa com você antes de iniciar o trabalho.</p></aside>
+ <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
+  <div class="form-intro"><h2 id="pedido-heading">Triagem do veículo</h2><p>Selecione o serviço e as características do carro para a oficina orientar o primeiro atendimento.</p></div>
+  <form data-request>
+  <fieldset><legend>Serviço</legend><label class="choice"><input type="radio" name="campo-0" data-field="Serviço" value="Revisão preventiva" required> Revisão preventiva</label><label class="choice"><input type="radio" name="campo-0" data-field="Serviço" value="Freios e suspensão"> Freios e suspensão</label><label class="choice"><input type="radio" name="campo-0" data-field="Serviço" value="Diagnóstico de falha"> Diagnóstico de falha</label></fieldset>
+  <label>Ano do veículo<select name="campo-1" data-field="Ano do veículo" required><option value="">Selecione</option><option>Até 2015</option><option>2016 a 2020</option><option>2021 ou mais recente</option></select></label>
+  <label>Situação atual<select name="campo-2" data-field="Situação atual" required><option value="">Selecione</option><option>Carro em uso normal</option><option>Apresenta ruído ou luz no painel</option><option>Carro não está em uso</option></select></label>
+   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
+   <button class="action" type="submit" disabled>Ver ficha de teste</button>
+   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
+  </form>
+  <section class="result" data-result hidden aria-labelledby="result-title">
+   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
+   <dl data-summary></dl>
+   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
+   <button type="button" data-edit>Editar pedido</button>
+  </section>
+ </section>
+</main>
+<footer><strong>Pista 22</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/exemplos.html?tipo=orcamento">Ver outros exemplos</a></footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Reformas de interiores. Site demonstrativo do Caos Domado.">
+ <title>Entre Obra | Reformas de interiores</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="../demo.css">
+ <script src="../demo.js" defer></script>
+</head>
+<body class="reformas">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
+ <a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
+</aside>
+<header class="site-header">
+ <a class="wordmark" href="#conteudo">Entre Obra</a>
+ <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
+</header>
+<main id="conteudo">
+ <section class="hero"><div class="hero-copy"><h1>Uma casa que <em>acompanha você.</em></h1><p>Reformas de interiores com escolhas claras, de uma atualização pontual a um apartamento inteiro.</p><a class="action" href="#pedido">Pedir uma visita técnica</a></div><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Sala e cozinha de apartamento reformado, com madeira clara e paredes quentes."><figcaption>Imagem ilustrativa</figcaption></figure></section>
+ <section class="section services" id="servicos"><h2>O que podemos reformar</h2><dl><div><dt>Cozinhas e banheiros</dt><dd>Revise o uso do espaço, as instalações e os acabamentos de áreas molhadas.</dd></div><div><dt>Ambientes completos</dt><dd>Organize a reforma de um apartamento com etapas planejadas por cômodo.</dd></div><div><dt>Pisos e acabamentos</dt><dd>Renove pisos, revestimentos e pintura em uma intervenção pontual.</dd></div></dl></section>
+ <aside class="section note"><h2>Da visita à obra</h2><p>Conhecemos o imóvel, desenhamos o escopo e combinamos com você a ordem da execução.</p></aside>
+ <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
+  <div class="form-intro"><h2 id="pedido-heading">Planeje sua visita técnica.</h2><p>Com o tipo de obra, a área e a ocupação do imóvel, a equipe consegue preparar a primeira conversa.</p></div>
+  <form data-request>
+  <label>Tipo de obra<select name="campo-0" data-field="Tipo de obra" required><option value="">Selecione</option><option>Cozinha ou banheiro</option><option>Reforma de apartamento</option><option>Pisos e acabamento</option></select></label>
+  <label>Área aproximada<select name="campo-1" data-field="Área aproximada" required><option value="">Selecione</option><option>Até 20 m²</option><option>Entre 21 e 60 m²</option><option>Acima de 60 m²</option><option>A medir durante a visita</option></select></label>
+  <label>O imóvel estará ocupado?<select name="campo-2" data-field="O imóvel estará ocupado?" required><option value="">Selecione</option><option>Sim, durante a execução</option><option>Não, estará desocupado</option></select></label>
+   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
+   <button class="action" type="submit" disabled>Simular pedido de visita</button>
+   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
+  </form>
+  <section class="result" data-result hidden aria-labelledby="result-title">
+   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
+   <dl data-summary></dl>
+   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
+   <button type="button" data-edit>Editar pedido</button>
+  </section>
+ </section>
+</main>
+<footer><strong>Entre Obra</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/exemplos.html?tipo=orcamento">Ver outros exemplos</a></footer>
+</body>
+</html>

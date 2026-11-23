@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Jardins e paisagismo. Site demonstrativo do Caos Domado.">
+ <title>Sombra de Folha | Jardins e paisagismo</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="../demo.css">
+ <script src="../demo.js" defer></script>
+</head>
+<body class="jardinagem">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
+ <a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
+</aside>
+<header class="site-header">
+ <a class="wordmark" href="#conteudo">Sombra de Folha</a>
+ <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
+</header>
+<main id="conteudo">
+ <section class="hero"><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Caminho de pedra cercado por folhagens tropicais em jardim residencial."><figcaption>Imagem ilustrativa</figcaption></figure><div class="hero-copy"><h1>Seu jardim, <em>em boas mãos.</em></h1><p>Jardins que combinam com a luz do terreno, o tempo de cuidado e a maneira como você usa o espaço.</p><a class="action" href="#pedido">Contar sobre meu jardim</a></div></section>
+ <section class="section services" id="servicos"><h2>Plantio, cuidado e renovação</h2><div><article><h3>Jardim novo</h3><p>Um projeto para aproveitar a sombra e a circulação, com plantas adequadas ao espaço.</p></article><article><h3>Manutenção</h3><p>Cuidado periódico com poda, canteiros e organização das áreas verdes.</p></article><article><h3>Renovação de canteiros</h3><p>Atualização de um jardim existente considerando a luz e a rotina de rega.</p></article></div></section>
+ <aside class="section note"><h2>A luz orienta a escolha das plantas.</h2><p>Observe se o sol bate pela manhã ou à tarde para conversar sobre o que pode funcionar no espaço.</p></aside>
+ <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
+  <div class="form-intro"><h2 id="pedido-heading">Como é seu espaço?</h2><p>Mostre o tipo de cuidado, a luz e o tamanho aproximado para que a equipe prepare a visita.</p></div>
+  <form data-request>
+  <label>Serviço<select name="campo-0" data-field="Serviço" required><option value="">Selecione</option><option>Jardim novo</option><option>Manutenção</option><option>Renovação de canteiros</option></select></label>
+  <fieldset><legend>Como é a luz no espaço?</legend><label class="choice"><input type="radio" name="campo-1" data-field="Como é a luz no espaço?" value="Sol direto" required> Sol direto</label><label class="choice"><input type="radio" name="campo-1" data-field="Como é a luz no espaço?" value="Meia-sombra"> Meia-sombra</label><label class="choice"><input type="radio" name="campo-1" data-field="Como é a luz no espaço?" value="Ainda não sei"> Ainda não sei</label></fieldset>
+  <label>Tamanho aproximado<select name="campo-2" data-field="Tamanho aproximado" required><option value="">Selecione</option><option>Vasos ou varanda</option><option>Até 30 m²</option><option>Mais de 30 m²</option></select></label>
+   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
+   <button class="action" type="submit" disabled>Montar pedido de teste</button>
+   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
+  </form>
+  <section class="result" data-result hidden aria-labelledby="result-title">
+   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
+   <dl data-summary></dl>
+   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
+   <button type="button" data-edit>Editar pedido</button>
+  </section>
+ </section>
+</main>
+<footer><strong>Sombra de Folha</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/exemplos.html?tipo=orcamento">Ver outros exemplos</a></footer>
+</body>
+</html>

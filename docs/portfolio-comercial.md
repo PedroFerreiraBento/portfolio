@@ -13,6 +13,17 @@ e demonstrações. A versão anterior fica disponível no histórico do Git.
 
 ## Campanhas e CRM
 
+O [acervo de exemplos](../app/exemplos.html) é a entrada comercial por
+solução. Use `/exemplos.html?tipo=orcamento#solucoes` para compartilhar a
+lista de ramos de orçamento e a URL da própria demo para enviar um
+exemplo específico. As versões do ClimaPro continuam em `/demos/index.html`.
+Ao adicionar um ramo, vincule somente uma demo já navegável, com retorno
+ao acervo e pedidos simulados no navegador. Use um identificador de
+demonstração distinto para manter a leitura do funil.
+As sete demos Astro reaproveitadas ficam em `app/exemplos/sites/` e são
+servidas como arquivos estáticos. Para regenerá-las a partir de
+`LandingPages/projects/`, rode `node tools/export-acervo-sites.mjs`.
+
 Use `publico=agencias` ou `publico=prestadores` e acrescente `utm_source`,
 `utm_medium` e `utm_campaign`. Prefira identificadores curtos em minúsculas,
 como `linkedin/prospeccao-agencias`. Tanto o WhatsApp quanto o e-mail

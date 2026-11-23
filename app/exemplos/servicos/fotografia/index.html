@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Fotografia documental. Site demonstrativo do Caos Domado.">
+ <title>Ainda Aqui | Fotografia documental</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="../demo.css">
+ <script src="../demo.js" defer></script>
+</head>
+<body class="fotografia">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
+ <a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
+</aside>
+<header class="site-header">
+ <a class="wordmark" href="#conteudo">Ainda Aqui</a>
+ <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
+</header>
+<main id="conteudo">
+ <section class="hero"><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Convidados riem juntos em uma celebração intimista em um jardim ao entardecer."><figcaption>Imagem ilustrativa</figcaption></figure><div class="hero-copy"><h1>O dia, como <em>ele foi.</em></h1><p>Fotografia documental para celebrações e famílias. A gente acompanha o dia e deixa espaço para as coisas acontecerem naturalmente.</p><a class="action" href="#pedido">Consultar uma data</a></div></section>
+ <section class="section services" id="servicos"><h2>Ocasiões que fotografo</h2><div><article><h3>Casamentos intimistas</h3><p>Cerimônia, bastidores e celebração, com cobertura combinada para o seu dia.</p></article><article><h3>Famílias</h3><p>Ensaios em casa ou ao ar livre, respeitando o ritmo de quem está na foto.</p></article><article><h3>Retratos profissionais</h3><p>Fotografias para apresentar a pessoa, o trabalho e o espaço em que ele acontece.</p></article></div></section>
+ <aside class="section note"><h2>Uma conversa antes das fotos.</h2><p>Falamos sobre ocasião, luz e tempo de cobertura. Isso permite propor uma sessão que combine com o dia.</p></aside>
+ <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
+  <div class="form-intro"><h2 id="pedido-heading">A data já está marcada?</h2><p>Escolha o tipo de sessão, a data prevista e a região para consultar a disponibilidade.</p></div>
+  <form data-request>
+  <label>Sessão<select name="campo-0" data-field="Sessão" required><option value="">Selecione</option><option>Casamento intimista</option><option>Ensaio de família</option><option>Retrato profissional</option></select></label>
+  <label>Data desejada<input type="date" name="campo-1" data-field="Data desejada" required></label>
+  <label>Local da sessão<select name="campo-2" data-field="Local da sessão" required><option value="">Selecione</option><option>Em Campinas</option><option>Em outra cidade da região</option><option>A combinar</option></select></label>
+   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
+   <button class="action" type="submit" disabled>Simular consulta de data</button>
+   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
+  </form>
+  <section class="result" data-result hidden aria-labelledby="result-title">
+   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
+   <dl data-summary></dl>
+   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
+   <button type="button" data-edit>Editar pedido</button>
+  </section>
+ </section>
+</main>
+<footer><strong>Ainda Aqui</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/exemplos.html?tipo=orcamento">Ver outros exemplos</a></footer>
+</body>
+</html>

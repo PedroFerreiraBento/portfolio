@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,nofollow"><title>Traço Aulas Particulares — demonstração</title>
+ <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
+</head>
+<body class="lessons">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="demo-bar"><a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
+<header class="header wrap">
+ <a class="wordmark" href="#">Traço <span>aulas particulares</span></a>
+ <nav aria-label="Navegação principal"><a href="#materias">Matérias</a><a href="#pedido">Pedir informações</a></nav>
+</header>
+<main id="conteudo">
+ <section class="lessons-hero wrap">
+  <div class="hero-copy"><h1>Entenda a matéria no seu ritmo.</h1><p>Aulas particulares e reforço escolar com exercícios guiados, explicações passo a passo e espaço para trazer suas dúvidas.</p><a class="button" href="#pedido">Ver opções de aula</a></div>
+  <img src="../estudo-aulas.webp" alt="Caderno quadriculado aberto em uma mesa de estudos, com anotações de geometria" width="1440" height="1080" fetchpriority="high">
+ </section>
+ <section class="lessons-subjects" id="materias"><div class="wrap">
+  <h2>O que você quer estudar?</h2>
+  <ul>
+   <li><strong>Matemática</strong><span>Frações, equações e geometria com exemplos resolvidos.</span></li>
+   <li><strong>Português</strong><span>Leitura, gramática e prática de escrita.</span></li>
+   <li><strong>Inglês</strong><span>Vocabulário, compreensão e exercícios de conversação.</span></li>
+  </ul>
+ </div></section>
+ <section class="request" id="pedido"><div class="wrap request-grid">
+  <div><h2>Encontre um formato para estudar</h2><p>Escolha a matéria, o que deseja reforçar e como prefere fazer a aula. O resumo organiza o primeiro pedido.</p><p class="note">Este exemplo usa apenas opções genéricas de estudo.</p></div>
+  <form method="post" action="#pedido" data-demo-form>
+   <label for="aulas-materia">Matéria</label>
+   <select id="aulas-materia" name="Matéria" required><option value="">Selecione uma matéria</option><option>Matemática</option><option>Português</option><option>Inglês</option></select>
+   <label for="aulas-objetivo">Objetivo da aula</label>
+   <select id="aulas-objetivo" name="Objetivo" required><option value="">Selecione um objetivo</option><option>Revisar um conteúdo</option><option>Preparar para uma prova</option><option>Montar uma rotina de estudos</option></select>
+   <fieldset><legend>Formato preferido</legend><label class="radio"><input type="radio" name="Formato" value="Aula online" required> Aula online</label><label class="radio"><input type="radio" name="Formato" value="Aula presencial"> Aula presencial</label></fieldset>
+   <button class="button" type="submit" disabled>Ver pedido de aula</button>
+   <section class="receipt" data-receipt hidden aria-labelledby="aulas-recibo"><h3 id="aulas-recibo" tabindex="-1">Resumo do pedido de aula</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
+   <noscript><p>Ative o JavaScript para testar a prévia do pedido.</p></noscript>
+  </form>
+ </div></section>
+</main>
+<footer class="footer wrap"><strong>Traço Aulas Particulares</strong><p>Projeto fictício criado para demonstrar o site.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
+</body></html>

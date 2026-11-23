@@ -87,3 +87,4 @@ html{scroll-behavior:auto}body{color:var(--ink);background:var(--paper)}
 .quote-receipt dd {margin:0;overflow-wrap:anywhere}
 .quote-receipt p {margin-bottom:12px}
 .contact .quote-card :focus-visible {outline-color:#40614c}
+.gallery-acervo{display:inline-flex;align-items:center;min-height:44px;margin-bottom:12px;text-decoration:underline;text-underline-offset:4px}

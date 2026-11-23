@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de uma marcenaria de móveis sob medida.">
+ <title>Encaixe | Marcenaria sob medida</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="../demo.css">
+ <script src="../demo.js" defer></script>
+</head>
+<body class="marcenaria">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
+ <a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
+</aside>
+<header class="site-header">
+ <a class="wordmark" href="#conteudo">Encaixe</a>
+ <nav aria-label="Navegação do exemplo"><a href="#servicos">Ambientes</a><a href="#pedido">Orçamento</a></nav>
+</header>
+<main id="conteudo">
+ <section class="hero">
+  <div class="hero-copy">
+   <h1>Móveis que cabem <em>na sua vida.</em></h1>
+   <p>Marcenaria sob medida para usar melhor seu espaço. Você mostra o ambiente e a gente conversa sobre medidas, materiais e acabamentos.</p>
+   <a class="action" href="#pedido">Apresentar meu projeto</a>
+  </div>
+  <figure><img src="./hero.webp" width="1536" height="1024" fetchpriority="high" alt="Estante sob medida em madeira de freijó com nichos e banco integrado à janela."><figcaption>Ambiente ilustrativo</figcaption></figure>
+ </section>
+ <section class="section services" id="servicos">
+  <h2>Feito para cada ambiente</h2>
+  <div>
+   <article><h3>Cozinhas</h3><p>Divisões e alturas pensadas para o que você usa todos os dias.</p></article>
+   <article><h3>Salas e estantes</h3><p>Nichos, portas e painéis integrados às medidas da parede.</p></article>
+   <article><h3>Quartos e escritório</h3><p>Guarda-roupas e bancadas planejados para a sua rotina.</p></article>
+  </div>
+ </section>
+ <aside class="section note"><h2>Começamos pelo espaço.</h2><p>As medidas aproximadas ajudam a conversar sobre o projeto. As medidas de fabricação são conferidas no imóvel.</p></aside>
+ <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
+  <div class="form-intro"><h2 id="pedido-heading">O que você quer construir?</h2><p>O ambiente, a largura e o acabamento desejado ajudam a entender a primeira ideia.</p></div>
+  <form data-request>
+   <label>Ambiente<select name="ambiente" data-field="Ambiente" required><option value="">Selecione</option><option>Cozinha</option><option>Sala e estante</option><option>Quarto ou escritório</option></select></label>
+   <label>Largura aproximada<select name="largura" data-field="Largura aproximada" required><option value="">Selecione</option><option>Até 1,5 m</option><option>Entre 1,5 e 3 m</option><option>Acima de 3 m</option><option>A medir</option></select></label>
+   <fieldset><legend>Acabamento que prefere</legend><label class="choice"><input type="radio" name="acabamento" data-field="Acabamento" value="Madeirado" required> Madeirado</label><label class="choice"><input type="radio" name="acabamento" data-field="Acabamento" value="Liso e fosco"> Liso e fosco</label><label class="choice"><input type="radio" name="acabamento" data-field="Acabamento" value="A definir"> A definir</label></fieldset>
+   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
+   <button class="action" type="submit" disabled>Simular pedido de orçamento</button>
+   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
+  </form>
+  <section class="result" data-result hidden aria-labelledby="result-title">
+   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3><dl data-summary></dl>
+   <p>Simulação concluída. Nenhum pedido foi enviado.</p><button type="button" data-edit>Editar pedido</button>
+  </section>
+ </section>
+</main>
+<footer><strong>Encaixe</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/exemplos.html?tipo=orcamento">Ver outros exemplos</a></footer>
+</body>
+</html>

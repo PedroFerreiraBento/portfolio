@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,nofollow"><title>Soma Clara Contabilidade — demonstração</title>
+ <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
+</head>
+<body class="accounting">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="demo-bar"><a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
+<header class="header wrap">
+ <a class="wordmark" href="#">soma clara<span>.</span></a>
+ <nav aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#perfil">Descobrir meu atendimento</a></nav>
+</header>
+<main id="conteudo">
+ <section class="accounting-hero"><div class="wrap">
+  <div class="hero-copy"><h1>Contabilidade para o próximo passo.</h1><p>Vai abrir uma empresa ou quer organizar a que já tem? Veja por onde começar.</p><a class="button" href="#perfil">Montar meu pedido</a></div>
+  <img src="../mesa-contabilidade.webp" alt="Mesa de trabalho clara com calculadora e mãos organizando documentos" width="1440" height="1080" fetchpriority="high">
+ </div></section>
+ <section class="accounting-services wrap" id="servicos">
+  <h2>Onde podemos ajudar</h2>
+  <div class="service-list">
+   <article><h3>Abertura de empresa</h3><p>Entenda quais informações reunir para iniciar a formalização.</p></article>
+   <article><h3>Troca de contador</h3><p>Organize a passagem de documentos e o início do novo atendimento.</p></article>
+   <article><h3>Rotina contábil</h3><p>Converse sobre o acompanhamento da empresa ao longo do mês.</p></article>
+  </div>
+ </section>
+ <section class="request" id="perfil"><div class="wrap request-grid">
+  <div><h2>Em que fase está seu negócio?</h2><p>Seu pedido começa com duas escolhas. Elas ajudam a equipe a entender o tipo de conversa que você precisa.</p><p class="note">Use um cenário de teste, sem enviar documentos.</p></div>
+  <form data-demo-form method="post" action="#perfil">
+   <fieldset><legend>Qual é o seu momento?</legend>
+    <label class="radio"><input type="radio" name="Momento" value="Quero abrir uma empresa" required> Quero abrir uma empresa</label>
+    <label class="radio"><input type="radio" name="Momento" value="Quero mudar de contador"> Quero mudar de contador</label>
+    <label class="radio"><input type="radio" name="Momento" value="Quero organizar a rotina atual"> Quero organizar a rotina atual</label>
+   </fieldset>
+   <label for="acct-atividade">Atividade da empresa</label>
+   <select id="acct-atividade" name="Atividade" required><option value="">Selecione uma atividade</option><option>Prestação de serviços</option><option>Comércio</option><option>Outra atividade</option></select>
+   <button class="button" type="submit" disabled>Ver meu pedido de exemplo</button>
+   <section class="receipt" data-receipt hidden aria-labelledby="acct-recibo"><h3 id="acct-recibo" tabindex="-1">Resumo para o primeiro atendimento</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
+   <noscript><p>Ative o JavaScript para testar a prévia do pedido.</p></noscript>
+  </form>
+ </div></section>
+</main>
+<footer class="footer wrap"><strong>Soma Clara Contabilidade</strong><p>Escritório fictício criado para demonstrar o site. Conteúdo ilustrativo.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
+</body></html>

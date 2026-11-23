@@ -99,6 +99,10 @@
   "Explorar trabalhos",
   "Explore our work"
  ],
+ ["Ver exemplos", "See examples"],
+ ["Encontrar exemplos por ramo", "Find examples by industry"],
+ ["Ver exemplos por ramo", "See examples by industry"],
+ ["Escolha seu ramo e teste uma página completa.", "Choose your industry to try a full demo page in Portuguese."],
  ["pequenos negócios.", "small businesses."],
  ["Ofertas do Caos Domado", "Caos Domado services"],
  ["Página de Orçamento", "Quote Request Page"],

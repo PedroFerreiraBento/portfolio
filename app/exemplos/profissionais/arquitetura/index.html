@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,nofollow"><title>Entrelinhas Arquitetura — demonstração</title>
+ <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
+</head>
+<body class="architecture">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="demo-bar"><a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
+<header class="header wrap">
+ <a class="wordmark" href="#">Entrelinhas</a>
+ <nav aria-label="Navegação principal"><a href="#projetos">Projetos</a><a href="#briefing">Descrever meu espaço</a></nav>
+</header>
+<main id="conteudo" class="wrap">
+ <section class="architecture-hero">
+  <div class="architecture-title"><h1>Espaços para viver do seu jeito.</h1><p>Arquitetura residencial e interiores. Do primeiro esboço à escolha dos materiais.</p></div>
+  <figure><img src="../interior-arquitetura.webp" alt="Sala com escada de madeira, tecidos naturais e jardim visível pela janela" width="1440" height="1080" fetchpriority="high"><figcaption>Estudo conceitual · interiores residenciais</figcaption></figure>
+ </section>
+ <section class="architecture-projects" id="projetos">
+  <h2>Ideias que ganham forma</h2>
+  <div class="project-feature">
+   <img src="../patio-arquitetura.webp" alt="Pátio aberto com parede de tijolos, pérgola e plantas" width="1440" height="1080" loading="lazy">
+   <div><h3>Uma casa em torno do pátio</h3><p>Um estudo de casa térrea em que a sala se abre para a área externa e o jardim ajuda a organizar a circulação.</p><p>Nos interiores, o projeto começa por entender o uso de cada ambiente, o que pode ser mantido e o que precisa mudar.</p><a class="button" href="#briefing">Descrever meu espaço</a></div>
+  </div>
+ </section>
+ <section class="request architecture-request" id="briefing">
+  <div class="request-grid">
+   <div><h2>Conte um pouco sobre o projeto</h2><p>O primeiro orçamento parte do tipo de imóvel, do tamanho aproximado e da etapa em que você está.</p><p class="note">Escolha as opções para ver como o briefing chega organizado à equipe.</p></div>
+   <form data-demo-form method="post" action="#briefing">
+    <label for="arch-tipo">O que você quer projetar?</label>
+    <select id="arch-tipo" name="Projeto" required><option value="">Selecione o tipo de projeto</option><option>Interiores de apartamento</option><option>Casa nova</option><option>Reforma de um ambiente</option></select>
+    <label for="arch-area">Área aproximada do espaço</label>
+    <select id="arch-area" name="Área" required><option value="">Selecione a área</option><option>Até 40 m²</option><option>De 41 a 100 m²</option><option>Mais de 100 m²</option><option>Ainda estou levantando as medidas</option></select>
+    <label for="arch-etapa">Em que etapa você está?</label>
+    <select id="arch-etapa" name="Etapa" required><option value="">Selecione a etapa</option><option>Tenho a planta do imóvel</option><option>Já posso fazer uma visita</option><option>Estou começando a planejar</option></select>
+   <button class="button" type="submit" disabled>Ver briefing de exemplo</button>
+    <section class="receipt" data-receipt hidden aria-labelledby="arch-recibo"><h3 id="arch-recibo" tabindex="-1">Resumo do projeto</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
+    <noscript><p>Ative o JavaScript para testar a prévia do briefing.</p></noscript>
+   </form>
+  </div>
+ </section>
+</main>
+<footer class="footer wrap"><strong>Entrelinhas Arquitetura</strong><p>Estúdio fictício. As imagens são estudos ilustrativos.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
+</body></html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de uma vidraçaria residencial com orçamento sob medida.">
+ <title>Plano Claro | Vidraçaria residencial</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="../demo.css">
+ <script src="../demo.js" defer></script>
+</head>
+<body class="vidracaria">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
+ <a href="/exemplos.html?tipo=orcamento">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
+</aside>
+<header class="site-header">
+ <a class="wordmark" href="#conteudo">Plano Claro</a>
+ <nav aria-label="Navegação do exemplo"><a href="#servicos">Peças em vidro</a><a href="#pedido">Orçamento</a></nav>
+</header>
+<main id="conteudo">
+ <section class="hero">
+  <figure><img src="./hero.webp" width="1536" height="1024" fetchpriority="high" alt="Box de vidro transparente com ferragens escovadas em um banheiro cinza."><figcaption>Banheiro ilustrativo</figcaption></figure>
+  <div class="hero-copy"><h1>Vidro <em>sob medida.</em></h1><p>Boxes, espelhos e divisórias para casa, com medição no local e instalação combinada com você.</p><a class="action" href="#pedido">Pedir uma estimativa</a></div>
+ </section>
+ <section class="section services" id="servicos">
+  <h2>Qual peça você precisa?</h2>
+  <div>
+   <article><h3>Box de banheiro</h3><p>Escolha o tipo de abertura com base no espaço ao redor do box.</p></article>
+   <article><h3>Espelho</h3><p>Informe o tamanho da parede e se prefere bordas retas ou arredondadas.</p></article>
+   <article><h3>Divisória de vidro</h3><p>Informe a largura do vão e o tipo de uso para avaliar a instalação.</p></article>
+  </div>
+ </section>
+ <aside class="section note"><h2>O acabamento começa na medição.</h2><p>Confirmamos as medidas e o local de fixação antes de indicar a configuração da peça.</p></aside>
+ <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
+  <div class="form-intro"><h2 id="pedido-heading">Conte sobre sua peça.</h2><p>A estimativa começa com a peça, a largura aproximada e a necessidade de instalar.</p></div>
+  <form data-request>
+   <fieldset><legend>Peça em vidro</legend><label class="choice"><input type="radio" name="peca" data-field="Peça" value="Box de banheiro" required> Box de banheiro</label><label class="choice"><input type="radio" name="peca" data-field="Peça" value="Espelho"> Espelho</label><label class="choice"><input type="radio" name="peca" data-field="Peça" value="Divisória"> Divisória</label></fieldset>
+   <label>Largura do vão<select name="vao" data-field="Largura do vão" required><option value="">Selecione</option><option>Até 80 cm</option><option>De 81 cm a 1,5 m</option><option>Acima de 1,5 m</option><option>A medir</option></select></label>
+   <label>Precisa de instalação?<select name="instalacao" data-field="Instalação" required><option value="">Selecione</option><option>Sim, peça e instalação</option><option>Apenas a peça</option></select></label>
+   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
+   <button class="action" type="submit" disabled>Simular pedido de orçamento</button>
+   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
+  </form>
+  <section class="result" data-result hidden aria-labelledby="result-title">
+   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3><dl data-summary></dl>
+   <p>Simulação concluída. Nenhum pedido foi enviado.</p><button type="button" data-edit>Editar pedido</button>
+  </section>
+ </section>
+</main>
+<footer><strong>Plano Claro</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/exemplos.html?tipo=orcamento">Ver outros exemplos</a></footer>
+</body>
+</html>

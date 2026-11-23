@@ -1,0 +1,82 @@
+.portfolio-demo-bar {
+ position:fixed; z-index:90; inset:0 0 auto; display:flex; align-items:center; justify-content:space-between;
+ gap:10px; min-height:39px; padding:0 max(16px, 5vw);
+ background:#191715; color:#fff7ed; font:600 13px/1.2 system-ui, sans-serif;
+}
+
+.portfolio-demo-bar a,.portfolio-demo-footer a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
+.portfolio-demo-bar a { display:flex; align-items:center; min-height:39px; }
+.portfolio-demo-bar span { text-align:right; }
+body[data-campaign-demo] { padding-top:39px; }
+body[data-campaign-demo] > header { top:39px; }
+body[data-campaign-demo] :is(section,[id]) { scroll-margin-top:148px; }
+.portfolio-mobile-request { display:none; }
+.portfolio-demo-request {
+ display:grid; grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr); align-items:start;
+ gap:clamp(27px, 5vw, 80px); padding:clamp(38px, 7vw, 110px) max(24px,8vw);
+ background:#f7f5f1; color:#24211d;
+}
+.portfolio-demo-request h2 { margin:0 0 15px; color:inherit; font-size:clamp(28px,4vw,50px); line-height:1.12; text-wrap:balance; }
+.portfolio-demo-request p { max-width:45ch; margin:0; color:#524d46; line-height:1.6; }
+.portfolio-demo-panel {
+ display:grid; gap:12px; padding:clamp(17px,3vw,32px);
+ border:1px solid #d5d0c9; border-radius:14px; background:#fff;
+}
+.portfolio-demo-panel label { font-weight:700; font-size:14px; }
+.portfolio-demo-panel select {
+ width:100%; min-height:46px; padding:8px 10px; border:1px solid #817a71; border-radius:6px; background:#fff;
+ color:#24211d; font:inherit;
+}
+.portfolio-demo-panel :is(button,a) {
+ display:inline-flex; justify-content:center; align-items:center; min-height:45px; padding:9px 14px;
+ border:0; border-radius:6px; background:var(--demo-accent,#3d3329); color:white;
+ font:700 14px/1.3 system-ui,sans-serif; text-align:center; text-decoration:none; cursor:pointer;
+}
+.portfolio-demo-panel button { justify-self:start; }
+.portfolio-demo-panel button:disabled { opacity:.65; cursor:default; }
+.portfolio-demo-result { display:grid; gap:10px; padding:14px; border-radius:7px; background:#f2efea; }
+.portfolio-demo-result[hidden] { display:none; }
+.portfolio-demo-result h3 { margin:0; color:#24211d; font:750 17px/1.3 system-ui,sans-serif; }
+.portfolio-demo-result p { font-size:14px; }
+.portfolio-demo-result a { justify-self:start; }
+.portfolio-demo-footer {
+ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;
+ padding:18px max(16px,5vw); background:#191715; color:#fff7ed;
+ font:500 14px/1.35 system-ui,sans-serif;
+}
+.portfolio-demo-footer a { display:inline-flex; align-items:center; min-height:44px; }
+.portfolio-demo-footer p { margin:0; color:#eee7df; }
+.portfolio-demo-bar :focus-visible,.portfolio-demo-footer :focus-visible { outline:2px solid #f4b36b; outline-offset:3px; }
+.portfolio-demo-request :focus-visible { outline:3px solid var(--demo-accent,#3d3329); outline-offset:3px; }
+body[data-campaign-demo=dentista] main > section:first-child {
+ min-height:0; padding-top:145px; padding-bottom:clamp(35px,6vw,84px);
+}
+body[data-campaign-demo=dentista] main > section:first-child > .relative { padding-block:0; }
+body[data-campaign-demo=dentista] main > section:first-child .grid { gap:clamp(32px,5vw,82px); }
+body[data-campaign-demo=dentista] main > section:first-child .grid > div { min-width:0; }
+body[data-campaign-demo=dentista] main > section:first-child h1 { font-size:clamp(36px,5vw,74px); letter-spacing:-.04em; }
+body[data-campaign-demo=dentista] main > section:first-child h1 + p { color:#52617a; margin-top:24px; font-size:clamp(16px,1.5vw,20px); }
+body[data-campaign-demo=dentista] main > section:first-child h1 + p + div { margin-top:27px; }
+body[data-campaign-demo=dentista] main > section:first-child h1 + p + div + div { flex-wrap:wrap; gap:15px; margin-top:30px; padding-top:19px; }
+body[data-campaign-demo=dentista] main > section:first-child h1 + p + div + div .h-10 { display:none; }
+body[data-campaign-demo=dentista] main > section:first-child h1 + p + div + div .text-slate-300 { color:#52617a; }
+@media (max-width:1023px) {
+ .portfolio-mobile-request { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:7px 10px; color:inherit; font-size:12px; font-weight:700; text-align:center; text-decoration:underline; text-underline-offset:4px; }
+}
+@media (max-width:700px) {
+ .portfolio-demo-bar { font-size:12px; }
+ .portfolio-demo-request { grid-template-columns:minmax(0,1fr); }
+ .portfolio-demo-panel :is(button,a) { width:100%; }
+ body[data-campaign-demo=dentista] main > section:first-child h1 { font-size:clamp(33px,9vw,52px); overflow-wrap:anywhere; }
+ body[data-campaign-demo=dentista] main > section:first-child .grid > div:first-child > .inline-flex { margin-bottom:20px; }
+ body[data-campaign-demo=clinica-estetica] main > section:first-child { overflow:hidden; }
+ body[data-campaign-demo=clinica-estetica] main > section:first-child .grid > div { min-width:0; }
+ body[data-campaign-demo=clinica-estetica] main > section:first-child h1 { font-size:clamp(35px,9.5vw,54px); }
+ body[data-campaign-demo=clinica-estetica] main > section:first-child .grid > div:first-child > .inline-flex { max-width:100%; }
+ body[data-campaign-demo=clinica-estetica] main > section:first-child h1 + p + div + div { flex-wrap:wrap; gap:15px; }
+ body[data-campaign-demo=clinica-estetica] #tecnologia .absolute.bottom-10 { inset-inline:24px; }
+ body[data-campaign-demo=biomedicina] main { overflow-x:clip; }
+}
+@media (prefers-reduced-motion:reduce) {
+ body[data-campaign-demo] .reveal { opacity:1; transform:none; transition:none; }
+}
