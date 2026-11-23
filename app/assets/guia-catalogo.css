@@ -53,6 +53,7 @@
  min-height:38px;
  align-items:center;
 }
+.guide-link-format { overflow-wrap:anywhere; }
 .guide-content {
  font-size:1.0625rem;
  line-height:1.6;

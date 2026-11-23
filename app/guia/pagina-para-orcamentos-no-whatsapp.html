@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#faf2e7">
+ <title>Como montar uma página para receber pedidos de orçamento pelo WhatsApp</title>
+ <meta name="description" content="Monte uma página de serviço com botão para pedir orçamento no WhatsApp. Veja um exemplo de pintura residencial, um modelo de mensagem e como testar o link.">
+ <link rel="canonical" href="https://www.caosdomado.com.br/guia/pagina-para-orcamentos-no-whatsapp">
+ <meta property="og:type" content="article">
+ <meta property="og:locale" content="pt_BR">
+ <meta property="og:site_name" content="Caos Domado">
+ <meta property="og:title" content="Como montar uma página para receber pedidos de orçamento pelo WhatsApp">
+ <meta property="og:description" content="Veja o que escrever na página, quais dados pedir e como configurar um link do WhatsApp com mensagem pronta. Com exemplo de pintura residencial.">
+ <meta property="og:url" content="https://www.caosdomado.com.br/guia/pagina-para-orcamentos-no-whatsapp">
+ <meta property="og:image" content="https://www.caosdomado.com.br/assets/portfolio-compartilhamento.jpg">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="icon" href="/assets/caos-domado-marca.webp">
+ <script src="/assets/padrao-dispositivo.js" data-fixed-language></script>
+ <link rel="stylesheet" href="/styles.css">
+ <link rel="stylesheet" href="/assets/caos-domado.css">
+ <link rel="stylesheet" href="/assets/catalogo-online.css">
+ <link rel="stylesheet" href="/assets/guia-catalogo.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="/assets/guia-catalogo.js" defer></script>
+</head>
+<body class="catalog-page" data-campaign-surface="guia-orcamentos">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <header class="catalog-header">
+  <div class="catalog-wrap catalog-header-inner">
+   <a class="brand-lockup" href="/" aria-label="Caos Domado, início">
+    <img class="brand-icon-light" src="/assets/caos-domado-marca.webp" width="40" height="40" alt="">
+    <img class="brand-icon-dark" src="/assets/caos-domado-marca-escura.svg" width="40" height="40" alt="">
+    <strong>Caos Domado</strong>
+   </a>
+   <a class="guide-link guide-header-link" href="/pagina-de-orcamentos">Página de Orçamentos</a>
+  </div>
+ </header>
+ <main id="conteudo" tabindex="-1">
+  <article class="guide catalog-wrap">
+   <header class="guide-intro">
+    <h1>Como montar uma página para receber pedidos de orçamento pelo WhatsApp</h1>
+    <p>Explique o serviço, diga onde atende e leve o visitante a uma mensagem que ele possa completar. Você recebe o contexto necessário para decidir se já consegue cotar ou se precisa pedir mais detalhes.</p>
+   </header>
+   <div class="guide-layout">
+    <nav class="guide-nav" aria-label="Neste guia">
+     <p>Neste guia</p>
+     <ol>
+      <li><a href="#pagina">Escreva a página</a></li>
+      <li><a href="#mensagem">Prepare a mensagem</a></li>
+      <li><a href="#botao">Configure o botão</a></li>
+      <li><a href="#formulario">Decida se precisa de formulário</a></li>
+      <li><a href="#teste">Teste no celular</a></li>
+     </ol>
+    </nav>
+    <div class="guide-content">
+     <section aria-labelledby="pagina">
+      <h2 id="pagina"><span>1.</span> Apresente um serviço que você consegue orçar</h2>
+      <p>Dê ao visitante o suficiente para saber se o serviço serve e se você atende onde ele precisa. Use um título concreto, descreva o que está incluído e diga quais detalhes podem mudar o orçamento. Se tiver autorização, mostre uma foto de um trabalho seu e explique o que foi feito.</p>
+      <div class="guide-example">
+       <h3>Exemplo fictício de página de pintura residencial</h3>
+       <dl class="guide-options">
+        <div><dt>Título</dt><dd>Pintura de sala e quarto em apartamento</dd></div>
+        <div><dt>O que fazemos</dt><dd>Protegemos o piso e pintamos as paredes da sala e do quarto. Se houver descascados ou umidade, precisamos avaliar a superfície antes de calcular o serviço.</dd></div>
+        <div><dt>Onde atendemos</dt><dd>Centro, Vila Nova e Jardim das Flores (bairros ilustrativos).</dd></div>
+        <div><dt>O que informar</dt><dd>Diga o bairro, quais cômodos quer pintar e como estão as paredes. Se tiver uma data em mente, pode mencionar.</dd></div>
+        <div><dt>Texto do botão</dt><dd>Pedir orçamento de pintura no WhatsApp</dd></div>
+       </dl>
+      </div>
+     </section>
+     <section aria-labelledby="mensagem">
+      <h2 id="mensagem"><span>2.</span> Dê ao cliente uma mensagem para completar</h2>
+      <p>Peça só o que muda a avaliação. No exemplo, os cômodos e o estado das paredes ajudam a dimensionar o trabalho. O bairro basta para conferir a área de atendimento. O prazo pode ficar em aberto, e fotos podem ser pedidas depois, se ajudarem a esclarecer o que precisa ser feito.</p>
+      <div class="guide-example">
+       <h3 id="titulo-mensagem">Mensagem de exemplo</h3>
+       <pre id="mensagem-exemplo" aria-labelledby="titulo-mensagem">Olá! Quero um orçamento para pintar as paredes da sala e do quarto.
+Bairro: Vila Nova.
+As paredes já estão pintadas e há trechos descascados perto da janela.
+Se ajudar na avaliação, posso mandar fotos.</pre>
+       <div class="guide-copy"><button class="catalog-button" type="button" id="copiar-mensagem" hidden>Copiar mensagem</button><p id="estado-copia" role="status"></p></div>
+      </div>
+      <p>No botão da sua página, prefira um início curto, como “Olá! Quero cotar a pintura.” Deixe o cliente escrever os detalhes do próprio caso.</p>
+     </section>
+     <section aria-labelledby="botao">
+      <h2 id="botao"><span>3.</span> Configure o botão para abrir a conversa</h2>
+      <p>Use o número comercial que sua equipe atende, no formato internacional. Para um número brasileiro, junte <code>55</code>, o DDD e o número, só com dígitos, sem <code>+</code>, espaços, parênteses, hífens ou zero de prefixo.</p>
+      <p>O formato do link é <code class="guide-link-format">https://wa.me/SEU_NUMERO?text=MENSAGEM_CODIFICADA</code>. Substitua <code>SEU_NUMERO</code> pelos seus dígitos. No parâmetro <code>text</code>, escreva a frase em formato de URL. Um espaço, por exemplo, vira <code>%20</code>. Se o editor do seu site oferecer um campo para a mensagem do botão, ele pode fazer essa conversão. <a class="guide-link" href="https://faq.whatsapp.com/5913398998672934/?locale=pt_BR">Instruções oficiais de conversa em um clique</a>.</p>
+      <p>O link abre o chat com a mensagem no campo de digitação. O cliente pode editar o texto e precisa tocar em <strong>Enviar</strong>. Uma solicitação de orçamento ainda não confirma valor, data ou execução do serviço.</p>
+     </section>
+     <section aria-labelledby="formulario">
+      <h2 id="formulario"><span>4.</span> Use formulário se precisar padronizar os dados</h2>
+      <p>O WhatsApp costuma bastar quando alguém consegue ler as mensagens e fazer perguntas na conversa. Um formulário curto faz sentido se a equipe precisa receber sempre os mesmos dados ou organizar os pedidos por e-mail.</p>
+      <p>Para pintura, por exemplo, comece com um canal de retorno, os cômodos, o bairro se for necessário validar o atendimento e um campo curto para explicar o estado das paredes. Deixe a data como opcional. Depois do envio, indique que a solicitação foi recebida e que a equipe vai avaliar os detalhes antes de cotar.</p>
+     </section>
+     <section aria-labelledby="teste">
+      <h2 id="teste"><span>5.</span> Teste como quem ainda não conhece sua empresa</h2>
+      <ul class="guide-checklist">
+       <li>O título diz qual serviço é oferecido, e a área de atendimento é fácil de encontrar.</li>
+       <li>As fotos são de trabalhos autorizados e mostram o que foi feito.</li>
+       <li>Você pede só os dados necessários para começar a avaliação.</li>
+       <li>No celular, o botão abre o número certo e a mensagem aparece legível e editável.</li>
+       <li>Depois do contato, fica claro que o pedido será avaliado antes de confirmar o serviço.</li>
+      </ul>
+      <figure class="guide-demo">
+       <img src="/assets/solucao-sites-720.webp" width="720" height="360" loading="lazy" decoding="async" alt="Página de manutenção de ar-condicionado em um tablet, com botão para solicitar orçamento.">
+       <figcaption>
+        <h3>Teste o fluxo na demo de climatização</h3>
+        <p>Preencha o formulário com dados fictícios para ver a confirmação de um pedido simulado. A demonstração não envia mensagem nem pedido real.</p>
+        <a class="catalog-button" href="/demos/plano/index.html">Abrir demonstração de orçamento</a>
+       </figcaption>
+      </figure>
+      <p class="guide-commercial">Quer ajuda com a montagem? <a class="guide-link" href="/pagina-de-orcamentos">Conheça a Página de Orçamentos</a>.</p>
+      <p>Se você vende vários produtos, <a class="guide-link" href="/guia/catalogo-para-orcamentos-no-whatsapp">veja como montar um catálogo para orçamentos</a>.</p>
+     </section>
+    </div>
+   </div>
+  </article>
+ </main>
+ <footer class="catalog-footer">
+  <div class="catalog-wrap catalog-footer-inner">
+   <strong>Caos Domado</strong>
+   <a href="/">Voltar ao portfólio</a>
+  </div>
+ </footer>
+</body>
+</html>

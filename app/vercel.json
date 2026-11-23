@@ -5,6 +5,7 @@
     "gru1"
   ],
   "redirects": [
+    {"source": "/guia/pagina-para-orcamentos-no-whatsapp.html", "destination": "/guia/pagina-para-orcamentos-no-whatsapp", "permanent": true},
     {"source": "/guia/catalogo-para-orcamentos-no-whatsapp.html", "destination": "/guia/catalogo-para-orcamentos-no-whatsapp", "permanent": true},
     {"source": "/agendamento-online.html", "destination": "/agendamento-online", "permanent": true},
     {"source": "/pagina-de-orcamentos.html", "destination": "/pagina-de-orcamentos", "permanent": true},
@@ -12,6 +13,7 @@
     {"source": "/catalogo-online.html", "destination": "/catalogo-online", "permanent": true}
   ],
   "rewrites": [
+    {"source": "/guia/pagina-para-orcamentos-no-whatsapp", "destination": "/guia/pagina-para-orcamentos-no-whatsapp.html"},
     {"source": "/guia/catalogo-para-orcamentos-no-whatsapp", "destination": "/guia/catalogo-para-orcamentos-no-whatsapp.html"},
     {"source": "/agendamento-online", "destination": "/agendamento-online.html"},
     {"source": "/pagina-de-orcamentos", "destination": "/pagina-de-orcamentos.html"},
