@@ -78,7 +78,7 @@ function serveApi(req, res, url, handler) {
 }
 
 function publicFile(pathname) {
-  if (['/catalogo-online', '/pagina-de-orcamentos', '/agendamento-online', '/guia/catalogo-para-orcamentos-no-whatsapp', '/guia/pagina-para-orcamentos-no-whatsapp'].includes(pathname)) pathname += '.html';
+  if (['/catalogo-online', '/pagina-de-orcamentos', '/agendamento-online', '/guia/catalogo-para-orcamentos-no-whatsapp', '/guia/pagina-para-orcamentos-no-whatsapp', '/guia/pagina-de-agendamento-online'].includes(pathname)) pathname += '.html';
   const normalized = pathname === '/crm' ? '/crm/index.html' :
     pathname.endsWith('/') ? pathname + 'index.html' : pathname;
   const parts = normalized.slice(1).split('/');
