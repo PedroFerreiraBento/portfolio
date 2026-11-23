@@ -400,8 +400,8 @@
   "Close form"
  ],
  [
-  "Conte o que você precisa colocar no ar. Se já tiver um layout, um briefing ou uma data em mente, inclua na mensagem.",
-  "Tell us what you need to launch. Include any designs, briefs or target dates you already have."
+  "O atendimento da Caos Domado é 100% online. Conte o que você precisa colocar no ar e, se já tiver um prazo em mente, inclua na mensagem.",
+  "Caos Domado works with clients entirely online. Tell us what you need to launch and include any deadline you have in mind."
  ],
  [
   "Me conte sobre seu projeto",
