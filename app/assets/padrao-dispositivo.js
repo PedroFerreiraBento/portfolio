@@ -29,7 +29,7 @@
   try { localStorage.setItem(key, value); } catch { /* The current page still uses the choice. */ }
  }
 
- root.lang = storedLanguage() ?? deviceLanguage();
+ if (!document.currentScript.hasAttribute('data-fixed-language')) root.lang = storedLanguage() ?? deviceLanguage();
  root.dataset.theme = storedTheme() ?? deviceTheme();
  const { heroPt, heroEn, heroMobilePt, heroMobileEn } = document.currentScript.dataset;
  if (heroPt && heroEn) {

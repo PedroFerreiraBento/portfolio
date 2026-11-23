@@ -136,3 +136,5 @@
  color:var(--brand-accent-text);
  text-decoration:underline; text-underline-offset:4px;
 }
+.catalog-guide-link { margin-top:12px; }
+.catalog-guide-link a { color:var(--brand-accent-text); text-decoration:underline; text-underline-offset:.2em; }
