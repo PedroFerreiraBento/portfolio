@@ -4,6 +4,9 @@
   "regions": [
     "gru1"
   ],
+  "rewrites": [
+    {"source": "/catalogo-online", "destination": "/catalogo-online.html"}
+  ],
   "headers": [
     {
       "source": "/crm(.*)",

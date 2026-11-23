@@ -531,8 +531,51 @@
  window.caosTranslate = translate;
  for (const [pt, en] of [["Identidade da Caos Domado aplicada a um site no monitor e a uma prova impressa.", "Caos Domado branding on a website shown on a monitor beside a printed proof."], ["Painel de projetos com o site institucional selecionado, status Em revisão e checklist de entrega.", "Project dashboard showing a company website under review and its delivery checklist."], ["O pedido do Estúdio Aurora aparece preenchido no tablet e marcado como recebido no painel do notebook.", "Estúdio Aurora’s request is filled in on the tablet and marked as received on the laptop."], ["Preencha este campo com pelo menos ", "Enter at least "], [" caracteres.", " characters."]]) dictionary.set(pt, en);
 
+ for (const [pt, en] of [
+  ["Ver oferta do Catálogo Online", "See the Online Catalog offer"],
+  ["Catálogo Online para cotação no WhatsApp | Caos Domado", "Online Catalog for WhatsApp Quotes | Caos Domado"],
+  ["Seus clientes escolhem os produtos e", "Your customers pick products and"],
+  ["pedem orçamento pelo WhatsApp.", "request a quote on WhatsApp."],
+  ["Um catálogo online para a sua loja. O comprador escolhe as quantidades e envia a lista de cotação em uma única mensagem.", "An online catalog for your shop. Buyers choose quantities and send their quote list in a single message."],
+  ["R$ 1.690", "R$ 1,690"],
+  ["Entrega em 7 dias úteis*", "Delivery in 7 business days*"],
+  ["Falar com Pedro no WhatsApp", "Talk to Pedro on WhatsApp"],
+  ["Ver demonstração da lista", "See the sample quote list"],
+  ["*A partir da entrada e do recebimento dos materiais e acessos necessários. O tempo de aprovação do cliente fica fora da contagem.", "*The timeline starts once we receive the deposit, materials and required access. Time spent awaiting client approval is excluded."],
+  ["Luminária pendente verde sobre uma mesa de madeira.", "A green pendant light above a wooden table."],
+  ["Exemplo de lista de cotação", "Sample quote list"],
+  ["Pendente Vale", "Vale pendant light"],
+  ["Abajur Serra", "Serra table lamp"],
+  ["Na demonstração, você pode baixar uma lista de teste com luminárias.", "In the Portuguese-language demo, you can download a sample quote list for lighting products."],
+  ["O que está incluído", "What’s included"],
+  ["Para lojas que já recebem pedidos de orçamento pelo WhatsApp, de floriculturas e lojas de jardinagem a outros comércios com produtos para cotar.", "For shops that already receive quote requests through WhatsApp, from florists and garden centers to other retailers that sell by quote."],
+  ["Catálogo online para uma linha de produtos, com cadastro inicial de até 15 itens.", "An online catalog for one product line, with up to 15 items added for you."],
+  ["Seleção de produtos e quantidades pelo comprador.", "Buyers can select products and quantities."],
+  ["Envio da lista de cotação pelo comprador no WhatsApp da loja.", "Buyers send their quote list to your shop on WhatsApp."],
+  ["Uma rodada consolidada de ajustes.", "One consolidated round of revisions."],
+  ["O escopo é de catálogo para cotação. Loja virtual, pagamento online e sincronização de estoque ficam fora do pacote.", "The package covers a quote-request catalog. E-commerce, online payments and inventory sync are outside the scope."],
+  ["Como contratar", "How to get started"],
+  ["Conte ao Pedro qual linha de produtos você quer colocar no catálogo.", "Tell Pedro which product line you want to feature."],
+  ["R$ 845 de entrada (50%)", "R$ 845 deposit (50%)"],
+  ["Envie os materiais e acessos necessários para começar.", "Send the materials and access we need to get started."],
+  ["R$ 845 na entrega (50%)", "R$ 845 on delivery (50%)"],
+  ["Domínio, hospedagem e ferramentas pagas são cobrados à parte.", "Domain, hosting and paid tools cost extra."],
+  ["Voltar ao portfólio", "Back to portfolio"],
+ ]) dictionary.set(pt, en);
+
+ const localizedContacts = [...document.querySelectorAll("a[data-whatsapp-en]")].map(link => {
+  const text = new URL(link.href).searchParams.get("text") || "";
+  const [message, ...tracking] = text.split("\n\n");
+  return {link, message, tracking};
+ });
+
  function applyLanguage() {
   root.lang = locale;
+  for (const {link, message, tracking} of localizedContacts) {
+   const url = new URL(link.href);
+   url.searchParams.set('text', [locale === 'en' ? link.dataset.whatsappEn : message, ...tracking].join('\n\n'));
+   link.href = url.href;
+  }
   for (const { image, originalSrc, originalSrcset } of localizedImages) {
    const src = locale === 'en' ? image.dataset.enSrc : originalSrc;
    const srcset = locale === 'en' ? image.dataset.enSrcset : originalSrcset;

@@ -64,7 +64,7 @@
   portfolio_whatsapp_clique: 'whatsapp',
   portfolio_email_clique: 'email'
  };
- const surface = demo || (hero ? 'home' : 'contato');
+ const surface = document.body.dataset.campaignSurface || demo || (hero ? 'home' : 'contato');
  function track(kind, placement) {
   return fetch('/api/crm?action=track', {
    method: 'POST',
@@ -188,7 +188,7 @@
   });
  }
  if (load('portfolio-measured-entry') !== reference) {
-  record('portfolio_entrada', {}, demo ? 'demo' : hero ? 'home' : 'contato');
+  record('portfolio_entrada', {}, demo ? 'demo' : surface);
   save('portfolio-measured-entry', reference);
  }
  if (demo) record('portfolio_demo_aberta', {}, demo);
