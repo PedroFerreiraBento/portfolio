@@ -479,6 +479,11 @@ body{background:var(--ivory)}
 @media (min-width:761px) {
  .hero { height:clamp(320px,39.9vw,820px); max-height:none; background-size:100% auto; background-position:right center; background-color:#160e0a; }
  .hero-copy { width:39%; }
+ .hero:has(.hero-offers:not([hidden])) {
+  background-color:#171412;
+  background-image:linear-gradient(90deg,#171412 29%,#171412f2 39%,#17141200 55%),var(--portfolio-hero-image);
+  background-size:100% 100%,100% auto; background-position:center,right center;
+ }
 }
 
 .service-photo { width:100%; height:auto; display:block; }
