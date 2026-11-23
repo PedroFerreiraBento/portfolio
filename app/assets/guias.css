@@ -77,3 +77,6 @@
  .hub-entry img { aspect-ratio:4 / 3; border-radius:8px; }
  .hub-actions .catalog-button { flex-basis:100%; }
 }
+@media (max-width: 400px) {
+ .guide-hub { padding-top:32px; }
+}
