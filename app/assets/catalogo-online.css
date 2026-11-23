@@ -121,3 +121,18 @@
  .catalog-actions { align-items:stretch; flex-direction:column; }
  .catalog-wrap { width:calc(100% - 32px); }
 }
+
+.catalog-related {
+ border-top:1px solid var(--brand-border);
+ padding-block:clamp(24px, 4vw, 44px);
+}
+.catalog-related h2 { font-size:1.25rem; }
+.catalog-related ul {
+ display:flex; flex-wrap:wrap; gap:0 clamp(16px, 3vw, 36px);
+ list-style:none; padding:0; margin:4px 0 0;
+}
+.catalog-related a {
+ display:inline-flex; align-items:center; min-height:44px;
+ color:var(--brand-accent-text);
+ text-decoration:underline; text-underline-offset:4px;
+}

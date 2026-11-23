@@ -580,6 +580,6 @@
 }
 .contact-card .contact-consent span { color: inherit; }
 
-.service-exhibit .view-catalogo .catalog-offer-link {
+.service-exhibit .service-view .catalog-offer-link {
  color:var(--brand-accent-text); text-decoration:underline; text-underline-offset:4px;
 }

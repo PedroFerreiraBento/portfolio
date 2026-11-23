@@ -33,7 +33,7 @@ const contentTypes = {
   '.ico':'image/x-icon', '.ttf':'font/ttf', '.woff':'font/woff', '.woff2':'font/woff2',
   '.json':'application/json; charset=utf-8', '.txt':'text/plain; charset=utf-8'
 };
-const publicRootFiles = new Set(['index.html', 'contato.html', 'catalogo-online.html', 'styles.css', 'app.js', 'favicon.ico']);
+const publicRootFiles = new Set(['index.html', 'contato.html', 'catalogo-online.html', 'pagina-de-orcamentos.html', 'agendamento-online.html', 'styles.css', 'app.js', 'favicon.ico']);
 const publicFolders = new Set(['assets', 'crm', 'demos']);
 const migrations = [
   'crm-runtime-role.sql', 'crm-intake-followup.sql', 'crm-funnel.sql',
@@ -78,7 +78,7 @@ function serveApi(req, res, url, handler) {
 }
 
 function publicFile(pathname) {
-  if (pathname === '/catalogo-online') pathname = '/catalogo-online.html';
+  if (['/catalogo-online', '/pagina-de-orcamentos', '/agendamento-online'].includes(pathname)) pathname += '.html';
   const normalized = pathname === '/crm' ? '/crm/index.html' :
     pathname.endsWith('/') ? pathname + 'index.html' : pathname;
   const parts = normalized.slice(1).split('/');

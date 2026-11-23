@@ -5,10 +5,14 @@
     "gru1"
   ],
   "redirects": [
+    {"source": "/agendamento-online.html", "destination": "/agendamento-online", "permanent": true},
+    {"source": "/pagina-de-orcamentos.html", "destination": "/pagina-de-orcamentos", "permanent": true},
     {"source": "/index.html", "destination": "/", "permanent": true},
     {"source": "/catalogo-online.html", "destination": "/catalogo-online", "permanent": true}
   ],
   "rewrites": [
+    {"source": "/agendamento-online", "destination": "/agendamento-online.html"},
+    {"source": "/pagina-de-orcamentos", "destination": "/pagina-de-orcamentos.html"},
     {"source": "/catalogo-online", "destination": "/catalogo-online.html"}
   ],
   "headers": [
