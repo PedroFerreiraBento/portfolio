@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Esmalteria fictícia com referências de acabamento e pedido de atendimento simulado."
+    />
+    <title>L’Art des Ongles · Composição</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/inter.css" />
+    <link rel="stylesheet" href="ongles.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="ongles.js" defer></script>
+  </head>
+  <body class="composicao" data-campaign-demo="esmalteria">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <div class="workbar">
+      <div class="shell toolbar">
+        <a
+          class="return"
+          href="/?tipo=orcamento&amp;projeto=esmalteria#trabalhos"
+          aria-label="Voltar aos trabalhos"
+          >← Voltar<span>&nbsp;aos trabalhos</span></a
+        >
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Carta de cores</a><a href="ocasioes.html">Ocasiões</a
+          ><a href="composicao.html" aria-current="page">Composição</a>
+        </nav>
+        <div
+          data-demo-navigation-contact
+          data-contact-label="Quero um site assim"
+        ></div>
+      </div>
+    </div>
+    <header class="brandbar">
+      <div class="shell brand-inner">
+        <a
+          class="wordmark"
+          href="#conteudo"
+          aria-label="L’Art des Ongles, início"
+          >L’Art des Ongles<small>Esmalteria</small></a
+        >
+        <nav aria-label="Na esmalteria">
+          <a href="#montagem">Montagem</a><a href="#pedido">Pedido</a>
+        </nav>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="bench-heading">
+        <div class="shell">
+          <h1>Monte sua esmaltação.</h1>
+          <p>
+            Escolha mãos, pés ou ambos e combine o serviço com o acabamento que
+            quer experimentar.
+          </p>
+        </div>
+      </section>
+      <div class="shell bench" id="montagem">
+        <section class="look" aria-labelledby="look-title">
+          <div class="look-photo">
+            <img
+              src="rosa-720.webp"
+              srcset="rosa-720.webp 720w, rosa-1440.webp 1440w"
+              sizes="(max-width: 760px) 100vw, 56vw"
+              width="1440"
+              height="960"
+              alt="Mão com esmalte rosa translúcido sobre tecido lilás"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <div class="look-copy">
+            <h2 id="look-title">Sua composição</h2>
+            <p data-composition role="status">
+              Escolha o serviço e o acabamento para montar uma referência.
+            </p>
+            <dl>
+              <div>
+                <dt>Serviço</dt>
+                <dd data-look-service>A escolher</dd>
+              </div>
+              <div>
+                <dt>Acabamento</dt>
+                <dd data-look-finish>A escolher</dd>
+              </div>
+              <div>
+                <dt>Retorno</dt>
+                <dd data-look-period>A escolher</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+        <section class="request" id="pedido" aria-labelledby="request-title">
+          <div class="request-head">
+            <h2 id="request-title">Combinar as opções</h2>
+            <button class="quiet" type="button" data-example hidden>
+              Usar exemplo
+            </button>
+          </div>
+          <form class="intake">
+            <label for="service"
+              >Serviço<select id="service" required>
+                <option value="">Selecione o serviço</option>
+                <option value="maos">Manicure</option>
+                <option value="pes">Pedicure</option>
+                <option value="ambos">Manicure e pedicure</option>
+              </select></label
+            >
+            <label for="finish"
+              ><span data-finish-label>Acabamento</span
+              ><select id="finish" required disabled>
+                <option value="">Selecione o serviço primeiro</option>
+              </select></label
+            >
+            <label for="period"
+              >Melhor período para retorno<select id="period" required>
+                <option value="">Selecione o período</option>
+                <option>Pela manhã</option>
+                <option>À tarde</option>
+                <option>Qualquer período</option>
+              </select></label
+            >
+            <p data-carry hidden></p>
+            <button class="action" type="submit" disabled>
+              Simular pedido <span aria-hidden="true">↗</span>
+            </button>
+            <p class="fine">Demonstração local. Nenhum horário é reservado.</p>
+            <noscript><p>Ative o JavaScript para testar o pedido.</p></noscript>
+          </form>
+          <section class="receipt" hidden aria-label="Resumo do pedido">
+            <h3 tabindex="-1">Pedido simulado</h3>
+            <dl data-summary></dl>
+            <p data-message></p>
+            <div class="receipt-actions">
+              <button type="button" data-copy class="quiet">
+                Copiar pedido</button
+              ><button type="button" data-edit class="quiet">Editar</button
+              ><button type="button" data-reset class="quiet">Recomeçar</button>
+            </div>
+            <p class="copy-status" role="status"></p>
+          </section>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="shell">
+        <p>
+          <strong>L’Art des Ongles</strong> · Esmalteria fictícia. As
+          fotografias são ilustrativas.
+        </p>
+        <a
+          class="project-whatsapp"
+          data-project-whatsapp
+          href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20esmalteria%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+          target="_blank"
+          rel="noopener noreferrer"
+          >Quero um site assim <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </footer>
+  </body>
+</html>
