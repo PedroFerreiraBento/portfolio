@@ -19,7 +19,7 @@
   {"type": "orcamento", "title": "Reformas", "description": "Escolha o tipo de reforma e teste o pedido de orçamento.", "aliases": "", "id": "reformas", "dest": "/exemplos/servicos/reformas/", "mobile": false, "brand": "Entre Obra", "tone": "produto", "english": {"title": "Home renovations", "description": "Choose a renovation type and try asking for a quote."}},
   {"type": "orcamento", "title": "Jardinagem", "description": "Defina o cuidado que o espaço precisa e simule o contato.", "aliases": "", "id": "jardinagem", "dest": "/exemplos/servicos/jardinagem/", "mobile": false, "brand": "Jardinagem", "tone": "produto", "english": {"title": "Gardening", "description": "Choose what the space needs and try sending an enquiry.", "brand": "Gardening"}},
   {"type": "orcamento", "title": "Oficina mecânica", "description": "Selecione o serviço e simule a solicitação para seu veículo.", "aliases": "", "id": "oficina", "dest": "/exemplos/servicos/oficina/", "mobile": false, "brand": "Oficina mecânica", "tone": "produto", "english": {"title": "Auto repair shop", "description": "Choose a service and try requesting an estimate.", "brand": "Auto repair shop"}},
-  {"type": "orcamento", "title": "Marcenaria", "description": "Escolha o ambiente e simule um orçamento de móveis sob medida.", "aliases": "", "id": "marcenaria", "dest": "/exemplos/servicos/marcenaria/", "mobile": false, "brand": "Marcenaria", "tone": "produto", "english": {"title": "Custom furniture", "description": "Choose a room and try requesting a custom furniture quote.", "brand": "Custom furniture"}},
+  {"type": "orcamento", "title": "Marcenaria", "description": "Escolha o ambiente e simule um orçamento de móveis sob medida.", "aliases": "", "id": "marcenaria", "dest": "/exemplos/servicos/marcenaria/", "mobile": true, "brand": "Encaixe", "tone": "produto", "english": {"title": "Custom furniture", "description": "Choose a room and try requesting a custom furniture quote."}},
   {"type": "orcamento", "title": "Vidraçaria", "description": "Indique a peça e as dimensões para testar um pedido.", "aliases": "", "id": "vidracaria", "dest": "/exemplos/servicos/vidracaria/", "mobile": false, "brand": "Vidraçaria", "tone": "produto", "english": {"title": "Glass installation", "description": "Enter the piece and its dimensions to try a request.", "brand": "Glass installation"}},
   {"type": "catalogo", "title": "Loja de iluminação", "description": "Escolha luminárias, monte uma cotação e veja a mensagem pronta para o WhatsApp.", "aliases": "", "id": "catalogo", "dest": "/assets/casos/catalogo.html", "mobile": true, "brand": "Luz & Forma", "tone": "produto", "english": {"title": "Lighting store", "description": "Choose fixtures, build a quote request and see the message ready for WhatsApp."}},
   {"type": "agendamento", "title": "Agenda para conversar sobre um projeto", "description": "Confira os dias livres e simule a escolha de um horário.", "aliases": "", "id": "agenda", "dest": "/assets/casos/agenda.html", "mobile": true, "brand": "Agenda online", "tone": "saude", "english": {"title": "Project consultation", "description": "Check available days and try booking a time."}},
@@ -87,7 +87,8 @@
    arquitetura:'/exemplos/profissionais/arquitetura/versoes.html',
    contabilidade:'/exemplos/profissionais/contabilidade/versoes.html',
    fotografia:'/exemplos/servicos/fotografia/versoes.html',
-   buffet:'/exemplos/profissionais/buffet/versoes.html'
+   buffet:'/exemplos/profissionais/buffet/versoes.html',
+   marcenaria:'/exemplos/servicos/marcenaria/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {

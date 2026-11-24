@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de marcenaria sob medida. Explore ambientes, materiais e um briefing ilustrativo.">
+ <title>Encaixe Marcenaria · Matéria</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="encaixe.css">
+<script src="/assets/campanha.js" defer></script>
+ <script src="encaixe.js" defer></script>
+</head>
+<body class="materia" data-campaign-demo="marcenaria">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="workback" href="/?tipo=orcamento&amp;projeto=marcenaria#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./">Ambientes</a><a href="materia.html" aria-current="page">Matéria</a><a href="projeto.html">Projeto</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner"><a class="wordmark" href="#conteudo" aria-label="Encaixe Marcenaria, início">Encaixe<span>marcenaria</span></a><nav aria-label="Navegação da marcenaria"><a href="#amostras">Amostras</a><a href="#criterios">Como escolher</a><a href="#pedido">Briefing</a></nav></div></header>
+ <main id="conteudo"><section class="material-library shell" id="amostras">
+    <div class="library-intro"><h1>Olhe de perto.</h1><p>Compare a fibra, o contraste e a superfície antes de escolher um acabamento para o seu móvel.</p></div>
+    <div class="library-grid">
+     <div class="sample-shelf" role="group" aria-label="Amostras de acabamento"><button type="button" class="sample sample-freijo" data-finish="freijo" aria-pressed="true"><span aria-hidden="true"></span>Freijó natural</button><button type="button" class="sample sample-nogueira" data-finish="nogueira" aria-pressed="false"><span aria-hidden="true"></span>Nogueira escura</button><button type="button" class="sample sample-verde" data-finish="verde" aria-pressed="false"><span aria-hidden="true"></span>Laca verde fosca</button></div>
+     <figure class="texture"><img src="freijo-720.webp" srcset="freijo-720.webp 720w, freijo-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 72vw" alt="Detalhe da fibra natural de freijó em painéis de marcenaria" width="1440" height="960" fetchpriority="high" decoding="async"><figcaption data-sample-caption>Madeira · veios aparentes</figcaption></figure>
+     <div class="sample-detail" aria-live="polite"><h2 data-finish-title>Freijó natural</h2><p data-finish-copy>De tom quente e veios visíveis, combina com tecidos e pedras claras. A variação natural do desenho faz parte da superfície.</p><dl><div><dt>Visual</dt><dd data-finish-look>Quente e claro</dd></div><div><dt>Onde testar</dt><dd data-finish-use>Estantes, portas e painéis</dd></div></dl><a class="action" href="#pedido" data-use-finish="freijo">Levar ao briefing <span aria-hidden="true">↗</span></a></div>
+    </div>
+   </section>
+   <section class="material-guide" id="criterios"><div class="shell"><h2>Uma amostra muda com o lugar.</h2><div><article><h3>Veja na luz do ambiente</h3><p>Observe de manhã e sob a luz artificial que você costuma usar à noite.</p></article><article><h3>Compare com o que já existe</h3><p>Aproxime a amostra do piso, da pedra e das peças que você pretende manter.</p></article><article><h3>Considere o uso diário</h3><p>Converse sobre frequência de limpeza, contato com água e áreas muito manuseadas.</p></article></div></div></section>
+   <div class="request-band"><div class="shell request-layout"><div><h2>A amostra vira referência.</h2><p>A escolha entra no briefing. A confirmação do acabamento é feita depois, com amostra física.</p></div><section class="request" id="pedido" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Montar briefing</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+    <form class="brief">
+     <fieldset><legend>O espaço</legend><label for="room">Ambiente<select id="room" required><option value="">Escolha um ambiente</option><option value="cozinha">Cozinha</option><option value="sala">Sala e estante</option><option value="escritorio">Escritório</option></select></label>
+      <div class="measure-fields">
+       <label for="width">Largura em cm <small>(opcional)</small><input id="width" type="number" inputmode="numeric" min="1" max="9999" step="1" placeholder="240"></label>
+       <label for="height">Altura em cm <small>(opcional)</small><input id="height" type="number" inputmode="numeric" min="1" max="9999" step="1" placeholder="220"></label>
+      </div>
+
+     </fieldset>
+     <fieldset><legend>Preferências</legend>
+      <label for="material">Acabamento<select id="material" required><option value="">Escolha uma opção</option><option value="freijo">Freijó natural</option><option value="nogueira">Nogueira escura</option><option value="verde">Laca verde fosca</option><option value="definir">Ainda vou escolher</option></select></label>
+      <label for="stage">Em que fase está?<select id="stage" required><option value="">Escolha a etapa</option><option>Tenho uma ideia inicial</option><option>Já tenho medidas aproximadas</option><option>Tenho um projeto pronto</option></select></label>
+     </fieldset>
+     <button class="action" type="submit" disabled>Simular briefing <span aria-hidden="true">↗</span></button>
+     <p class="demo-note">As medidas são aproximadas. Nenhum pedido será enviado.</p>
+     <noscript><p>Ative o JavaScript para testar o briefing.</p></noscript>
+    </form>
+    <div class="receipt" hidden><h3 tabindex="-1">Briefing de teste</h3><dl>
+     <div><dt>Protocolo</dt><dd data-ref></dd></div><div><dt>Ambiente</dt><dd data-room-summary></dd></div><div><dt>Medidas</dt><dd data-measure-summary></dd></div><div><dt>Acabamento</dt><dd data-material-summary></dd></div><div><dt>Etapa</dt><dd data-stage-summary></dd></div>
+    </dl><p>Em um atendimento real, a marcenaria conferiria as medidas no imóvel antes de definir a fabricação.</p><p data-message></p>
+    <div class="receipt-actions"><button type="button" data-copy>Copiar briefing</button><button type="button" data-edit>Editar</button><button type="button" data-reset>Recomeçar</button></div><p role="status" class="copy-status"></p></div>
+ </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Encaixe Marcenaria</strong> · Marca fictícia. Imagens ilustrativas.</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Encaixe%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

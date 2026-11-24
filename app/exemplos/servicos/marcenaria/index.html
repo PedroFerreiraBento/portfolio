@@ -2,60 +2,62 @@
 <html lang="pt-BR">
 <head>
  <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="robots" content="noindex,nofollow">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,follow">
  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
- <meta name="description" content="Demonstração de uma marcenaria de móveis sob medida.">
- <title>Encaixe | Marcenaria sob medida</title>
+ <meta name="description" content="Demonstração de marcenaria sob medida. Explore ambientes, materiais e um briefing ilustrativo.">
+ <title>Encaixe Marcenaria · Ambientes</title>
  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
- <link rel="stylesheet" href="../demo.css">
- <script src="../demo.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="encaixe.css">
+<script src="/assets/campanha.js" defer></script>
+ <script src="encaixe.js" defer></script>
 </head>
-<body data-campaign-demo="marcenaria" class="marcenaria">
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
- <a href="/?tipo=orcamento&amp;projeto=marcenaria#trabalhos">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
-</aside>
-<header class="site-header">
- <a class="wordmark" href="#conteudo">Encaixe</a>
- <nav aria-label="Navegação do exemplo"><a href="#servicos">Ambientes</a><a href="#pedido">Orçamento</a></nav>
-</header>
-<main id="conteudo">
- <section class="hero">
-  <div class="hero-copy">
-   <h1>Móveis que cabem <em>na sua vida.</em></h1>
-   <p>Marcenaria sob medida para usar melhor seu espaço. Você mostra o ambiente e a gente conversa sobre medidas, materiais e acabamentos.</p>
-   <a class="action" href="#pedido">Apresentar meu projeto</a>
-  </div>
-  <figure><img src="./hero.webp" width="1536" height="1024" fetchpriority="high" alt="Estante sob medida em madeira de freijó com nichos e banco integrado à janela."><figcaption>Ambiente ilustrativo</figcaption></figure>
- </section>
- <section class="section services" id="servicos">
-  <h2>Feito para cada ambiente</h2>
-  <div>
-   <article><h3>Cozinhas</h3><p>Divisões e alturas pensadas para o que você usa todos os dias.</p></article>
-   <article><h3>Salas e estantes</h3><p>Nichos, portas e painéis integrados às medidas da parede.</p></article>
-   <article><h3>Quartos e escritório</h3><p>Guarda-roupas e bancadas planejados para a sua rotina.</p></article>
-  </div>
- </section>
- <aside class="section note"><h2>Começamos pelo espaço.</h2><p>As medidas aproximadas ajudam a conversar sobre o projeto. As medidas de fabricação são conferidas no imóvel.</p></aside>
- <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
-  <div class="form-intro"><h2 id="pedido-heading">O que você quer construir?</h2><p>O ambiente, a largura e o acabamento desejado ajudam a entender a primeira ideia.</p></div>
-  <form data-request>
-   <label>Ambiente<select name="ambiente" data-field="Ambiente" required><option value="">Selecione</option><option>Cozinha</option><option>Sala e estante</option><option>Quarto ou escritório</option></select></label>
-   <label>Largura aproximada<select name="largura" data-field="Largura aproximada" required><option value="">Selecione</option><option>Até 1,5 m</option><option>Entre 1,5 e 3 m</option><option>Acima de 3 m</option><option>A medir</option></select></label>
-   <fieldset><legend>Acabamento que prefere</legend><label class="choice"><input type="radio" name="acabamento" data-field="Acabamento" value="Madeirado" required> Madeirado</label><label class="choice"><input type="radio" name="acabamento" data-field="Acabamento" value="Liso e fosco"> Liso e fosco</label><label class="choice"><input type="radio" name="acabamento" data-field="Acabamento" value="A definir"> A definir</label></fieldset>
-   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
-   <button class="action" type="submit" disabled>Simular pedido de orçamento</button>
-   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
-  </form>
-  <section class="result" data-result hidden aria-labelledby="result-title">
-   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3><dl data-summary></dl>
-   <p>Simulação concluída. Nenhum pedido foi enviado.</p><button type="button" data-edit>Editar pedido</button>
-  </section>
- </section>
-</main>
-<footer><strong>Encaixe</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/?tipo=orcamento&amp;projeto=marcenaria#trabalhos">Ver outros exemplos</a></footer>
+<body class="ambientes" data-campaign-demo="marcenaria">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="workback" href="/?tipo=orcamento&amp;projeto=marcenaria#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Ambientes</a><a href="materia.html">Matéria</a><a href="projeto.html">Projeto</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner"><a class="wordmark" href="#conteudo" aria-label="Encaixe Marcenaria, início">Encaixe<span>marcenaria</span></a><nav aria-label="Navegação da marcenaria"><a href="#visita">A visita</a><a href="#pedido">Levar uma ideia</a></nav></div></header>
+ <main id="conteudo"><section class="room-hero">
+    <div class="room-hero-media"><img src="cozinha-720.webp" srcset="cozinha-720.webp 720w, cozinha-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 72vw" alt="Cozinha sob medida em freijó com ilha e bancada clara" width="1440" height="960" fetchpriority="high" decoding="async"></div>
+    <div class="shell room-hero-copy"><h1>Cada espaço<br> tem seu encaixe.</h1><p>Entre em três ambientes e veja as escolhas que fazem a marcenaria funcionar na rotina.</p><a class="action" href="#visita">Visitar os ambientes ↓</a></div>
+   </section>
+   <section class="room-tour shell" id="visita">
+    <header><h2>Entre no ambiente.</h2><p>Selecione um ambiente e toque nos pontos da imagem para explorar as soluções.</p></header>
+    <div class="room-switch" role="group" aria-label="Ambientes"><button type="button" data-room="cozinha" aria-pressed="true">Cozinha</button><button type="button" data-room="sala" aria-pressed="false">Sala e estante</button><button type="button" data-room="escritorio" aria-pressed="false">Escritório</button></div>
+    <div class="tour-grid">
+     <figure class="tour-photo"><img src="cozinha-720.webp" srcset="cozinha-720.webp 720w, cozinha-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 72vw" alt="Cozinha sob medida em freijó com ilha e bancada clara" width="1440" height="960" loading="lazy" decoding="async"><button type="button" class="hotspot" data-hotspot="0" aria-pressed="true" aria-label="Armários da bancada">1</button><button type="button" class="hotspot" data-hotspot="1" aria-pressed="false" aria-label="Ilha e passagem">2</button></figure>
+     <div class="tour-detail" aria-live="polite"><p class="room-name" data-room-name>Cozinha</p><h3 data-spot-title>Armários da bancada</h3><p data-spot-copy>Organizar o que mais se usa perto das áreas de preparo e cocção evita percursos desnecessários.</p><a class="action" href="#pedido" data-use-room="cozinha">Levar este ambiente <span aria-hidden="true">↗</span></a></div>
+    </div>
+   </section>
+   <section class="room-end shell"><div><h2>O móvel começa no uso.</h2><p>Conte o que precisa guardar, apoiar ou deixar à vista. A conversa começa pela rotina, antes de escolher o desenho ou a ferragem.</p></div><img src="sala-720.webp" srcset="sala-720.webp 720w, sala-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 72vw" alt="Sala com estante integrada e painel de madeira" width="1440" height="960" loading="lazy" decoding="async"></section>
+   <div class="request-band"><div class="shell request-layout"><div><h2>O que precisa caber no seu espaço?</h2><p>Leve o ambiente da visita ou faça uma escolha diretamente no briefing.</p></div><section class="request" id="pedido" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Montar briefing</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+    <form class="brief">
+     <fieldset><legend>O espaço</legend><label for="room">Ambiente<select id="room" required><option value="">Escolha um ambiente</option><option value="cozinha">Cozinha</option><option value="sala">Sala e estante</option><option value="escritorio">Escritório</option></select></label>
+      <div class="measure-fields">
+       <label for="width">Largura em cm <small>(opcional)</small><input id="width" type="number" inputmode="numeric" min="1" max="9999" step="1" placeholder="240"></label>
+       <label for="height">Altura em cm <small>(opcional)</small><input id="height" type="number" inputmode="numeric" min="1" max="9999" step="1" placeholder="220"></label>
+      </div>
+
+     </fieldset>
+     <fieldset><legend>Preferências</legend>
+      <label for="material">Acabamento<select id="material" required><option value="">Escolha uma opção</option><option value="freijo">Freijó natural</option><option value="nogueira">Nogueira escura</option><option value="verde">Laca verde fosca</option><option value="definir">Ainda vou escolher</option></select></label>
+      <label for="stage">Em que fase está?<select id="stage" required><option value="">Escolha a etapa</option><option>Tenho uma ideia inicial</option><option>Já tenho medidas aproximadas</option><option>Tenho um projeto pronto</option></select></label>
+     </fieldset>
+     <button class="action" type="submit" disabled>Simular briefing <span aria-hidden="true">↗</span></button>
+     <p class="demo-note">As medidas são aproximadas. Nenhum pedido será enviado.</p>
+     <noscript><p>Ative o JavaScript para testar o briefing.</p></noscript>
+    </form>
+    <div class="receipt" hidden><h3 tabindex="-1">Briefing de teste</h3><dl>
+     <div><dt>Protocolo</dt><dd data-ref></dd></div><div><dt>Ambiente</dt><dd data-room-summary></dd></div><div><dt>Medidas</dt><dd data-measure-summary></dd></div><div><dt>Acabamento</dt><dd data-material-summary></dd></div><div><dt>Etapa</dt><dd data-stage-summary></dd></div>
+    </dl><p>Em um atendimento real, a marcenaria conferiria as medidas no imóvel antes de definir a fabricação.</p><p data-message></p>
+    <div class="receipt-actions"><button type="button" data-copy>Copiar briefing</button><button type="button" data-edit>Editar</button><button type="button" data-reset>Recomeçar</button></div><p role="status" class="copy-status"></p></div>
+ </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Encaixe Marcenaria</strong> · Marca fictícia. Imagens ilustrativas.</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Encaixe%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
 </body>
 </html>

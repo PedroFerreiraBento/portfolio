@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de marcenaria sob medida. Explore ambientes, materiais e um briefing ilustrativo.">
+ <title>Encaixe Marcenaria · Projeto</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="encaixe.css">
+<script src="/assets/campanha.js" defer></script>
+ <script src="encaixe.js" defer></script>
+</head>
+<body class="projeto" data-campaign-demo="marcenaria">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="workback" href="/?tipo=orcamento&amp;projeto=marcenaria#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./">Ambientes</a><a href="materia.html">Matéria</a><a href="projeto.html" aria-current="page">Projeto</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner"><a class="wordmark" href="#conteudo" aria-label="Encaixe Marcenaria, início">Encaixe<span>marcenaria</span></a><nav aria-label="Navegação da marcenaria"><a href="#pedido">Caderno de medidas</a><a href="#preparo">O que observar</a></nav></div></header>
+ <main id="conteudo"><section class="project-intro"><div class="shell project-heading"><h1>Da parede<br> ao projeto.</h1><p>Um caderno para registrar o que você já sabe sobre o espaço. Se faltar uma medida, deixe em aberto e leve a dúvida para a visita.</p></div></section>
+   <div class="shell drawing-grid">
+    <section class="request" id="pedido" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Montar briefing</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+    <form class="brief">
+     <fieldset><legend>O espaço</legend><label for="room">Ambiente<select id="room" required><option value="">Escolha um ambiente</option><option value="cozinha">Cozinha</option><option value="sala">Sala e estante</option><option value="escritorio">Escritório</option></select></label>
+      <div class="measure-fields">
+       <label for="width">Largura em cm <small>(opcional)</small><input id="width" type="number" inputmode="numeric" min="1" max="9999" step="1" placeholder="240"></label>
+       <label for="height">Altura em cm <small>(opcional)</small><input id="height" type="number" inputmode="numeric" min="1" max="9999" step="1" placeholder="220"></label>
+      </div>
+      <div class="drawing-preview" role="img" aria-label="Esquema ilustrativo de largura e altura">
+      <div class="drawing-body"><span data-drawing-height>A medir</span><span data-drawing-width>A medir</span><i aria-hidden="true"></i></div>
+      <p>Esquema ilustrativo, fora de escala.</p>
+     </div>
+     </fieldset>
+     <fieldset><legend>Preferências</legend>
+      <label for="material">Acabamento<select id="material" required><option value="">Escolha uma opção</option><option value="freijo">Freijó natural</option><option value="nogueira">Nogueira escura</option><option value="verde">Laca verde fosca</option><option value="definir">Ainda vou escolher</option></select></label>
+      <label for="stage">Em que fase está?<select id="stage" required><option value="">Escolha a etapa</option><option>Tenho uma ideia inicial</option><option>Já tenho medidas aproximadas</option><option>Tenho um projeto pronto</option></select></label>
+     </fieldset>
+     <button class="action" type="submit" disabled>Simular briefing <span aria-hidden="true">↗</span></button>
+     <p class="demo-note">As medidas são aproximadas. Nenhum pedido será enviado.</p>
+     <noscript><p>Ative o JavaScript para testar o briefing.</p></noscript>
+    </form>
+    <div class="receipt" hidden><h3 tabindex="-1">Briefing de teste</h3><dl>
+     <div><dt>Protocolo</dt><dd data-ref></dd></div><div><dt>Ambiente</dt><dd data-room-summary></dd></div><div><dt>Medidas</dt><dd data-measure-summary></dd></div><div><dt>Acabamento</dt><dd data-material-summary></dd></div><div><dt>Etapa</dt><dd data-stage-summary></dd></div>
+    </dl><p>Em um atendimento real, a marcenaria conferiria as medidas no imóvel antes de definir a fabricação.</p><p data-message></p>
+    <div class="receipt-actions"><button type="button" data-copy>Copiar briefing</button><button type="button" data-edit>Editar</button><button type="button" data-reset>Recomeçar</button></div><p role="status" class="copy-status"></p></div>
+ </section>
+    <aside class="project-notes" id="preparo"><h2>Antes de medir</h2><ol>
+     <li><strong>Olhe para a parede inteira.</strong><p>Veja onde ficam tomadas, interruptores, rodapés e outras interferências.</p></li>
+     <li><strong>Observe o que abre e circula.</strong><p>Portas, janelas, gavetas e passagens precisam de espaço para funcionar.</p></li>
+     <li><strong>Anote em centímetros.</strong><p>Registre um valor aproximado ou deixe em branco. A medida final é conferida no local.</p></li>
+    </ol></aside>
+   </div>
+   <section class="project-illustration shell"><img src="escritorio-720.webp" srcset="escritorio-720.webp 720w, escritorio-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 72vw" alt="Escritório com armários e bancada sob medida" width="1440" height="960" loading="lazy" decoding="async"><div><h2>Uma medida não conta tudo.</h2><p>O uso, as instalações e o acesso à montagem também entram no projeto. O briefing ajuda a preparar essa primeira conversa.</p></div></section></main>
+ <footer><div class="shell footer-inner"><p><strong>Encaixe Marcenaria</strong> · Marca fictícia. Imagens ilustrativas.</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Encaixe%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>
