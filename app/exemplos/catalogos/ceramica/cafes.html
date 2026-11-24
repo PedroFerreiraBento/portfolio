@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Especifique o lote de cerâmica para o serviço do seu café.">
+  <title>Ateliê Várzea · Louça para cafés</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="varzea.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="varzea.js" defer></script>
+</head>
+<body class="cafes" data-campaign-demo="ceramica">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="frame top">
+    <a class="back" href="/?tipo=catalogo&amp;projeto=ceramica#trabalhos"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5m6 6-6-6 6-6"/></svg> Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="./">Mesa composta</a><a href="presente.html">Peça para presentear</a><a href="cafes.html" aria-current="page">Louça para cafés</a></nav>
+    <div data-demo-navigation-contact><a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20de%20cer%C3%A2mica%20Ateli%C3%AA%20V%C3%A1rzea.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header>
+<header class="brand">
+  <div class="frame brand-row"><a class="wordmark" href="#conteudo">Ateliê Várzea</a><a href="#lote">Montar ficha <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15m-6-6 6 6 6-6"/></svg></a></div>
+</header>
+<main id="conteudo">
+  <section class="cafe-hero">
+    <div class="frame cafe-copy"><h1>Louça de ateliê para cafés.</h1><p>Prepare a ficha do primeiro lote, da bebida servida à quantidade de reposição.</p><a href="#lote" class="primary">Especificar meu lote <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15m-6-6 6 6 6-6"/></svg></a></div>
+  </section>
+  <section id="lote" class="frame tool">
+    <h2>Ficha do lote</h2>
+    <form data-flow="cafes">
+      <div class="lot" data-fields>
+        <div class="lot-inputs">
+          <fieldset><legend>Onde a peça entra no serviço?</legend><div class="choices"><label><input type="radio" name="uso" value="Espresso" checked required><span>Espresso</span></label><label><input type="radio" name="uso" value="Cappuccino" required><span>Cappuccino</span></label><label><input type="radio" name="uso" value="Serviço de mesa" required><span>Serviço de mesa</span></label></div></fieldset>
+          <div class="counts">
+            <label for="uso-simultaneo">Peças em uso ao mesmo tempo<input id="uso-simultaneo" name="ativas" type="number" value="24" min="1" max="999" step="1" inputmode="numeric" required></label>
+            <label for="reserva">Peças de reposição<input id="reserva" name="reserva" type="number" value="6" min="0" max="999" step="1" inputmode="numeric" required></label>
+          </div>
+          <fieldset><legend>Acabamento do lote</legend><div class="choices finish"><label><input type="radio" name="acabamento" value="Marfim" checked required><span>Marfim</span></label><label><input type="radio" name="acabamento" value="Azul-cobalto" required><span>Azul-cobalto</span></label><label><input type="radio" name="acabamento" value="Terracota" required><span>Terracota</span></label></div></fieldset>
+        </div>
+        <div class="lot-ticket">
+          <p>Peça para cotar</p><strong data-cafe-piece>Xícara · 90 ml</strong>
+          <div class="lot-swatch" data-swatch="Marfim" aria-hidden="true"></div>
+          <output data-total aria-live="polite">30 peças no lote</output>
+          <button type="submit" class="primary">Revisar ficha <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    <section class="receipt" hidden data-receipt tabindex="-1" aria-labelledby="resumo">
+      <h2 id="resumo">Resumo da seleção</h2>
+      <p>Simulação VZ-DEMO-001 · Escolhas feitas nesta página.</p>
+      <dl data-summary></dl>
+      <div class="actions">
+        <button class="primary" type="button" data-copy>Copiar resumo</button>
+        <button class="secondary" type="button" data-edit>Editar</button>
+        <button class="text-button" type="button" data-reset>Recomeçar</button>
+      </div>
+      <p class="status" data-status role="status"></p>
+    </section>
+    </form>
+  </section>
+</main>
+<footer><div class="frame foot"><span>Ateliê Várzea · Cerâmica utilitária</span><a href="versoes.html">Comparar versões <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></footer>
+</body>
+</html>

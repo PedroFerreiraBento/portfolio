@@ -1,0 +1,10 @@
+{
+  "tool": "ImageGen nativo",
+  "prompt": "Photorealistic editorial contact sheet for Brazilian independent tableware pottery studio website. Precisely 2 by 2 equal rectangular photographic cells edge to edge without grid lines, four separate complete compositions, no objects crossing cell boundaries. Top left: top-down asymmetrical table setting of three nested handmade plates, soft off-white speckled glaze and dark cobalt small bowl on oatmeal natural linen, olive branch gently to side, soft morning light. Top right: bold still life of a single blue cobalt glaze espresso cup and creamy handleless cup on dark saturated marine blue studio plinth, strong directional illumination, reflections reveal handmade glazes. Bottom left: photoshoot at a contemporary small Brazilian café, ceramic cups stacked in pale cream and burnished dark blue on dark walnut counter, espresso machine softly out of focus, morning sunlight, no text no people. Bottom right: warm close-up in workshop of potter's hands inspecting a rust-red ceramic bowl on a plain workbench, tactile wet clay, natural light. Premium independent European/Brazilian design magazine art direction, genuine grain and slight irregularity of handmade vessels, no writing, no letters, no watermarks. Each cell is a separately framed medium wide image with ample breathing room and crisp composition.",
+  "crops": {
+    "mesa.webp": "superior esquerda",
+    "cobalto.webp": "superior direita",
+    "cafe.webp": "inferior esquerda",
+    "terra.webp": "inferior direita"
+  }
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Monte um conjunto de cerâmica utilitária por número de lugares.">
+  <title>Ateliê Várzea · Mesa composta</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="varzea.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="varzea.js" defer></script>
+</head>
+<body class="mesa" data-campaign-demo="ceramica">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="frame top">
+    <a class="back" href="/?tipo=catalogo&amp;projeto=ceramica#trabalhos"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5m6 6-6-6 6-6"/></svg> Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Mesa composta</a><a href="presente.html">Peça para presentear</a><a href="cafes.html">Louça para cafés</a></nav>
+    <div data-demo-navigation-contact><a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20de%20cer%C3%A2mica%20Ateli%C3%AA%20V%C3%A1rzea.%20Quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header>
+<header class="brand">
+  <div class="frame brand-row"><a class="wordmark" href="#conteudo">Ateliê Várzea</a><a href="#compor">Montar conjunto <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15m-6-6 6 6 6-6"/></svg></a></div>
+</header>
+<main id="conteudo">
+  <section class="frame table-hero">
+    <div><h1>Uma mesa que começa em cada lugar.</h1><p>Escolha o número de pessoas e o que entra em cada lugar. A lista calcula as peças do conjunto na hora.</p><a class="primary" href="#compor">Compor minha mesa <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15m-6-6 6 6 6-6"/></svg></a></div>
+    <img src="mesa.webp" width="760" height="500" alt="Pratos artesanais em esmalte claro e tigela azul-cobalto sobre linho" fetchpriority="high">
+  </section>
+  <section id="compor" class="frame tool">
+    <h2>Monte o conjunto</h2>
+    <form data-flow="mesa">
+      <div class="table-builder" data-fields>
+        <div>
+          <fieldset><legend>Quantos lugares?</legend><div class="choices"><label><input type="radio" name="lugares" value="2" required><span>2 lugares</span></label><label><input type="radio" name="lugares" value="4" checked required><span>4 lugares</span></label><label><input type="radio" name="lugares" value="6" required><span>6 lugares</span></label><label><input type="radio" name="lugares" value="8" required><span>8 lugares</span></label></div></fieldset>
+          <fieldset class="piece-picker"><legend>O que vai em cada lugar?</legend><label class="piece"><input type="checkbox" name="peca" value="Prato raso" checked><span><strong>Prato raso</strong><small>26 cm</small></span></label><label class="piece"><input type="checkbox" name="peca" value="Prato de sobremesa"><span><strong>Prato de sobremesa</strong><small>19 cm</small></span></label><label class="piece"><input type="checkbox" name="peca" value="Tigela"><span><strong>Tigela</strong><small>14 cm</small></span></label></fieldset>
+          <p class="status" data-error role="status"></p>
+        </div>
+        <div class="setting">
+          <div class="setting-drawing" aria-hidden="true"><span data-layer="Prato raso" class="layer plate"></span><span data-layer="Prato de sobremesa" class="layer dessert" hidden></span><span data-layer="Tigela" class="layer bowl" hidden></span></div>
+          <output data-total aria-live="polite">4 peças para 4 lugares</output>
+          <button type="submit" class="primary">Revisar conjunto <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    <section class="receipt" hidden data-receipt tabindex="-1" aria-labelledby="resumo">
+      <h2 id="resumo">Resumo da seleção</h2>
+      <p>Simulação VZ-DEMO-001 · Escolhas feitas nesta página.</p>
+      <dl data-summary></dl>
+      <div class="actions">
+        <button class="primary" type="button" data-copy>Copiar resumo</button>
+        <button class="secondary" type="button" data-edit>Editar</button>
+        <button class="text-button" type="button" data-reset>Recomeçar</button>
+      </div>
+      <p class="status" data-status role="status"></p>
+    </section>
+    </form>
+  </section>
+</main>
+<footer><div class="frame foot"><span>Ateliê Várzea · Cerâmica utilitária</span><a href="versoes.html">Comparar versões <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></footer>
+</body>
+</html>
