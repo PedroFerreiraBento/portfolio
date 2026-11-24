@@ -1,46 +1,73 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
- <meta name="robots" content="noindex,nofollow"><title>Soma Clara Contabilidade — demonstração</title>
- <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta name="description" content="Demonstração de site contábil para pequenos negócios com triagem simulada.">
+ <title>Soma Clara · Partida</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="soma.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="soma.js" defer></script>
 </head>
-<body data-campaign-demo="contabilidade" class="accounting">
-<a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="demo-bar"><a href="/?tipo=orcamento&amp;projeto=contabilidade#trabalhos">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
-<header class="header wrap">
- <a class="wordmark" href="#">soma clara<span>.</span></a>
- <nav aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#perfil">Descobrir meu atendimento</a></nav>
-</header>
-<main id="conteudo">
- <section class="accounting-hero"><div class="wrap">
-  <div class="hero-copy"><h1>Contabilidade para o próximo passo.</h1><p>Vai abrir uma empresa ou quer organizar a que já tem? Veja por onde começar.</p><a class="button" href="#perfil">Montar meu pedido</a></div>
-  <img src="../mesa-contabilidade.webp" alt="Mesa de trabalho clara com calculadora e mãos organizando documentos" width="1440" height="1080" fetchpriority="high">
- </div></section>
- <section class="accounting-services wrap" id="servicos">
-  <h2>Onde podemos ajudar</h2>
-  <div class="service-list">
-   <article><h3>Abertura de empresa</h3><p>Entenda quais informações reunir para iniciar a formalização.</p></article>
-   <article><h3>Troca de contador</h3><p>Organize a passagem de documentos e o início do novo atendimento.</p></article>
-   <article><h3>Rotina contábil</h3><p>Converse sobre o acompanhamento da empresa ao longo do mês.</p></article>
-  </div>
- </section>
- <section class="request" id="perfil"><div class="wrap request-grid">
-  <div><h2>Em que fase está seu negócio?</h2><p>Seu pedido começa com duas escolhas. Elas ajudam a equipe a entender o tipo de conversa que você precisa.</p><p class="note">Use um cenário de teste, sem enviar documentos.</p></div>
-  <form data-demo-form method="post" action="#perfil">
-   <fieldset><legend>Qual é o seu momento?</legend>
-    <label class="radio"><input type="radio" name="Momento" value="Quero abrir uma empresa" required> Quero abrir uma empresa</label>
-    <label class="radio"><input type="radio" name="Momento" value="Quero mudar de contador"> Quero mudar de contador</label>
-    <label class="radio"><input type="radio" name="Momento" value="Quero organizar a rotina atual"> Quero organizar a rotina atual</label>
-   </fieldset>
-   <label for="acct-atividade">Atividade da empresa</label>
-   <select id="acct-atividade" name="Atividade" required><option value="">Selecione uma atividade</option><option>Prestação de serviços</option><option>Comércio</option><option>Outra atividade</option></select>
-   <button class="button" type="submit" disabled>Ver meu pedido de exemplo</button>
-   <section class="receipt" data-receipt hidden aria-labelledby="acct-recibo"><h3 id="acct-recibo" tabindex="-1">Resumo para o primeiro atendimento</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
-   <noscript><p>Ative o JavaScript para testar a prévia do pedido.</p></noscript>
-  </form>
- </div></section>
-</main>
-<footer class="footer wrap"><strong>Soma Clara Contabilidade</strong><p>Escritório fictício criado para demonstrar o site. Conteúdo ilustrativo.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
-</body></html>
+<body class="partida" data-campaign-demo="contabilidade">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="workback" href="/?tipo=orcamento&amp;projeto=contabilidade#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Partida</a>
+      <a href="virada.html">Virada</a>
+      <a href="em-dia.html">Em dia</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="firm-header"><div class="shell firm-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Soma Clara Contabilidade, início"><span>Soma Clara</span> Contabilidade</a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="firm-nav" hidden>Menu</button>
+  <nav id="firm-nav" aria-label="Navegação do escritório"><a href="#servicos">Serviços</a><a href="#processo">Como funciona</a><a href="#duvidas">Dúvidas</a><a class="mobile-intake" href="#triagem">Montar triagem</a></nav>
+  <a class="action header-action" href="#triagem">Montar triagem <span aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="start-hero">
+   <div class="start-copy"><h1>A primeira conversa antes de abrir a empresa.</h1><p>Explique o que você quer vender ou oferecer, em que ponto está e qual decisão precisa tomar agora.</p><a class="action" data-select-topic="abertura" href="#triagem">Planejar a abertura <span aria-hidden="true">↗</span></a></div>
+   <div class="start-photo"><img src="soma-abertura-720.webp" srcset="soma-abertura-720.webp 720w, soma-abertura-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Empreendedora conversando com uma contadora no seu café" fetchpriority="high" decoding="async"></div>
+  </section>
+  <section class="shell start-services" id="servicos"><div><h2>Em que fase está o negócio?</h2><p>Escolha o assunto que melhor descreve sua situação.</p></div><ul><li><h3>Abertura de empresa</h3><p>Para quem está definindo o negócio ou quer organizar a abertura.</p><a class="text-link" data-select-topic="abertura" href="#triagem">Selecionar assunto <span aria-hidden="true">↗</span></a></li><li><h3>Troca de contador</h3><p>Para quem quer entender como organizar a mudança de escritório.</p><a class="text-link" data-select-topic="troca" href="#triagem">Selecionar assunto <span aria-hidden="true">↗</span></a></li><li><h3>Rotina contábil</h3><p>Para quem precisa alinhar documentos, folha ou acompanhamento mensal.</p><a class="text-link" data-select-topic="rotina" href="#triagem">Selecionar assunto <span aria-hidden="true">↗</span></a></li></ul></section>
+  <section class="start-prep" id="processo">
+   <img src="soma-rotina-720.webp" srcset="soma-rotina-720.webp 720w, soma-rotina-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Escritório de contabilidade com luz natural e mesa de trabalho" loading="lazy" decoding="async">
+   <div><h2>O que levar para a conversa</h2><ul>
+    <li><strong>A atividade.</strong> Conte o que vai vender ou prestar e quem pretende atender.</li>
+    <li><strong>O que já está decidido.</strong> Diga se tem local, sócios ou uma data imaginada para começar.</li>
+    <li><strong>A prioridade.</strong> Anote a dúvida que está segurando o próximo passo.</li>
+   </ul></div>
+  </section>
+  <section class="faq shell" id="duvidas"><h2>Antes da primeira conversa</h2><div><details><summary>Posso conversar antes de escolher a atividade?</summary><p>Sim. Diga quais atividades tem em mente e onde ainda precisa de clareza. Use “Ainda estou definindo” na triagem.</p></details>
+     <details><summary>Preciso ter um CNPJ para começar?</summary><p>Neste exemplo, a abertura é um dos motivos para o primeiro contato. A demonstração não pede CNPJ.</p></details>
+     <details><summary>A triagem formaliza a abertura?</summary><p>A triagem só resume a conversa inicial. A abertura é discutida e combinada separadamente.</p></details></div></section>
+  <div class="request-band"><div class="shell request-layout"><div><h2>Comece pelo que você já sabe.</h2><p>Informe a atividade e a sua prioridade. O exemplo mostra como a equipe receberia a demanda.</p></div><section class="request" id="triagem" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Montar triagem</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+    <form class="intake">
+     <div class="fields">
+      <label for="topic">Em que posso ajudar?<select id="topic" required><option value="">Selecione o assunto</option><option value="abertura">Abertura de empresa</option><option value="troca">Troca de contador</option><option value="rotina">Rotina contábil</option></select></label>
+      <label for="need"><span data-need-label>O que precisa resolver?</span><select id="need" disabled required><option value="">Selecione o assunto primeiro</option></select></label>
+      <label for="business">Atividade do negócio<select id="business" required><option value="">Selecione a atividade</option><option>Prestação de serviços</option><option>Comércio</option><option>Outra atividade</option><option>Ainda estou definindo</option></select></label>
+     </div>
+     <button class="action" type="submit" disabled>Simular triagem <span aria-hidden="true">↗</span></button>
+     <p class="demo-note">Demonstração. Nenhum dado será enviado.</p>
+     <noscript><p>Ative o JavaScript para testar a triagem.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Resumo da triagem</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-reference></dd></div>
+      <div><dt>Assunto</dt><dd data-topic></dd></div>
+      <div><dt>Prioridade</dt><dd data-need></dd></div>
+      <div><dt>Atividade</dt><dd data-business></dd></div></dl>
+     <p>Em um atendimento real, o escritório usaria o resumo para preparar a conversa e orientar o envio de documentos.</p>
+     <p data-message></p>
+     <div class="result-actions"><button type="button" data-copy>Copiar mensagem</button><button type="button" data-edit>Editar escolhas</button><button type="button" data-reset>Recomeçar</button></div>
+     <p class="copy-status" role="status"></p>
+    </div>
+   </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Soma Clara Contabilidade</strong> · Escritório fictício em uma demonstração da Caos Domado.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Soma%20Clara%20Contabilidade%20e%20quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

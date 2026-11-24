@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta name="description" content="Demonstração de site contábil para pequenos negócios com triagem simulada.">
+ <title>Soma Clara · Em dia</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="soma.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="soma.js" defer></script>
+</head>
+<body class="emdia" data-campaign-demo="contabilidade">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="workback" href="/?tipo=orcamento&amp;projeto=contabilidade#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./">Partida</a>
+      <a href="virada.html">Virada</a>
+      <a href="em-dia.html" aria-current="page">Em dia</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="firm-header"><div class="shell firm-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Soma Clara Contabilidade, início"><span>Soma Clara</span> Contabilidade</a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="firm-nav" hidden>Menu</button>
+  <nav id="firm-nav" aria-label="Navegação do escritório"><a href="#servicos">Serviços</a><a href="#processo">Como funciona</a><a href="#duvidas">Dúvidas</a><a class="mobile-intake" href="#triagem">Montar triagem</a></nav>
+  <a class="action header-action" href="#triagem">Montar triagem <span aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="monthly-hero">
+   <div class="shell monthly-copy"><h1>O que precisa funcionar todo mês.</h1><p>Escolha o assunto que mais pesa na sua rotina. A triagem resume o pedido para a primeira conversa.</p></div>
+   <div class="monthly-photo"><img src="soma-rotina-720.webp" srcset="soma-rotina-720.webp 720w, soma-rotina-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Escritório de contabilidade com luz natural e mesa de trabalho" fetchpriority="high" decoding="async"></div>
+   <div class="shell"><section class="request" id="triagem" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Montar triagem</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+    <form class="intake">
+     <div class="fields">
+      <label for="topic">Em que posso ajudar?<select id="topic" required><option value="">Selecione o assunto</option><option value="abertura">Abertura de empresa</option><option value="troca">Troca de contador</option><option value="rotina">Rotina contábil</option></select></label>
+      <label for="need"><span data-need-label>O que precisa resolver?</span><select id="need" disabled required><option value="">Selecione o assunto primeiro</option></select></label>
+      <label for="business">Atividade do negócio<select id="business" required><option value="">Selecione a atividade</option><option>Prestação de serviços</option><option>Comércio</option><option>Outra atividade</option><option>Ainda estou definindo</option></select></label>
+     </div>
+     <button class="action" type="submit" disabled>Simular triagem <span aria-hidden="true">↗</span></button>
+     <p class="demo-note">Demonstração. Nenhum dado será enviado.</p>
+     <noscript><p>Ative o JavaScript para testar a triagem.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Resumo da triagem</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-reference></dd></div>
+      <div><dt>Assunto</dt><dd data-topic></dd></div>
+      <div><dt>Prioridade</dt><dd data-need></dd></div>
+      <div><dt>Atividade</dt><dd data-business></dd></div></dl>
+     <p>Em um atendimento real, o escritório usaria o resumo para preparar a conversa e orientar o envio de documentos.</p>
+     <p data-message></p>
+     <div class="result-actions"><button type="button" data-copy>Copiar mensagem</button><button type="button" data-edit>Editar escolhas</button><button type="button" data-reset>Recomeçar</button></div>
+     <p class="copy-status" role="status"></p>
+    </div>
+   </section></div>
+  </section>
+  <section class="shell monthly-services" id="servicos"><h2>O que você quer organizar?</h2><ul><li><h3>Documentos do mês</h3><p>Quais arquivos entram, quem separa e onde serão enviados.</p><a class="text-link" href="#triagem" data-select-topic="rotina" data-select-need="Organizar documentos">Levar para a triagem <span aria-hidden="true">↗</span></a></li><li><h3>Folha e equipe</h3><p>Quais informações mudaram e quem comunica os eventos de pessoal.</p><a class="text-link" href="#triagem" data-select-topic="rotina" data-select-need="Organizar folha">Levar para a triagem <span aria-hidden="true">↗</span></a></li><li><h3>Acompanhamento contábil</h3><p>Que pendências e relatórios precisam ser revistos na próxima conversa.</p><a class="text-link" href="#triagem" data-select-topic="rotina" data-select-need="Revisar pendências">Levar para a triagem <span aria-hidden="true">↗</span></a></li></ul></section>
+  <section class="monthly-process" id="processo"><div class="shell"><h2>Da triagem ao acompanhamento</h2><ol>
+   <li><strong>Identifique a prioridade.</strong><p>Comece pela rotina que está tomando mais tempo ou gerando dúvidas.</p></li>
+   <li><strong>Combine quem entrega o quê.</strong><p>Defina responsáveis, canal e prazos entre a empresa e o escritório.</p></li>
+   <li><strong>Revise o que ficou pendente.</strong><p>Retome o resumo na conversa seguinte para acompanhar o andamento.</p></li>
+  </ol></div></section>
+  <section class="faq shell" id="duvidas"><h2>Antes da primeira conversa</h2><div><details><summary>Só preciso organizar a folha. Posso começar por aí?</summary><p>Sim. Escolha Rotina contábil e depois Organizar folha. Na conversa, diga o que está difícil de acompanhar.</p></details>
+     <details><summary>O resumo calcula impostos ou prazos?</summary><p>O resumo indica a atividade e a prioridade. Ele serve para preparar a conversa com o escritório.</p></details>
+     <details><summary>Posso corrigir o que escolhi?</summary><p>Depois de simular, use Editar escolhas para mudar o assunto, a prioridade ou a atividade.</p></details></div></section>
+  <div class="shell end-link"><a class="action" href="#triagem">Voltar à triagem <span aria-hidden="true">↗</span></a></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Soma Clara Contabilidade</strong> · Escritório fictício em uma demonstração da Caos Domado.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Soma%20Clara%20Contabilidade%20e%20quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

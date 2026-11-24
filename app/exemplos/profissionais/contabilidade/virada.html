@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta name="description" content="Demonstração de site contábil para pequenos negócios com triagem simulada.">
+ <title>Soma Clara · Virada</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="soma.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="soma.js" defer></script>
+</head>
+<body class="virada" data-campaign-demo="contabilidade">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="workback" href="/?tipo=orcamento&amp;projeto=contabilidade#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./">Partida</a>
+      <a href="virada.html" aria-current="page">Virada</a>
+      <a href="em-dia.html">Em dia</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="firm-header"><div class="shell firm-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Soma Clara Contabilidade, início"><span>Soma Clara</span> Contabilidade</a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="firm-nav" hidden>Menu</button>
+  <nav id="firm-nav" aria-label="Navegação do escritório"><a href="#servicos">Serviços</a><a href="#processo">Como funciona</a><a href="#duvidas">Dúvidas</a><a class="mobile-intake" href="#triagem">Montar triagem</a></nav>
+  <a class="action header-action" href="#triagem">Montar triagem <span aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="transfer-hero">
+   <div class="transfer-image"><img src="soma-transicao-720.webp" srcset="soma-transicao-720.webp 720w, soma-transicao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Pastas de trabalho sendo organizadas sobre uma mesa de madeira" fetchpriority="high" decoding="async"></div>
+   <div class="shell transfer-copy"><h1>Trocar de contador, com a passagem organizada.</h1><p>Conte o que a contabilidade atual acompanha, o que está pendente e quando você imagina fazer a transição.</p><a class="action" data-select-topic="troca" href="#triagem">Organizar a transição <span aria-hidden="true">↗</span></a></div>
+  </section>
+  <section class="transfer-process shell" id="processo"><h2>Monte a passagem em três pontos.</h2><ol>
+   <li><h3>O que já está em andamento</h3><p>Liste as rotinas que o escritório atual acompanha e diga se há algo urgente para conversar.</p></li>
+   <li><h3>O que precisa ser reunido</h3><p>Anote quais documentos, acessos e relatórios existem e onde estão. Envie apenas pelo canal combinado.</p></li>
+   <li><h3>Quando muda a responsabilidade</h3><p>Combine a data da transição e quem acompanha cada entrega durante a passagem.</p></li>
+  </ol></section>
+  <section class="transfer-areas" id="servicos"><div class="shell"><h2>Outros assuntos para a conversa</h2><div><article><h3>Abertura de empresa</h3><p>Para quem está definindo o negócio ou quer organizar a abertura.</p><a class="text-link" data-select-topic="abertura" href="#triagem">Usar este assunto <span aria-hidden="true">↗</span></a></article><article><h3>Troca de contador</h3><p>Para quem quer entender como organizar a mudança de escritório.</p><a class="text-link" data-select-topic="troca" href="#triagem">Usar este assunto <span aria-hidden="true">↗</span></a></article><article><h3>Rotina contábil</h3><p>Para quem precisa alinhar documentos, folha ou acompanhamento mensal.</p><a class="text-link" data-select-topic="rotina" href="#triagem">Usar este assunto <span aria-hidden="true">↗</span></a></article></div></div></section>
+  <section class="faq shell" id="duvidas"><h2>Antes da primeira conversa</h2><div><details><summary>Preciso encerrar o contrato atual antes de conversar?</summary><p>Para conversar sobre a transição, basta explicar a sua situação e quais pontos precisa alinhar com os escritórios.</p></details>
+     <details><summary>Posso enviar documentos pelo formulário?</summary><p>O formulário demonstra apenas a triagem. Combine um canal de envio com a equipe antes de compartilhar arquivos.</p></details>
+     <details><summary>E se houver uma entrega em andamento?</summary><p>Mencione isso na conversa. As responsabilidades e datas precisam ser combinadas na transição.</p></details></div></section>
+  <div class="request-band"><div class="shell request-layout"><div><h2>Organize o primeiro contato.</h2><p>Comece pelo assunto que precisa ficar claro antes da mudança.</p></div><section class="request" id="triagem" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Montar triagem</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+    <form class="intake">
+     <div class="fields">
+      <label for="topic">Em que posso ajudar?<select id="topic" required><option value="">Selecione o assunto</option><option value="abertura">Abertura de empresa</option><option value="troca">Troca de contador</option><option value="rotina">Rotina contábil</option></select></label>
+      <label for="need"><span data-need-label>O que precisa resolver?</span><select id="need" disabled required><option value="">Selecione o assunto primeiro</option></select></label>
+      <label for="business">Atividade do negócio<select id="business" required><option value="">Selecione a atividade</option><option>Prestação de serviços</option><option>Comércio</option><option>Outra atividade</option><option>Ainda estou definindo</option></select></label>
+     </div>
+     <button class="action" type="submit" disabled>Simular triagem <span aria-hidden="true">↗</span></button>
+     <p class="demo-note">Demonstração. Nenhum dado será enviado.</p>
+     <noscript><p>Ative o JavaScript para testar a triagem.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Resumo da triagem</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-reference></dd></div>
+      <div><dt>Assunto</dt><dd data-topic></dd></div>
+      <div><dt>Prioridade</dt><dd data-need></dd></div>
+      <div><dt>Atividade</dt><dd data-business></dd></div></dl>
+     <p>Em um atendimento real, o escritório usaria o resumo para preparar a conversa e orientar o envio de documentos.</p>
+     <p data-message></p>
+     <div class="result-actions"><button type="button" data-copy>Copiar mensagem</button><button type="button" data-edit>Editar escolhas</button><button type="button" data-reset>Recomeçar</button></div>
+     <p class="copy-status" role="status"></p>
+    </div>
+   </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Soma Clara Contabilidade</strong> · Escritório fictício em uma demonstração da Caos Domado.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Soma%20Clara%20Contabilidade%20e%20quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>
