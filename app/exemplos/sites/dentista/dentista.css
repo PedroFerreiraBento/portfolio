@@ -333,3 +333,170 @@ figure { margin:0;overflow:hidden }
  .precision-row figure img { object-position:center }
  .precision-row p { font-size:.9rem;line-height:1.35 }
 }
+
+/* The clinical site identities begin below the shared portfolio navigation. */
+.clinic-mark { gap:.68rem;letter-spacing:-.055em }
+.clinic-name { white-space:nowrap }
+.clinic-monogram {
+ position:relative;width:1.95rem;height:1.95rem;margin:0;
+ border:1px solid currentColor;border-radius:50%;flex:none
+}
+.clinic-monogram::before,.clinic-monogram::after {
+ content:"";position:absolute;inset:26% 37%;border:1px solid currentColor;
+ border-radius:50%;transform:rotate(40deg)
+}
+.clinic-monogram::after { transform:rotate(-40deg) }
+.clinic-header nav a { font-size:.9rem }
+.clinic-header .clinic-button { min-height:43px }
+.clinic-button { gap:1.6rem;min-height:50px }
+.clinic-footer p { font-size:.87rem }
+.faq summary { display:flex;justify-content:space-between;align-items:center;gap:.6rem;list-style:none }
+.faq summary::-webkit-details-marker { display:none }
+.faq summary::after { content:"+";font-size:1.2rem;line-height:1 }
+.faq details[open] summary::after { content:"−" }
+
+.horizonte {
+ --ink:#173d32;--muted:#38564a;--paper:#fbfaf4;--line:#b4c1ad;--action:#194e3b;
+ --panel:#fcfbf4;
+}
+.horizonte .clinic-header { background:#f4f6e9 }
+.horizonte .hero {
+ display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+ width:100%;padding:0;gap:0;background:#eaf0db;align-items:stretch
+}
+.horizonte .hero-copy {
+ padding:clamp(2.5rem,7.1vw,7rem) clamp(1.25rem,3.35vw,3.75rem) clamp(2.5rem,6vw,6rem) max(2.2rem,calc((100vw - 75rem)/2));
+ align-self:center
+}
+.horizonte .hero h1 {
+ max-width:10ch;font-size:clamp(3.15rem,6.25vw,6rem);line-height:.985;
+ letter-spacing:-.065em;font-weight:780;text-wrap:initial
+}
+.horizonte .hero-copy > p { max-width:32ch;font-size:clamp(1rem,1.52vw,1.22rem);line-height:1.48 }
+.horizonte .hero-photo {
+ height:100%;min-height:33rem;aspect-ratio:auto;border-radius:0;
+}
+.horizonte .hero-photo img { width:100%;height:100%;object-fit:cover;object-position:65% 48% }
+.horizonte .hero-choices {
+ margin-top:1.4rem;gap:.4rem .8rem;padding:0;
+}
+.horizonte .hero-choices a {
+ min-height:44px;padding:.2rem 0;border:0;border-bottom:1px solid #779381;border-radius:0;
+}
+.horizonte .hero-choices a:hover { background:transparent;border-bottom-color:currentColor }
+.horizonte .hero-copy > .clinic-button { margin-top:1.2rem }
+.horizonte .horizon-treatments { padding-block:clamp(2.3rem,6vw,5.6rem) }
+.horizon-treatments h2 { letter-spacing:-.055em }
+.horizonte .horizon-index-photo { border-radius:0;aspect-ratio:1.53;min-height:0 }
+.horizonte .service-list h3 { font-size:clamp(1.09rem,1.6vw,1.45rem) }
+.horizonte .visit-horizon { background:#eaf0db }
+.horizonte .scene-caption { padding-block:.75rem }
+.horizonte .horizon-scene { background:#194e3b }
+.horizonte .scene-caption p { color:#f0f4e9 }
+.horizonte .request-wrap { background:#204738 }
+
+.essencia {
+ --ink:#f5eddb;--muted:#d2c9b1;--paper:#243529;--line:#637062;--action:#dfc798;--panel:#2a3d2e;
+ --on-action:#1c2d21;
+ color-scheme:dark;
+}
+.essencia .clinic-header { background:#213226;border-color:#697262 }
+.essencia .clinic-monogram { border-radius:50% }
+.essencia .clinic-header .clinic-button { background:transparent;color:var(--ink);border-color:#ad9f79 }
+.essencia .hero-wide { min-height:clamp(33rem,50vw,49rem);background:#213327;align-items:center }
+.essencia .hero-wide .hero-photo {
+ left:33%;background:#776249;
+ mask-image:linear-gradient(90deg,transparent 0%,#000 25%,#000 100%);
+}
+.essencia .hero-wide .hero-photo img { object-position:64% 53% }
+.essencia .hero-overlay { margin-block:clamp(3rem,6vw,7rem);position:relative }
+.essencia .hero-copy { width:min(42%,32rem);padding:0;background:none }
+.essencia .hero-copy h1 { max-width:9ch;color:#f6edda;font-size:clamp(3.85rem,7.2vw,7rem);line-height:.95;text-wrap:initial }
+.essencia .hero-copy p { max-width:32ch;color:#f1e5cb }
+.essence-treatments { padding-block:clamp(2.6rem,6vw,5.8rem);border-bottom:1px solid var(--line) }
+.essence-section-title h2 { max-width:8ch }
+.essence-story a,.essence-story a:hover { color:#f0d7a9 }
+.essence-spread { gap:1.6rem clamp(.9rem,2.4vw,2rem) }
+.essence-story figure { aspect-ratio:1.5 }
+.essence-story:nth-child(3) { margin-top:clamp(.4rem,2.4vw,2.5rem) }
+.essence-scene { background:#ded4be;color:#27382c }
+.essence-scene p { color:#384538 }
+.essencia .visit li::before { color:#ead2a4 }
+.essencia .faq { border-top:1px solid var(--line) }
+.essencia .request-wrap { background:#1d2e22 }
+.essencia .request { background:#f1eada;color:#26372b;border-color:#ebdcc1;color-scheme:light }
+.essencia .request p { color:#465044 }
+.essencia .request select { color:#283b2d }
+.essencia .sample-button,.essencia .result-actions button { background:#e6ddc8;color:#26372b;border-color:#9b987e }
+.essencia .request-result { background:#eee4ce;border-color:#a29a86 }
+.essencia .request-summary div { border-color:#aba38d }
+
+.precisao {
+ --ink:#13264e;--muted:#374b6e;--paper:#f6f8fd;--line:#aebcd9;--action:#2048bb;--panel:#fff;
+}
+.precisao .clinic-header { background:#fff }
+.precisao .clinic-monogram { border-radius:.24rem }
+.precisao .hero-fast { padding:0;background:#1944b1;color:#fff }
+.precisao .hero-fast-grid { display:grid;grid-template-columns:minmax(0,1fr);gap:0;width:100%;margin:0 }
+.precisao .hero-copy {
+ text-align:center;width:min(100% - 2rem,76rem);margin-inline:auto;
+ padding-block:clamp(1.7rem,4.9vw,4.6rem) clamp(1.5rem,3vw,2.9rem);
+}
+.precisao .hero-fast h1 { margin-inline:auto;max-width:none;font-size:clamp(2.5rem,6.45vw,6rem);letter-spacing:-.064em }
+.precisao .hero-copy p { margin:.9rem auto 0;color:#f1f5ff;font-size:clamp(1rem,1.6vw,1.18rem);max-width:42ch }
+.hero-fast-media { height:clamp(12rem,27vw,26rem);overflow:hidden;background:#526e9d }
+.hero-fast-media img { width:100%;height:100%;object-fit:cover;object-position:50% 57% }
+.precisao .hero-fast .request {
+ width:min(100% - 2rem,70rem);position:relative;z-index:1;
+ margin:-3.3rem auto 0;padding:clamp(1rem,2.2vw,2rem);
+ border:0;border-radius:.32rem;box-shadow:0 1rem 1.6rem #13264e30;
+}
+.precisao .hero-fast .request h2 { font-size:clamp(1.6rem,2.45vw,2.4rem) }
+.precisao .hero-fast .request-form { display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:.65rem 1rem }
+.precisao .hero-fast .form-fields { grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem }
+.precisao .hero-fast .request-form > button { margin:0 }
+.precisao .hero-fast .request-form > p { grid-column:1/-1;margin-top:0 }
+.precisao .hero-fast { padding-bottom:clamp(1.5rem,3.3vw,3.3rem) }
+.precision-treatments h2 { margin-bottom:1.25rem;letter-spacing:-.055em }
+.precisao .precision-row figure { height:clamp(9rem,15vw,14rem) }
+.precisao .precision-row h3 { letter-spacing:-.055em }
+.precisao .visit-precision { background:#162e72 }
+.precisao .visit-precision li { border-color:#7690d0 }
+.precisao .precision-scene figure { border-radius:.35rem }
+
+.comparison { background:#f2e9dd }
+.version-card { border-radius:.2rem;background:#fffbf4;color:#25221e }
+.version-card p { color:#5f4d40 }
+.version-card a > div { padding:clamp(.95rem,1.65vw,1.4rem) }
+.version-card img { aspect-ratio:1.53 }
+.version-card.essencia h2 { font-family:Georgia,serif;font-weight:400 }
+.version-card.horizonte h2 { color:#194e3b }
+.version-card.precisao h2 { color:#173f9a }
+
+@media(max-width:760px) {
+ .clinic-mark { gap:.48rem }
+ .clinic-monogram { width:1.75rem;height:1.75rem }
+ .horizonte .hero { grid-template-columns:1fr }
+ .horizonte .hero-copy { padding:2.1rem 1rem 1.6rem }
+ .horizonte .hero h1 { font-size:clamp(2.7rem,10.5vw,4.8rem) }
+ .horizonte .hero-photo { height:clamp(14rem,65vw,25rem);min-height:0 }
+ .horizonte .hero-choices { gap:0 .9rem;margin-top:.85rem }
+ .horizonte .horizon-index-photo { height:auto }
+ .essencia .hero-wide { min-height:0;display:flex;flex-direction:column;background:#213327 }
+ .essencia .hero-overlay { margin:0 auto;width:calc(100% - 2rem) }
+ .essencia .hero-copy { width:100%;padding:1.85rem 0 1.45rem }
+ .essencia .hero-copy h1 { max-width:12ch;font-size:clamp(3rem,11.8vw,5rem) }
+ .essencia .hero-wide .hero-photo { width:100%;height:clamp(12rem,55vw,25rem);mask-image:none }
+ .essencia .hero-wide .hero-photo img { object-position:67% 58% }
+ .essence-story:nth-child(3) { margin-top:0 }
+ .precisao .hero-fast { padding-bottom:0 }
+ .precisao .hero-fast .request {
+  order:1;margin:0 auto 1.25rem;padding:1rem;border-radius:.28rem;box-shadow:none
+ }
+ .precisao .hero-fast-media { order:2;height:clamp(10rem,45vw,19rem) }
+ .precisao .hero-fast h1 { max-width:11ch;font-size:clamp(2.67rem,10.3vw,4.5rem) }
+ .precisao .hero-copy { padding-block:1.7rem 1.4rem }
+ .precisao .hero-fast .request-form,.precisao .hero-fast .form-fields { grid-template-columns:1fr }
+ .precisao .hero-fast .request-form > button { justify-self:start }
+ .precisao .precision-row figure { min-height:8rem;height:100% }
+}
