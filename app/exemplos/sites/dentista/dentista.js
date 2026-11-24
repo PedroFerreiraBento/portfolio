@@ -23,6 +23,15 @@
  const message = result.querySelector('[data-demo-message]');
  form.querySelector('[type=submit]').disabled = false;
  const status = result.querySelector('.copy-status');
+ const sample = document.querySelector('[data-fill-example]');
+ let sequence = 0;
+ sample.hidden = false;
+ sample.addEventListener('click', () => {
+  if (!service.value) service.value = 'primeira';
+  if (!period.value) period.value = 'pela manhã';
+  clearResult();
+  form.querySelector('[type=submit]').focus();
+ });
 
  const clearResult = () => {
   result.hidden = true;
@@ -39,15 +48,24 @@
  form.addEventListener('change', clearResult);
  form.addEventListener('submit', event => {
   event.preventDefault();
-  const choice = service.selectedOptions[0].textContent.toLocaleLowerCase('pt-BR');
+  const choice = service.selectedOptions[0].textContent;
+  result.querySelector('[data-request-id]').textContent = 'OP-DEMO-' + String(++sequence).padStart(3,'0');
+  result.querySelector('[data-request-service]').textContent = choice;
+  result.querySelector('[data-request-period]').textContent = period.selectedOptions[0].textContent;
   message.textContent = 'Olá! Gostaria de solicitar uma avaliação na Odonto Premium. Meu interesse é: '
-   + choice + '. Prefiro receber retorno ' + period.value + '.';
+   + choice.toLocaleLowerCase('pt-BR') + '. Prefiro receber retorno ' + period.value + '.';
   status.textContent = '';
   result.hidden = false;
   result.querySelector('h3').focus();
  });
 
  result.querySelector('[data-edit-request]').addEventListener('click', () => {
+  clearResult();
+  service.focus();
+ });
+
+ result.querySelector('[data-reset-request]').addEventListener('click', () => {
+  form.reset();
   clearResult();
   service.focus();
  });

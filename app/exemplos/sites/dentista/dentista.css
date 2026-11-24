@@ -197,3 +197,139 @@ p { color:var(--muted);text-wrap:pretty }
 }
 
 .clinic-button:disabled { opacity:.6;cursor:default }
+
+/* A different reading order for each treatment section. */
+:root { --display:"Inter","DM Sans",system-ui,sans-serif;--body:"DM Sans",system-ui,sans-serif }
+.essencia { --display:"Libre Caslon Display",Georgia,serif }
+figure { margin:0;overflow:hidden }
+.clinic-scene img,.horizon-index-photo img,.essence-story img,.precision-row img {
+ width:100%;height:100%;object-fit:cover
+}
+.horizonte {
+ --ink:#163c43;--muted:#38565a;--paper:#f4f7f2;--line:#adbfba;--action:#164a50;
+ --on-action:#fff;--panel:#fffcf5;
+}
+.horizonte .hero { grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr) }
+.horizonte .hero h1 { max-width:12ch;font-size:clamp(2.55rem,5vw,4.8rem);font-weight:780 }
+.horizonte .hero-photo { aspect-ratio:1.12;border-radius:9rem .5rem 9rem .5rem }
+.horizonte .hero-copy > p { max-width:37ch }
+.horizonte .hero-choices a { border-color:#75958e;color:#214a49 }
+.horizon-treatments { display:block }
+.horizon-treatments h2 {
+ display:flex;align-items:center;gap:clamp(1rem,3.5vw,3.2rem);margin-bottom:1.5rem;
+}
+.horizon-treatments h2::after { content:"";height:1px;flex:1;background:var(--line) }
+.horizon-index { display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(1.25rem,4vw,4rem);align-items:stretch }
+.horizon-index-photo { min-height:280px;border-radius:.35rem 3.8rem .35rem .35rem }
+.horizon-index-photo img { object-position:57% 52% }
+.horizon-index .service-list { display:grid;align-content:stretch }
+.horizon-index .service-list li { padding-block:.9rem;grid-template-columns:minmax(0,1fr) auto }
+.horizon-index .service-list a,.essence-story a,.precision-row a {
+ width:auto;height:auto;min-height:44px;display:inline-flex;align-items:center;gap:.45rem;
+ border:0;border-radius:0;color:inherit;font-weight:760;font-size:.9rem;text-decoration:underline;text-underline-offset:.27rem
+}
+.horizon-index .service-list a:hover,.essence-story a:hover,.precision-row a:hover { background:none;color:var(--action);text-decoration-thickness:2px }
+.horizon-index .service-list a span,.essence-story a span,.precision-row a span { text-decoration:none }
+.horizon-scene { background:#e4eeea }
+.horizon-scene > img { height:clamp(15rem,33vw,31rem);object-position:center 53% }
+.scene-caption { padding-block:1rem }
+.scene-caption p { font-size:.93rem }
+
+.essencia { --ink:#302e24;--muted:#514e40;--action:#f0dfb7 }
+.essencia .hero-copy h1 { font-size:clamp(3rem,6.1vw,6rem);letter-spacing:-.038em }
+.essencia .hero-copy { background:#293a2c }
+.essence-treatments {
+ display:grid;grid-template-columns:minmax(0,.5fr) minmax(0,1.5fr);
+ align-items:start;gap:clamp(1rem,5vw,5.5rem)
+}
+.essence-section-title h2 { max-width:9ch;font-size:clamp(2.7rem,5.5vw,5.35rem);font-weight:400 }
+.essence-section-title p { max-width:26ch;margin-top:1rem }
+.essence-spread { display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 1rem }
+.essence-story { display:grid;align-content:start;gap:1rem }
+.essence-story:first-child {
+ grid-column:1/-1;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);
+ gap:clamp(1rem,2.8vw,2.7rem);align-items:end;padding-bottom:1.55rem;border-bottom:1px solid var(--line)
+}
+.essence-story figure { aspect-ratio:1.46 }
+.essence-story:first-child figure { aspect-ratio:1.42 }
+.essence-story:nth-child(3) { margin-top:clamp(1rem,4vw,4rem) }
+.essence-story h3 { font-weight:400;font-size:clamp(1.75rem,2.8vw,2.85rem) }
+.essence-story p { max-width:29ch;margin-top:.35rem }
+.essence-story a { color:#454b31 }
+.essence-story a:hover { color:#283321 }
+.essence-scene { background:#e8e2d2;padding-block:clamp(1.7rem,4.2vw,4rem) }
+.essence-scene .scene-inner {
+ display:grid;grid-template-columns:minmax(0,.67fr) minmax(0,1.33fr);
+ align-items:center;gap:clamp(1.25rem,4vw,4.6rem)
+}
+.essence-scene h2 { max-width:12ch;font-weight:400 }
+.essence-scene p { margin-top:.65rem;max-width:32ch }
+.essence-scene figure { height:clamp(15rem,29vw,26rem) }
+.essence-scene img { object-position:56% 55% }
+.essencia .visit { background:transparent }
+.essencia .visit li::before { font-family:var(--display);font-size:1.4rem;line-height:1 }
+.essencia .visit li h3 { font-weight:400;font-size:1.55rem }
+
+.precisao { --paper:#f7f9fc;--action:#1d46ac;--line:#b2bfd5 }
+.precisao .hero-fast { background:#163685 }
+.precisao .hero-fast h1 { line-height:1.025;font-size:clamp(2.45rem,6vw,5.5rem) }
+.precisao .hero-fast-grid { grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr) }
+.precision-treatments { display:block;background:#fff }
+.precision-treatments h2 { margin-bottom:1.45rem }
+.precision-rows { padding:0;list-style:none;border-top:1px solid var(--line) }
+.precision-row {
+ display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1fr) minmax(0,.95fr);
+ gap:clamp(1.1rem,3.6vw,3.5rem);align-items:center;border-bottom:1px solid var(--line)
+}
+.precision-row h3 { font-size:clamp(1.55rem,3.05vw,3.1rem);max-width:11ch }
+.precision-row figure { height:clamp(8rem,14vw,14rem) }
+.precision-row a { color:#193e9a }
+.precision-row p { padding-top:.45rem;max-width:33ch }
+.precisao .visit { background:#142f6b;color:#fff }
+.precisao .visit p { color:#e5edff }
+.precisao .visit li { border-color:#7890c4 }
+.precision-scene {
+ display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+ align-items:center;gap:clamp(1.4rem,5vw,5rem);padding-top:clamp(2rem,5vw,5rem)
+}
+.precision-scene figure { height:clamp(14rem,29vw,27rem) }
+.precision-scene p { max-width:32ch;margin-top:.6rem }
+.faq-intro .clinic-button { margin-top:1rem }
+
+.visit-lead { margin-top:.7rem;max-width:34ch }
+.visit-horizon .visit-inner { display:block }
+.visit-horizon ol { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.25rem }
+.visit-horizon li { padding-top:.75rem }
+.visit-horizon li::before { top:.8rem;color:#285352 }
+.request-wrap { width:100%;padding:clamp(2rem,5vw,5rem) 1rem }
+.horizonte .request-wrap { background:#153e42 }
+.essencia .request-wrap { background:#e8e2d2 }
+.request-heading { display:flex;align-items:center;justify-content:space-between;gap:.3rem 1rem;flex-wrap:wrap }
+.sample-button { min-height:44px;padding:.35rem .65rem;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:.3rem;font:700 .85rem/1.15 var(--body);cursor:pointer }
+.sample-button:hover { background:var(--panel) }
+.request-result { padding:1rem;background:var(--paper);border:1px solid var(--line);border-radius:.35rem }
+.request-summary { margin:.45rem 0 .8rem }
+.request-summary div { display:flex;justify-content:space-between;gap:.75rem;padding:.45rem 0;border-bottom:1px solid var(--line);font-size:.91rem }
+.request-summary dd { margin:0;text-align:right;font-weight:750;overflow-wrap:anywhere }
+.request-result p[data-demo-message] { font-size:.91rem }
+
+@media(max-width:760px) {
+ .horizonte .hero,.horizon-index,.essence-treatments,.essence-scene .scene-inner,.precisao .hero-fast-grid,.precision-scene { grid-template-columns:minmax(0,1fr) }
+ .horizonte .hero-photo { aspect-ratio:1.32;border-radius:3.5rem .35rem 3.5rem .35rem }
+ .horizon-index-photo { height:clamp(12rem,55vw,22rem);min-height:0 }
+ .horizon-treatments h2 { display:block }
+ .horizon-index .service-list li { gap:.4rem }
+ .visit-horizon ol { grid-template-columns:1fr;gap:.15rem }
+ .essence-spread,.essence-story:first-child { grid-template-columns:1fr }
+ .essence-story:first-child { padding-bottom:1.25rem }
+ .essence-story:nth-child(3) { margin-top:0 }
+ .essence-story:not(:last-child) { padding-bottom:1.15rem;border-bottom:1px solid var(--line) }
+ .essence-section-title h2 { max-width:14ch }
+ .essencia .hero-copy h1 { font-size:clamp(3rem,11vw,4.35rem) }
+ .precision-row { grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:.25rem .75rem;padding:.7rem 0 }
+ .precision-row h3 { grid-column:1;align-self:end }
+ .precision-row div { grid-column:1 }
+ .precision-row figure { grid-column:2;grid-row:1/3;min-height:8rem;height:100%;max-height:12rem }
+ .precision-row figure img { object-position:center }
+ .precision-row p { font-size:.9rem;line-height:1.35 }
+}

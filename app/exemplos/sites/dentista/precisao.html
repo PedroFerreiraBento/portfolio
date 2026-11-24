@@ -7,6 +7,8 @@
  <meta name="description" content="Demonstração de site odontológico com simulação de pedido de avaliação.">
  <title>Odonto Premium · Precisão</title>
  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
  <link rel="stylesheet" href="dentista.css">
  <script src="/assets/campanha.js" defer></script>
  <script src="dentista.js" defer></script>
@@ -39,12 +41,13 @@
  </header>
  <main id="conteudo">
    <section class="hero hero-fast"><div class="section-shell hero-fast-grid"><div class="hero-copy">
-       <h1>Encontre o atendimento que você procura.</h1>
-       <p>Selecione o motivo da visita e veja como pedir uma avaliação em poucos passos.</p>
+       <h1>Sua próxima consulta começa aqui.</h1>
+       <p>Primeira avaliação, consulta de rotina ou alinhadores. Escolha o motivo da visita para preparar o pedido.</p>
 
 
       </div><section id="avaliacao" class="request" aria-labelledby="request-title">
-    <h2 id="request-title">Solicitar avaliação</h2>
+    <div class="request-heading"><h2 id="request-title">Solicitar avaliação</h2>
+     <button class="sample-button" type="button" data-fill-example hidden>Usar exemplo</button></div>
     <p>Escolha o atendimento e o melhor período para retorno.</p>
     <form class="request-form">
      <div class="form-fields">
@@ -70,43 +73,49 @@
      <noscript><p>Ative o JavaScript para simular o pedido.</p></noscript>
     </form>
     <div class="request-result" hidden>
-     <h3 tabindex="-1">Sua mensagem de exemplo</h3>
+     <h3 tabindex="-1">Pedido simulado</h3>
+     <dl class="request-summary">
+      <div><dt>Protocolo de teste</dt><dd data-request-id></dd></div>
+      <div><dt>Atendimento</dt><dd data-request-service></dd></div>
+      <div><dt>Período para retorno</dt><dd data-request-period></dd></div>
+     </dl>
+     <p>Em um atendimento real, a equipe entraria em contato para combinar a consulta.</p>
      <p data-demo-message></p>
      <div class="result-actions">
       <button type="button" data-copy-message>Copiar mensagem</button>
       <button type="button" data-edit-request>Editar escolhas</button>
+      <button type="button" data-reset-request>Simular outro pedido</button>
      </div>
      <p role="status" class="copy-status"></p>
     </div>
    </section></div></section>
-     <section class="treatments section-shell" id="atendimentos" aria-labelledby="treatments-title">
-    <div class="section-intro"><h2 id="treatments-title">Por onde começar</h2><p>Escolha o que você gostaria de conversar na avaliação.</p></div>
-    <ul class="service-list">
-     <li><div><h3>Primeira avaliação</h3><p>Conte o motivo da visita e entenda como pode ser o primeiro atendimento.</p></div>
-      <a href="#avaliacao" data-service-choice="primeira" aria-label="Escolher primeira avaliação"><span aria-hidden="true">↗</span></a></li>
-     <li><div><h3>Consulta de rotina</h3><p>Converse sobre uma revisão e os cuidados do dia a dia.</p></div>
-      <a href="#avaliacao" data-service-choice="rotina" aria-label="Escolher consulta de rotina"><span aria-hidden="true">↗</span></a></li>
-     <li><div><h3>Alinhadores</h3><p>Entenda como funciona uma avaliação para conversar sobre alinhadores.</p></div>
-      <a href="#avaliacao" data-service-choice="alinhadores" aria-label="Escolher alinhadores"><span aria-hidden="true">↗</span></a></li>
-    </ul>
+     <section class="treatments precision-treatments" id="atendimentos" aria-labelledby="treatments-title">
+     <div class="section-shell"><h2 id="treatments-title">Qual é o motivo da visita?</h2><ul class="precision-rows"><li class="precision-row"><h3>Primeira avaliação</h3><div><p>Conte o que motivou a visita e converse sobre os próximos passos.</p><a href="#avaliacao" data-service-choice="primeira" aria-label="Selecionar primeira avaliação">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="avaliacao-720.webp" srcset="avaliacao-720.webp 720w, avaliacao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Dentista e paciente conversam com apoio de um modelo odontológico" decoding="async" loading="lazy"></figure></li>
+<li class="precision-row"><h3>Consulta de rotina</h3><div><p>Reserve um momento para revisar seus cuidados e esclarecer dúvidas.</p><a href="#avaliacao" data-service-choice="rotina" aria-label="Selecionar consulta de rotina">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="rotina-720.webp" srcset="rotina-720.webp 720w, rotina-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Bandeja preparada para a consulta odontológica" decoding="async" loading="lazy"></figure></li>
+<li class="precision-row"><h3>Alinhadores</h3><div><p>Leve suas dúvidas sobre alinhamento e entenda o que seria avaliado.</p><a href="#avaliacao" data-service-choice="alinhadores" aria-label="Selecionar alinhadores">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="alinhadores-720.webp" srcset="alinhadores-720.webp 720w, alinhadores-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Alinhador transparente e modelo odontológico" decoding="async" loading="lazy"></figure></li></ul></div>
    </section>
-     <div class="visit-visual section-shell"><img src="consultorio-720.webp" srcset="consultorio-720.webp 720w, consultorio-1440.webp 1440w"
-       sizes="100vw" alt="Consultório com cadeira odontológica e equipamento de exame" loading="lazy" decoding="async"></div>
-     <section class="visit" id="primeira-visita" aria-labelledby="visit-title">
+   <section class="visit visit-precision" id="primeira-visita" aria-labelledby="visit-title">
     <div class="section-shell visit-inner">
-     <h2 id="visit-title">Como funciona a primeira visita</h2>
-     <ol>
-      <li><h3>Você conta o que precisa</h3><p>Uma conversa sobre o motivo da visita e suas dúvidas.</p></li>
-      <li><h3>A equipe faz a avaliação</h3><p>O dentista explica o que será observado e responde às suas perguntas.</p></li>
-      <li><h3>Vocês combinam os próximos passos</h3><p>Você entende as opções antes de decidir como continuar.</p></li>
-     </ol>
+      <div><h2 id="visit-title">O que acontece na avaliação</h2><p class="visit-lead">Saiba o caminho antes de simular o pedido.</p></div>
+      <ol>
+        <li><h3>Conversa inicial</h3><p>Conte o que trouxe você e o que gostaria de entender.</p></li>
+        <li><h3>Avaliação</h3><p>O dentista explica o que vai observar e abre espaço para perguntas.</p></li>
+        <li><h3>Próximos passos</h3><p>Vocês conversam sobre as opções e decidem como seguir.</p></li>
+      </ol>
     </div>
    </section>
+   <section class="clinic-scene precision-scene section-shell" aria-labelledby="space-title">
+    <figure class=""><img src="consultorio-720.webp" srcset="consultorio-720.webp 720w, consultorio-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Cadeira de atendimento e equipamentos no consultório" decoding="async" loading="lazy"></figure>
+    <div><h2 id="space-title">O consultório</h2><p>Um espaço para a conversa inicial, a avaliação e a orientação sobre o que vem depois.</p></div>
+   </section>
    <section class="faq section-shell" id="duvidas" aria-labelledby="faq-title">
-   <h2 id="faq-title">Dúvidas antes de marcar</h2>
+   <div class="faq-intro">
+    <h2 id="faq-title">Dúvidas antes de marcar</h2>
+    <a class="clinic-button" href="#avaliacao">Solicitar avaliação <span aria-hidden="true">↗</span></a>
+   </div>
    <div>
     <details><summary>Preciso escolher um tratamento antes da avaliação?</summary><p>Você pode escolher “Primeira avaliação” e conversar sobre o motivo da visita.</p></details>
-    <details><summary>O pedido já confirma uma consulta?</summary><p>Numa clínica real, a equipe confirmaria o dia e o horário com você. Neste exemplo, o pedido só prepara uma mensagem de teste.</p></details>
+    <details><summary>O pedido já confirma uma consulta?</summary><p>Numa clínica real, a equipe confirmaria o dia e o horário com você. Neste exemplo, o pedido gera uma confirmação e uma mensagem de teste.</p></details>
     <details><summary>O que posso levar na primeira visita?</summary><p>Se tiver exames anteriores, pergunte à equipe se vale a pena levá-los. Você também pode anotar suas dúvidas.</p></details>
    </div>
   </section>
