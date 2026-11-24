@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,follow"><meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Barbearia fictícia com estilos de corte e pedido de atendimento simulado.">
+ <title>Ouro &amp; Navalha · Cadeira</title>
+ <link rel="icon" href="favicon.svg">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="navalha.css">
+ <script src="/assets/campanha.js" defer></script><script src="navalha.js" defer></script>
+</head>
+<body class="cadeira" data-campaign-demo="barbearia"><a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell toolbar"><a class="return" href="/?tipo=orcamento&amp;projeto=barbearia#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a><nav aria-label="Versões da demonstração"><a href="./">Atlas</a><a href="cadeira.html" aria-current="page">Cadeira</a><a href="balcao.html">Balcão</a></nav><div data-demo-navigation-contact data-contact-label="Quero um site assim"></div></div></div>
+ <header class="brandbar"><div class="shell brand-inner"><a class="wordmark" href="#conteudo" aria-label="Ouro e Navalha, início">Ouro &amp; Navalha<small>Barbearia</small></a><nav aria-label="Na barbearia"><a href="#conversa">Atendimento</a><a href="#pedido">Preparar pedido</a></nav></div></header>
+<main id="conteudo"><section class="arrival"><img src="navalha-cadeira-720.webp" srcset="navalha-cadeira-720.webp 720w, navalha-cadeira-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Barbeiro observa o corte de um cliente sentado na cadeira" fetchpriority=high decoding="async"><div class="shell arrival-copy"><h1>Uma conversa.<br>Um corte.</h1><p>Da referência no espelho ao último ajuste de contorno.</p><a class="action" href="#conversa">Ver o atendimento ↓</a></div></section>
+ <div class="shell journal"><nav aria-label="Etapas do atendimento"><a href="#conversa">A conversa</a><a href="#contorno">O contorno</a><a href="#final">O espelho</a></nav>
+ <div><section class="journal-section" id="conversa"><h2>A conversa vem primeiro.</h2><p>Conte como costuma pentear o cabelo e quanto tempo quer dedicar à finalização. Se trouxer uma foto, diga se o que gostou foi a lateral, o topo ou a forma geral.</p><img src="navalha-cadeira-720.webp" srcset="navalha-cadeira-720.webp 720w, navalha-cadeira-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Cliente e barbeiro conversando diante do espelho" loading=lazy decoding="async"></section>
+ <section class="journal-section" id="contorno"><h2>O contorno aparece de perto.</h2><p>Mostre onde o cabelo costuma pesar e onde prefere manter comprimento. Na barba, vale dizer se quer só alinhar ou redesenhar a linha.</p><img src="navalha-acabamento-720.webp" srcset="navalha-acabamento-720.webp 720w, navalha-acabamento-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Barbeiro limpa com uma escova o contorno da nuca" loading=lazy decoding="async"></section>
+ <section class="journal-final" id="final"><h2>Confira no espelho.</h2><p>Olhe de frente e de lado. Antes de sair, pergunte como refazer a finalização do seu jeito.</p><a class="action" href="#pedido">Preparar atendimento <span aria-hidden="true">↗</span></a></section></div></div>
+ <div class="request-band"><div class="shell"><section class="request" id="pedido" aria-labelledby="request-title">
+ <div class="request-head"><h2 id="request-title">Preparar atendimento</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+ <form class="intake">
+ <div class="fields">
+ <label for="service">Serviço<select required id="service"><option value="">Selecione o serviço</option><option value="corte">Corte</option><option value="barba">Barba</option><option value="ambos">Corte e barba</option></select></label>
+ <label for="preference"><span data-pref-label>Preferência</span><select required disabled id="preference"><option value="">Selecione o serviço primeiro</option></select></label>
+ <label for="period">Melhor período para retorno<select required id="period"><option value="">Selecione o período</option><option>Pela manhã</option><option>À tarde</option><option>Qualquer período</option></select></label>
+ </div>
+ <p class="carry" data-carry hidden></p>
+ <button class="action" type="submit" disabled>Simular atendimento <span aria-hidden="true">↗</span></button>
+ <p class="demo-note">Simulação local. Nenhuma mensagem é enviada e nenhum horário é reservado.</p>
+ <noscript><p>Ative o JavaScript para testar a simulação.</p></noscript></form>
+ <div class="receipt" hidden><h3 tabindex="-1">Pedido simulado</h3><dl data-summary></dl><p data-message></p>
+ <div class="receipt-actions"><button type="button" data-copy>Copiar pedido</button><button type="button" data-edit>Editar</button><button type="button" data-reset>Recomeçar</button></div><p class="copy-status" role="status"></p></div>
+ </section></div></div></main>
+<footer><div class="shell footer-inner"><p><strong>Ouro &amp; Navalha</strong> · Barbearia fictícia. Fotografias ilustrativas.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Ouro%20%26%20Navalha%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>

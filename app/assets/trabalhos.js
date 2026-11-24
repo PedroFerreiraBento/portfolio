@@ -2,7 +2,7 @@
  const root = document.querySelector('.work-showcase');
  const items = [
   {"type": "orcamento", "title": "Salão de beleza", "description": "Salão de beleza com uma vitrine de serviços e um pedido de atendimento.", "aliases": "cabeleireiro salão de cabelo cabeleireira", "id": "salao", "dest": "/exemplos/sites/salao/", "mobile": true, "brand": "Bellezza", "tone": "beleza", "english": {"title": "Hair salon", "description": "Browse salon services and try requesting an appointment."}},
-  {"type": "orcamento", "title": "Barbearia", "description": "Conheça os serviços e simule a reserva de um corte.", "aliases": "", "id": "barbearia", "dest": "/exemplos/sites/barbearia/", "mobile": false, "brand": "Barbearia", "tone": "produto", "english": {"title": "Barbershop", "description": "Explore the services and try booking a haircut.", "brand": "Barbershop"}},
+  {"type": "orcamento", "title": "Barbearia", "description": "Compare referências de corte e simule um pedido de atendimento.", "aliases": "", "id": "barbearia", "dest": "/exemplos/sites/barbearia/", "mobile": true, "brand": "Ouro & Navalha", "tone": "produto", "english": {"title": "Barbershop", "description": "Explore haircut references and try the service request."}},
   {"type": "orcamento", "title": "Esmalteria", "description": "Veja os estilos e experimente o pedido de atendimento.", "aliases": "", "id": "esmalteria", "dest": "/exemplos/sites/esmalteria/", "mobile": false, "brand": "Esmalteria", "tone": "produto", "english": {"title": "Nail salon", "description": "Browse the styles and try requesting an appointment.", "brand": "Nail salon"}},
   {"type": "orcamento", "title": "Clínica de estética", "description": "Explore os serviços e simule um pedido de avaliação.", "aliases": "", "id": "clinica-estetica", "dest": "/exemplos/sites/clinica-estetica/", "mobile": false, "brand": "Clínica de estética", "tone": "produto", "english": {"title": "Aesthetics clinic", "description": "Explore the services and try requesting a consultation.", "brand": "Aesthetics clinic"}},
   {"type": "orcamento", "title": "Estética biomédica", "description": "Conheça o atendimento e teste o pedido de contato.", "aliases": "", "id": "biomedicina", "dest": "/exemplos/sites/biomedicina/", "mobile": false, "brand": "Estética biomédica", "tone": "produto", "english": {"title": "Advanced aesthetics", "description": "Explore the treatments and try sending an enquiry.", "brand": "Advanced aesthetics"}},
@@ -93,7 +93,8 @@
    oficina:'/exemplos/servicos/oficina/versoes.html',
    vidracaria:'/exemplos/servicos/vidracaria/versoes.html',
    reformas:'/exemplos/servicos/reformas/versoes.html',
-   aulas:'/exemplos/profissionais/aulas/versoes.html'
+   aulas:'/exemplos/profissionais/aulas/versoes.html',
+   barbearia:'/exemplos/sites/barbearia/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {

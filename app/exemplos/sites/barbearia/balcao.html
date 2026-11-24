@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,follow"><meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Barbearia fictícia com estilos de corte e pedido de atendimento simulado.">
+ <title>Ouro &amp; Navalha · Balcão</title>
+ <link rel="icon" href="favicon.svg">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="navalha.css">
+ <script src="/assets/campanha.js" defer></script><script src="navalha.js" defer></script>
+</head>
+<body class="balcao" data-campaign-demo="barbearia"><a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell toolbar"><a class="return" href="/?tipo=orcamento&amp;projeto=barbearia#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a><nav aria-label="Versões da demonstração"><a href="./">Atlas</a><a href="cadeira.html">Cadeira</a><a href="balcao.html" aria-current="page">Balcão</a></nav><div data-demo-navigation-contact data-contact-label="Quero um site assim"></div></div></div>
+ <header class="brandbar"><div class="shell brand-inner"><a class="wordmark" href="#conteudo" aria-label="Ouro e Navalha, início">Ouro &amp; Navalha<small>Barbearia</small></a><nav aria-label="Na barbearia"><a href="#servicos">Serviços</a><a href="#pedido">Pedido</a></nav></div></header>
+<main id="conteudo"><section class="counter-intro"><div class="shell"><h1>Corte, barba ou os dois?</h1><p>Escolha o que quer fazer e organize o pedido para a conversa com a barbearia.</p></div></section>
+ <div class="shell counter-grid"><section class="counter" id="servicos" aria-labelledby="counter-title"><h2 id="counter-title">Monte a combinação</h2><div class="order-buttons" role="group" aria-label="Combinar serviços"><button type="button" data-order="corte" aria-pressed="false"><strong>Corte</strong><span>Comprimento, laterais e contorno</span></button><button type="button" data-order="barba" aria-pressed="false"><strong>Barba</strong><span>Volume e alinhamento</span></button></div><div class="ticket"><h3>Seu pedido</h3><p data-order-summary aria-live="polite">Escolha um serviço acima.</p></div></section><section class="request" id="pedido" aria-labelledby="request-title">
+ <div class="request-head"><h2 id="request-title">Completar pedido</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+ <form class="intake">
+ <div class="fields">
+ <label for="service">Serviço<select required id="service"><option value="">Selecione o serviço</option><option value="corte">Corte</option><option value="barba">Barba</option><option value="ambos">Corte e barba</option></select></label>
+ <label for="preference"><span data-pref-label>Preferência</span><select required disabled id="preference"><option value="">Selecione o serviço primeiro</option></select></label>
+ <label for="period">Melhor período para retorno<select required id="period"><option value="">Selecione o período</option><option>Pela manhã</option><option>À tarde</option><option>Qualquer período</option></select></label>
+ </div>
+ <p class="carry" data-carry hidden></p>
+ <button class="action" type="submit" disabled>Simular atendimento <span aria-hidden="true">↗</span></button>
+ <p class="demo-note">Simulação local. Nenhuma mensagem é enviada e nenhum horário é reservado.</p>
+ <noscript><p>Ative o JavaScript para testar a simulação.</p></noscript></form>
+ <div class="receipt" hidden><h3 tabindex="-1">Pedido simulado</h3><dl data-summary></dl><p data-message></p>
+ <div class="receipt-actions"><button type="button" data-copy>Copiar pedido</button><button type="button" data-edit>Editar</button><button type="button" data-reset>Recomeçar</button></div><p class="copy-status" role="status"></p></div>
+ </section></div>
+ <section class="counter-explain"><div class="shell"><h2>Combine o horário no retorno.</h2><p>O período indica quando é melhor falar com você. Neste exemplo, as escolhas servem para testar o pedido.</p></div></section></main>
+<footer><div class="shell footer-inner"><p><strong>Ouro &amp; Navalha</strong> · Barbearia fictícia. Fotografias ilustrativas.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Ouro%20%26%20Navalha%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>
