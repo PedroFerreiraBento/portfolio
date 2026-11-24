@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Explore uma semana de exemplo e simule a escolha de um horário de banho.">
+  <title>Linha Mansa · Agenda de banho</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="mansa.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="mansa.js" defer></script>
+</head>
+<body class="agenda" data-campaign-demo="banho-e-tosa">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="workbar">
+    <div class="shell toolbar">
+      <a class="back" href="/?tipo=orcamento&amp;projeto=banho-e-tosa#trabalhos"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração">
+        <a href="./">Guia de pelagem</a>
+        <a href="agenda.html" aria-current="page">Agenda de banho</a>
+        <a href="ritual.html">Ritual de cuidado</a>
+      </nav>
+      <div class="studio-link" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+      <noscript><a class="studio-link" href="https://wa.me/5519974149650">Quero um site assim</a></noscript>
+    </div>
+  </header>  <header class="brand">
+    <div class="shell brand-inner">
+      <a class="mark" href="#conteudo" aria-label="Linha Mansa, início"><span>Linha Mansa</span> Banho &amp; Tosa</a>
+      <nav aria-label="Nesta demonstração"><a href="#horarios">Horários</a><a href="#chegada">Como chegar preparado</a></nav>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="agenda-hero">
+      <img src="agenda.webp" width="722" height="541" alt="Cão sentado perto da bancada de banho em um estúdio claro" fetchpriority="high">
+      <div class="shell agenda-copy">
+        <h1>Um banho na sua semana.</h1>
+        <p>Navegue por uma semana de exemplo e escolha um horário para simular o pedido.</p>
+      </div>
+    </section>
+    <section class="shell appointments" id="horarios">
+      <div class="agenda-heading"><h2>Escolha um horário</h2><p>Agenda de demonstração. Os horários são fictícios e a escolha gera um resumo na tela.</p></div>
+      <form data-demo data-mode="agenda">
+        <div data-fields>
+          <fieldset class="schedule"><legend>Semana de exemplo</legend>
+            <div class="schedule-grid">
+              <div class="schedule-day"><strong>Terça</strong><label><input type="radio" name="horario" value="Terça · 09:00" required><span><span class="sr-only">Terça, </span>09:00</span></label>
+            <label><input type="radio" name="horario" value="Terça · 14:30"><span><span class="sr-only">Terça, </span>14:30</span></label></div>
+              <div class="schedule-day"><strong>Quarta</strong><label><input type="radio" name="horario" value="Quarta · 10:30" required><span><span class="sr-only">Quarta, </span>10:30</span></label>
+            <label><input type="radio" name="horario" value="Quarta · 15:00"><span><span class="sr-only">Quarta, </span>15:00</span></label></div>
+              <div class="schedule-day"><strong>Quinta</strong><label><input type="radio" name="horario" value="Quinta · 09:30" required><span><span class="sr-only">Quinta, </span>09:30</span></label>
+            <label><input type="radio" name="horario" value="Quinta · 16:00"><span><span class="sr-only">Quinta, </span>16:00</span></label></div>
+              <div class="schedule-day"><strong>Sexta</strong><label><input type="radio" name="horario" value="Sexta · 11:00" required><span><span class="sr-only">Sexta, </span>11:00</span></label>
+            <label><input type="radio" name="horario" value="Sexta · 14:00"><span><span class="sr-only">Sexta, </span>14:00</span></label></div>
+            </div>
+          </fieldset>
+          <fieldset class="schedule-service"><legend>O que você quer combinar?</legend><div class="options">
+            <label><input type="radio" name="servico" value="Banho" required><span>Banho</span></label>
+            <label><input type="radio" name="servico" value="Banho e tosa"><span>Banho e tosa</span></label>
+            <label><input type="radio" name="servico" value="Quero tirar uma dúvida"><span>Quero tirar uma dúvida</span></label>
+          </div></fieldset>
+          <button class="primary" type="submit" data-submit>Ver resumo da simulação <span aria-hidden="true">→</span></button>
+        </div>
+    <section class="receipt" data-receipt hidden tabindex="-1" aria-labelledby="recibo">
+      <h2 id="recibo">Resumo da simulação</h2>
+      <dl data-summary></dl>
+      <p class="reference">Referência <strong>LM-DEMO-001</strong></p>
+      <p>Você pode copiar as escolhas ou voltar e ajustar.</p>
+      <div class="receipt-actions">
+        <button class="primary" type="button" data-copy>Copiar resumo</button>
+        <button class="secondary" type="button" data-edit>Editar escolhas</button>
+        <button class="bare" type="button" data-reset>Recomeçar</button>
+      </div>
+      <p role="status" data-copy-status></p>
+    </section>
+      </form>
+    </section>
+    <section class="band" id="chegada"><div class="shell prepare">
+      <div><h2>Para o dia do banho</h2><p>Combine os detalhes da chegada e da retirada com a equipe.</p></div>
+      <ul><li>Use uma guia ou caixa de transporte na chegada.</li><li>Conte se é a primeira visita do cão.</li><li>Confirme o tempo previsto antes de sair para buscá-lo.</li></ul>
+    </div></section>
+  </main>
+  <footer class="shell foot">
+    <span>Linha Mansa é uma marca fictícia de portfólio.</span>
+    <a href="versoes.html">Comparar as três versões</a>
+    <a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Linha%20Mansa%20e%20quero%20um%20site%20assim." data-project-whatsapp="banho-e-tosa">Quero um site assim</a>
+  </footer>
+</body>
+</html>

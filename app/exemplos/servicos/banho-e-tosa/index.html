@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Escolha o porte e o tipo de pelo e prepare uma conversa sobre banho e tosa.">
+  <title>Linha Mansa · Guia de pelagem</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="mansa.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="mansa.js" defer></script>
+</head>
+<body class="guide" data-campaign-demo="banho-e-tosa">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="workbar">
+    <div class="shell toolbar">
+      <a class="back" href="/?tipo=orcamento&amp;projeto=banho-e-tosa#trabalhos"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração">
+        <a href="./" aria-current="page">Guia de pelagem</a>
+        <a href="agenda.html">Agenda de banho</a>
+        <a href="ritual.html">Ritual de cuidado</a>
+      </nav>
+      <div class="studio-link" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+      <noscript><a class="studio-link" href="https://wa.me/5519974149650">Quero um site assim</a></noscript>
+    </div>
+  </header>  <header class="brand">
+    <div class="shell brand-inner">
+      <a class="mark" href="#conteudo" aria-label="Linha Mansa, início"><span>Linha Mansa</span> Banho &amp; Tosa</a>
+      <nav aria-label="Nesta demonstração"><a href="#perfil">Perfil do cão</a><a href="#preparar">Para a chegada</a></nav>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="shell guide-opening">
+      <div class="guide-copy">
+        <h1>Por onde começa o cuidado?</h1>
+        <p>Escolha o porte e o tipo de pelo do seu cão. O guia coloca as duas informações no resumo para a primeira conversa.</p>
+        <form id="perfil" data-demo data-mode="guide">
+          <div data-fields>
+            <fieldset><legend>Qual é o porte?</legend><div class="options">
+              <label><input type="radio" name="porte" value="Pequeno" required><span>Pequeno</span></label>
+            <label><input type="radio" name="porte" value="Médio"><span>Médio</span></label>
+            <label><input type="radio" name="porte" value="Grande"><span>Grande</span></label>
+            </div></fieldset>
+            <fieldset><legend>Como é a pelagem?</legend><div class="options">
+              <label><input type="radio" name="pelagem" value="Curta" required><span>Curta</span></label>
+            <label><input type="radio" name="pelagem" value="Longa"><span>Longa</span></label>
+            <label><input type="radio" name="pelagem" value="Encaracolada"><span>Encaracolada</span></label>
+            <label><input type="radio" name="pelagem" value="Tenho dúvida"><span>Tenho dúvida</span></label>
+            </div></fieldset>
+            <button class="primary" type="submit" data-submit>Ver resumo da simulação <span aria-hidden="true">→</span></button>
+          </div>
+    <section class="receipt" data-receipt hidden tabindex="-1" aria-labelledby="recibo">
+      <h2 id="recibo">Resumo da simulação</h2>
+      <dl data-summary></dl>
+      <p class="reference">Referência <strong>LM-DEMO-001</strong></p>
+      <p>Você pode copiar as escolhas ou voltar e ajustar.</p>
+      <div class="receipt-actions">
+        <button class="primary" type="button" data-copy>Copiar resumo</button>
+        <button class="secondary" type="button" data-edit>Editar escolhas</button>
+        <button class="bare" type="button" data-reset>Recomeçar</button>
+      </div>
+      <p role="status" data-copy-status></p>
+    </section>
+        </form>
+      </div>
+      <figure class="guide-photo">
+        <img src="pelagem.webp" width="722" height="541" alt="Profissional aproximando um pente da pelagem de um cão pequeno de pelo claro" fetchpriority="high">
+        <figcaption>Uma escovação começa com observar como o cão fica à vontade na mesa.</figcaption>
+      </figure>
+    </section>
+    <section class="band" id="preparar">
+      <div class="shell prepare">
+        <div><h2>O que contar na chegada</h2><p>Três detalhes simples ajudam a equipe a entender o que combinar com você.</p></div>
+        <ol>
+          <li><strong>Como foram os últimos banhos.</strong> Conte se ele já conhece o secador e a escova.</li>
+          <li><strong>Se o pelo embaraça.</strong> Vale dizer onde aparecem nós com mais frequência.</li>
+          <li><strong>Qual acabamento prefere.</strong> Uma referência ajuda a alinhar o comprimento antes da tosa.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+  <footer class="shell foot">
+    <span>Linha Mansa é uma marca fictícia de portfólio.</span>
+    <a href="versoes.html">Comparar as três versões</a>
+    <a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Linha%20Mansa%20e%20quero%20um%20site%20assim." data-project-whatsapp="banho-e-tosa">Quero um site assim</a>
+  </footer>
+</body>
+</html>
