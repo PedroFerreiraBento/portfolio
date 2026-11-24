@@ -1,0 +1,12 @@
+{
+  "source": "ImageGen nativo",
+  "prompt": "A landscape editorial photography contact sheet in a clean exact 3 columns by 2 rows equal crop layout, edge-to-edge, no gaps no gutters no text letters logos borders. Six independent premium Brazilian florist photographs, camera authentic 35mm, tactile and handmade, not luxury commercial stock, believable floral species and proportions. Top left: abundant sunlit sunflower yellow ranunculus and peach cosmo bouquet wrapped kraft in a real hand against muted light ochre plaster. Top middle: sophisticated powder pale pink garden rose and wine scabiosa bouquet wrapped white on subdued dusty pink plaster, directional sunlight. Top right: delicate white cosmos, ivory lisianthus and fern bouquet wrapped paper, warm chocolate tabletop background. Bottom left: one opulent merlot deep wine ranunculus, deep red roses and light blush cosmos seasonal flower arrangement in clay vase, dark purple studio backdrop, rich controlled side light. Bottom middle: sun gold and cream flowers in matte bottle vase on shadowy ochre stucco. Bottom right: three low airy flower arrangements in a real warm Brazilian courtyard dinner venue, ivory linen, candles and wooden chairs with green foliage, rich editorial daylight. Exactly six photos each centered with enough margin, all edges perfectly separable on equal grid. No text, no watermarks.",
+  "assets": [
+    "sol.webp",
+    "carta.webp",
+    "vento.webp",
+    "vinho.webp",
+    "creme.webp",
+    "mesa.webp"
+  ]
+}

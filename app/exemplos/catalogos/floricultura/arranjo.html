@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta name="description" content="Escolha a paleta, a escala e a apresentação do arranjo." />
+    <title>Botânica das Horas · Componha seu arranjo</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css" />
+    <link rel="stylesheet" href="flores.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="flores.js" defer></script>
+  </head>
+  <body class="arranjo" data-campaign-demo="floricultura">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap top">
+        <a class="back" href="/?tipo=catalogo&amp;projeto=floricultura#trabalhos">← Trabalhos</a>
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Escolha pelo gesto</a
+          ><a href="arranjo.html" aria-current="page">Componha seu arranjo</a
+          ><a href="eventos.html">Flores para eventos</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Bot%C3%A2nica%20das%20Horas%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="brand">
+      <div class="wrap">
+        <a href="versoes.html">Botânica das Horas</a
+        ><a href="#escolha"
+          >Abrir composição
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="wrap atelier" id="escolha">
+        <div class="atelier-intro">
+          <h1>Um arranjo, do seu jeito.</h1>
+          <p>
+            Escolha a paleta, a escala e a apresentação. Compare as referências enquanto monta o seu
+            pedido.
+          </p>
+        </div>
+        <form data-flow="arranjo">
+          <div class="atelier-grid" data-fields>
+            <figure>
+              <img
+                src="vinho.webp"
+                width="508"
+                height="508"
+                alt="Flores em vinho e rosa sobre uma superfície ameixa"
+                data-palette-image
+                fetchpriority="high"
+              />
+              <figcaption data-palette-caption aria-live="polite">
+                Vinho e rosa · referência de paleta
+              </figcaption>
+            </figure>
+            <div class="atelier-controls">
+              <fieldset>
+                <legend>Paleta</legend>
+                <div class="chips swatches">
+                  <label
+                    ><input type="radio" name="paleta" value="Vinho e rosa" checked /><span
+                      ><i style="--swatch: #7c2849"></i>Vinho e rosa</span
+                    ></label
+                  ><label
+                    ><input type="radio" name="paleta" value="Sol e creme" /><span
+                      ><i style="--swatch: #d6a63c"></i>Sol e creme</span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Escala</legend>
+                <div class="chips">
+                  <label
+                    ><input type="radio" name="escala" value="Compacto" checked /><span
+                      >Compacto</span
+                    ></label
+                  ><label><input type="radio" name="escala" value="Médio" /><span>Médio</span></label
+                  ><label><input type="radio" name="escala" value="Amplo" /><span>Amplo</span></label>
+                </div>
+                <p data-scale aria-live="polite">Para um aparador pequeno ou uma mesa lateral.</p>
+              </fieldset>
+              <fieldset>
+                <legend>Apresentação</legend>
+                <div class="chips">
+                  <label
+                    ><input type="radio" name="base" value="Em vaso" checked /><span
+                      >Em vaso</span
+                    ></label
+                  ><label
+                    ><input type="radio" name="base" value="Em papel" /><span>Em papel</span></label
+                  >
+                </div>
+              </fieldset>
+              <button class="primary" type="submit">
+                Revisar composição
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <section class="receipt" hidden data-receipt tabindex="-1" aria-labelledby="resumo">
+            <h2 id="resumo">Sua seleção de exemplo</h2>
+            <p class="ref">BH-DEMO-001</p>
+            <dl data-summary></dl>
+            <p>Simulação local. A seleção fica nesta página.</p>
+            <div class="actions">
+              <button type="button" class="primary" data-copy>Copiar resumo</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Botânica das Horas · Demonstração de floricultura</span
+        ><a href="versoes.html"
+          >Ver as três versões
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>
