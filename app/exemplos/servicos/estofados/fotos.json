@@ -1,0 +1,19 @@
+{
+  "tool": "ImageGen built-in",
+  "prompt": "A 2x2 contact sheet of exactly four separate independent images, seamless edge-to-edge square quadrants, no gutters, no borders, no letters, no artwork, each an editorial photographic asset for a Brazilian designer upholstery care service. Premium but everyday real west São Paulo midcentury modern homes with warm oak, gently worn practical fabric and unstyled human life. TOP LEFT: a close full-width shot of a modern caramel brown textured sofa with two distinctly visible seat cushions, curved arm and green wall visible, bright rich amber afternoon side light, like an architectural magazine furniture detail. TOP RIGHT: an overhead elevated angle wide room view of a plain sunlit living room with a sage sofa, oak floor, side chair, and a restrained plant, simple spatial zoning and layout. BOTTOM LEFT: quiet tightly framed photograph of dusty indigo and smoky blue fabric weave on a chair seat and just a tiny clear drop of water, natural sidelight picks out the texture, visual specific detail for the upholstery assessment process. BOTTOM RIGHT: candid photo of a professional technician in plain bone work clothes operating a compact upholstery extraction nozzle with the tube trailing naturally along the seat of a living room sofa in a real home, art directed high color warm daylight. Authentic analog medium-format photographs, tactile and atmospheric but clear, no logos, no writing, no text anywhere.",
+  "assets": [
+    "sofa.webp",
+    "sala.webp",
+    "tecido.webp",
+    "atendimento.webp"
+  ],
+  "derived_gallery_covers": {
+    "versao-inventario.webp": "Chrome screenshot, inventario demo at 1440 x 960",
+    "versao-casa.webp": "Chrome screenshot, casa demo at 1440 x 960",
+    "versao-tecido.webp": "Chrome screenshot, tecido demo at 1440 x 960"
+  },
+  "derived_home_covers": {
+    "estofados.jpg": "sofa.webp source crop",
+    "estofados-mobile.jpg": "sofa.webp source crop resized to 420px"
+  }
+}

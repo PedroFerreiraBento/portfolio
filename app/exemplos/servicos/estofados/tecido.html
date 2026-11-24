@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Descreva a situação e veja o que informar na avaliação.">
+  <title>Casa em Trama · Avaliação do tecido</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="trama.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="trama.js" defer></script
+</head>
+<body class="tecido" data-campaign-demo="estofados">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio"><div class="wrap portfolio-row">
+  <a href="/?tipo=orcamento&amp;projeto=estofados#trabalhos" class="back"><span aria-hidden="true">←</span> Trabalhos</a>
+  <nav aria-label="Versões da demonstração"><a href="./">Orçamento por peça</a><a href="casa.html">Uma casa por vez</a><a href="tecido.html" aria-current="page">Avaliação do tecido</a></nav>
+  <div data-demo-navigation-contact><a href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Casa%20em%20Trama%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+</div></header>
+<header class="brand"><div class="wrap brand-row"><a class="wordmark" href="#conteudo"><span>Casa em Trama</span><small>Higienização de estofados</small></a><a href="#fluxo">Preparar avaliação <span aria-hidden="true">↓</span></a></div></header>
+<main id="conteudo">
+  <section class="fabric-top" id="fluxo"><div class="wrap fabric-layout">
+    <div class="fabric-copy"><h1>O que o tecido precisa?</h1><p>Descreva o motivo da avaliação e as informações que você já tem sobre o revestimento.</p></div>
+    <figure><img src="tecido.webp" width="625" height="625" alt="Detalhe de uma gota sobre tecido azul de trama grossa" fetchpriority="high"></figure>
+    <form data-flow="tecido">
+      <div data-fields>
+        <fieldset class="situations"><legend>Qual é a situação?</legend><div class="switch"><label><input type="radio" name="situacao" value="Rotina" checked><span>Uso frequente</span></label><label><input type="radio" name="situacao" value="Derramamento"><span>Derramamento</span></label><label><input type="radio" name="situacao" value="Preparação do imóvel"><span>Preparação do imóvel</span></label></div></fieldset>
+        <p class="guidance" data-guidance="Rotina">Indique quais partes recebem mais uso, como o assento do meio ou o braço do sofá.</p><p class="guidance" data-guidance="Derramamento" hidden>Informe o que caiu, há quanto tempo e se algo já foi usado no local.</p><p class="guidance" data-guidance="Preparação do imóvel" hidden>Informe se há peças em mais de um ambiente e se elas podem ser acessadas no mesmo dia.</p>
+        <label class="fabric-label" for="material">O que você sabe sobre o tecido?</label>
+        <select id="material" name="material"><option>Não sei o material</option><option>Etiqueta indica o material</option><option>Tenho a informação da loja</option></select>
+        <button type="submit" class="primary">Revisar ficha <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+      </div><section class="receipt" hidden data-receipt tabindex="-1" aria-labelledby="resumo">
+  <h2 id="resumo">Seu resumo de exemplo</h2>
+  <p class="reference">CET-DEMO-001</p><dl data-summary></dl>
+  <p>Simulação local. Use a cópia para ver como as informações ficariam reunidas.</p>
+  <div class="actions"><button class="primary" type="button" data-copy>Copiar resumo</button><button class="secondary" type="button" data-edit>Editar</button><button class="secondary" type="button" data-reset>Recomeçar</button></div>
+  <p role="status" data-status></p>
+</section>
+    </form>
+  </div></section>
+  <section class="wrap after fabric-after"><img src="atendimento.webp" width="625" height="625" alt="Profissional examina o assento de um sofá durante um atendimento" loading="lazy"><div><h2>O método começa com a avaliação.</h2><p>O profissional confere o revestimento, as instruções do fabricante e o estado da peça antes de definir o cuidado.</p></div></section>
+</main>
+<footer><div class="wrap">Casa em Trama · Marca fictícia para demonstração de site.</div></footer>
+</body>
+</html>

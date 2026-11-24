@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Marque o que entra no atendimento, cômodo a cômodo.">
+  <title>Casa em Trama · Uma casa por vez</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="trama.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="trama.js" defer></script
+</head>
+<body class="casa" data-campaign-demo="estofados">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio"><div class="wrap portfolio-row">
+  <a href="/?tipo=orcamento&amp;projeto=estofados#trabalhos" class="back"><span aria-hidden="true">←</span> Trabalhos</a>
+  <nav aria-label="Versões da demonstração"><a href="./">Orçamento por peça</a><a href="casa.html" aria-current="page">Uma casa por vez</a><a href="tecido.html">Avaliação do tecido</a></nav>
+  <div data-demo-navigation-contact><a href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Casa%20em%20Trama%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+</div></header>
+<header class="brand"><div class="wrap brand-row"><a class="wordmark" href="#conteudo"><span>Casa em Trama</span><small>Higienização de estofados</small></a><a href="#fluxo">Marcar ambientes <span aria-hidden="true">↓</span></a></div></header>
+<main id="conteudo">
+  <section class="house-hero"><div class="wrap"><h1>Uma casa<br>por vez.</h1><p>Veja o atendimento pelos espaços. Assim dá para incluir a poltrona do quarto e as cadeiras que ficam em outro ambiente.</p><a class="primary" href="#fluxo">Organizar visita <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div><img src="sala.webp" width="625" height="625" fetchpriority="high" alt="Vista elevada de sala com sofá verde, poltrona clara e mesa de madeira"></section>
+  <section class="wrap house-tool" id="fluxo">
+    <form data-flow="casa">
+      <div data-fields>
+        <div class="room-heading"><h2>Onde estão as peças?</h2><p>Escolha o cômodo para abrir a lista. As seleções ficam marcadas ao trocar de espaço.</p></div>
+        <div class="room-plan">
+          <fieldset class="map"><legend>Mapa da casa</legend>
+            <div><button type="button" data-room="sala" aria-controls="lista-sala" aria-pressed="true">Sala<span data-room-count></span></button><button type="button" data-room="jantar" aria-controls="lista-jantar" aria-pressed="false">Jantar<span data-room-count></span></button><button type="button" data-room="quarto" aria-controls="lista-quarto" aria-pressed="false">Quarto<span data-room-count></span></button><button type="button" data-room="escritorio" aria-controls="lista-escritorio" aria-pressed="false">Escritório<span data-room-count></span></button></div>
+          </fieldset>
+          <div class="room-checklists">
+            <fieldset id="lista-sala" data-space="sala"><legend>Sala</legend><label><input type="checkbox" value="Sofá"><span>Sofá</span></label><label><input type="checkbox" value="Poltrona"><span>Poltrona</span></label><label><input type="checkbox" value="Pufe"><span>Pufe</span></label></fieldset><fieldset id="lista-jantar" data-space="jantar" hidden><legend>Jantar</legend><label><input type="checkbox" value="Cadeiras estofadas"><span>Cadeiras estofadas</span></label><label><input type="checkbox" value="Banco estofado"><span>Banco estofado</span></label></fieldset><fieldset id="lista-quarto" data-space="quarto" hidden><legend>Quarto</legend><label><input type="checkbox" value="Cabeceira"><span>Cabeceira</span></label><label><input type="checkbox" value="Colchão"><span>Colchão</span></label><label><input type="checkbox" value="Recamier"><span>Recamier</span></label></fieldset><fieldset id="lista-escritorio" data-space="escritorio" hidden><legend>Escritório</legend><label><input type="checkbox" value="Cadeira de trabalho"><span>Cadeira de trabalho</span></label><label><input type="checkbox" value="Poltrona"><span>Poltrona</span></label></fieldset>
+            <div class="house-actions"><output data-tally role="status">Nenhum item marcado</output><button type="submit" class="primary">Revisar visita <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+            <p data-error role="status"></p>
+          </div>
+        </div>
+      </div><section class="receipt" hidden data-receipt tabindex="-1" aria-labelledby="resumo">
+  <h2 id="resumo">Seu resumo de exemplo</h2>
+  <p class="reference">CET-DEMO-001</p><dl data-summary></dl>
+  <p>Simulação local. Use a cópia para ver como as informações ficariam reunidas.</p>
+  <div class="actions"><button class="primary" type="button" data-copy>Copiar resumo</button><button class="secondary" type="button" data-edit>Editar</button><button class="secondary" type="button" data-reset>Recomeçar</button></div>
+  <p role="status" data-status></p>
+</section>
+    </form>
+  </section>
+</main>
+<footer><div class="wrap">Casa em Trama · Marca fictícia para demonstração de site.</div></footer>
+</body>
+</html>
