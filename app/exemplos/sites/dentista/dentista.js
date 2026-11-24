@@ -24,11 +24,23 @@
  form.querySelector('[type=submit]').disabled = false;
  const status = result.querySelector('.copy-status');
  const sample = document.querySelector('[data-fill-example]');
+ const guidance = form.querySelector('[data-service-guidance]');
+ const guidanceByService = {
+  primeira:'Escolha esta opção se for sua primeira visita ou se não souber qual atendimento pedir.',
+  rotina:'Se já faz acompanhamento, a equipe retoma a conversa no retorno.',
+  alinhadores:'A equipe combina uma avaliação para conversar sobre alinhamento e opções de tratamento.'
+ };
+ const updateGuidance = () => {
+  if (!guidance) return;
+  guidance.textContent = guidanceByService[service.value] || '';
+  guidance.hidden = !guidance.textContent;
+ };
  let sequence = 0;
  sample.hidden = false;
  sample.addEventListener('click', () => {
   if (!service.value) service.value = 'primeira';
   if (!period.value) period.value = 'pela manhã';
+  updateGuidance();
   clearResult();
   form.querySelector('[type=submit]').focus();
  });
@@ -41,11 +53,16 @@
  document.querySelectorAll('[data-service-choice]').forEach(link => {
   link.addEventListener('click', () => {
    service.value = link.dataset.serviceChoice;
+   updateGuidance();
    clearResult();
   });
  });
 
- form.addEventListener('change', clearResult);
+ form.addEventListener('change', () => {
+  updateGuidance();
+  clearResult();
+ });
+ updateGuidance();
  form.addEventListener('submit', event => {
   event.preventDefault();
   const choice = service.selectedOptions[0].textContent;
@@ -66,6 +83,7 @@
 
  result.querySelector('[data-reset-request]').addEventListener('click', () => {
   form.reset();
+  updateGuidance();
   clearResult();
   service.focus();
  });

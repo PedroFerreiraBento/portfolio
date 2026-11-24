@@ -41,17 +41,16 @@
  </header>
  <main id="conteudo">
    <section class="hero hero-fast"><div class="hero-fast-grid"><div class="hero-copy">
-       <h1>Escolha seu atendimento.</h1>
-       <p>Primeira avaliação, consulta de rotina ou alinhadores.</p>
+       <h1>Pedir avaliação odontológica.</h1>
+       <p>A equipe retorna no período que você indicar para combinar a consulta.</p>
 
 
       </div>
      <div class="hero-fast-media"><img src="consultorio-720.webp" srcset="consultorio-720.webp 720w, consultorio-1440.webp 1440w"
        sizes="100vw" alt="Cadeira de atendimento e equipamentos na clínica Odonto Premium" decoding="async" fetchpriority="high"></div>
      <section id="avaliacao" class="request" aria-labelledby="request-title">
-    <div class="request-heading"><h2 id="request-title">Solicitar avaliação</h2>
+    <div class="request-heading"><h2 id="request-title">Seu pedido de avaliação</h2>
      <button class="sample-button" type="button" data-fill-example hidden>Usar exemplo</button></div>
-    <p>Escolha o atendimento e o melhor período para retorno.</p>
     <form class="request-form">
      <div class="form-fields">
       <label for="service">Qual atendimento você procura?
@@ -72,6 +71,7 @@
       </label>
      </div>
      <button class="clinic-button" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button>
+     <p class="service-guidance" data-service-guidance hidden></p>
      <p class="demo-note">Demonstração. Nenhuma mensagem será enviada.</p>
      <noscript><p>Ative o JavaScript para simular o pedido.</p></noscript>
     </form>
@@ -93,23 +93,23 @@
     </div>
    </section></div></section>
      <section class="treatments precision-treatments" id="atendimentos" aria-labelledby="treatments-title">
-     <div class="section-shell"><h2 id="treatments-title">Conheça os atendimentos.</h2><ul class="precision-rows"><li class="precision-row"><h3>Primeira avaliação</h3><div><p>Conte o que motivou a visita e converse sobre os próximos passos.</p><a href="#avaliacao" data-service-choice="primeira" aria-label="Selecionar primeira avaliação">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="avaliacao-720.webp" srcset="avaliacao-720.webp 720w, avaliacao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Dentista e paciente conversam com apoio de um modelo odontológico" decoding="async" loading="lazy"></figure></li>
-<li class="precision-row"><h3>Consulta de rotina</h3><div><p>Reserve um momento para revisar seus cuidados e esclarecer dúvidas.</p><a href="#avaliacao" data-service-choice="rotina" aria-label="Selecionar consulta de rotina">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="rotina-720.webp" srcset="rotina-720.webp 720w, rotina-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Bandeja preparada para a consulta odontológica" decoding="async" loading="lazy"></figure></li>
-<li class="precision-row"><h3>Alinhadores</h3><div><p>Leve suas dúvidas sobre alinhamento e entenda o que seria avaliado.</p><a href="#avaliacao" data-service-choice="alinhadores" aria-label="Selecionar alinhadores">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="alinhadores-720.webp" srcset="alinhadores-720.webp 720w, alinhadores-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Alinhador transparente e modelo odontológico" decoding="async" loading="lazy"></figure></li></ul></div>
+     <div class="section-shell"><h2 id="treatments-title">Qual atendimento você procura?</h2><ul class="precision-rows"><li class="precision-row"><h3>Primeira avaliação</h3><div><p>Primeira vez na clínica, retomada do acompanhamento ou dúvida sobre qual atendimento escolher.</p><a href="#avaliacao" data-service-choice="primeira" aria-label="Selecionar primeira avaliação">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="avaliacao-720.webp" srcset="avaliacao-720.webp 720w, avaliacao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Dentista e paciente conversam com apoio de um modelo odontológico" decoding="async" loading="lazy"></figure></li>
+<li class="precision-row"><h3>Consulta de rotina</h3><div><p>Para dar continuidade ao cuidado e conversar sobre a revisão periódica.</p><a href="#avaliacao" data-service-choice="rotina" aria-label="Selecionar consulta de rotina">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="rotina-720.webp" srcset="rotina-720.webp 720w, rotina-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Bandeja preparada para a consulta odontológica" decoding="async" loading="lazy"></figure></li>
+<li class="precision-row"><h3>Avaliação para alinhadores</h3><div><p>Para pedir uma conversa sobre alinhamento dos dentes e opções de tratamento.</p><a href="#avaliacao" data-service-choice="alinhadores" aria-label="Selecionar alinhadores">Selecionar <span aria-hidden="true">↗</span></a></div><figure class=""><img src="alinhadores-720.webp" srcset="alinhadores-720.webp 720w, alinhadores-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Alinhador transparente e modelo odontológico" decoding="async" loading="lazy"></figure></li></ul></div>
    </section>
    <section class="visit visit-precision" id="primeira-visita" aria-labelledby="visit-title">
     <div class="section-shell visit-inner">
-      <div><h2 id="visit-title">O que acontece na avaliação</h2><p class="visit-lead">Saiba o caminho antes de simular o pedido.</p></div>
+      <div><h2 id="visit-title">O que acontece depois do pedido</h2><p class="visit-lead">O período informado ajuda a equipe a falar com você. A consulta é combinada depois.</p></div>
       <ol>
-        <li><h3>Conversa inicial</h3><p>Conte o que trouxe você e o que gostaria de entender.</p></li>
-        <li><h3>Avaliação</h3><p>O dentista explica o que vai observar e abre espaço para perguntas.</p></li>
-        <li><h3>Próximos passos</h3><p>Vocês conversam sobre as opções e decidem como seguir.</p></li>
+        <li><h3>Pedido recebido</h3><p>A equipe identifica o motivo da consulta e o período em que você prefere falar.</p></li>
+        <li><h3>Contato da equipe</h3><p>Vocês combinam a data, o horário e o que precisa levar.</p></li>
+        <li><h3>Primeira visita</h3><p>O dentista retoma o motivo da consulta e explica os próximos passos.</p></li>
       </ol>
     </div>
    </section>
    <section class="clinic-scene precision-scene section-shell" aria-labelledby="space-title">
     <figure class=""><img src="sala-720.webp" srcset="sala-720.webp 720w, sala-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 50vw" alt="Consultório iluminado, com cadeira de atendimento e madeira clara" decoding="async" loading="lazy"></figure>
-    <div><h2 id="space-title">O consultório</h2><p>Um espaço para a conversa inicial, a avaliação e a orientação sobre o que vem depois.</p></div>
+    <div><h2 id="space-title">O consultório</h2><p>Na primeira visita, o consultório é onde a equipe retoma o motivo do pedido e conversa sobre a avaliação.</p></div>
    </section>
    <section class="faq section-shell" id="duvidas" aria-labelledby="faq-title">
    <div class="faq-intro">
@@ -117,9 +117,9 @@
     <a class="clinic-button" href="#avaliacao">Solicitar avaliação <span aria-hidden="true">↗</span></a>
    </div>
    <div>
-    <details><summary>Preciso escolher um tratamento antes da avaliação?</summary><p>Você pode escolher “Primeira avaliação” e conversar sobre o motivo da visita.</p></details>
-    <details><summary>O pedido já confirma uma consulta?</summary><p>Numa clínica real, a equipe confirmaria o dia e o horário com você. Neste exemplo, o pedido gera uma confirmação e uma mensagem de teste.</p></details>
-    <details><summary>O que posso levar na primeira visita?</summary><p>Se tiver exames anteriores, pergunte à equipe se vale a pena levá-los. Você também pode anotar suas dúvidas.</p></details>
+    <details><summary>Qual opção devo selecionar se ainda estou em dúvida?</summary><p>Escolha Primeira avaliação. A equipe pode conversar com você sobre o motivo e orientar o próximo passo.</p></details>
+    <details><summary>O período escolhido já reserva um horário?</summary><p>O período serve para o retorno da equipe. O horário da consulta é combinado em seguida.</p></details>
+    <details><summary>Consigo ajustar minha escolha antes de finalizar?</summary><p>Sim. Depois de simular o pedido, use Editar escolhas para corrigir o atendimento ou o período.</p></details>
    </div>
   </section>
  </main>
