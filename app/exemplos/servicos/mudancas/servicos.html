@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Compare transporte, embalagem e mudança completa.">
+  <title>Casa em Trânsito · Tipos de mudança</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="transito.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="transito.js" defer></script>
+</head>
+<body class="servicos" data-campaign-demo="mudancas">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="portfolio">
+    <div class="wrap toolbar">
+      <a href="/?tipo=orcamento&amp;projeto=mudancas#trabalhos" class="back"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração"><a href="./">Inventário</a><a href="plano.html">Plano do dia</a><a href="servicos.html" aria-current="page">Tipos de mudança</a></nav>
+      <div class="studio" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+      <noscript><a href="https://wa.me/5519974149650">Quero um site assim</a></noscript>
+    </div>
+  </header>
+  <header class="brand">
+    <div class="wrap brand-row">
+      <a href="#conteudo" class="wordmark">Casa em Trânsito<span>Mudanças residenciais</span></a>
+      <nav aria-label="Nesta demonstração"><a href="#ferramenta">Serviços</a><a href="#detalhes">Peças frágeis</a></nav>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="scope-intro">
+      <div class="wrap scope-opening">
+        <img src="carregador.webp" width="627" height="627" alt="Profissional carregando uma caixa pela porta de um apartamento">
+        <div><h1>Qual parte fica com a gente?</h1><p class="lede">Escolha quem embala, quem transporta e quem organiza as caixas na chegada.</p><a class="primary" href="#ferramenta">Comparar serviços</a></div>
+      </div>
+    </section>
+    <section id="ferramenta" class="wrap scopes">
+      <h2>Quem faz o quê</h2>
+      <form data-mode="servicos">
+        <div data-fields>
+          <fieldset class="scope-grid">
+            <legend class="sr-only">Escolha um tipo de mudança</legend>
+            <label class="scope-option">
+              <span class="scope-title"><input type="radio" name="escopo" value="Só transporte" required><strong>Só transporte</strong></span>
+              <span class="scope-description">Você deixa tudo embalado e a equipe carrega, transporta e descarrega.</span>
+              <span class="scope-jobs">
+                <span>Embalagem <strong>Você</strong></span>
+                <span>Transporte <strong>Equipe</strong></span>
+                <span>Caixas nos cômodos <strong>Você</strong></span>
+              </span>
+            </label>
+            <label class="scope-option">
+              <span class="scope-title"><input type="radio" name="escopo" value="Com embalagem" required><strong>Com embalagem</strong></span>
+              <span class="scope-description">A equipe embala antes da saída e entrega as caixas fechadas.</span>
+              <span class="scope-jobs">
+                <span>Embalagem <strong>Equipe</strong></span>
+                <span>Transporte <strong>Equipe</strong></span>
+                <span>Caixas nos cômodos <strong>Você</strong></span>
+              </span>
+            </label>
+            <label class="scope-option">
+              <span class="scope-title"><input type="radio" name="escopo" value="Mudança completa" required><strong>Mudança completa</strong></span>
+              <span class="scope-description">A equipe embala, transporta e distribui as caixas nos cômodos combinados.</span>
+              <span class="scope-jobs">
+                <span>Embalagem <strong>Equipe</strong></span>
+                <span>Transporte <strong>Equipe</strong></span>
+                <span>Caixas nos cômodos <strong>Equipe</strong></span>
+              </span>
+            </label>
+          </fieldset>
+          <div class="actions"><button type="submit" class="primary">Ver meu escopo</button></div>
+        </div>
+        <section class="receipt" data-receipt hidden tabindex="-1" aria-labelledby="resumo">
+          <h2 id="resumo">Resumo da simulação</h2>
+          <p>Referência CT-DEMO-001. Esta lista é um exemplo para conversar sobre a mudança.</p>
+          <dl data-summary></dl>
+          <div class="actions">
+            <button type="button" class="primary" data-copy>Copiar resumo</button>
+            <button type="button" class="subtle" data-edit>Editar escolhas</button>
+            <button type="button" class="text-button" data-reset>Recomeçar</button>
+          </div>
+          <p role="status" data-copy-status></p>
+        </section>
+      </form>
+    </section>
+    <section id="detalhes" class="wrap scope-detail">
+      <img src="protecao.webp" width="627" height="627" loading="lazy" alt="Canto de mesa de madeira protegido com papel e tecido">
+      <div><h2>Peças que precisam de atenção</h2><p>Avise sobre vidro, obras de arte e móveis com quinas delicadas. Assim a equipe pode combinar a proteção antes do transporte.</p></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><p>Casa em Trânsito é uma empresa fictícia criada para esta demonstração.</p>
+    <a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demo%20Casa%20em%20Tr%C3%A2nsito%20e%20quero%20um%20site%20assim." data-project-whatsapp="mudancas">Quero um site assim</a>
+  </footer>
+</body>
+</html>

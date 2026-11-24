@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Organize a saída, o transporte e a chegada.">
+  <title>Casa em Trânsito · Plano do dia</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="transito.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="transito.js" defer></script>
+</head>
+<body class="plano" data-campaign-demo="mudancas">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="portfolio">
+    <div class="wrap toolbar">
+      <a href="/?tipo=orcamento&amp;projeto=mudancas#trabalhos" class="back"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração"><a href="./">Inventário</a><a href="plano.html" aria-current="page">Plano do dia</a><a href="servicos.html">Tipos de mudança</a></nav>
+      <div class="studio" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+      <noscript><a href="https://wa.me/5519974149650">Quero um site assim</a></noscript>
+    </div>
+  </header>
+  <header class="brand">
+    <div class="wrap brand-row">
+      <a href="#conteudo" class="wordmark">Casa em Trânsito<span>Mudanças residenciais</span></a>
+      <nav aria-label="Nesta demonstração"><a href="#ferramenta">Montar plano</a><a href="#detalhes">Na véspera</a></nav>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="plan-intro">
+      <div class="wrap plan-opening">
+        <div><h1>Um dia de mudança em ordem.</h1><p class="lede">Conte como é a saída e a chegada. O plano reúne os combinados para antes, durante e depois.</p><a class="primary" href="#ferramenta">Montar plano do dia</a></div>
+        <img src="chaves.webp" width="627" height="627" alt="Chaves, fita de embalagem e papelão sobre piso de madeira">
+      </div>
+    </section>
+    <section id="ferramenta" class="wrap planner">
+      <h2>Organize o percurso</h2>
+      <form data-mode="plano">
+        <div data-fields class="plan-fields">
+          <ol class="steps" aria-label="Etapas do plano"><li aria-current="step">1. Saída</li><li>2. Horário</li><li>3. Chegada</li></ol>
+          <div>
+            <fieldset data-step="0">
+              <legend>Como é o acesso na saída?</legend>
+              <label class="choice"><input type="radio" name="saida" value="Casa" required><span><strong>Casa</strong><small>Confirme onde o caminhão pode parar.</small></span></label>
+              <label class="choice"><input type="radio" name="saida" value="Apartamento com elevador" required><span><strong>Apartamento com elevador</strong><small>Combine o uso do elevador de serviço.</small></span></label>
+              <label class="choice"><input type="radio" name="saida" value="Acesso por escadas" required><span><strong>Acesso por escadas</strong><small>Informe os andares à equipe.</small></span></label>
+              <div class="actions"><button type="button" class="primary" data-next>Continuar</button></div>
+            </fieldset>
+            <fieldset data-step="1" hidden>
+              <legend>Quando prefere começar?</legend>
+              <label class="choice"><input type="radio" name="periodo" value="Manhã" required><span><strong>Manhã</strong><small>Combine a liberação do acesso cedo.</small></span></label>
+              <label class="choice"><input type="radio" name="periodo" value="Tarde" required><span><strong>Tarde</strong><small>Confirme até que horas o prédio libera mudanças.</small></span></label>
+              <label class="choice"><input type="radio" name="periodo" value="A combinar" required><span><strong>A combinar</strong><small>Consulte os horários permitidos nos dois endereços.</small></span></label>
+              <div class="actions"><button type="button" class="subtle" data-prev>Voltar</button><button type="button" class="primary" data-next>Continuar</button></div>
+            </fieldset>
+            <fieldset data-step="2" hidden>
+              <legend>Quem abre o imóvel de destino?</legend>
+              <label class="choice"><input type="radio" name="chegada" value="Eu estarei lá" required><span><strong>Eu estarei lá</strong><small>Leve as chaves e indique onde ficam as caixas.</small></span></label>
+              <label class="choice"><input type="radio" name="chegada" value="Outra pessoa recebe" required><span><strong>Outra pessoa recebe</strong><small>Combine a entrega das chaves antes da saída.</small></span></label>
+              <label class="choice"><input type="radio" name="chegada" value="Ainda vou definir" required><span><strong>Ainda vou definir</strong><small>Defina quem recebe antes de fechar a data.</small></span></label>
+              <div class="actions"><button type="button" class="subtle" data-prev>Voltar</button><button type="submit" class="primary">Montar plano</button></div>
+            </fieldset>
+          </div>
+        </div>
+        <section class="receipt" data-receipt hidden tabindex="-1" aria-labelledby="resumo">
+          <h2 id="resumo">Resumo da simulação</h2>
+          <p>Referência CT-DEMO-001. Esta lista é um exemplo para conversar sobre a mudança.</p>
+          <dl data-summary></dl>
+          <div class="actions">
+            <button type="button" class="primary" data-copy>Copiar resumo</button>
+            <button type="button" class="subtle" data-edit>Editar escolhas</button>
+            <button type="button" class="text-button" data-reset>Recomeçar</button>
+          </div>
+          <p role="status" data-copy-status></p>
+        </section>
+      </form>
+    </section>
+    <section id="detalhes" class="wrap note">
+      <h2>Deixe o essencial com você</h2>
+      <p>Separe chaves, documentos e o que você vai usar na primeira noite em uma bolsa à parte.</p>
+    </section>
+  </main>
+  <footer class="wrap footer"><p>Casa em Trânsito é uma empresa fictícia criada para esta demonstração.</p>
+    <a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demo%20Casa%20em%20Tr%C3%A2nsito%20e%20quero%20um%20site%20assim." data-project-whatsapp="mudancas">Quero um site assim</a>
+  </footer>
+</body>
+</html>

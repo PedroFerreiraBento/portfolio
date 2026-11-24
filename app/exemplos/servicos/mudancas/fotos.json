@@ -1,0 +1,10 @@
+{
+  "source": "OpenAI ImageGen (built-in)",
+  "assets": {
+    "sala.webp": "top left",
+    "chaves.webp": "top right",
+    "carregador.webp": "bottom left",
+    "protecao.webp": "bottom right"
+  },
+  "prompt": "Photorealistic editorial website photography contact sheet, 2 by 2 grid, four square independent compositions with no gutters, no titles no text, hard edges exactly at x50% y50%. Premium Brazilian residential moving company concept. Top left: muted dusty blue modern living room, beautifully packed kraft moving boxes, cream sofa and polished wood chair, eye-level, soft daylight, wide composition. Top right: warm editorial overhead still life of brass house keys, blue painter tape, folded cream cloth and small blank kraft boxes on apartment parquet, geometric composition with strong sun. Bottom left: mover with forest-green work shirt and unbranded denim carefully carrying small cardboard carton through a clean doorway from apartment into hall, candid photographic framing and realistic grip, no staged grin. Bottom right: close-up detail of a carefully wrapped wooden table corner, kraft paper, fabric and protection, golden side light with pleasing dark shadows. One coherent magazine photographic shoot, highly realistic material texturing, no lettering, no identifiable brands."
+}
