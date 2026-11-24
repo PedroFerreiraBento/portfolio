@@ -17,7 +17,7 @@
   {"type": "orcamento", "title": "Personal trainer", "description": "Conheça os formatos e teste o pedido de uma conversa inicial.", "aliases": "", "id": "treinamento", "dest": "/exemplos/profissionais/treinamento/", "mobile": false, "brand": "Personal trainer", "tone": "produto", "english": {"title": "Personal trainer", "description": "Explore the formats and try requesting an introductory call.", "brand": "Personal trainer"}},
   {"type": "orcamento", "title": "Ar-condicionado", "description": "Página para pedir orçamento de manutenção empresarial, com três direções visuais.", "aliases": "climatização climapro", "id": "climapro", "dest": "/demos/plano/index.html", "mobile": true, "brand": "ClimaPro", "tone": "clima", "english": {"title": "Air conditioning", "description": "Request a commercial maintenance quote in one of three visual styles."}},
   {"type": "orcamento", "title": "Reformas", "description": "Escolha o tipo de reforma e teste o pedido de orçamento.", "aliases": "", "id": "reformas", "dest": "/exemplos/servicos/reformas/", "mobile": false, "brand": "Entre Obra", "tone": "produto", "english": {"title": "Home renovations", "description": "Choose a renovation type and try asking for a quote."}},
-  {"type": "orcamento", "title": "Jardinagem", "description": "Defina o cuidado que o espaço precisa e simule o contato.", "aliases": "", "id": "jardinagem", "dest": "/exemplos/servicos/jardinagem/", "mobile": false, "brand": "Jardinagem", "tone": "produto", "english": {"title": "Gardening", "description": "Choose what the space needs and try sending an enquiry.", "brand": "Gardening"}},
+  {"type": "orcamento", "title": "Jardinagem", "description": "Explore jardins e formas de cuidado ou registre o que você já sabe sobre o espaço.", "aliases": "paisagismo manutenção jardins canteiros", "id": "jardinagem", "dest": "/exemplos/servicos/jardinagem/", "mobile": true, "brand": "Sombra de Folha", "tone": "produto", "english": {"title": "Gardening", "description": "Explore gardens and maintenance plans, or record what you know about the space."}},
   {"type": "orcamento", "title": "Oficina mecânica", "description": "Selecione o serviço e simule a solicitação para seu veículo.", "aliases": "", "id": "oficina", "dest": "/exemplos/servicos/oficina/", "mobile": false, "brand": "Oficina mecânica", "tone": "produto", "english": {"title": "Auto repair shop", "description": "Choose a service and try requesting an estimate.", "brand": "Auto repair shop"}},
   {"type": "orcamento", "title": "Marcenaria", "description": "Escolha o ambiente e simule um orçamento de móveis sob medida.", "aliases": "", "id": "marcenaria", "dest": "/exemplos/servicos/marcenaria/", "mobile": true, "brand": "Encaixe", "tone": "produto", "english": {"title": "Custom furniture", "description": "Choose a room and try requesting a custom furniture quote."}},
   {"type": "orcamento", "title": "Vidraçaria", "description": "Indique a peça e as dimensões para testar um pedido.", "aliases": "", "id": "vidracaria", "dest": "/exemplos/servicos/vidracaria/", "mobile": false, "brand": "Vidraçaria", "tone": "produto", "english": {"title": "Glass installation", "description": "Enter the piece and its dimensions to try a request.", "brand": "Glass installation"}},
@@ -88,7 +88,8 @@
    contabilidade:'/exemplos/profissionais/contabilidade/versoes.html',
    fotografia:'/exemplos/servicos/fotografia/versoes.html',
    buffet:'/exemplos/profissionais/buffet/versoes.html',
-   marcenaria:'/exemplos/servicos/marcenaria/versoes.html'
+   marcenaria:'/exemplos/servicos/marcenaria/versoes.html',
+   jardinagem:'/exemplos/servicos/jardinagem/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {

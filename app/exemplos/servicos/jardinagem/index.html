@@ -3,47 +3,62 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="robots" content="noindex,nofollow">
+ <meta name="robots" content="noindex, follow">
  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
- <meta name="description" content="Jardins e paisagismo. Site demonstrativo do Caos Domado.">
- <title>Sombra de Folha | Jardins e paisagismo</title>
+ <meta name="description" content="Demonstração de jardinagem com ambientes, planejamento de manutenção e pedido de visita simulado.">
+ <title>Sombra de Folha · Percurso</title>
  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
- <link rel="stylesheet" href="../demo.css">
- <script src="../demo.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="sombra-de-folha.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="sombra-de-folha.js" defer></script>
 </head>
-<body data-campaign-demo="jardinagem" class="jardinagem">
+<body class="percurso" data-campaign-demo="jardinagem">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
- <a href="/?tipo=orcamento&amp;projeto=jardinagem#trabalhos">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
-</aside>
-<header class="site-header">
- <a class="wordmark" href="#conteudo">Sombra de Folha</a>
- <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
-</header>
-<main id="conteudo">
- <section class="hero"><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Caminho de pedra cercado por folhagens tropicais em jardim residencial."><figcaption>Imagem ilustrativa</figcaption></figure><div class="hero-copy"><h1>Seu jardim, <em>em boas mãos.</em></h1><p>Jardins que combinam com a luz do terreno, o tempo de cuidado e a maneira como você usa o espaço.</p><a class="action" href="#pedido">Contar sobre meu jardim</a></div></section>
- <section class="section services" id="servicos"><h2>Plantio, cuidado e renovação</h2><div><article><h3>Jardim novo</h3><p>Um projeto para aproveitar a sombra e a circulação, com plantas adequadas ao espaço.</p></article><article><h3>Manutenção</h3><p>Cuidado periódico com poda, canteiros e organização das áreas verdes.</p></article><article><h3>Renovação de canteiros</h3><p>Atualização de um jardim existente considerando a luz e a rotina de rega.</p></article></div></section>
- <aside class="section note"><h2>A luz orienta a escolha das plantas.</h2><p>Observe se o sol bate pela manhã ou à tarde para conversar sobre o que pode funcionar no espaço.</p></aside>
- <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
-  <div class="form-intro"><h2 id="pedido-heading">Como é seu espaço?</h2><p>Mostre o tipo de cuidado, a luz e o tamanho aproximado para que a equipe prepare a visita.</p></div>
-  <form data-request>
-  <label>Serviço<select name="campo-0" data-field="Serviço" required><option value="">Selecione</option><option>Jardim novo</option><option>Manutenção</option><option>Renovação de canteiros</option></select></label>
-  <fieldset><legend>Como é a luz no espaço?</legend><label class="choice"><input type="radio" name="campo-1" data-field="Como é a luz no espaço?" value="Sol direto" required> Sol direto</label><label class="choice"><input type="radio" name="campo-1" data-field="Como é a luz no espaço?" value="Meia-sombra"> Meia-sombra</label><label class="choice"><input type="radio" name="campo-1" data-field="Como é a luz no espaço?" value="Ainda não sei"> Ainda não sei</label></fieldset>
-  <label>Tamanho aproximado<select name="campo-2" data-field="Tamanho aproximado" required><option value="">Selecione</option><option>Vasos ou varanda</option><option>Até 30 m²</option><option>Mais de 30 m²</option></select></label>
-   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
-   <button class="action" type="submit" disabled>Montar pedido de teste</button>
-   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
-  </form>
-  <section class="result" data-result hidden aria-labelledby="result-title">
-   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
-   <dl data-summary></dl>
-   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
-   <button type="button" data-edit>Editar pedido</button>
+<div class="workbar"><div class="shell workbar-inner">
+ <a class="workback" aria-label="Voltar aos trabalhos" href="/?tipo=orcamento&amp;projeto=jardinagem#trabalhos">← Voltar<span> aos trabalhos</span></a>
+ <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Percurso</a>
+      <a href="agenda.html">Agenda</a>
+      <a href="terreno.html">Terreno</a></nav><div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+</div></div>
+<header class="site-header"><div class="shell studio-nav"><a class="wordmark" href="#conteudo"><span>Sombra de Folha</span> Jardinagem</a><nav aria-label="Navegação da página"><a href="#visita">Os espaços</a><a href="#pedido">Pedir visita</a></nav></div></header>
+<main id="conteudo" tabindex="-1"><section class="walk-hero"><img src="folha-caminho-720.webp" srcset="folha-caminho-720.webp 720w, folha-caminho-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Caminho de pedras entre folhagens de um jardim residencial" width="1440" height="960" fetchpriority="high" decoding="async">
+   <div class="shell hero-overlay"><h1>Uma volta pelo jardim.</h1><p>Um passeio por três espaços, de uma entrada ensolarada a um caminho sob as árvores.</p><a href="#visita" class="action">Começar o passeio <span aria-hidden="true">↓</span></a></div>
   </section>
- </section>
-</main>
-<footer><strong>Sombra de Folha</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/?tipo=orcamento&amp;projeto=jardinagem#trabalhos">Ver outros exemplos</a></footer>
-</body>
-</html>
+  <section class="walk-gallery shell" id="visita"><div class="section-head"><h2>Escolha onde entrar.</h2><p>Explore o ambiente e leve ao pedido a referência que mais se aproxima do seu espaço.</p></div>
+   <div class="room-control" role="group" aria-label="Espaços do jardim"><button type="button" data-area="caminho" aria-pressed="true">Caminho sombreado</button><button type="button" data-area="terraco" aria-pressed="false">Terraço em vasos</button><button type="button" data-area="entrada" aria-pressed="false">Entrada ensolarada</button></div>
+   <div class="walk-scene"><article data-area-panel="caminho">
+   <figure><img src="folha-caminho-720.webp" srcset="folha-caminho-720.webp 720w, folha-caminho-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Caminho de pedras entre folhagens de um jardim residencial" width="1440" height="960" loading="lazy" decoding="async"><figcaption>Caminho sombreado · estudo ilustrativo</figcaption></figure>
+   <div class="walk-copy"><h3>Caminho sombreado</h3><p>Canteiros protegidos por árvores deixam a circulação mais fresca. Observe por onde se caminha e onde a luz consegue chegar.</p><dl><div><dt>Luz</dt><dd>Meia-sombra</dd></div><div><dt>Tipo de espaço</dt><dd>Jardim ou quintal</dd></div></dl>
+   <a href="#pedido" class="plain-link" data-use-area="caminho" data-space="Jardim ou quintal" data-light="Meia-sombra">Levar esta referência ao pedido <span aria-hidden="true">↗</span></a></div></article><article data-area-panel="terraco" hidden>
+   <figure><img src="folha-terraco-720.webp" srcset="folha-terraco-720.webp 720w, folha-terraco-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Vasos de terracota e banco de madeira num terraço iluminado" width="1440" height="960" loading="lazy" decoding="async"><figcaption>Terraço em vasos · estudo ilustrativo</figcaption></figure>
+   <div class="walk-copy"><h3>Terraço em vasos</h3><p>Vasos agrupados aproveitam as bordas do terraço. O espaço livre permite sentar, circular e alcançar cada vaso na hora de cuidar.</p><dl><div><dt>Luz</dt><dd>Meia-sombra</dd></div><div><dt>Tipo de espaço</dt><dd>Varanda ou terraço</dd></div></dl>
+   <a href="#pedido" class="plain-link" data-use-area="terraco" data-space="Varanda ou terraço" data-light="Meia-sombra">Levar esta referência ao pedido <span aria-hidden="true">↗</span></a></div></article><article data-area-panel="entrada" hidden>
+   <figure><img src="folha-entrada-720.webp" srcset="folha-entrada-720.webp 720w, folha-entrada-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Caminho claro de entrada cercado de gramíneas e folhagens" width="1440" height="960" loading="lazy" decoding="async"><figcaption>Entrada ensolarada · estudo ilustrativo</figcaption></figure>
+   <div class="walk-copy"><h3>Entrada ensolarada</h3><p>A faixa de plantio acompanha o percurso até a porta. Antes do projeto, vale observar as horas de sol e como a água escoa depois da chuva.</p><dl><div><dt>Luz</dt><dd>Sol direto</dd></div><div><dt>Tipo de espaço</dt><dd>Entrada ou corredor</dd></div></dl>
+   <a href="#pedido" class="plain-link" data-use-area="entrada" data-space="Entrada ou corredor" data-light="Sol direto">Levar esta referência ao pedido <span aria-hidden="true">↗</span></a></div></article></div>
+  </section>
+  <section class="walk-note"><div class="shell"><h2>O jardim começa no jeito de usar.</h2><p>Uma passagem, um lugar para sentar ou espaço para brincar. Conte como você pretende usar a área. Na visita, a equipe olha a luz, a circulação e o que já cresce ali.</p></div></section>
+  <div class="request-band"><div class="shell"><section class="request" id="pedido" aria-labelledby="request-title">
+   <div class="request-head"><h2 id="request-title">Montar pedido de visita</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+   <form class="intake">
+    <div class="fields">
+     <label for="service">O que você quer fazer?<select id="service" required><option value="">Selecione o serviço</option><option>Jardim novo</option><option>Manutenção</option><option>Renovação de canteiros</option></select></label>
+     <label for="space">Tipo de espaço<select id="space" required><option value="">Selecione o espaço</option><option>Jardim ou quintal</option><option>Varanda ou terraço</option><option>Entrada ou corredor</option></select></label>
+     <label for="light">Luz observada<select id="light" required><option value="">Selecione a luz</option><option>Sol direto</option><option>Meia-sombra</option><option>Sombra predominante</option><option>Ainda não sei</option></select></label>
+     <label for="size">Tamanho aproximado<select id="size" required><option value="">Selecione o tamanho</option><option>Vasos ou área compacta</option><option>Até 30 m²</option><option>Mais de 30 m²</option><option>Ainda não medi</option></select></label>
+    </div>
+    <p class="carry" data-carry hidden></p>
+    <div class="form-actions"><button class="action" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button><p>Simulação local. Nenhum dado é enviado.</p></div>
+    <noscript><p>Ative o JavaScript para testar o pedido.</p></noscript>
+   </form>
+   <div class="receipt" hidden>
+    <h3 tabindex="-1">Pedido de visita simulado</h3>
+    <dl data-summary></dl><p data-message></p>
+    <div class="receipt-actions"><button type="button" data-copy>Copiar pedido</button><button type="button" data-edit>Editar escolhas</button><button type="button" data-reset>Recomeçar</button></div>
+    <p class="copy-status" role="status"></p>
+   </div>
+  </section></div></div></main>
+<footer><div class="shell footer-inner"><p><strong>Sombra de Folha</strong> · Estúdio fictício. Imagens ilustrativas em uma demonstração do Caos Domado.</p><a class="project-whatsapp plain-link" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Sombra%20de%20Folha%20e%20quero%20conversar%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de jardinagem com ambientes, planejamento de manutenção e pedido de visita simulado.">
+ <title>Sombra de Folha · Agenda</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="sombra-de-folha.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="sombra-de-folha.js" defer></script>
+</head>
+<body class="agenda" data-campaign-demo="jardinagem">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="workbar"><div class="shell workbar-inner">
+ <a class="workback" aria-label="Voltar aos trabalhos" href="/?tipo=orcamento&amp;projeto=jardinagem#trabalhos">← Voltar<span> aos trabalhos</span></a>
+ <nav aria-label="Versões da demonstração"><a href="./">Percurso</a>
+      <a href="agenda.html" aria-current="page">Agenda</a>
+      <a href="terreno.html">Terreno</a></nav><div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+</div></div>
+<header class="site-header"><div class="shell studio-nav"><a class="wordmark" href="#conteudo"><span>Sombra de Folha</span> Jardinagem</a><nav aria-label="Navegação da página"><a href="#frequencia">Frequências</a><a href="#cuidados">Cuidados</a><a href="#pedido">Pedir visita</a></nav></div></header>
+<main id="conteudo" tabindex="-1"><section class="agenda-heading shell"><div><h1>O que entra na rotina de cuidado.</h1><p>Explore três combinações de visitas e prepare a conversa sobre a manutenção do seu jardim.</p></div><figure><img src="folha-caderno-720.webp" srcset="folha-caderno-720.webp 720w, folha-caderno-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Caderno de jardim, ferramenta de mão e folhas sobre uma bancada" width="1440" height="1440" fetchpriority="high" decoding="async"></figure></section>
+  <section class="agenda-board shell" id="frequencia"><div class="agenda-toolbar"><h2>Frequência de visitas</h2><div role="group" aria-label="Frequência de visitas" class="rhythm-control"><button type="button" data-rhythm="pontual" aria-pressed="false">Visita pontual</button><button type="button" data-rhythm="mensal" aria-pressed="true">Revisão mensal</button><button type="button" data-rhythm="semanal" aria-pressed="false">Cuidado semanal</button></div></div>
+   <div class="agenda-panel"><div class="calendar"><h3>Quatro semanas de exemplo</h3><ol aria-label="Semanas de exemplo">
+   <li><strong>Semana 1</strong><span data-week="0">Observação</span></li><li><strong>Semana 2</strong><span data-week="1">Entre visitas</span></li><li><strong>Semana 3</strong><span data-week="2">Entre visitas</span></li><li><strong>Semana 4</strong><span data-week="3">Revisão do jardim</span></li></ol>
+   <p data-calendar-note aria-live="polite">Uma revisão no exemplo de quatro semanas.</p></div><div class="rhythm-summary"><div class="rhythm-detail" data-rhythm-panel="pontual" hidden><h3>Visita pontual</h3><p>Para olhar um ponto que precisa de atenção e entender se basta uma intervenção.</p><dl><div><dt>O que combinar</dt><dd>Avaliação inicial</dd></div><div><dt>O que observar</dt><dd>Canteiro, vasos e folhas acumuladas</dd></div></dl><a class="plain-link" href="#pedido" data-use-rhythm="Visita pontual">Levar esta frequência ao pedido <span aria-hidden="true">↗</span></a></div><div class="rhythm-detail" data-rhythm-panel="mensal"><h3>Revisão mensal</h3><p>Uma forma de acompanhar as mudanças no jardim, organizar pendências e conversar sobre a próxima visita.</p><dl><div><dt>O que combinar</dt><dd>Acompanhamento</dd></div><div><dt>O que observar</dt><dd>Estado dos canteiros e áreas de passagem</dd></div></dl><a class="plain-link" href="#pedido" data-use-rhythm="Revisão mensal">Levar esta frequência ao pedido <span aria-hidden="true">↗</span></a></div><div class="rhythm-detail" data-rhythm-panel="semanal" hidden><h3>Cuidado semanal</h3><p>Para quem quer conversar sobre uma presença mais frequente e ter um canal para apontar o que mudou entre as visitas.</p><dl><div><dt>O que combinar</dt><dd>Visitas recorrentes</dd></div><div><dt>O que observar</dt><dd>Canteiros, circulação e pontos de cuidado</dd></div></dl><a class="plain-link" href="#pedido" data-use-rhythm="Cuidado semanal">Levar esta frequência ao pedido <span aria-hidden="true">↗</span></a></div></div></div>
+  </section>
+  <section class="agenda-tasks shell" id="cuidados"><figure><img src="folha-manutencao-720.webp" srcset="folha-manutencao-720.webp 720w, folha-manutencao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Mãos de uma pessoa com luvas recolhem folhas junto a um canteiro" width="1440" height="960" loading="lazy" decoding="async"></figure><div><h2>O que vale mencionar na visita.</h2>
+   <details><summary>Canteiros e vasos</summary><p>Mostre o que você quer preservar e o que mudou desde o último cuidado.</p></details>
+   <details><summary>Caminhos e acesso</summary><p>Indique os lugares de passagem, onde a equipe pode trabalhar e como entrar.</p></details>
+   <details><summary>Água e rotina</summary><p>Conte quem costuma cuidar do espaço e quais pontos de água estão disponíveis.</p></details>
+  </div></section>
+  <div class="request-band"><div class="shell"><section class="request" id="pedido" aria-labelledby="request-title">
+   <div class="request-head"><h2 id="request-title">Montar pedido de visita</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+   <form class="intake">
+    <div class="fields">
+     <label for="service">O que você quer fazer?<select id="service" required><option value="">Selecione o serviço</option><option>Jardim novo</option><option>Manutenção</option><option>Renovação de canteiros</option></select></label>
+     <label for="space">Tipo de espaço<select id="space" required><option value="">Selecione o espaço</option><option>Jardim ou quintal</option><option>Varanda ou terraço</option><option>Entrada ou corredor</option></select></label>
+     <label for="light">Luz observada<select id="light" required><option value="">Selecione a luz</option><option>Sol direto</option><option>Meia-sombra</option><option>Sombra predominante</option><option>Ainda não sei</option></select></label>
+     <label for="size">Tamanho aproximado<select id="size" required><option value="">Selecione o tamanho</option><option>Vasos ou área compacta</option><option>Até 30 m²</option><option>Mais de 30 m²</option><option>Ainda não medi</option></select></label>
+    </div>
+    <p class="carry" data-carry hidden></p>
+    <div class="form-actions"><button class="action" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button><p>Simulação local. Nenhum dado é enviado.</p></div>
+    <noscript><p>Ative o JavaScript para testar o pedido.</p></noscript>
+   </form>
+   <div class="receipt" hidden>
+    <h3 tabindex="-1">Pedido de visita simulado</h3>
+    <dl data-summary></dl><p data-message></p>
+    <div class="receipt-actions"><button type="button" data-copy>Copiar pedido</button><button type="button" data-edit>Editar escolhas</button><button type="button" data-reset>Recomeçar</button></div>
+    <p class="copy-status" role="status"></p>
+   </div>
+  </section></div></div></main>
+<footer><div class="shell footer-inner"><p><strong>Sombra de Folha</strong> · Estúdio fictício. Imagens ilustrativas em uma demonstração do Caos Domado.</p><a class="project-whatsapp plain-link" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Sombra%20de%20Folha%20e%20quero%20conversar%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>
