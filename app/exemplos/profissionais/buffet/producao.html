@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de site para buffet com cardápio, ocasiões e briefing de evento.">
+ <title>Mesa de Festa · Produção</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="mesa-de-festa.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="mesa-de-festa.js" defer></script>
+</head>
+<body class="producao" data-campaign-demo="buffet">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="back" href="/?tipo=orcamento&amp;projeto=buffet#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./">Mesa</a><a href="ocasioes.html">Ocasiões</a><a href="producao.html" aria-current="page">Produção</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="brand-header"><div class="shell brand-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Mesa de Festa, início">Mesa de Festa<span>Buffet</span></a>
+  <nav aria-label="Navegação do buffet"><a href="#caderno">Caderno de produção</a><a href="#evento">Montar pedido</a></nav>
+ </div></header>
+ <main id="conteudo"><section class="production-intro"><div class="shell"><div><h1>O dia da festa começa no planejamento.</h1><p>Escolha o tipo de evento e diga quantas pessoas espera. O caderno muda conforme o serviço e o porte e organiza o que falta decidir.</p></div><img src="mf-producao-720.webp" srcset="mf-producao-720.webp 720w, mf-producao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" width="1440" height="960" alt="Profissional do buffet organiza a preparação do evento na cozinha" fetchpriority="high" decoding="async"></div></section>
+  <section class="production-workspace shell" id="caderno" aria-label="Caderno de produção">
+   <section class="request" id="evento" aria-labelledby="request-title" data-live-form>
+ <div class="request-head"><h2 id="request-title">Montar pedido</h2><button class="quiet" type="button" data-example hidden>Usar exemplo</button></div>
+ <form class="event-form">
+  <div class="fields">
+   <label for="occasion">Ocasião<select id="occasion" required><option value="">Escolha a ocasião</option><option value="celebracao">Celebração</option><option value="empresa">Encontro de empresa</option><option value="recepcao">Recepção</option></select></label>
+   <label for="people">Número de convidados<input id="people" type="number" min="1" max="10000" step="1" inputmode="numeric" placeholder="Ex.: 60" required></label>
+   <label for="format">Formato de serviço<select id="format" required><option value="">Escolha a ocasião primeiro</option></select></label>
+   <label for="place">Espaço<select id="place"><option value="">Ainda vou definir</option><option>Residência ou área externa</option><option>Salão ou espaço de eventos</option><option>Empresa ou escritório</option></select></label>
+  </div>
+  <label class="check"><input type="checkbox" id="diet"> Incluir conversa sobre restrições alimentares</label>
+  <a class="text-link production-jump" href="#pontos" aria-controls="pontos">Ver os pontos atualizados ↓</a>
+  <div class="request-actions"><button class="action" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button><p>Simulação local. Nenhuma data será reservada.</p></div>
+  <noscript><p>Ative o JavaScript para testar esta demonstração.</p></noscript>
+ </form>
+ <div class="receipt" hidden>
+  <h3 tabindex="-1">Seu resumo de evento</h3>
+  <dl><div><dt>Protocolo</dt><dd data-code></dd></div><div><dt>Ocasião</dt><dd data-occasion></dd></div>
+   <div><dt>Convidados</dt><dd data-people></dd></div><div><dt>Serviço</dt><dd data-format></dd></div>
+   <div><dt>Espaço</dt><dd data-place></dd></div><div><dt>Restrições alimentares</dt><dd data-diet></dd></div></dl>
+  <p data-menu-choice hidden></p><p data-message></p>
+  <div class="receipt-actions"><button class="quiet" type="button" data-copy>Copiar pedido</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div>
+  <p class="copy-status" role="status"></p>
+ </div>
+ </section>
+   <aside class="production-board" id="pontos" aria-labelledby="production-title"><h2 id="production-title">Pontos para combinar</h2><p data-plan-status aria-live="polite">Informe a ocasião e o número de convidados para adaptar o caderno.</p><ul data-plan><li>Acesso, montagem e retirada</li><li>Estrutura de apoio do espaço</li><li>Preferências e restrições alimentares</li></ul></aside>
+  </section>
+  <section class="production-end shell"><h2>O que acontece depois.</h2><p>Em um pedido real, a equipe confirma disponibilidade, visita técnica se necessária e a proposta conforme o espaço e o serviço. Esta demonstração só monta o resumo.</p></section></main>
+ <footer><div class="shell footer-inner"><p><strong>Mesa de Festa Buffet</strong> · Buffet fictício em uma demonstração da Caos Domado.</p>
+  <a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Mesa%20de%20Festa%20Buffet%20e%20quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

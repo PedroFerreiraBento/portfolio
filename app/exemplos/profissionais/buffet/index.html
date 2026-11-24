@@ -1,47 +1,68 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
- <meta name="robots" content="noindex,nofollow"><title>Mesa de Festa Buffet — demonstração</title>
- <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de site para buffet com cardápio, ocasiões e briefing de evento.">
+ <title>Mesa de Festa · Mesa</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="mesa-de-festa.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="mesa-de-festa.js" defer></script>
 </head>
-<body data-campaign-demo="buffet" class="catering">
-<a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="demo-bar"><a href="/?tipo=orcamento&amp;projeto=buffet#trabalhos">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
-<header class="header wrap">
- <a class="wordmark" href="#">Mesa de Festa</a>
- <nav aria-label="Navegação principal"><a href="#formatos">Formatos de buffet</a><a href="#evento">Pedir proposta</a></nav>
-</header>
-<main id="conteudo">
- <section class="catering-hero">
-  <div class="wrap">
-   <div class="hero-copy"><h1>Uma boa festa começa à mesa.</h1><p>Buffet para celebrações e encontros de empresa. Comece pelo tipo de evento, pelo número de pessoas e pelo formato que combina com a ocasião.</p><a class="button" href="#evento">Planejar meu evento</a></div>
+<body class="mesa" data-campaign-demo="buffet">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="back" href="/?tipo=orcamento&amp;projeto=buffet#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Mesa</a><a href="ocasioes.html">Ocasiões</a><a href="producao.html">Produção</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="brand-header"><div class="shell brand-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Mesa de Festa, início">Mesa de Festa<span>Buffet</span></a>
+  <nav aria-label="Navegação do buffet"><a href="#menu">O jantar</a><a href="#evento">Montar pedido</a></nav>
+ </div></header>
+ <main id="conteudo"><section class="table-hero"><img src="mf-mesa-720.webp" srcset="mf-mesa-720.webp 720w, mf-mesa-1440.webp 1440w" sizes="100vw" width="1440" height="960" alt="Mesa de jantar pronta para receber convidados, com flores vinho, linho e taças" fetchpriority="high" decoding="async">
+   <div class="shell table-intro"><h1>Da primeira mordida à última sobremesa.</h1><p>Uma mesa pensada para acompanhar o ritmo da festa. Explore um jantar em três tempos e leve suas preferências para o pedido.</p><a class="action" href="#menu">Percorrer o jantar ↓</a></div>
+  </section>
+  <section class="menu-section shell" id="menu"><h2>O jantar em três tempos</h2>
+   <div class="course-tabs" role="tablist" aria-label="Momentos do jantar"><button type="button" role="tab" id="tab-entrada" aria-controls="dish-entrada" aria-selected="true" tabindex="0"><span>01</span>À chegada</button><button type="button" role="tab" id="tab-principal" aria-controls="dish-principal" aria-selected="false" tabindex="-1"><span>02</span>À mesa</button><button type="button" role="tab" id="tab-doce" aria-controls="dish-doce" aria-selected="false" tabindex="-1"><span>03</span>No final</button></div>
+   <article class="course" id="dish-entrada" role="tabpanel" aria-labelledby="tab-entrada" >
+   <figure><img src="mf-entrada-720.webp" srcset="mf-entrada-720.webp 720w, mf-entrada-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" width="1440" height="960" alt="Tarteletes de mandioca com tomate assado e ervas" loading="lazy" decoding="async"><figcaption>À chegada</figcaption></figure><div><h3>Tartelete de mandioca</h3><p>Tomate assado, queijo de cabra e ervas frescas. Um serviço volante dá tempo para os convidados chegarem e se encontrarem.</p>
+   <button class="quiet" type="button" data-menu="Entrada volante" aria-pressed="false">Levar para o pedido</button></div></article><article class="course" id="dish-principal" role="tabpanel" aria-labelledby="tab-principal" hidden>
+   <figure><img src="mf-principal-720.webp" srcset="mf-principal-720.webp 720w, mf-principal-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" width="1440" height="960" alt="Carne de panela com legumes e farofa de mandioca em louça artesanal" loading="lazy" decoding="async"><figcaption>À mesa</figcaption></figure><div><h3>Carne de panela e legumes</h3><p>Cozimento lento, legumes glaceados e farofa tostada. A refeição pode ser servida à mesa ou em uma estação, de acordo com o espaço.</p>
+   <button class="quiet" type="button" data-menu="Prato principal" aria-pressed="false">Levar para o pedido</button></div></article><article class="course" id="dish-doce" role="tabpanel" aria-labelledby="tab-doce" hidden>
+   <figure><img src="mf-doce-720.webp" srcset="mf-doce-720.webp 720w, mf-doce-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" width="1440" height="960" alt="Torta de brigadeiro com frutas vermelhas" loading="lazy" decoding="async"><figcaption>No final</figcaption></figure><div><h3>Torta de brigadeiro e frutas</h3><p>Chocolate meio amargo, crocante de cacau e frutas frescas. O serviço pode acompanhar a conversa final e o café.</p>
+   <button class="quiet" type="button" data-menu="Sobremesa" aria-pressed="false">Levar para o pedido</button></div></article><p class="menu-status" data-menu-status role="status">Nenhuma preferência incluída.</p>
+  </section>
+  <section class="table-service"><div class="shell"><h2>O serviço acompanha a conversa.</h2><p>Descreva o ritmo do encontro: chegada em horários diferentes, refeição sentada ou uma noite em que todos circulam. A partir disso, o buffet conversa com você sobre montagem, equipe e sequência do menu.</p></div></section>
+  <div class="table-request"><div class="shell"><section class="request" id="evento" aria-labelledby="request-title" >
+ <div class="request-head"><h2 id="request-title">Montar pedido</h2><button class="quiet" type="button" data-example hidden>Usar exemplo</button></div>
+ <form class="event-form">
+  <div class="fields">
+   <label for="occasion">Ocasião<select id="occasion" required><option value="">Escolha a ocasião</option><option value="celebracao">Celebração</option><option value="empresa">Encontro de empresa</option><option value="recepcao">Recepção</option></select></label>
+   <label for="people">Número de convidados<input id="people" type="number" min="1" max="10000" step="1" inputmode="numeric" placeholder="Ex.: 60" required></label>
+   <label for="format">Formato de serviço<select id="format" required><option value="">Escolha a ocasião primeiro</option></select></label>
+   <label for="place">Espaço<select id="place"><option value="">Ainda vou definir</option><option>Residência ou área externa</option><option>Salão ou espaço de eventos</option><option>Empresa ou escritório</option></select></label>
   </div>
-  <img src="../mesa-buffet.webp" alt="Buffet com empadas, frutas e pequenos doces sobre mesa de linho" width="1440" height="1080" fetchpriority="high">
- </section>
- <section class="catering-menu wrap" id="formatos">
-  <h2>Da primeira xícara à última sobremesa.</h2>
-  <div class="catering-formats">
-   <article><h3>Coffee break</h3><p>Café, frutas e salgados em porções pequenas para pausas de trabalho.</p></article>
-   <article><h3>Coquetel</h3><p>Petiscos e doces individuais para encontros em que os convidados circulam.</p></article>
-   <article><h3>Almoço ou jantar</h3><p>Uma proposta de refeição completa, organizada de acordo com o espaço e o horário.</p></article>
-  </div>
- </section>
- <section class="request" id="evento"><div class="wrap request-grid">
-  <div><h2>Conte como será o evento</h2><p>O tipo de ocasião, o número de pessoas e a forma de servir ajudam a equipe a preparar a proposta.</p><p class="note">Este é um pedido de teste. Ele não reserva uma data.</p></div>
-  <form method="post" action="#evento" data-demo-form>
-   <label for="buffet-evento">Ocasião</label>
-   <select id="buffet-evento" name="Ocasião" required><option value="">Escolha a ocasião</option><option>Aniversário</option><option>Evento de empresa</option><option>Encontro em família</option></select>
-   <label for="buffet-convidados">Número de convidados</label>
-   <select id="buffet-convidados" name="Convidados" required><option value="">Escolha uma quantidade</option><option>Até 30 pessoas</option><option>De 31 a 80 pessoas</option><option>Mais de 80 pessoas</option></select>
-   <label for="buffet-formato">Formato de buffet</label>
-   <select id="buffet-formato" name="Formato" required><option value="">Escolha como servir</option><option>Coffee break</option><option>Coquetel</option><option>Almoço ou jantar</option></select>
-   <button class="button" type="submit" disabled>Ver pedido de proposta</button>
-   <section class="receipt" data-receipt hidden aria-labelledby="buffet-recibo"><h3 id="buffet-recibo" tabindex="-1">Resumo do evento</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
-   <noscript><p>Ative o JavaScript para testar a prévia da proposta.</p></noscript>
-  </form>
- </div></section>
-</main>
-<footer class="footer wrap"><strong>Mesa de Festa Buffet</strong><p>Buffet fictício criado para demonstrar o site.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
-</body></html>
+  <label class="check"><input type="checkbox" id="diet"> Incluir conversa sobre restrições alimentares</label>
+  <div class="request-actions"><button class="action" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button><p>Simulação local. Nenhuma data será reservada.</p></div>
+  <noscript><p>Ative o JavaScript para testar esta demonstração.</p></noscript>
+ </form>
+ <div class="receipt" hidden>
+  <h3 tabindex="-1">Seu resumo de evento</h3>
+  <dl><div><dt>Protocolo</dt><dd data-code></dd></div><div><dt>Ocasião</dt><dd data-occasion></dd></div>
+   <div><dt>Convidados</dt><dd data-people></dd></div><div><dt>Serviço</dt><dd data-format></dd></div>
+   <div><dt>Espaço</dt><dd data-place></dd></div><div><dt>Restrições alimentares</dt><dd data-diet></dd></div></dl>
+  <p data-menu-choice hidden></p><p data-message></p>
+  <div class="receipt-actions"><button class="quiet" type="button" data-copy>Copiar pedido</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div>
+  <p class="copy-status" role="status"></p>
+ </div>
+ </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Mesa de Festa Buffet</strong> · Buffet fictício em uma demonstração da Caos Domado.</p>
+  <a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Mesa%20de%20Festa%20Buffet%20e%20quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>
