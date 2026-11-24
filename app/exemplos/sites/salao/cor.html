@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta name="description" content="Demonstração de site para salão de beleza, com escolha do serviço e simulação de pedido de atendimento.">
+ <title>Bellezza · Cor</title>
+ <link rel="icon" href="favicon.svg" type="image/svg+xml">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="bellezza.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="bellezza.js" defer></script>
+</head>
+<body class="cor" data-campaign-demo="salao">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="workbar-inner shell">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=salao#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./">Ateliê</a>
+     <a href="cor.html" aria-current="page">Cor</a>
+     <a href="agenda.html">Agenda</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="salon-header"><div class="shell salon-header-inner">
+   <a class="wordmark" href="#conteudo" aria-label="Bellezza, início">Bellezza<span>.</span></a>
+   <button type="button" class="menu" aria-expanded="false" aria-controls="salon-navigation" hidden>Menu</button>
+   <nav id="salon-navigation" aria-label="Navegação do salão"><a href="#servicos">Serviços</a><a href="#visita">Como funciona</a><a href="#duvidas">Dúvidas</a><a class="mobile-request" href="#pedido">Pedir atendimento</a></nav>
+   <a href="#pedido" class="action header-action">Pedir atendimento <span class="arrow" aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="color-hero">
+    <div class="color-hero-photo"><img src="images/bellezza-cor-720.webp" srcset="images/bellezza-cor-720.webp 720w, images/bellezza-cor-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" alt="Detalhe do cabelo castanho iluminado sob a luz natural do salão" fetchpriority="high" decoding="async" width="1440" height="960"></div>
+    <div class="color-copy shell"><h1>A cor que você quer, a partir do cabelo que tem.</h1><p>Traga uma referência e conte o que já fez no cabelo. A Bellezza usa essas informações para conversar sobre o resultado e a manutenção.</p><a class="action" href="#pedido" data-service-choice="cor">Conversar sobre a cor <span class="arrow" aria-hidden="true">↗</span></a></div>
+   </section>
+   <section class="color-visit shell" id="visita">
+    <h2>O que ajuda a planejar a cor</h2>
+    <dl><div><dt>O que já foi feito</dt><dd>Conte se pintou, clareou ou fez algum tratamento químico. Se lembrar, diga quando.</dd></div>
+     <div><dt>O que chamou sua atenção</dt><dd>Na referência, destaque o que gostou. Pode ser o contraste, o brilho ou o tom perto do rosto.</dd></div>
+     <div><dt>Quanto quer voltar ao salão</dt><dd>Converse sobre a manutenção que cabe na sua rotina antes de escolher a cor.</dd></div></dl>
+   </section>
+   <section id="servicos" class="color-stories shell">
+    <h2>Serviços da Bellezza</h2>
+    <div class="color-spread">
+     <article class="feature-color"><figure><img src="images/bellezza-cor-720.webp" srcset="images/bellezza-cor-720.webp 720w, images/bellezza-cor-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" alt="Detalhe do cabelo castanho iluminado sob a luz natural do salão" loading="lazy" decoding="async" width="1440" height="960"></figure><div><h3>Coloração</h3><p>Para retocar a cor, discutir uma mudança ou entender o que ela pede de manutenção.</p><a class="text-link" href="#pedido" data-service-choice="cor">Escolher coloração <span class="arrow" aria-hidden="true">↗</span></a></div></article>
+     <article><figure><img src="images/bellezza-corte-720.webp" srcset="images/bellezza-corte-720.webp 720w, images/bellezza-corte-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" alt="Profissional penteando o cabelo de uma cliente durante o atendimento" loading="lazy" decoding="async" width="1440" height="960"></figure><div><h3>Corte e finalização</h3><p>Para manter o comprimento, mudar o formato ou encontrar um corte mais fácil de arrumar.</p><a class="text-link" href="#pedido" data-service-choice="corte">Escolher serviço <span class="arrow" aria-hidden="true">↗</span></a></div></article><article><figure><img src="images/bellezza-penteado-720.webp" srcset="images/bellezza-penteado-720.webp 720w, images/bellezza-penteado-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" alt="Profissional ajustando um grampo em um coque baixo" loading="lazy" decoding="async" width="1440" height="960"></figure><div><h3>Penteado para evento</h3><p>Conte a ocasião e a data para a equipe conversar sobre o penteado e a disponibilidade.</p><a class="text-link" href="#pedido" data-service-choice="penteado">Escolher serviço <span class="arrow" aria-hidden="true">↗</span></a></div></article>
+    </div>
+   </section>
+   <section class="color-space" aria-label="O salão"><img src="images/bellezza-espaco-720.webp" srcset="images/bellezza-espaco-720.webp 720w, images/bellezza-espaco-1440.webp 1440w" sizes="100vw" alt="Salão iluminado com cadeiras vinho e espelhos" loading="lazy" decoding="async" width="1440" height="960"><p class="shell">Bellezza · estações de corte, cor e finalização.</p></section>
+   <section class="faq shell" id="duvidas">
+    <h2>Antes de pedir<br>um atendimento</h2>
+    <div><details><summary>Dá para saber o valor só pela foto?</summary><p>A referência ajuda a explicar a ideia. Para estimar tempo e valor, o salão também conversa sobre o cabelo atual e o que já foi feito.</p></details>
+     <details><summary>Posso pedir apenas um retoque?</summary><p>Sim. Selecione Coloração e escolha Retocar a cor. No retorno, conte quando fez a última coloração.</p></details>
+     <details><summary>Escolher o período já marca a sessão?</summary><p>O período escolhido é para o retorno do salão. O horário da sessão é combinado depois.</p></details></div>
+   </section>
+   <div class="request-band"><div class="shell final-layout"><div><h2>Uma conversa antes da mudança.</h2><p>Comece dizendo se quer retocar, mudar a cor ou esclarecer dúvidas.</p></div><section class="request" id="pedido" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Pedir atendimento</h2><button type="button" class="try-example" data-example hidden>Usar exemplo</button></div>
+    <form class="service-form">
+     <div class="fields">
+      <label for="service">Serviço
+       <select id="service" name="service" required>
+        <option value="">Selecione o serviço</option>
+        <option value="corte">Corte e finalização</option>
+        <option value="cor">Coloração</option>
+        <option value="penteado">Penteado para evento</option>
+       </select>
+      </label>
+      <label for="preference"><span data-preference-label>O que você procura?</span>
+       <select id="preference" name="preference" required disabled><option value="">Escolha o serviço primeiro</option></select>
+      </label>
+      <label for="period">Melhor período para retorno
+       <select id="period" name="period" required>
+        <option value="">Selecione o período</option>
+        <option value="Pela manhã">Pela manhã</option>
+        <option value="À tarde">À tarde</option>
+        <option value="Qualquer período">Qualquer período</option>
+       </select>
+      </label>
+     </div>
+     <button type="submit" class="action" disabled>Simular pedido <span class="arrow" aria-hidden="true">↗</span></button>
+     <p class="demo-note">Simulação. Nenhuma mensagem será enviada.</p>
+     <noscript><p>Ative o JavaScript para testar o pedido.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Pedido simulado</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-receipt-id></dd></div>
+      <div><dt>Serviço</dt><dd data-receipt-service></dd></div>
+      <div><dt>Preferência</dt><dd data-receipt-preference></dd></div>
+      <div><dt>Retorno</dt><dd data-receipt-period></dd></div></dl>
+     <p>Em um atendimento real, o salão conferiria a disponibilidade e combinaria o horário com você.</p>
+     <p data-message></p>
+     <div class="receipt-actions"><button type="button" data-copy>Copiar mensagem</button><button type="button" data-edit>Editar pedido</button><button type="button" data-reset>Começar de novo</button></div>
+     <p class="copy-status" role="status"></p>
+    </div>
+   </section></div></div></main>
+ <footer><div class="shell footer-inner"><div><strong>Bellezza.</strong><p>Salão fictício em uma demonstração da Caos Domado.</p></div>
+  <a class="project-whatsapp text-link" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Bellezza%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span class="arrow" aria-hidden="true">↗</span></a></div>
+ </footer>
+</body>
+</html>

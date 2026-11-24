@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta name="description" content="Demonstração de site para salão de beleza, com escolha do serviço e simulação de pedido de atendimento.">
+ <title>Bellezza · Agenda</title>
+ <link rel="icon" href="favicon.svg" type="image/svg+xml">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="bellezza.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="bellezza.js" defer></script>
+</head>
+<body class="agenda" data-campaign-demo="salao">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="workbar-inner shell">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=salao#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./">Ateliê</a>
+     <a href="cor.html">Cor</a>
+     <a href="agenda.html" aria-current="page">Agenda</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="salon-header"><div class="shell salon-header-inner">
+   <a class="wordmark" href="#conteudo" aria-label="Bellezza, início">Bellezza<span>.</span></a>
+   <button type="button" class="menu" aria-expanded="false" aria-controls="salon-navigation" hidden>Menu</button>
+   <nav id="salon-navigation" aria-label="Navegação do salão"><a href="#servicos">Serviços</a><a href="#visita">Como funciona</a><a href="#duvidas">Dúvidas</a><a class="mobile-request" href="#pedido">Pedir atendimento</a></nav>
+   <a href="#pedido" class="action header-action">Pedir atendimento <span class="arrow" aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="schedule-hero">
+    <div class="shell schedule-copy"><h1>Peça seu atendimento.</h1><p>Escolha o serviço e informe quando prefere receber o retorno do salão.</p></div>
+    <div class="schedule-photo"><img src="images/bellezza-espaco-720.webp" srcset="images/bellezza-espaco-720.webp 720w, images/bellezza-espaco-1440.webp 1440w" sizes="100vw" alt="Vista ampla do salão Bellezza" fetchpriority="high" decoding="async" width="1440" height="960"></div>
+    <div class="shell"><section class="request" id="pedido" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Seu pedido</h2><button type="button" class="try-example" data-example hidden>Usar exemplo</button></div>
+    <form class="service-form">
+     <div class="fields">
+      <label for="service">Serviço
+       <select id="service" name="service" required>
+        <option value="">Selecione o serviço</option>
+        <option value="corte">Corte e finalização</option>
+        <option value="cor">Coloração</option>
+        <option value="penteado">Penteado para evento</option>
+       </select>
+      </label>
+      <label for="preference"><span data-preference-label>O que você procura?</span>
+       <select id="preference" name="preference" required disabled><option value="">Escolha o serviço primeiro</option></select>
+      </label>
+      <label for="period">Melhor período para retorno
+       <select id="period" name="period" required>
+        <option value="">Selecione o período</option>
+        <option value="Pela manhã">Pela manhã</option>
+        <option value="À tarde">À tarde</option>
+        <option value="Qualquer período">Qualquer período</option>
+       </select>
+      </label>
+     </div>
+     <button type="submit" class="action" disabled>Simular pedido <span class="arrow" aria-hidden="true">↗</span></button>
+     <p class="demo-note">Simulação. Nenhuma mensagem será enviada.</p>
+     <noscript><p>Ative o JavaScript para testar o pedido.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Pedido simulado</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-receipt-id></dd></div>
+      <div><dt>Serviço</dt><dd data-receipt-service></dd></div>
+      <div><dt>Preferência</dt><dd data-receipt-preference></dd></div>
+      <div><dt>Retorno</dt><dd data-receipt-period></dd></div></dl>
+     <p>Em um atendimento real, o salão conferiria a disponibilidade e combinaria o horário com você.</p>
+     <p data-message></p>
+     <div class="receipt-actions"><button type="button" data-copy>Copiar mensagem</button><button type="button" data-edit>Editar pedido</button><button type="button" data-reset>Começar de novo</button></div>
+     <p class="copy-status" role="status"></p>
+    </div>
+   </section></div>
+   </section>
+   <section id="servicos" class="schedule-services shell"><h2>Qual é o serviço?</h2>
+    <ul><li><h3>Corte e finalização</h3><div><p>Para manter o comprimento, mudar o formato ou encontrar um corte mais fácil de arrumar.</p><a class="text-link" href="#pedido" data-service-choice="corte">Selecionar <span class="arrow" aria-hidden="true">↗</span></a></div><figure><img src="images/bellezza-corte-720.webp" srcset="images/bellezza-corte-720.webp 720w, images/bellezza-corte-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" alt="Profissional penteando o cabelo de uma cliente durante o atendimento" loading="lazy" decoding="async" width="1440" height="960"></figure></li><li><h3>Coloração</h3><div><p>Para retocar a cor, discutir uma mudança ou entender o que ela pede de manutenção.</p><a class="text-link" href="#pedido" data-service-choice="cor">Selecionar <span class="arrow" aria-hidden="true">↗</span></a></div><figure><img src="images/bellezza-cor-720.webp" srcset="images/bellezza-cor-720.webp 720w, images/bellezza-cor-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" alt="Detalhe do cabelo castanho iluminado sob a luz natural do salão" loading="lazy" decoding="async" width="1440" height="960"></figure></li><li><h3>Penteado para evento</h3><div><p>Conte a ocasião e a data para a equipe conversar sobre o penteado e a disponibilidade.</p><a class="text-link" href="#pedido" data-service-choice="penteado">Selecionar <span class="arrow" aria-hidden="true">↗</span></a></div><figure><img src="images/bellezza-penteado-720.webp" srcset="images/bellezza-penteado-720.webp 720w, images/bellezza-penteado-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 55vw" alt="Profissional ajustando um grampo em um coque baixo" loading="lazy" decoding="async" width="1440" height="960"></figure></li></ul>
+   </section>
+   <section class="schedule-visit" id="visita"><div class="shell"><h2>Seu horário é combinado no retorno.</h2>
+    <ol><li><h3>Você envia o pedido</h3><p>Escolha o serviço, sua preferência e o período em que pode falar.</p></li>
+     <li><h3>O salão consulta a agenda</h3><p>A equipe verifica a disponibilidade e o tempo necessário.</p></li>
+     <li><h3>Vocês combinam a visita</h3><p>Confirme data e horário antes de ir ao salão.</p></li></ol></div>
+   </section>
+   <section class="faq shell" id="duvidas">
+    <h2>Antes de pedir<br>um atendimento</h2>
+    <div><details><summary>Tenho um evento. O que devo escolher?</summary><p>Escolha Penteado para evento e indique o tipo de ocasião. Informe a data quando a equipe retornar.</p></details>
+     <details><summary>Posso alterar o serviço?</summary><p>Sim. Depois de simular, use Editar pedido para mudar o serviço, a preferência ou o período.</p></details>
+     <details><summary>O pedido confirma um horário?</summary><p>O salão confirma a disponibilidade no retorno. O pedido indica o que você procura.</p></details></div>
+   </section>
+   <div class="shell schedule-end"><a href="#pedido" class="action">Voltar ao pedido <span class="arrow" aria-hidden="true">↗</span></a></div></main>
+ <footer><div class="shell footer-inner"><div><strong>Bellezza.</strong><p>Salão fictício em uma demonstração da Caos Domado.</p></div>
+  <a class="project-whatsapp text-link" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Bellezza%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span class="arrow" aria-hidden="true">↗</span></a></div>
+ </footer>
+</body>
+</html>

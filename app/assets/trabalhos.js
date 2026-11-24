@@ -81,6 +81,7 @@
   const variantsLink = find('showcase-variants');
   const variantsPath = {
    climapro:'/demos/index.html',
+   salao:'/exemplos/sites/salao/versoes.html',
    dentista:'/exemplos/sites/dentista/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
