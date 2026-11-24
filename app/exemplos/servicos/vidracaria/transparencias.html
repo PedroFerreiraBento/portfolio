@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de site para vidraçaria residencial com pedido sob medida simulado.">
+ <title>Plano Claro · Transparências</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="plano-claro.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="plano-claro.js" defer></script>
+</head>
+<body class="transparencias" data-campaign-demo="vidracaria">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="workbar"><div class="shell workbar-inner">
+ <a class="workback" href="/?tipo=orcamento&amp;projeto=vidracaria#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+ <nav aria-label="Versões da demonstração"><a href="./">Passagens</a><a href="transparencias.html" aria-current="page">Transparências</a><a href="vaos.html">Vãos</a></nav>
+ <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+</div></div>
+<header class="shop"><div class="shell shop-inner">
+ <a class="wordmark" href="#conteudo" aria-label="Plano Claro Vidraçaria, início"><strong>Plano Claro</strong><span>vidraçaria</span></a>
+ <nav aria-label="Navegação da vidraçaria"><a href="#comparador">Comparar acabamentos</a><a href="#pedido">Montar pedido</a></nav>
+</div></header>
+<main id="conteudo">
+ <section class="shell sample-intro"><h1>O que fica<br> à vista?</h1><p>A luz e os contornos mudam conforme o acabamento. Compare três referências sobre a mesma imagem.</p></section>
+ <section class="shell lab" id="comparador" aria-label="Comparador de acabamentos">
+  <div class="lab-frame" data-lab data-finish="fosco">
+   <picture><img src="luz-720.webp" srcset="luz-720.webp 720w, luz-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Console de madeira, vaso e folhagem perto de uma janela em arco." fetchpriority="high" decoding="async"></picture>
+   <div aria-hidden="true" class="glass-layer"></div><div aria-hidden="true" class="divider"></div>
+   <p class="stage-label">Cena de referência</p><p class="sample-label" data-sample-label>Fosco</p>
+  </div>
+  <div class="lab-controls">
+   <div class="finish-switch" role="group" aria-label="Acabamentos para comparar">
+    <button type="button" data-sample="transparente" aria-pressed="false">Transparente</button>
+    <button type="button" data-sample="fosco" aria-pressed="true">Fosco</button>
+    <button type="button" data-sample="canelado" aria-pressed="false">Canelado</button>
+   </div>
+   <label class="range" for="coverage">Onde colocar a divisão<input id="coverage" type="range" min="12" max="88" value="50" aria-valuetext="50% da cena à esquerda"></label>
+   <p class="note">Comparação visual ilustrativa. O resultado real depende da amostra, da iluminação e da distância.</p>
+  </div>
+  <div class="finish-details"><div><h2 data-sample-title>Fosco</h2><p data-sample-copy>Suaviza os contornos de objetos do outro lado. Observe como a imagem fica menos definida.</p></div><a class="action" href="#pedido" data-choose-finish="fosco">Levar acabamento ao pedido <span aria-hidden="true">↗</span></a></div>
+ </section>
+ <section class="shell light-notes"><h2>O que observar de perto</h2><dl><div><dt>O que precisa ficar visível?</dt><dd>Pense em circulação, luz natural e o que você quer ver do outro lado.</dd></div><div><dt>Como a luz muda ao longo do dia?</dt><dd>Considere uma amostra perto do local, em horários diferentes, antes de escolher.</dd></div></dl></section>
+ <div class="request-band"><div class="shell request-layout"><div><h2>Da amostra à conversa.</h2><p>Use a comparação como ponto de partida e indique onde você pretende colocar a peça.</p></div><section class="request" id="pedido" aria-labelledby="request-title">
+ <div class="request-head"><h2 id="request-title">Montar pedido</h2><button class="quiet" type="button" data-example hidden>Usar exemplo</button></div>
+ <form class="intake">
+  <label for="piece">Peça<select id="piece" required><option value="">Selecione uma peça</option><option value="divisoria">Divisória de vidro</option><option value="box">Box de banheiro</option><option value="espelho">Espelho</option></select></label>
+  <fieldset><legend>Medidas aproximadas <small>(opcionais)</small></legend><div class="measure-fields">
+   <label for="width">Largura em cm<input id="width" type="number" min="1" max="1500" step="any" inputmode="decimal" placeholder="Ex.: 120"></label>
+   <label for="height">Altura em cm<input id="height" type="number" min="1" max="1500" step="any" inputmode="decimal" placeholder="Ex.: 210"></label>
+  </div></fieldset>
+  <label for="finish">Referência de acabamento<select id="finish"><option value="">A definir</option><option value="transparente">Transparente</option><option value="fosco">Fosco</option><option value="canelado">Canelado</option></select></label>
+  <label for="visit">Etapa do pedido<select id="visit" required><option value="">Selecione a etapa</option><option value="ideia">Ainda reunindo referências</option><option value="visita">Quero combinar uma visita</option><option value="pronto">Tenho medidas para apresentar</option></select></label>
+  <button class="action" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button>
+  <p class="note">Simulação local. Medidas ilustrativas, sem envio de dados.</p>
+  <noscript><p>Ative JavaScript para testar o pedido.</p></noscript>
+ </form>
+ <div class="receipt" hidden>
+  <h3 tabindex="-1">Resumo do pedido</h3>
+  <dl><div><dt>Protocolo de teste</dt><dd data-code></dd></div><div><dt>Peça</dt><dd data-piece-summary></dd></div><div><dt>Medidas aproximadas</dt><dd data-measures-summary></dd></div><div><dt>Acabamento</dt><dd data-finish-summary></dd></div><div><dt>Etapa</dt><dd data-visit-summary></dd></div></dl>
+  <p>Em um atendimento real, a equipe conferiria o vão e as condições de instalação antes de preparar uma proposta.</p>
+  <p class="message" data-message></p>
+  <div class="result-actions"><button type="button" class="quiet" data-copy>Copiar pedido</button><button type="button" class="quiet" data-edit>Editar</button><button type="button" class="quiet" data-reset>Recomeçar</button></div>
+  <p class="copy-status" role="status"></p>
+ </div>
+</section></div></div>
+</main><footer><div class="shell footer-inner"><p><strong>Plano Claro Vidraçaria</strong> · Marca fictícia. Fotografias ilustrativas.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Plano%20Claro%20Vidra%C3%A7aria%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>
