@@ -82,7 +82,8 @@
   const variantsPath = {
    climapro:'/demos/index.html',
    salao:'/exemplos/sites/salao/versoes.html',
-   dentista:'/exemplos/sites/dentista/versoes.html'
+   dentista:'/exemplos/sites/dentista/versoes.html',
+   advocacia:'/exemplos/profissionais/advocacia/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {

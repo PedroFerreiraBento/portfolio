@@ -1,46 +1,63 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
- <meta name="robots" content="noindex,nofollow"><title>Pátio Advocacia — demonstração</title>
- <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <title>Pátio Advocacia · Escuta</title>
+ <meta name="description" content="Demonstração de site para escritório de advocacia, com áreas de atuação e simulação de primeiro contato.">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="patio.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="patio.js" defer></script>
 </head>
-<body data-campaign-demo="advocacia" class="legal">
-<a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="demo-bar"><a href="/?tipo=orcamento&amp;projeto=advocacia#trabalhos">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
-<header class="header wrap">
- <a class="wordmark" href="#"><span>Pátio</span> Advocacia</a>
- <nav aria-label="Navegação principal"><a href="#atuacao">Áreas de atuação</a><a href="#atendimento">Atendimento</a></nav>
-</header>
-<main id="conteudo">
- <section class="legal-hero">
-  <div class="hero-copy">
-   <h1>O primeiro passo é uma conversa.</h1>
-   <p>Direito de família, contratos e relações de consumo. Conheça os assuntos atendidos e veja como funciona o contato inicial com o escritório.</p>
-   <a class="button" href="#atendimento">Entender o atendimento</a>
-  </div>
-  <img src="../mesa-advocacia.webp" alt="Mesa de reunião em madeira com caderno e luz natural" width="1440" height="1080" fetchpriority="high">
- </section>
- <section class="practice wrap" id="atuacao">
-  <h2>Áreas de atuação</h2>
-  <dl>
-   <div><dt>Família e sucessões</dt><dd>Atendimento sobre divórcio, guarda, inventário e organização patrimonial familiar.</dd></div>
-   <div><dt>Contratos</dt><dd>Análise e revisão de instrumentos contratuais para pessoas e empresas.</dd></div>
-   <div><dt>Relações de consumo</dt><dd>Atendimento sobre conflitos relacionados à compra de produtos e à contratação de serviços.</dd></div>
-  </dl>
- </section>
- <section class="request" id="atendimento"><div class="wrap request-grid">
-  <div><h2>Como começa o atendimento</h2><p>No primeiro contato, o escritório identifica o assunto e orienta como agendar uma conversa reservada.</p><p class="note">Use as opções de exemplo, sem escrever informações pessoais ou detalhes de um caso.</p></div>
-  <form data-demo-form method="post" action="#atendimento">
-   <label for="legal-assunto">Assunto para conversar</label>
-   <select id="legal-assunto" name="Assunto" required><option value="">Selecione uma área</option><option>Família e sucessões</option><option>Contratos</option><option>Relações de consumo</option></select>
-   <fieldset><legend>Preferência para a conversa</legend><label class="radio"><input type="radio" name="Formato" value="Videoconferência" required> Videoconferência</label><label class="radio"><input type="radio" name="Formato" value="No escritório"> No escritório</label></fieldset>
-   <button class="button" type="submit" disabled>Prévia do pedido de contato</button>
-   <section class="receipt" data-receipt hidden aria-labelledby="legal-recibo"><h3 id="legal-recibo" tabindex="-1">Pedido de contato demonstrativo</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
-   <noscript><p>Ative o JavaScript para testar a prévia do pedido.</p></noscript>
-  </form>
- </div></section>
-</main>
-<footer class="footer wrap"><strong>Pátio Advocacia</strong><p>Escritório fictício criado para demonstrar o site. O conteúdo é ilustrativo.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
-</body></html>
+<body class="escuta" data-campaign-demo="advocacia">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=advocacia#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Escuta</a>
+      <a href="cadernos.html">Cadernos</a>
+      <a href="contato.html">Contato</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="firm-header"><div class="shell firm-inner">
+   <a class="wordmark" href="#conteudo" aria-label="Pátio Advocacia, início"><span>Pátio</span> Advocacia</a>
+   <button type="button" class="menu" aria-expanded="false" aria-controls="firm-nav" hidden>Menu</button>
+   <nav id="firm-nav" aria-label="Navegação do escritório"><a href="#areas">Áreas de atuação</a><a href="#primeira-conversa">Primeira conversa</a><a href="#duvidas">Dúvidas</a><a class="mobile-contact" href="#contato">Pedir contato</a></nav>
+   <a class="action header-action" href="#contato">Pedir contato <span aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="escuta-hero">
+   <div class="shell escuta-intro"><h1>Toda demanda começa pelo contexto.</h1><div><p>Conte em linhas gerais o que aconteceu. A primeira conversa serve para entender o assunto e combinar como seguir.</p><a class="action" href="#contato">Pedir uma conversa <span aria-hidden="true">↗</span></a></div></div>
+   <div class="shell hero-photo"><img src="patio-conversa-720.webp" srcset="patio-conversa-720.webp 720w, patio-conversa-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Advogada ouvindo uma cliente à mesa de reunião" fetchpriority="high" decoding="async" width="1440" height="960"></div>
+  </section>
+  <section class="shell practice-list" id="areas"><div><h2>Sobre o que você quer conversar?</h2><p>Se estiver em dúvida, selecione “Ainda não sei a área” no pedido.</p></div><ul><li><h3>Família e sucessões</h3><p>Para conversas sobre relações familiares, planejamento sucessório ou organização de documentos após um falecimento.</p><a class="text-link" data-area="familia" href="#contato">Selecionar assunto <span aria-hidden="true">↗</span></a></li><li><h3>Contratos</h3><p>Para preparar, revisar ou conversar sobre dúvidas em um contrato existente.</p><a class="text-link" data-area="contratos" href="#contato">Selecionar assunto <span aria-hidden="true">↗</span></a></li><li><h3>Relações de consumo</h3><p>Para organizar uma demanda relacionada a compra, contratação de serviço ou atendimento ao consumidor.</p><a class="text-link" data-area="consumo" href="#contato">Selecionar assunto <span aria-hidden="true">↗</span></a></li></ul></section>
+  <section class="escuta-space" id="primeira-conversa"><img src="patio-patio-720.webp" srcset="patio-patio-720.webp 720w, patio-patio-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Sala de reunião com vista para o pátio arborizado" loading="lazy" decoding="async" width="1440" height="960">
+   <div><h2>O que cabe na primeira conversa</h2><p>Comece pelo que aconteceu, quando aconteceu e o que você precisa esclarecer. O escritório pode indicar que informações serão necessárias para entender melhor a demanda.</p></div>
+  </section>
+  <section class="faq shell" id="duvidas"><h2>Perguntas sobre o primeiro contato</h2><div><details><summary>Preciso saber a área antes de entrar em contato?</summary><p>Você pode escolher “Ainda não sei a área”. O assunto pode ser esclarecido na conversa.</p></details>
+     <details><summary>O pedido já contrata um atendimento?</summary><p>O pedido abre o contato. A eventual contratação é discutida separadamente.</p></details>
+     <details><summary>Posso colocar detalhes do caso no formulário?</summary><p>Nesta demonstração, só são solicitados assunto e período. Em um atendimento real, compartilhe detalhes pelo canal combinado.</p></details></div></section>
+  <div class="contact-band"><div class="shell contact-layout"><div><h2>Conte qual é o assunto.</h2><p>O primeiro contato serve para o escritório entender o pedido e combinar um retorno.</p></div><section id="contato" class="request" aria-labelledby="request-title">
+    <div class="request-head"><h2 id="request-title">Pedido de contato</h2><button type="button" data-example hidden>Usar exemplo</button></div>
+    <p>Escolha o assunto e um período para retorno.</p>
+    <form class="contact-form">
+     <label for="area">Assunto<select id="area" required><option value="">Selecione uma área</option><option value="familia">Família e sucessões</option><option value="contratos">Contratos</option><option value="consumo">Relações de consumo</option><option value="orientacao">Ainda não sei a área</option></select></label>
+     <label for="period">Período para retorno<select id="period" required><option value="">Selecione um período</option><option>Pela manhã</option><option>À tarde</option><option>Qualquer período</option></select></label>
+     <p class="privacy">Esta demonstração usa somente as opções acima. Nenhum dado pessoal ou documento é solicitado.</p>
+     <button class="action" type="submit" disabled>Simular contato <span aria-hidden="true">↗</span></button>
+     <noscript><p>Ative o JavaScript para testar a simulação.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Solicitação simulada</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-receipt-id></dd></div><div><dt>Assunto</dt><dd data-receipt-area></dd></div><div><dt>Retorno</dt><dd data-receipt-period></dd></div></dl>
+     <p>Em um contato real, o escritório avaliaria a possibilidade de atendimento e combinaria a próxima conversa.</p>
+     <p data-message></p>
+     <div class="receipt-actions"><button type="button" data-copy>Copiar mensagem</button><button type="button" data-edit>Editar pedido</button><button type="button" data-reset>Recomeçar</button></div>
+     <p class="copy-status" role="status"></p>
+    </div>
+   </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Pátio Advocacia</strong> · Escritório fictício em uma demonstração da Caos Domado.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20do%20P%C3%A1tio%20Advocacia%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>
