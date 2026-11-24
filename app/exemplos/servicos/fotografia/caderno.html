@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de portfólio para fotografia documental com briefing simulado.">
+ <title>Ainda Aqui Fotografia · Caderno</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="ainda-aqui.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="ainda-aqui.js" defer></script>
+</head>
+<body class="caderno" data-campaign-demo="fotografia">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+    <a class="back" href="/?tipo=orcamento&amp;projeto=fotografia#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+    <nav aria-label="Versões da demonstração"><a href="./">Filme</a><a href="indice.html">Índice</a><a href="caderno.html" aria-current="page">Caderno</a></nav>
+    <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner">
+    <a class="wordmark" href="#conteudo" aria-label="Ainda Aqui Fotografia, início">ainda aqui<span>fotografia</span></a>
+    <nav aria-label="Navegação do estúdio"><a href="#domingo">O caderno</a><a class="header-request" href="#pedido">Consultar uma data</a></nav>
+ </div></header>
+ <main id="conteudo">
+ <div class="journal-layout shell">
+ <nav aria-label="Neste caderno" class="journal-index"><strong>Neste caderno</strong><a href="#domingo">Domingo em casa</a><a href="#atelie">No ateliê</a><a href="#projetos">Sobre o olhar</a></nav>
+ <article class="journal-story" id="domingo">
+  <h1>De perto, no seu tempo.</h1><p class="journal-deck">Um caderno de ensaios feitos no lugar onde a vida acontece.</p>
+  <figure class="journal-cover"><img src="domingo-720.webp" srcset="domingo-720.webp 720w, domingo-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 60vw" width="1440" height="960" alt="Uma família prepara frutas junta à luz da janela da cozinha." fetchpriority="high" decoding="async"><figcaption>Domingo em casa · série ilustrativa</figcaption></figure>
+  <div class="journal-text"><h2>Domingo em casa</h2><p>Uma receita, a luz que entra pela janela e a bagunça que vem junto. O ensaio de família pode começar com algo que vocês já gostam de fazer.</p><a class="action" data-session="familia" href="#pedido">Conversar sobre um ensaio em família</a></div>
+  <figure class="journal-inset"><img src="familia-720.webp" srcset="familia-720.webp 720w, familia-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 60vw" width="1440" height="960" alt="Família brinca em um quintal com plantas no fim da tarde." loading="lazy" decoding="async"><figcaption>Depois de casa, o quintal.</figcaption></figure>
+ </article>
+ <article class="journal-story journal-second" id="atelie">
+   <div class="journal-text"><h2>No ateliê</h2><p>O retrato começa pelo que você faz. O espaço, o ritmo e os gestos ajudam a contar a história antes mesmo de olhar para a câmera.</p><a class="action" data-session="retrato" href="#pedido">Planejar meu retrato profissional</a></div>
+   <div class="journal-pair"><figure><img src="retrato-720.webp" srcset="retrato-720.webp 720w, retrato-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 60vw" width="1440" height="960" alt="Ceramista no próprio ateliê, diante de suas peças e ferramentas." loading="lazy" decoding="async"><figcaption>Quem faz.</figcaption></figure><figure><img src="oficio-720.webp" srcset="oficio-720.webp 720w, oficio-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 60vw" width="1440" height="960" alt="Mãos da ceramista dão forma a uma peça de argila na bancada." loading="lazy" decoding="async"><figcaption>Como faz.</figcaption></figure></div>
+ </article>
+ <section class="journal-story journal-end" id="projetos"><h2>O lugar também entra na foto.</h2><p>Na conversa inicial, a gente escolhe um espaço que faça sentido para o ensaio. Você pode sugerir a sua casa, o seu local de trabalho ou um lugar ao ar livre.</p></section>
+</div>
+ <section id="pedido" class="booking"><div class="shell booking-layout">
+ <div class="booking-copy"><h2>Vamos conversar sobre as fotos?</h2><p>Preencha só o que já sabe. A data é uma preferência, e a disponibilidade seria confirmada na conversa.</p></div>
+ <div class="booking-work">
+ <form class="request">
+   <div class="request-actions"><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+   <label for="session">Tipo de sessão<select required id="session"><option value="">Selecione a sessão</option><option value="casamento">Casamento intimista</option><option value="familia">Ensaio de família</option><option value="retrato">Retrato profissional</option></select></label>
+   <label for="focus"><span data-focus-label>O que quer fotografar?</span><select required disabled id="focus"><option value="">Escolha a sessão primeiro</option></select></label>
+   <div class="field-pair">
+   <label for="date">Data prevista <small>(opcional)</small><input id="date" type="date"></label>
+   <label for="place">Região<select required id="place"><option value="">Selecione a região</option><option>Campinas</option><option>Outra cidade da região</option><option>A combinar</option></select></label>
+   </div>
+   <button class="action" type="submit" disabled>Montar briefing de teste</button>
+   <p class="demo-note">Demonstração. Nenhum dado é enviado.</p>
+   <noscript><p>Ative o JavaScript para testar o briefing.</p></noscript>
+ </form>
+ <div class="receipt" hidden>
+  <h3 tabindex="-1">Seu briefing de teste</h3>
+  <dl><div><dt>Protocolo</dt><dd data-ref></dd></div><div><dt>Sessão</dt><dd data-session-summary></dd></div><div><dt>Preferência</dt><dd data-focus-summary></dd></div><div><dt>Data</dt><dd data-date-summary></dd></div><div><dt>Região</dt><dd data-place-summary></dd></div></dl>
+  <p data-message></p><div class="receipt-actions"><button class="quiet" type="button" data-copy>Copiar briefing</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div><p class="copy-status" role="status"></p>
+ </div></div>
+ </div></section>
+ </main>
+
+
+ <footer><div class="shell"><p><strong>Ainda Aqui Fotografia</strong> · Estúdio fictício. Todas as imagens são ilustrativas.</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C+Pedro%21+Vi+a+demonstra%C3%A7%C3%A3o+Ainda+Aqui+Fotografia+e+quero+conversar+sobre+um+site+para+meu+neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim</a></div></footer>
+</body>
+</html>

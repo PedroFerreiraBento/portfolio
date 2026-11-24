@@ -3,47 +3,69 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="robots" content="noindex,nofollow">
+ <meta name="robots" content="noindex, follow">
  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
- <meta name="description" content="Fotografia documental. Site demonstrativo do Caos Domado.">
- <title>Ainda Aqui | Fotografia documental</title>
+ <meta name="description" content="Demonstração de portfólio para fotografia documental com briefing simulado.">
+ <title>Ainda Aqui Fotografia · Filme</title>
  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
- <link rel="stylesheet" href="../demo.css">
- <script src="../demo.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="ainda-aqui.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="ainda-aqui.js" defer></script>
 </head>
-<body data-campaign-demo="fotografia" class="fotografia">
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
- <a href="/?tipo=orcamento&amp;projeto=fotografia#trabalhos">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
-</aside>
-<header class="site-header">
- <a class="wordmark" href="#conteudo">Ainda Aqui</a>
- <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
-</header>
-<main id="conteudo">
- <section class="hero"><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Convidados riem juntos em uma celebração intimista em um jardim ao entardecer."><figcaption>Imagem ilustrativa</figcaption></figure><div class="hero-copy"><h1>O dia, como <em>ele foi.</em></h1><p>Fotografia documental para celebrações e famílias. A gente acompanha o dia e deixa espaço para as coisas acontecerem naturalmente.</p><a class="action" href="#pedido">Consultar uma data</a></div></section>
- <section class="section services" id="servicos"><h2>Ocasiões que fotografo</h2><div><article><h3>Casamentos intimistas</h3><p>Cerimônia, bastidores e celebração, com cobertura combinada para o seu dia.</p></article><article><h3>Famílias</h3><p>Ensaios em casa ou ao ar livre, respeitando o ritmo de quem está na foto.</p></article><article><h3>Retratos profissionais</h3><p>Fotografias para apresentar a pessoa, o trabalho e o espaço em que ele acontece.</p></article></div></section>
- <aside class="section note"><h2>Uma conversa antes das fotos.</h2><p>Falamos sobre ocasião, luz e tempo de cobertura. Isso permite propor uma sessão que combine com o dia.</p></aside>
- <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
-  <div class="form-intro"><h2 id="pedido-heading">A data já está marcada?</h2><p>Escolha o tipo de sessão, a data prevista e a região para consultar a disponibilidade.</p></div>
-  <form data-request>
-  <label>Sessão<select name="campo-0" data-field="Sessão" required><option value="">Selecione</option><option>Casamento intimista</option><option>Ensaio de família</option><option>Retrato profissional</option></select></label>
-  <label>Data desejada<input type="date" name="campo-1" data-field="Data desejada" required></label>
-  <label>Local da sessão<select name="campo-2" data-field="Local da sessão" required><option value="">Selecione</option><option>Em Campinas</option><option>Em outra cidade da região</option><option>A combinar</option></select></label>
-   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
-   <button class="action" type="submit" disabled>Simular consulta de data</button>
-   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
-  </form>
-  <section class="result" data-result hidden aria-labelledby="result-title">
-   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
-   <dl data-summary></dl>
-   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
-   <button type="button" data-edit>Editar pedido</button>
-  </section>
+<body class="filme" data-campaign-demo="fotografia">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+    <a class="back" href="/?tipo=orcamento&amp;projeto=fotografia#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+    <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Filme</a><a href="indice.html">Índice</a><a href="caderno.html">Caderno</a></nav>
+    <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner">
+    <a class="wordmark" href="#conteudo" aria-label="Ainda Aqui Fotografia, início">ainda aqui<span>fotografia</span></a>
+    <nav aria-label="Navegação do estúdio"><a href="#projetos">O ensaio</a><a class="header-request" href="#pedido">Consultar uma data</a></nav>
+ </div></header>
+ <main id="conteudo">
+ <section class="film-stage" aria-labelledby="opening">
+ <div class="film-frame"><img src="jardim-720.webp" srcset="jardim-720.webp 720w, jardim-1440.webp 1440w" sizes="100vw" width="1440" height="960" alt="Noivos caminham juntos entre convidados ao fim de uma cerimônia no jardim." fetchpriority="high" decoding="async"></div>
+ <div class="shell film-intro"><h1 id="opening">O dia, como <br>ele foi.</h1><p>Um casamento no jardim, contado do encontro à última dança.</p>
+   <button class="action" type="button" data-open="jardim">Abrir ensaio</button></div>
+ <p class="film-caption" data-film-caption aria-live="polite">O jardim</p>
  </section>
-</main>
-<footer><strong>Ainda Aqui</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/?tipo=orcamento&amp;projeto=fotografia#trabalhos">Ver outros exemplos</a></footer>
+ <ol class="film-reel" aria-label="Cenas do ensaio">
+  <li><button class="film-scene" type="button" data-film="jardim" aria-pressed="true"><img src="jardim-720.webp" srcset="jardim-720.webp 720w, jardim-1440.webp 1440w" sizes="180px" width="1440" height="960" alt="Noivos caminham juntos entre convidados ao fim de uma cerimônia no jardim." loading="lazy" decoding="async"><span>01 / O jardim</span></button></li><li><button class="film-scene" type="button" data-film="mesa" aria-pressed="false"><img src="mesa-720.webp" srcset="mesa-720.webp 720w, mesa-1440.webp 1440w" sizes="180px" width="1440" height="960" alt="Convidados conversam à mesa, com velas acesas ao cair da noite." loading="lazy" decoding="async"><span>02 / À mesa</span></button></li><li><button class="film-scene" type="button" data-film="danca" aria-pressed="false"><img src="danca-720.webp" srcset="danca-720.webp 720w, danca-1440.webp 1440w" sizes="180px" width="1440" height="960" alt="O casal dança perto dos convidados, sob luzes quentes." loading="lazy" decoding="async"><span>03 / A dança</span></button></li>
+ </ol>
+ <section class="film-story shell" id="projetos"><h2>Aconteceu assim.</h2><p>A luz muda, a mesa ganha gente e a dança começa. A cobertura documental acompanha o intervalo entre essas cenas, onde o dia costuma ficar mais parecido com quem estava ali.</p></section>
+ <figure class="film-wide"><img src="mesa-720.webp" srcset="mesa-720.webp 720w, mesa-1440.webp 1440w" sizes="100vw" width="1440" height="960" alt="Convidados conversam à mesa, com velas acesas ao cair da noite." loading="lazy" decoding="async"><figcaption class="shell">Ensaio ilustrativo · casamento no jardim</figcaption></figure>
+ <section class="film-offer shell"><div><h2>Seu dia já tem uma data?</h2><p>Também fotografo encontros de família e retratos profissionais. Conte o que você quer guardar.</p></div><a class="action" data-session="casamento" href="#pedido">Planejar a cobertura</a></section>
+ <section id="pedido" class="booking"><div class="shell booking-layout">
+ <div class="booking-copy"><h2>Vamos conversar sobre as fotos?</h2><p>Preencha só o que já sabe. A data é uma preferência, e a disponibilidade seria confirmada na conversa.</p></div>
+ <div class="booking-work">
+ <form class="request">
+   <div class="request-actions"><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+   <label for="session">Tipo de sessão<select required id="session"><option value="">Selecione a sessão</option><option value="casamento">Casamento intimista</option><option value="familia">Ensaio de família</option><option value="retrato">Retrato profissional</option></select></label>
+   <label for="focus"><span data-focus-label>O que quer fotografar?</span><select required disabled id="focus"><option value="">Escolha a sessão primeiro</option></select></label>
+   <div class="field-pair">
+   <label for="date">Data prevista <small>(opcional)</small><input id="date" type="date"></label>
+   <label for="place">Região<select required id="place"><option value="">Selecione a região</option><option>Campinas</option><option>Outra cidade da região</option><option>A combinar</option></select></label>
+   </div>
+   <button class="action" type="submit" disabled>Montar briefing de teste</button>
+   <p class="demo-note">Demonstração. Nenhum dado é enviado.</p>
+   <noscript><p>Ative o JavaScript para testar o briefing.</p></noscript>
+ </form>
+ <div class="receipt" hidden>
+  <h3 tabindex="-1">Seu briefing de teste</h3>
+  <dl><div><dt>Protocolo</dt><dd data-ref></dd></div><div><dt>Sessão</dt><dd data-session-summary></dd></div><div><dt>Preferência</dt><dd data-focus-summary></dd></div><div><dt>Data</dt><dd data-date-summary></dd></div><div><dt>Região</dt><dd data-place-summary></dd></div></dl>
+  <p data-message></p><div class="receipt-actions"><button class="quiet" type="button" data-copy>Copiar briefing</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div><p class="copy-status" role="status"></p>
+ </div></div>
+ </div></section>
+ </main>
+ <dialog class="viewer" aria-labelledby="viewer-title">
+ <div class="viewer-top"><span data-view-count></span><button type="button" class="quiet" data-close>Fechar <span aria-hidden="true">×</span></button></div>
+ <img data-full width="1440" height="960" alt="">
+ <div class="viewer-footer"><button class="quiet" type="button" data-prev aria-label="Fotografia anterior">Anterior</button><h2 id="viewer-title"></h2><button class="quiet" type="button" data-next aria-label="Próxima fotografia">Próxima</button></div>
+</dialog>
+ <script type="application/json" id="photo-data">[{"id":"jardim","title":"O jardim","group":"casamento","alt":"Noivos caminham juntos entre convidados ao fim de uma cerimônia no jardim."},{"id":"mesa","title":"À mesa","group":"casamento","alt":"Convidados conversam à mesa, com velas acesas ao cair da noite."},{"id":"danca","title":"A dança","group":"casamento","alt":"O casal dança perto dos convidados, sob luzes quentes."}]</script>
+ <footer><div class="shell"><p><strong>Ainda Aqui Fotografia</strong> · Estúdio fictício. Todas as imagens são ilustrativas.</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C+Pedro%21+Vi+a+demonstra%C3%A7%C3%A3o+Ainda+Aqui+Fotografia+e+quero+conversar+sobre+um+site+para+meu+neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim</a></div></footer>
 </body>
 </html>
