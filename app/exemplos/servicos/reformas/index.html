@@ -3,47 +3,80 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="robots" content="noindex,nofollow">
+ <meta name="robots" content="noindex,follow">
  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
- <meta name="description" content="Reformas de interiores. Site demonstrativo do Caos Domado.">
- <title>Entre Obra | Reformas de interiores</title>
+ <meta name="description" content="Demonstração de site para reformas de interiores com pedido de visita simulado.">
+ <title>Entre Obra · Diário</title>
  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
- <link rel="stylesheet" href="../demo.css">
- <script src="../demo.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="entre-obra.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="entre-obra.js" defer></script>
 </head>
-<body data-campaign-demo="reformas" class="reformas">
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
- <a href="/?tipo=orcamento&amp;projeto=reformas#trabalhos">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
-</aside>
-<header class="site-header">
- <a class="wordmark" href="#conteudo">Entre Obra</a>
- <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
-</header>
-<main id="conteudo">
- <section class="hero"><div class="hero-copy"><h1>Uma casa que <em>acompanha você.</em></h1><p>Reformas de interiores com escolhas claras, de uma atualização pontual a um apartamento inteiro.</p><a class="action" href="#pedido">Pedir uma visita técnica</a></div><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Sala e cozinha de apartamento reformado, com madeira clara e paredes quentes."><figcaption>Imagem ilustrativa</figcaption></figure></section>
- <section class="section services" id="servicos"><h2>O que podemos reformar</h2><dl><div><dt>Cozinhas e banheiros</dt><dd>Revise o uso do espaço, as instalações e os acabamentos de áreas molhadas.</dd></div><div><dt>Ambientes completos</dt><dd>Organize a reforma de um apartamento com etapas planejadas por cômodo.</dd></div><div><dt>Pisos e acabamentos</dt><dd>Renove pisos, revestimentos e pintura em uma intervenção pontual.</dd></div></dl></section>
- <aside class="section note"><h2>Da visita à obra</h2><p>Conhecemos o imóvel, desenhamos o escopo e combinamos com você a ordem da execução.</p></aside>
- <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
-  <div class="form-intro"><h2 id="pedido-heading">Planeje sua visita técnica.</h2><p>Com o tipo de obra, a área e a ocupação do imóvel, a equipe consegue preparar a primeira conversa.</p></div>
-  <form data-request>
-  <label>Tipo de obra<select name="campo-0" data-field="Tipo de obra" required><option value="">Selecione</option><option>Cozinha ou banheiro</option><option>Reforma de apartamento</option><option>Pisos e acabamento</option></select></label>
-  <label>Área aproximada<select name="campo-1" data-field="Área aproximada" required><option value="">Selecione</option><option>Até 20 m²</option><option>Entre 21 e 60 m²</option><option>Acima de 60 m²</option><option>A medir durante a visita</option></select></label>
-  <label>O imóvel estará ocupado?<select name="campo-2" data-field="O imóvel estará ocupado?" required><option value="">Selecione</option><option>Sim, durante a execução</option><option>Não, estará desocupado</option></select></label>
-   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
-   <button class="action" type="submit" disabled>Simular pedido de visita</button>
-   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
-  </form>
-  <section class="result" data-result hidden aria-labelledby="result-title">
-   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
-   <dl data-summary></dl>
-   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
-   <button type="button" data-edit>Editar pedido</button>
-  </section>
- </section>
-</main>
-<footer><strong>Entre Obra</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/?tipo=orcamento&amp;projeto=reformas#trabalhos">Ver outros exemplos</a></footer>
+<body class="diario" data-campaign-demo="reformas">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+  <a class="workback" href="/?tipo=orcamento&amp;projeto=reformas#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Diário</a><a href="roteiro.html">Roteiro</a><a href="escopo.html">Escopo</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="firm"><div class="shell firm-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Entre Obra, início">Entre Obra<span>reformas</span></a>
+  <nav aria-label="Navegação da Entre Obra"><a href="#ambientes">Ambientes</a><a href="#pedido">Preparar visita</a></nav>
+ </div></header>
+ <main id="conteudo"><section class="diary-intro"><div class="shell intro-inner"><h1>Uma casa muda por dentro.</h1><p>Cozinha, banheiro e sala em três estudos fictícios, do estado inicial à proposta.</p></div></section>
+   <div class="shell diary-spread" id="ambientes">
+    <nav class="diary-index" aria-label="Ambientes do diário"><strong>Ambientes</strong><a href="#cozinha">Cozinha</a><a href="#banheiro">Banheiro</a><a href="#sala">Sala</a></nav>
+    <div><article class="diary-case" id="cozinha">
+     <h2>A circulação abre espaço.</h2>
+     <div class="frames">
+      <figure><img src="cozinha-antes-480.webp" srcset="cozinha-antes-480.webp 480w, cozinha-antes-960.webp 960w" sizes="(max-width: 760px) 92vw, 45vw" width="1086" height="724" alt="Cozinha com acabamentos antigos, na referência de partida." fetchpriority="high" decoding="async"><figcaption>Estado inicial</figcaption></figure>
+      <figure><img src="cozinha-depois-480.webp" srcset="cozinha-depois-480.webp 480w, cozinha-depois-960.webp 960w" sizes="(max-width: 760px) 92vw, 45vw" width="1086" height="724" alt="Cozinha no cenário de transformação ilustrativo." fetchpriority="high" decoding="async"><figcaption>Proposta ilustrativa</figcaption></figure>
+     </div>
+     <p class="case-copy">A proposta reorganiza o encontro entre bancada e armários. A escolha dos acabamentos vem depois de entender onde se prepara a comida, o que precisa ficar à mão e como as pessoas circulam.</p>
+     <a class="text-link" data-room="cozinha" href="#pedido">Levar cozinha ao pedido <span aria-hidden="true">↗</span></a>
+    </article><article class="diary-case" id="banheiro">
+     <h2>O que já funciona merece ficar.</h2>
+     <div class="frames">
+      <figure><img src="banheiro-antes-480.webp" srcset="banheiro-antes-480.webp 480w, banheiro-antes-960.webp 960w" sizes="(max-width: 760px) 92vw, 45vw" width="887" height="887" alt="Banheiro com acabamentos antigos, na referência de partida." loading="lazy" decoding="async"><figcaption>Estado inicial</figcaption></figure>
+      <figure><img src="banheiro-depois-480.webp" srcset="banheiro-depois-480.webp 480w, banheiro-depois-960.webp 960w" sizes="(max-width: 760px) 92vw, 45vw" width="887" height="887" alt="Banheiro no cenário de transformação ilustrativo." loading="lazy" decoding="async"><figcaption>Proposta ilustrativa</figcaption></figure>
+     </div>
+     <p class="case-copy">A proposta mantém a posição da cuba e usa a renovação dos acabamentos para mudar a leitura do espaço. Instalações e pontos de umidade entram na pauta da visita, antes de fechar o escopo.</p>
+     <a class="text-link" data-room="banheiro" href="#pedido">Levar banheiro ao pedido <span aria-hidden="true">↗</span></a>
+    </article><article class="diary-case" id="sala">
+     <h2>A casa ganha continuidade.</h2>
+     <div class="frames">
+      <figure><img src="sala-antes-480.webp" srcset="sala-antes-480.webp 480w, sala-antes-960.webp 960w" sizes="(max-width: 760px) 92vw, 45vw" width="1086" height="724" alt="Sala com acabamentos antigos, na referência de partida." loading="lazy" decoding="async"><figcaption>Estado inicial</figcaption></figure>
+      <figure><img src="sala-depois-480.webp" srcset="sala-depois-480.webp 480w, sala-depois-960.webp 960w" sizes="(max-width: 760px) 92vw, 45vw" width="1086" height="724" alt="Sala no cenário de transformação ilustrativo." loading="lazy" decoding="async"><figcaption>Proposta ilustrativa</figcaption></figure>
+     </div>
+     <p class="case-copy">Piso, luz e pintura passam a conversar com os móveis que continuam. A conversa começa pelo que precisa permanecer em uso e pelos acabamentos que realmente pedem intervenção.</p>
+     <a class="text-link" data-room="sala" href="#pedido">Levar sala ao pedido <span aria-hidden="true">↗</span></a>
+    </article></div>
+   </div>
+   <section class="shell faq" id="duvidas"><h2>Antes de marcar a visita</h2><div><details><summary>E se eu quiser reformar mais de um cômodo?</summary><p>Selecione Mais de um ambiente no pedido. Na conversa, diga qual cômodo precisa entrar primeiro.</p></details><details><summary>Preciso ter medidas em mãos?</summary><p>Você pode marcar A medir na visita e levar apenas as referências que já tiver.</p></details><details><summary>Qual é o primeiro passo após a triagem?</summary><p>A equipe confirma o contexto, que informações ainda faltam e como combinar a visita.</p></details></div></section>
+   <div class="request-band"><div class="shell request-layout"><div><h2>Comece pelo ambiente que pede atenção.</h2><p>Use as referências para explicar o que pretende mudar e o que quer manter.</p></div><section class="request" id="pedido" aria-labelledby="request-title">
+   <div class="request-head"><h2 id="request-title">Preparar visita</h2><button class="quiet" type="button" data-example hidden>Usar exemplo</button></div>
+   <form class="intake">
+    <p class="context" data-context hidden></p>
+    <div class="form-fields">
+     <label for="project">Frente da reforma<select id="project" required><option value="">Selecione o escopo</option><option value="cozinha">Cozinha</option><option value="banheiro">Banheiro</option><option value="sala">Sala</option><option value="varios">Mais de um ambiente</option><option value="aberto">Escopo a definir</option></select></label>
+     <label for="area">Área aproximada<select id="area" required><option value="">Selecione a área</option><option>Até 20 m²</option><option>De 21 a 60 m²</option><option>Acima de 60 m²</option><option>A medir na visita</option></select></label>
+     <label for="occupancy">Durante a reforma<select id="occupancy" required><option value="">Selecione a situação</option><option value="ocupado">Imóvel ocupado</option><option value="vazio">Imóvel desocupado</option><option value="aberto">Ainda a definir</option></select></label>
+    </div>
+    <button class="action" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button>
+    <p class="demo-note">Simulação local. Nenhum pedido será enviado.</p>
+    <noscript><p>Ative o JavaScript para testar o pedido.</p></noscript>
+   </form>
+   <div class="receipt" hidden>
+    <h3 tabindex="-1">Pedido de visita simulado</h3>
+    <dl data-summary></dl>
+    <p>Em um atendimento real, a equipe usaria esse resumo para preparar a conversa e combinar a visita.</p>
+    <p class="message" data-message></p>
+    <div class="result-actions"><button class="quiet" type="button" data-copy>Copiar pedido</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div>
+    <p class="copy-status" role="status"></p>
+   </div>
+  </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Entre Obra Reformas</strong> · Marca fictícia. Imagens ilustrativas.</p><a class="project-whatsapp text-link" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Entre%20Obra%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
 </body>
 </html>

@@ -16,7 +16,7 @@
   {"type": "orcamento", "title": "Buffet para eventos", "description": "Informe o tipo de evento e o número de convidados para cotar.", "aliases": "", "id": "buffet", "dest": "/exemplos/profissionais/buffet/", "mobile": true, "brand": "Mesa de Festa", "tone": "produto", "english": {"title": "Event catering", "description": "Explore a menu, compare event formats or prepare a catering brief."}},
   {"type": "orcamento", "title": "Personal trainer", "description": "Conheça os formatos e teste o pedido de uma conversa inicial.", "aliases": "", "id": "treinamento", "dest": "/exemplos/profissionais/treinamento/", "mobile": false, "brand": "Personal trainer", "tone": "produto", "english": {"title": "Personal trainer", "description": "Explore the formats and try requesting an introductory call.", "brand": "Personal trainer"}},
   {"type": "orcamento", "title": "Ar-condicionado", "description": "Página para pedir orçamento de manutenção empresarial, com três direções visuais.", "aliases": "climatização climapro", "id": "climapro", "dest": "/demos/plano/index.html", "mobile": true, "brand": "ClimaPro", "tone": "clima", "english": {"title": "Air conditioning", "description": "Request a commercial maintenance quote in one of three visual styles."}},
-  {"type": "orcamento", "title": "Reformas", "description": "Escolha o tipo de reforma e teste o pedido de orçamento.", "aliases": "", "id": "reformas", "dest": "/exemplos/servicos/reformas/", "mobile": false, "brand": "Entre Obra", "tone": "produto", "english": {"title": "Home renovations", "description": "Choose a renovation type and try asking for a quote."}},
+  {"type": "orcamento", "title": "Reformas", "description": "Escolha o tipo de reforma e teste o pedido de orçamento.", "aliases": "obra apartamento cozinha banheiro reforma residencial", "id": "reformas", "dest": "/exemplos/servicos/reformas/", "mobile": true, "brand": "Entre Obra", "tone": "produto", "english": {"title": "Home renovations", "description": "Choose a renovation type and try asking for a quote."}},
   {"type": "orcamento", "title": "Jardinagem", "description": "Explore jardins e formas de cuidado ou registre o que você já sabe sobre o espaço.", "aliases": "paisagismo manutenção jardins canteiros", "id": "jardinagem", "dest": "/exemplos/servicos/jardinagem/", "mobile": true, "brand": "Sombra de Folha", "tone": "produto", "english": {"title": "Gardening", "description": "Explore gardens and maintenance plans, or record what you know about the space."}},
   {"type": "orcamento", "title": "Oficina mecânica", "description": "Selecione o serviço e simule a solicitação para seu veículo.", "aliases": "mecanica oficina revisao automovel", "id": "oficina", "dest": "/exemplos/servicos/oficina/", "mobile": true, "brand": "Pista 22", "tone": "produto", "english": {"title": "Auto repair shop", "description": "Explore the workshop and prepare a sample service request."}},
   {"type": "orcamento", "title": "Marcenaria", "description": "Escolha o ambiente e simule um orçamento de móveis sob medida.", "aliases": "", "id": "marcenaria", "dest": "/exemplos/servicos/marcenaria/", "mobile": true, "brand": "Encaixe", "tone": "produto", "english": {"title": "Custom furniture", "description": "Choose a room and try requesting a custom furniture quote."}},
@@ -91,7 +91,8 @@
    marcenaria:'/exemplos/servicos/marcenaria/versoes.html',
    jardinagem:'/exemplos/servicos/jardinagem/versoes.html',
    oficina:'/exemplos/servicos/oficina/versoes.html',
-   vidracaria:'/exemplos/servicos/vidracaria/versoes.html'
+   vidracaria:'/exemplos/servicos/vidracaria/versoes.html',
+   reformas:'/exemplos/servicos/reformas/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {
