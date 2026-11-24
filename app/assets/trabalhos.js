@@ -78,10 +78,17 @@
   find('showcase-open').href = url;
   find('showcase-open').firstChild.nodeValue = category === 'orcamento'
    ? localized('Abrir site completo ', 'Open full website ') : localized('Abrir demonstração ', 'Open demo ');
-  const variants = new URL('/demos/index.html',location.origin);
-  variants.search = url.search;
-  find('showcase-variants').href = variants;
-  find('showcase-variants').hidden = project.id !== 'climapro';
+  const variantsLink = find('showcase-variants');
+  const variantsPath = {
+   climapro:'/demos/index.html',
+   dentista:'/exemplos/sites/dentista/versoes.html'
+  }[project.id];
+  variantsLink.hidden = !variantsPath;
+  if (variantsPath) {
+   const variants = new URL(variantsPath,location.origin);
+   variants.search = url.search;
+   variantsLink.href = variants;
+  }
   root.querySelectorAll('[data-project]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.project === project.id)));
   find('showcase-status').textContent = localized('Prévia de ' + nameOf(project) + ' carregada.', nameOf(project) + ' preview ready.');
  }

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta name="description" content="Demonstração de site odontológico com simulação de pedido de avaliação.">
+ <title>Odonto Premium · Precisão</title>
+ <link rel="icon" href="favicon.svg" type="image/svg+xml">
+ <link rel="stylesheet" href="dentista.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="dentista.js" defer></script>
+</head>
+<body class="precisao" data-campaign-demo="dentista">
+ <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar">
+  <div class="workbar-inner">
+   <a class="workbar-back" href="/?tipo=orcamento&amp;projeto=dentista#trabalhos" aria-label="Voltar aos trabalhos"><span aria-hidden="true">←</span> <span>Voltar<span class="back-long"> aos trabalhos</span></span></a>
+   <nav aria-label="Versões da demonstração">
+     <a href="./">Horizonte</a>
+     <a href="essencia.html">Essência</a>
+     <a href="precisao.html" aria-current="page">Precisão</a>
+   </nav>
+   <div class="workbar-contact" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+  </div>
+ </div>
+ <header class="clinic-header">
+  <div class="section-shell clinic-header-inner">
+   <a class="clinic-mark" href="#conteudo" aria-label="Odonto Premium, início"><span class="clinic-monogram" aria-hidden="true">O</span>Odonto <strong>Premium</strong></a>
+   <button class="clinic-menu" type="button" aria-expanded="false" aria-controls="clinic-navigation" hidden>Menu</button>
+   <nav id="clinic-navigation" aria-label="Navegação da clínica">
+    <a href="#atendimentos">Atendimentos</a>
+    <a href="#primeira-visita">Primeira visita</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a class="menu-request" href="#avaliacao">Solicitar avaliação</a>
+   </nav>
+   <a class="clinic-button" href="#avaliacao">Solicitar avaliação <span aria-hidden="true">↗</span></a>
+  </div>
+ </header>
+ <main id="conteudo">
+   <section class="hero hero-fast"><div class="section-shell hero-fast-grid"><div class="hero-copy">
+       <h1>Encontre o atendimento que você procura.</h1>
+       <p>Selecione o motivo da visita e veja como pedir uma avaliação em poucos passos.</p>
+
+
+      </div><section id="avaliacao" class="request" aria-labelledby="request-title">
+    <h2 id="request-title">Solicitar avaliação</h2>
+    <p>Escolha o atendimento e o melhor período para retorno.</p>
+    <form class="request-form">
+     <div class="form-fields">
+      <label for="service">Qual atendimento você procura?
+       <select id="service" name="service" required>
+        <option value="">Escolha uma opção</option>
+        <option value="primeira">Primeira avaliação</option>
+        <option value="rotina">Consulta de rotina</option>
+        <option value="alinhadores">Alinhadores</option>
+       </select>
+      </label>
+      <label for="period">Quando prefere receber retorno?
+       <select id="period" name="period" required>
+        <option value="">Escolha um período</option>
+        <option value="pela manhã">Pela manhã</option>
+        <option value="à tarde">À tarde</option>
+        <option value="em qualquer período">Qualquer período</option>
+       </select>
+      </label>
+     </div>
+     <button class="clinic-button" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button>
+     <p class="demo-note">Demonstração. Nenhuma mensagem será enviada.</p>
+     <noscript><p>Ative o JavaScript para simular o pedido.</p></noscript>
+    </form>
+    <div class="request-result" hidden>
+     <h3 tabindex="-1">Sua mensagem de exemplo</h3>
+     <p data-demo-message></p>
+     <div class="result-actions">
+      <button type="button" data-copy-message>Copiar mensagem</button>
+      <button type="button" data-edit-request>Editar escolhas</button>
+     </div>
+     <p role="status" class="copy-status"></p>
+    </div>
+   </section></div></section>
+     <section class="treatments section-shell" id="atendimentos" aria-labelledby="treatments-title">
+    <div class="section-intro"><h2 id="treatments-title">Por onde começar</h2><p>Escolha o que você gostaria de conversar na avaliação.</p></div>
+    <ul class="service-list">
+     <li><div><h3>Primeira avaliação</h3><p>Conte o motivo da visita e entenda como pode ser o primeiro atendimento.</p></div>
+      <a href="#avaliacao" data-service-choice="primeira" aria-label="Escolher primeira avaliação"><span aria-hidden="true">↗</span></a></li>
+     <li><div><h3>Consulta de rotina</h3><p>Converse sobre uma revisão e os cuidados do dia a dia.</p></div>
+      <a href="#avaliacao" data-service-choice="rotina" aria-label="Escolher consulta de rotina"><span aria-hidden="true">↗</span></a></li>
+     <li><div><h3>Alinhadores</h3><p>Entenda como funciona uma avaliação para conversar sobre alinhadores.</p></div>
+      <a href="#avaliacao" data-service-choice="alinhadores" aria-label="Escolher alinhadores"><span aria-hidden="true">↗</span></a></li>
+    </ul>
+   </section>
+     <div class="visit-visual section-shell"><img src="consultorio-720.webp" srcset="consultorio-720.webp 720w, consultorio-1440.webp 1440w"
+       sizes="100vw" alt="Consultório com cadeira odontológica e equipamento de exame" loading="lazy" decoding="async"></div>
+     <section class="visit" id="primeira-visita" aria-labelledby="visit-title">
+    <div class="section-shell visit-inner">
+     <h2 id="visit-title">Como funciona a primeira visita</h2>
+     <ol>
+      <li><h3>Você conta o que precisa</h3><p>Uma conversa sobre o motivo da visita e suas dúvidas.</p></li>
+      <li><h3>A equipe faz a avaliação</h3><p>O dentista explica o que será observado e responde às suas perguntas.</p></li>
+      <li><h3>Vocês combinam os próximos passos</h3><p>Você entende as opções antes de decidir como continuar.</p></li>
+     </ol>
+    </div>
+   </section>
+   <section class="faq section-shell" id="duvidas" aria-labelledby="faq-title">
+   <h2 id="faq-title">Dúvidas antes de marcar</h2>
+   <div>
+    <details><summary>Preciso escolher um tratamento antes da avaliação?</summary><p>Você pode escolher “Primeira avaliação” e conversar sobre o motivo da visita.</p></details>
+    <details><summary>O pedido já confirma uma consulta?</summary><p>Numa clínica real, a equipe confirmaria o dia e o horário com você. Neste exemplo, o pedido só prepara uma mensagem de teste.</p></details>
+    <details><summary>O que posso levar na primeira visita?</summary><p>Se tiver exames anteriores, pergunte à equipe se vale a pena levá-los. Você também pode anotar suas dúvidas.</p></details>
+   </div>
+  </section>
+ </main>
+ <footer class="clinic-footer">
+  <div class="section-shell">
+   <p><strong>Odonto Premium</strong> · Clínica fictícia em uma demonstração da Caos Domado.</p>
+   <a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demo%20de%20dentista%20e%20quero%20uma%20p%C3%A1gina%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a>
+  </div>
+ </footer>
+</body>
+</html>
