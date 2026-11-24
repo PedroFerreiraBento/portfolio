@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Explore estúdio, casa e online para descobrir o que vale alinhar em cada formato.">
+  <title>Vetor Treinamento · Onde treinar</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+  <link rel="stylesheet" href="vetor.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="vetor.js" defer></script>
+</head>
+<body class="lugares" data-campaign-demo="treinamento">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="workbar">
+    <div class="shell toolbar">
+      <a class="back" href="/?tipo=orcamento&amp;projeto=treinamento#trabalhos"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração">
+        <a href="./">Primeira conversa</a>
+        <a href="lugares.html" aria-current="page">Onde treinar</a>
+        <a href="rotina.html">Minha semana</a>
+      </nav>
+      <div class="studio-link" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+      <noscript><a class="studio-link" href="https://wa.me/5519974149650">Quero um site assim</a></noscript>
+    </div>
+  </header>
+  <header class="brand">
+    <div class="shell brand-inner">
+      <a class="mark" href="#conteudo" aria-label="Vetor Treinamento, início">VE<span>TOR</span><small>Personal trainer</small></a>
+      <nav aria-label="Nesta demonstração">
+        <a href="#formatos">Explorar formatos</a>
+        <a href="#pedido">Montar pedido</a>
+      </nav>
+    </div>
+  </header>
+  <main id="conteudo" tabindex="-1">
+
+    <section class="shell place-explorer" id="formatos">
+      <div class="place-heading">
+        <h1>Onde faz sentido treinar?</h1>
+        <p>Conheça três formatos e veja o que vale conversar sobre cada um.</p>
+      </div>
+      <div class="place-tabs" aria-label="Formatos de acompanhamento">
+        <a href="#estudio">No estúdio</a><a href="#em-casa">Em casa</a><a href="#online">Online</a>
+      </div>
+      <div class="place-panels">
+        <article id="estudio" class="place-panel">
+          <img src="estudio.webp" width="1440" height="960" alt="Estúdio com luz natural, piso de treino e equipamentos compactos" fetchpriority="high">
+          <div class="place-card"><p class="eyebrow">No estúdio</p><h2>Um espaço para o encontro.</h2><p>Você se desloca até o estúdio e conversa com o personal sobre a dinâmica presencial.</p><h3>Vale alinhar</h3><ul><li>Quanto tempo leva o deslocamento</li><li>Quais períodos costumam funcionar</li></ul><a href="#pedido" class="cta" data-format="No estúdio">Prefiro o estúdio <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article id="em-casa" class="place-panel">
+          <img src="casa.webp" width="680" height="840" alt="Sala de apartamento com um tapete de treino e um peso" loading="lazy">
+          <div class="place-card"><p class="eyebrow">Em casa</p><h2>Seu espaço, sua disponibilidade.</h2><p>O encontro presencial acontece no espaço que você tem em casa, se o atendimento estiver disponível na região.</p><h3>Vale alinhar</h3><ul><li>Se o personal atende na região</li><li>Quanto espaço você consegue reservar</li></ul><a href="#pedido" class="cta" data-format="Em casa">Prefiro em casa <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article id="online" class="place-panel">
+          <img src="online.webp" width="680" height="840" alt="Notebook com personal trainer na tela durante uma chamada" loading="lazy">
+          <div class="place-card"><p class="eyebrow">Online</p><h2>Uma conversa à distância.</h2><p>O primeiro encontro é por videochamada. É a hora de entender como o contato seria organizado entre as conversas.</p><h3>Vale alinhar</h3><ul><li>Onde você pode fazer uma videochamada</li><li>Por onde vocês tirariam dúvidas</li></ul><a href="#pedido" class="cta" data-format="Online">Prefiro online <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </section>
+    <section class="request-section" id="pedido"><div class="shell request-layout">
+      <div><p class="eyebrow">Simulação</p><h2>Qual formato você quer conversar primeiro?</h2><p>Indique sua preferência e monte o resumo do pedido de exemplo.</p></div>
+      <form data-request>
+        <div class="request-fields">
+          <label for="lugares-formato">Onde você prefere treinar?
+            <select id="lugares-formato" name="formato" required><option value="">Selecione</option><option>No estúdio</option><option>Em casa</option><option>Online</option><option>Quero entender as opções</option></select>
+          </label>
+          <label for="lugares-periodo">Qual período costuma funcionar?
+            <select id="lugares-periodo" name="periodo" required><option value="">Selecione</option><option>Manhã</option><option>Tarde</option><option>Noite</option><option>Varia durante a semana</option></select>
+          </label>
+          <label for="lugares-assunto">Sobre o que você quer conversar?
+            <select id="lugares-assunto" name="assunto" required><option value="">Selecione</option><option>Começar</option><option>Retomar</option><option>Ajustar a rotina</option></select>
+          </label>
+          <button type="submit" class="cta" data-create disabled>Montar o resumo</button>
+          <noscript><p>Ative o JavaScript para simular sua conversa.</p></noscript>
+        </div>
+        <section class="receipt" data-receipt hidden aria-labelledby="recibo">
+          <p class="eyebrow">Pedido de exemplo <span data-reference></span></p>
+          <h3 id="recibo" tabindex="-1">Seu resumo está pronto</h3>
+          <dl data-summary></dl>
+          <p>O resumo foi criado neste navegador. Nenhuma conversa foi enviada e nenhum horário foi reservado.</p>
+          <div class="receipt-actions">
+            <button type="button" class="cta" data-copy>Copiar resumo</button>
+            <button type="button" data-edit>Editar</button>
+            <button type="button" data-reset>Recomeçar</button>
+          </div>
+          <p class="copy-status" data-copy-status role="status"></p>
+        </section>
+      </form>
+    </div></section>
+  </main>
+  <footer class="shell footer">
+    <a href="versoes.html">Comparar as 3 versões <span aria-hidden="true">↗</span></a>
+    <p>Vetor Treinamento é uma marca fictícia. Demonstração do Caos Domado.</p>
+    <a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20do%20Vetor%20Treinamento%20e%20quero%20um%20site%20assim." data-project-whatsapp="treinamento">Quero um site assim <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>

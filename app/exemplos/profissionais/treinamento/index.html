@@ -1,44 +1,103 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
- <meta name="robots" content="noindex,nofollow"><title>Vetor Treinamento — demonstração</title>
- <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Veja como seria o primeiro encontro, da chegada ao que combinar depois.">
+  <title>Vetor Treinamento · Primeira conversa</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+  <link rel="stylesheet" href="vetor.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="vetor.js" defer></script>
 </head>
-<body data-campaign-demo="treinamento" class="training">
-<a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="demo-bar"><a href="/?tipo=orcamento&amp;projeto=treinamento#trabalhos">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
-<header class="header wrap">
- <a class="wordmark" href="#">Vetor <span>treinamento</span></a>
- <nav aria-label="Navegação principal"><a href="#formatos">Formatos de treino</a><a href="#pedido">Consultar horários</a></nav>
-</header>
-<main id="conteudo">
- <section class="training-hero wrap">
-  <img src="../estudio-treinamento.webp" alt="Praticante treinando com kettlebell em estúdio bem iluminado" width="1440" height="1080" fetchpriority="high">
-  <div class="hero-copy"><h1>Treino que cabe na sua rotina.</h1><p>Personal trainer com sessões presenciais, treinos em dupla e acompanhamento online. Conheça os formatos e consulte horários.</p><a class="button" href="#pedido">Escolher formato e horário</a></div>
- </section>
- <section class="training-method" id="formatos"><div class="wrap">
-  <h2>Escolha como quer treinar</h2>
-  <dl>
-   <div><dt>Presencial individual</dt><dd>Sessão acompanhada em horário combinado.</dd></div>
-   <div><dt>Presencial em dupla</dt><dd>Horário compartilhado com alguém que quer treinar com você.</dd></div>
-   <div><dt>Acompanhamento online</dt><dd>Treino orientado à distância, com revisão da rotina em encontros online.</dd></div>
-  </dl>
- </div></section>
- <section class="request" id="pedido"><div class="wrap request-grid">
-  <div><h2>Combine sua disponibilidade</h2><p>A equipe começa pelo formato do treino, pela frequência e pelo período do dia.</p><p class="note">Este exemplo consulta preferências. Os horários são ilustrativos.</p></div>
-  <form method="post" action="#pedido" data-demo-form>
-   <label for="treino-formato">Formato</label>
-   <select id="treino-formato" name="Formato" required><option value="">Selecione um formato</option><option>Presencial individual</option><option>Presencial em dupla</option><option>Acompanhamento online</option></select>
-   <fieldset><legend>Frequência preferida</legend><label class="radio"><input type="radio" name="Frequência" value="1 vez por semana" required> 1 vez por semana</label><label class="radio"><input type="radio" name="Frequência" value="2 vezes por semana"> 2 vezes por semana</label><label class="radio"><input type="radio" name="Frequência" value="3 vezes por semana"> 3 vezes por semana</label></fieldset>
-   <label for="treino-turno">Período do dia</label>
-   <select id="treino-turno" name="Período" required><option value="">Selecione um período</option><option>De manhã</option><option>À tarde</option><option>À noite</option></select>
-   <button class="button" type="submit" disabled>Ver consulta de exemplo</button>
-   <section class="receipt" data-receipt hidden aria-labelledby="treino-recibo"><h3 id="treino-recibo" tabindex="-1">Resumo da consulta de horários</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
-   <noscript><p>Ative o JavaScript para testar a consulta de horários.</p></noscript>
-  </form>
- </div></section>
-</main>
-<footer class="footer wrap"><strong>Vetor Treinamento</strong><p>Estúdio fictício criado para demonstrar o site.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
-</body></html>
+<body class="sessao" data-campaign-demo="treinamento">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="workbar">
+    <div class="shell toolbar">
+      <a class="back" href="/?tipo=orcamento&amp;projeto=treinamento#trabalhos"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração">
+        <a href="./" aria-current="page">Primeira conversa</a>
+        <a href="lugares.html">Onde treinar</a>
+        <a href="rotina.html">Minha semana</a>
+      </nav>
+      <div class="studio-link" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+      <noscript><a class="studio-link" href="https://wa.me/5519974149650">Quero um site assim</a></noscript>
+    </div>
+  </header>
+  <header class="brand">
+    <div class="shell brand-inner">
+      <a class="mark" href="#conteudo" aria-label="Vetor Treinamento, início">Vetor<span>Treinamento</span></a>
+      <nav aria-label="Nesta demonstração">
+        <a href="#encontro">O encontro</a>
+        <a href="#pedido">Montar pedido</a>
+      </nav>
+    </div>
+  </header>
+  <main id="conteudo" tabindex="-1">
+
+    <section class="shell sessao-hero">
+      <div class="opening">
+        <p class="hero-context">Personal trainer · Primeiro encontro</p>
+        <h1>Antes do treino, a conversa.</h1>
+        <p>Veja o que dá para combinar com um personal trainer antes de decidir como encaixar o treino na semana.</p>
+        <a class="cta" href="#encontro">Conhecer o primeiro encontro <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure>
+        <img src="conversa.webp" width="1440" height="960" alt="Personal trainer conversa com um cliente sentado no estúdio" fetchpriority="high">
+        <figcaption>Uma conversa no estúdio Vetor</figcaption>
+      </figure>
+    </section>
+    <section class="session-chapters shell" id="encontro">
+      <div class="chapters-intro">
+        <p class="eyebrow">O encontro</p>
+        <h2>Como a conversa acontece.</h2>
+        <nav aria-label="Momentos do encontro"><a href="#chegada">Chegada</a><a href="#rotina">Rotina</a><a href="#combinados">Combinados</a></nav>
+      </div>
+      <ol>
+        <li id="chegada"><p class="eyebrow">Chegada</p><h3>O que você quer conversar?</h3><p>Talvez seja a primeira vez com um personal, ou você já treine e queira trocar de formato. Vale chegar com essa dúvida em mente.</p></li>
+        <li id="rotina"><p class="eyebrow">Rotina</p><h3>Onde isso encaixa na semana?</h3><p>Compare o tempo de deslocamento até o estúdio, o espaço que tem em casa e os períodos em que consegue conversar com calma.</p></li>
+        <li id="combinados"><p class="eyebrow">Combinados</p><h3>O que precisa ficar claro?</h3><p>Tire dúvidas sobre como seriam os encontros e quais opções fazem sentido. Combine o próximo contato só se quiser continuar.</p></li>
+      </ol>
+    </section>
+    <section class="request-section" id="pedido"><div class="shell request-layout">
+      <div><p class="eyebrow">Simulação</p><h2>Leve um resumo para a conversa.</h2><p>Escolha o que gostaria de falar com o personal trainer. O exemplo monta um resumo aqui na página.</p></div>
+      <form data-request>
+        <div class="request-fields">
+          <label for="sessao-formato">Onde você prefere treinar?
+            <select id="sessao-formato" name="formato" required><option value="">Selecione</option><option>No estúdio</option><option>Em casa</option><option>Online</option><option>Quero entender as opções</option></select>
+          </label>
+          <label for="sessao-periodo">Qual período costuma funcionar?
+            <select id="sessao-periodo" name="periodo" required><option value="">Selecione</option><option>Manhã</option><option>Tarde</option><option>Noite</option><option>Varia durante a semana</option></select>
+          </label>
+          <label for="sessao-assunto">Sobre o que você quer conversar?
+            <select id="sessao-assunto" name="assunto" required><option value="">Selecione</option><option>Começar</option><option>Retomar</option><option>Ajustar a rotina</option></select>
+          </label>
+          <button type="submit" class="cta" data-create disabled>Ver meu resumo</button>
+          <noscript><p>Ative o JavaScript para simular sua conversa.</p></noscript>
+        </div>
+        <section class="receipt" data-receipt hidden aria-labelledby="recibo">
+          <p class="eyebrow">Pedido de exemplo <span data-reference></span></p>
+          <h3 id="recibo" tabindex="-1">Seu resumo está pronto</h3>
+          <dl data-summary></dl>
+          <p>O resumo foi criado neste navegador. Nenhuma conversa foi enviada e nenhum horário foi reservado.</p>
+          <div class="receipt-actions">
+            <button type="button" class="cta" data-copy>Copiar resumo</button>
+            <button type="button" data-edit>Editar</button>
+            <button type="button" data-reset>Recomeçar</button>
+          </div>
+          <p class="copy-status" data-copy-status role="status"></p>
+        </section>
+      </form>
+    </div></section>
+  </main>
+  <footer class="shell footer">
+    <a href="versoes.html">Comparar as 3 versões <span aria-hidden="true">↗</span></a>
+    <p>Vetor Treinamento é uma marca fictícia. Demonstração do Caos Domado.</p>
+    <a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20do%20Vetor%20Treinamento%20e%20quero%20um%20site%20assim." data-project-whatsapp="treinamento">Quero um site assim <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>

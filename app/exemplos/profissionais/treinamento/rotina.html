@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Monte um cartão com seu formato, período e assunto para conversar.">
+  <title>Vetor Treinamento · Minha semana</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+  <link rel="stylesheet" href="vetor.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="vetor.js" defer></script>
+</head>
+<body class="rotina" data-campaign-demo="treinamento">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="workbar">
+    <div class="shell toolbar">
+      <a class="back" href="/?tipo=orcamento&amp;projeto=treinamento#trabalhos"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração">
+        <a href="./">Primeira conversa</a>
+        <a href="lugares.html">Onde treinar</a>
+        <a href="rotina.html" aria-current="page">Minha semana</a>
+      </nav>
+      <div class="studio-link" data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+      <noscript><a class="studio-link" href="https://wa.me/5519974149650">Quero um site assim</a></noscript>
+    </div>
+  </header>
+  <header class="brand">
+    <div class="shell brand-inner">
+      <a class="mark" href="#conteudo" aria-label="Vetor Treinamento, início"><span class="dot" aria-hidden="true"></span> VETOR <small>Treinamento</small></a>
+      <nav aria-label="Nesta demonstração">
+        <a href="#pedido">Meu cartão</a>
+        <a href="#depois">O que vem depois</a>
+      </nav>
+    </div>
+  </header>
+  <main id="conteudo" tabindex="-1">
+
+    <section class="routine shell">
+      <div class="routine-intro">
+        <p class="hero-context">Minha semana · Personal trainer</p>
+        <h1>Que espaço o treino tem na sua semana?</h1>
+        <p>Escolha onde, quando e sobre o que gostaria de conversar com um personal trainer.</p>
+      </div>
+      <section class="routine-fields" id="pedido" aria-label="Monte seu cartão">
+      <form data-request>
+        <div class="request-fields">
+          <fieldset>
+            <legend>Onde você prefere treinar?</legend>
+            <label class="choice"><input type="radio" name="formato" value="No estúdio" required> <span>No estúdio</span></label>
+            <label class="choice"><input type="radio" name="formato" value="Em casa" required> <span>Em casa</span></label>
+            <label class="choice"><input type="radio" name="formato" value="Online" required> <span>Online</span></label>
+            <label class="choice"><input type="radio" name="formato" value="Quero entender as opções" required> <span>Quero entender as opções</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Qual período costuma funcionar?</legend>
+            <label class="choice"><input type="radio" name="periodo" value="Manhã" required> <span>Manhã</span></label>
+            <label class="choice"><input type="radio" name="periodo" value="Tarde" required> <span>Tarde</span></label>
+            <label class="choice"><input type="radio" name="periodo" value="Noite" required> <span>Noite</span></label>
+            <label class="choice"><input type="radio" name="periodo" value="Varia durante a semana" required> <span>Varia durante a semana</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Sobre o que você quer conversar?</legend>
+            <label class="choice"><input type="radio" name="assunto" value="Começar" required> <span>Começar</span></label>
+            <label class="choice"><input type="radio" name="assunto" value="Retomar" required> <span>Retomar</span></label>
+            <label class="choice"><input type="radio" name="assunto" value="Ajustar a rotina" required> <span>Ajustar a rotina</span></label>
+          </fieldset>
+          <button type="submit" class="cta" data-create disabled>Fechar meu cartão</button>
+          <noscript><p>Ative o JavaScript para simular sua conversa.</p></noscript>
+        </div>
+        <section class="receipt" data-receipt hidden aria-labelledby="recibo">
+          <p class="eyebrow">Pedido de exemplo <span data-reference></span></p>
+          <h2 id="recibo" tabindex="-1">Seu resumo está pronto</h2>
+          <dl data-summary></dl>
+          <p>O resumo foi criado neste navegador. Nenhuma conversa foi enviada e nenhum horário foi reservado.</p>
+          <div class="receipt-actions">
+            <button type="button" class="cta" data-copy>Copiar resumo</button>
+            <button type="button" data-edit>Editar</button>
+            <button type="button" data-reset>Recomeçar</button>
+          </div>
+          <p class="copy-status" data-copy-status role="status"></p>
+        </section>
+      </form>
+      </section>
+      <aside class="routine-card" aria-label="Prévia do cartão da semana">
+        <img src="caderno.webp" width="1440" height="960" alt="Caderno e cronômetro sobre uma mesa escura" fetchpriority="high">
+        <div class="routine-paper">
+          <p class="eyebrow">Seu cartão da semana</p>
+          <dl aria-live="polite"><div><dt>Formato</dt><dd data-live="formato">A escolher</dd></div><div><dt>Período</dt><dd data-live="periodo">A escolher</dd></div><div><dt>Assunto</dt><dd data-live="assunto">A escolher</dd></div></dl>
+        </div>
+      </aside>
+    </section>
+    <section class="routine-next shell" id="depois">
+      <div><p class="eyebrow">O que vem depois</p><h2>Do cartão para a conversa.</h2></div>
+      <p>Com as escolhas em mãos, fica mais fácil explicar seu dia a dia, perguntar como funciona cada formato e conversar sobre disponibilidade. Nesta demonstração, o cartão fica no navegador.</p>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <a href="versoes.html">Comparar as 3 versões <span aria-hidden="true">↗</span></a>
+    <p>Vetor Treinamento é uma marca fictícia. Demonstração do Caos Domado.</p>
+    <a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20do%20Vetor%20Treinamento%20e%20quero%20um%20site%20assim." data-project-whatsapp="treinamento">Quero um site assim <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>

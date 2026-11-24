@@ -14,7 +14,7 @@
   {"type": "orcamento", "title": "Fotografia", "description": "Veja o portfólio e teste uma consulta para seu evento.", "aliases": "", "id": "fotografia", "dest": "/exemplos/servicos/fotografia/", "mobile": true, "brand": "Ainda Aqui Fotografia", "tone": "produto", "english": {"title": "Photographer", "description": "Browse the portfolio and try an event enquiry."}},
   {"type": "orcamento", "title": "Aulas particulares", "description": "Escolha a matéria e simule um pedido de aula.", "aliases": "", "id": "aulas", "dest": "/exemplos/profissionais/aulas/", "mobile": true, "brand": "Traço", "tone": "produto", "english": {"title": "Private tutoring", "description": "Choose a subject and try requesting a lesson.", "brand": "Private tutoring"}},
   {"type": "orcamento", "title": "Buffet para eventos", "description": "Informe o tipo de evento e o número de convidados para cotar.", "aliases": "", "id": "buffet", "dest": "/exemplos/profissionais/buffet/", "mobile": true, "brand": "Mesa de Festa", "tone": "produto", "english": {"title": "Event catering", "description": "Explore a menu, compare event formats or prepare a catering brief."}},
-  {"type": "orcamento", "title": "Personal trainer", "description": "Conheça os formatos e teste o pedido de uma conversa inicial.", "aliases": "", "id": "treinamento", "dest": "/exemplos/profissionais/treinamento/", "mobile": false, "brand": "Personal trainer", "tone": "produto", "english": {"title": "Personal trainer", "description": "Explore the formats and try requesting an introductory call.", "brand": "Personal trainer"}},
+  {"type": "orcamento", "title": "Personal trainer", "description": "Conheça os formatos e teste o pedido de uma conversa inicial.", "aliases": "", "id": "treinamento", "dest": "/exemplos/profissionais/treinamento/", "mobile": true, "brand": "Vetor Treinamento", "tone": "produto", "english": {"title": "Personal trainer", "description": "Explore the formats and try requesting an introductory call.", "brand": "Personal trainer"}},
   {"type": "orcamento", "title": "Ar-condicionado", "description": "Página para pedir orçamento de manutenção empresarial, com três direções visuais.", "aliases": "climatização climapro", "id": "climapro", "dest": "/demos/plano/index.html", "mobile": true, "brand": "ClimaPro", "tone": "clima", "english": {"title": "Air conditioning", "description": "Request a commercial maintenance quote in one of three visual styles."}},
   {"type": "orcamento", "title": "Reformas", "description": "Escolha o tipo de reforma e teste o pedido de orçamento.", "aliases": "obra apartamento cozinha banheiro reforma residencial", "id": "reformas", "dest": "/exemplos/servicos/reformas/", "mobile": true, "brand": "Entre Obra", "tone": "produto", "english": {"title": "Home renovations", "description": "Choose a renovation type and try asking for a quote."}},
   {"type": "orcamento", "title": "Jardinagem", "description": "Explore jardins e formas de cuidado ou registre o que você já sabe sobre o espaço.", "aliases": "paisagismo manutenção jardins canteiros", "id": "jardinagem", "dest": "/exemplos/servicos/jardinagem/", "mobile": true, "brand": "Sombra de Folha", "tone": "produto", "english": {"title": "Gardening", "description": "Explore gardens and maintenance plans, or record what you know about the space."}},
@@ -95,7 +95,8 @@
    reformas:'/exemplos/servicos/reformas/versoes.html',
    aulas:'/exemplos/profissionais/aulas/versoes.html',
    barbearia:'/exemplos/sites/barbearia/versoes.html',
-   esmalteria:'/exemplos/sites/esmalteria/versoes.html'
+   esmalteria:'/exemplos/sites/esmalteria/versoes.html',
+   treinamento:'/exemplos/profissionais/treinamento/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {
