@@ -12,7 +12,7 @@
   {"type": "orcamento", "title": "Arquitetura", "description": "Explore os estudos de projeto e monte um pedido de proposta.", "aliases": "", "id": "arquitetura", "dest": "/exemplos/profissionais/arquitetura/", "mobile": true, "brand": "Entrelinhas Arquitetura", "tone": "produto", "english": {"title": "Architecture studio", "description": "Explore the projects and put together a proposal request.", "brand": "Entrelinhas Arquitetura"}},
   {"type": "orcamento", "title": "Contabilidade", "description": "Escolha o que sua empresa precisa e simule a triagem.", "aliases": "contador abertura de empresa troca de contador folha", "id": "contabilidade", "dest": "/exemplos/profissionais/contabilidade/", "mobile": true, "brand": "Soma Clara", "tone": "produto", "english": {"title": "Accounting firm", "description": "Choose what your business needs and try the enquiry form."}},
   {"type": "orcamento", "title": "Fotografia", "description": "Veja o portfólio e teste uma consulta para seu evento.", "aliases": "", "id": "fotografia", "dest": "/exemplos/servicos/fotografia/", "mobile": true, "brand": "Ainda Aqui Fotografia", "tone": "produto", "english": {"title": "Photographer", "description": "Browse the portfolio and try an event enquiry."}},
-  {"type": "orcamento", "title": "Aulas particulares", "description": "Escolha a matéria e simule um pedido de aula.", "aliases": "", "id": "aulas", "dest": "/exemplos/profissionais/aulas/", "mobile": false, "brand": "Aulas particulares", "tone": "produto", "english": {"title": "Private tutoring", "description": "Choose a subject and try requesting a lesson.", "brand": "Private tutoring"}},
+  {"type": "orcamento", "title": "Aulas particulares", "description": "Escolha a matéria e simule um pedido de aula.", "aliases": "", "id": "aulas", "dest": "/exemplos/profissionais/aulas/", "mobile": true, "brand": "Traço", "tone": "produto", "english": {"title": "Private tutoring", "description": "Choose a subject and try requesting a lesson.", "brand": "Private tutoring"}},
   {"type": "orcamento", "title": "Buffet para eventos", "description": "Informe o tipo de evento e o número de convidados para cotar.", "aliases": "", "id": "buffet", "dest": "/exemplos/profissionais/buffet/", "mobile": true, "brand": "Mesa de Festa", "tone": "produto", "english": {"title": "Event catering", "description": "Explore a menu, compare event formats or prepare a catering brief."}},
   {"type": "orcamento", "title": "Personal trainer", "description": "Conheça os formatos e teste o pedido de uma conversa inicial.", "aliases": "", "id": "treinamento", "dest": "/exemplos/profissionais/treinamento/", "mobile": false, "brand": "Personal trainer", "tone": "produto", "english": {"title": "Personal trainer", "description": "Explore the formats and try requesting an introductory call.", "brand": "Personal trainer"}},
   {"type": "orcamento", "title": "Ar-condicionado", "description": "Página para pedir orçamento de manutenção empresarial, com três direções visuais.", "aliases": "climatização climapro", "id": "climapro", "dest": "/demos/plano/index.html", "mobile": true, "brand": "ClimaPro", "tone": "clima", "english": {"title": "Air conditioning", "description": "Request a commercial maintenance quote in one of three visual styles."}},
@@ -92,7 +92,8 @@
    jardinagem:'/exemplos/servicos/jardinagem/versoes.html',
    oficina:'/exemplos/servicos/oficina/versoes.html',
    vidracaria:'/exemplos/servicos/vidracaria/versoes.html',
-   reformas:'/exemplos/servicos/reformas/versoes.html'
+   reformas:'/exemplos/servicos/reformas/versoes.html',
+   aulas:'/exemplos/profissionais/aulas/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {

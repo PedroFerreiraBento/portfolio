@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex,follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Traço Aulas Particulares, demonstração de um site para acompanhamento escolar.">
+ <title>Traço · Caminhos</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="traco.css">
+<script defer src="/assets/campanha.js"></script>
+ <script defer src="traco.js"></script></head>
+<body class="caminhos" data-campaign-demo="aulas">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell work-inner">
+  <a class="work-back" href="/?tipo=orcamento&amp;projeto=aulas#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+  <nav aria-label="Versões da demonstração"><a href="./">Aula aberta</a><a href="caminhos.html" aria-current="page">Caminhos</a><a href="semana.html">Semana</a></nav>
+  <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="site-head"><div class="shell site-inner">
+  <a class="brand" href="#conteudo" aria-label="Traço Aulas Particulares, início">Traço<span>AULAS PARTICULARES</span></a>
+  <nav aria-label="Navegação da escola"><a href="#objetivos">Objetivos</a><a href="#pedido">Pedido</a></nav>
+ </div></header>
+ <main id="conteudo"><section class="paths-hero"><div class="shell path-title"><div><h1>Por onde começar?</h1><p>Escolha o que você quer mudar nos estudos e conheça um jeito de começar a primeira aula.</p></div><img src="../estudo-aulas.webp" alt="Mesa de estudo com caderno e materiais de aprendizagem" width="960" height="580" fetchpriority="high" decoding="async"></div></section>
+ <section class="shell paths" id="objetivos"><div class="path-pick"><h2>Seu objetivo</h2><div role="group" aria-label="Objetivos"><button type="button" data-goal-tab="reforco" aria-pressed="true">Reforço escolar</button><button type="button" data-goal-tab="prova" aria-pressed="false">Preparar uma prova</button><button type="button" data-goal-tab="rotina" aria-pressed="false">Organizar a rotina</button></div></div><div><article class="goal-panel" data-goal-panel="reforco"><h2>Quero destravar uma matéria.</h2><p>Reconstrua os passos de um assunto que ficou confuso.</p><ol><li><h3>Escolher um tópico</h3><p>Comece por um exercício ou assunto que gerou dúvida.</p></li><li><h3>Resolver junto</h3><p>O professor e o aluno percorrem um exemplo e observam onde a dúvida surge.</p></li><li><h3>Tentar de novo</h3><p>O aluno aplica a mesma ideia em outro exercício.</p></li></ol><a class="action" href="#pedido" data-use-goal="Reforço escolar">Levar esse objetivo ao pedido <span aria-hidden="true">↗</span></a></article><article class="goal-panel" data-goal-panel="prova" hidden><h2>Tenho uma prova chegando.</h2><p>Organize os assuntos e veja quais valem revisar primeiro.</p><ol><li><h3>Reunir o conteúdo</h3><p>Traga a lista de assuntos ou o material indicado pela escola.</p></li><li><h3>Revisar por blocos</h3><p>Separe o conteúdo em partes e escolha a ordem da revisão.</p></li><li><h3>Praticar no formato da prova</h3><p>Use exercícios parecidos para treinar a leitura e a resolução.</p></li></ol><a class="action" href="#pedido" data-use-goal="Preparar uma prova">Levar esse objetivo ao pedido <span aria-hidden="true">↗</span></a></article><article class="goal-panel" data-goal-panel="rotina" hidden><h2>Quero estudar com regularidade.</h2><p>Monte uma semana que faça sentido para quem estuda.</p><ol><li><h3>Observar a semana</h3><p>Identifique os horários em que costuma conseguir estudar.</p></li><li><h3>Escolher uma prioridade</h3><p>Comece com uma matéria e uma tarefa que caiba no tempo disponível.</p></li><li><h3>Revisar o combinado</h3><p>Na próxima conversa, veja o que funcionou e o que precisa mudar.</p></li></ol><a class="action" href="#pedido" data-use-goal="Organizar a rotina">Levar esse objetivo ao pedido <span aria-hidden="true">↗</span></a></article></div></section>
+ <div class="path-end shell"><section class="request" id="pedido" aria-labelledby="intake-title">
+ <div class="request-head"><h2 id="intake-title">Planejar a primeira conversa</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+ <form class="intake">
+  <p class="carry" data-carry hidden></p>
+  <div class="fields">
+   <label for="subject">Matéria<select id="subject" required><option value="">Escolha a matéria</option><option>Matemática</option><option>Português</option><option>Outra matéria</option></select></label>
+   <label for="goal">Objetivo<select id="goal" required><option value="">Escolha o objetivo</option><option>Reforço escolar</option><option>Preparar uma prova</option><option>Organizar a rotina</option></select></label>
+   <label for="stage">Etapa escolar<select id="stage" required><option value="">Escolha a etapa</option><option>Ensino fundamental</option><option>Ensino médio</option><option>Outra etapa</option></select></label>
+  </div>
+  <button class="action" type="submit" disabled>Simular pedido <span aria-hidden="true">↗</span></button>
+  <p class="demo-note">Simulação local. Nenhuma informação é enviada.</p>
+  <noscript><p>Ative o JavaScript para simular o pedido.</p></noscript>
+ </form>
+ <div class="receipt" hidden>
+  <h3 tabindex="-1">Resumo para a primeira aula</h3><dl data-summary></dl>
+  <p data-message></p>
+  <div class="receipt-actions"><button type="button" class="quiet" data-copy>Copiar resumo</button><button type="button" class="quiet" data-edit>Editar</button><button type="button" class="quiet" data-reset>Recomeçar</button></div>
+  <p class="copy-status" role="status"></p>
+ </div>
+ </section></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Traço Aulas Particulares</strong> · Escola fictícia em uma demonstração da Caos Domado.</p><a class="project-whatsapp" data-project-whatsapp href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20de%20aulas%20particulares%20da%20Tra%C3%A7o%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>
