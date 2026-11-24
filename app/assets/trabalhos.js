@@ -24,6 +24,7 @@
   {"type": "orcamento", "title": "Marcenaria", "description": "Escolha o ambiente e simule um orçamento de móveis sob medida.", "aliases": "", "id": "marcenaria", "dest": "/exemplos/servicos/marcenaria/", "mobile": true, "brand": "Encaixe", "tone": "produto", "english": {"title": "Custom furniture", "description": "Choose a room and try requesting a custom furniture quote."}},
   {"type": "orcamento", "title": "Vidraçaria", "description": "Indique a peça e as dimensões para testar um pedido.", "aliases": "box espelho divisoria vidro sob medida", "id": "vidracaria", "dest": "/exemplos/servicos/vidracaria/", "mobile": true, "brand": "Plano Claro", "tone": "produto", "english": {"title": "Glass installation", "description": "Enter the piece and its dimensions to try a request."}},
   {"type": "catalogo", "title": "Loja de iluminação", "description": "Escolha luminárias, monte uma cotação e veja a mensagem pronta para o WhatsApp.", "aliases": "", "id": "catalogo", "dest": "/assets/casos/catalogo.html", "mobile": true, "brand": "Luz & Forma", "tone": "produto", "english": {"title": "Lighting store", "description": "Choose fixtures, build a quote request and see the message ready for WhatsApp."}},
+  {"type": "catalogo", "title": "Uniformes personalizados", "description": "Escolha peças pela rotina, monte a grade da equipe ou posicione a marca no uniforme.", "aliases": "uniforme camisetas confecção bordado estampa avental polo equipe", "id": "uniformes", "dest": "/exemplos/catalogos/uniformes/", "mobile": true, "brand": "Trama de Ofício", "tone": "produto", "english": {"title": "Custom uniforms", "description": "Browse by trade, fill a size grid or place a mark on the uniform.", "brand": "Trama de Ofício"}},
   {"type": "agendamento", "title": "Agenda para conversar sobre um projeto", "description": "Confira os dias livres e simule a escolha de um horário.", "aliases": "", "id": "agenda", "dest": "/assets/casos/agenda.html", "mobile": true, "brand": "Agenda online", "tone": "saude", "english": {"title": "Project consultation", "description": "Check available days and try booking a time."}},
   {"type": "operacao", "title": "Aprovação de site", "description": "Revise uma entrega, registre um ajuste e veja a aprovação.", "aliases": "", "id": "painel", "dest": "/assets/casos/painel.html", "mobile": true, "brand": "Aprovação de site", "tone": "legal", "english": {"title": "Website approval", "description": "Review a delivery, request a change and see the approval step.", "brand": "Website approval"}},
   {"type": "operacao", "title": "Da loja à expedição", "description": "Acompanhe um pedido simulado até a fila de separação.", "aliases": "", "id": "integracao", "dest": "/assets/casos/integracao.html", "mobile": false, "brand": "Da loja à expedição", "tone": "produto", "english": {"title": "Order to dispatch", "description": "Follow a sample order to the packing queue.", "brand": "Order to dispatch"}},
@@ -100,7 +101,8 @@
    esmalteria:'/exemplos/sites/esmalteria/versoes.html',
    treinamento:'/exemplos/profissionais/treinamento/versoes.html',
    'banho-e-tosa':'/exemplos/servicos/banho-e-tosa/versoes.html',
-   'mudancas':'/exemplos/servicos/mudancas/versoes.html'
+   'mudancas':'/exemplos/servicos/mudancas/versoes.html',
+   'uniformes':'/exemplos/catalogos/uniformes/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {

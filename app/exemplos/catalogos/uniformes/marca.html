@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Escolha a peça, a posição e a técnica da marca para preparar a personalização.">
+  <title>Trama de Ofício · Posicione a marca</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="trama.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="trama.js" defer></script>
+</head>
+<body class="marca" data-campaign-demo="uniformes">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="portfolio">
+    <div class="frame top">
+      <a class="back" href="/?tipo=catalogo&amp;projeto=uniformes#trabalhos"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração"><a href="./">Vitrine por ofício</a><a href="grade.html">Grade da equipe</a><a href="marca.html" aria-current="page">Posicione a marca</a></nav>
+      <div data-demo-navigation-contact><a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20de%20uniformes%20Trama%20de%20Of%C3%ADcio.%20Quero%20conversar%20sobre%20um%20site%20para%20minha%20empresa." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+    </div>
+  </header>
+  <header class="brand">
+    <div class="frame brand-row"><a class="logo" href="#conteudo">Trama de Ofício<span>Uniformes personalizados</span></a><a href="#composicao">Abrir composição <span aria-hidden="true">↓</span></a></div>
+  </header>
+  <main id="conteudo" class="frame marca-main">
+    <section class="ateliere">
+      <div class="marca-copy"><h1>Onde entra a sua marca?</h1><p>Escolha a peça e veja a posição da aplicação na prévia. Depois, compare bordado e estampa.</p></div>
+      <form id="composicao" data-mode="marca">
+        <div class="composition" data-fields>
+          <div class="artboard">
+            <svg data-artboard data-piece="Camiseta" data-position="Peito esquerdo" viewBox="0 0 300 235" aria-hidden="true">
+              <path class="shirt" d="M103 30 63 47 30 89 68 114 84 97 84 208H216V97L232 114 270 89 237 47 197 30 179 29Q151 65 121 29Z"/>
+              <path class="apron" d="M119 24 119 68 103 83 88 211H212L197 83 181 68 181 24Z M122 24Q151 9 178 24M128 150H172V177H128Z"/>
+              <path class="seam shirt" d="M105 35Q151 88 195 35 M91 198H209"/>
+              <rect class="placement" width="32" height="17" rx="3"/>
+            </svg>
+            <output data-preview aria-live="polite">Camiseta · Peito esquerdo</output><p>O contorno indica a área sugerida da marca.</p>
+          </div>
+          <div class="controls">
+            <fieldset><legend>Peça</legend><div class="sectors"><label><input type="radio" name="modelo" value="Camiseta" checked><span>Camiseta</span></label><label><input type="radio" name="modelo" value="Avental"><span>Avental</span></label></div></fieldset>
+            <fieldset><legend>Posição</legend><div class="sectors"><label><input type="radio" name="posicao" value="Peito esquerdo" checked><span>Peito esquerdo</span></label><label><input type="radio" name="posicao" value="Centro do peito"><span>Centro do peito</span></label></div></fieldset>
+            <fieldset class="methods"><legend>Acabamento</legend>
+              <label><input type="radio" name="tecnica" value="Bordado" required><span><strong>Bordado</strong><small>Aplicação em linha, com relevo.</small></span></label>
+              <label><input type="radio" name="tecnica" value="Estampa" required><span><strong>Estampa</strong><small>Aplicação plana sobre o tecido.</small></span></label>
+            </fieldset>
+            <button class="primary" type="submit">Revisar personalização</button>
+          </div>
+        </div>
+      <section class="receipt" hidden data-receipt tabindex="-1" aria-labelledby="titulo-resumo">
+        <h2 id="titulo-resumo">Sua lista para cotação</h2>
+        <dl data-summary></dl>
+        <p>Esta é uma demonstração. Nenhuma cotação foi enviada.</p>
+        <div class="actions"><button type="button" class="primary" data-copy>Copiar lista</button><button type="button" data-edit>Editar escolhas</button><button type="button" data-reset>Recomeçar</button></div>
+        <p class="status" data-status role="status"></p>
+      </section>
+      </form>
+    </section>
+    <aside class="finish"><img src="avental.webp" width="750" height="500" alt="Avental de sarja ferrugem pendurado em um ateliê" loading="lazy"><div><h2>Detalhes para a cotação</h2><p>Tenha o arquivo da marca à mão. O tamanho e o acabamento da aplicação podem ser combinados antes da produção.</p></div></aside>
+  </main>
+  <footer><div class="frame"><span>Trama de Ofício</span><a href="versoes.html">Comparar versões <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

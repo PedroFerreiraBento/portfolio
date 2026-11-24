@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Encontre peças por tipo de trabalho e monte uma lista para cotação.">
+  <title>Trama de Ofício · Vitrine por ofício</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="trama.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="trama.js" defer></script>
+</head>
+<body class="vitrine" data-campaign-demo="uniformes">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="portfolio">
+    <div class="frame top">
+      <a class="back" href="/?tipo=catalogo&amp;projeto=uniformes#trabalhos"><span aria-hidden="true">←</span> Trabalhos</a>
+      <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Vitrine por ofício</a><a href="grade.html">Grade da equipe</a><a href="marca.html">Posicione a marca</a></nav>
+      <div data-demo-navigation-contact><a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20de%20uniformes%20Trama%20de%20Of%C3%ADcio.%20Quero%20conversar%20sobre%20um%20site%20para%20minha%20empresa." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+    </div>
+  </header>
+  <header class="brand">
+    <div class="frame brand-row"><a class="logo" href="#conteudo">Trama de Ofício<span>Uniformes personalizados</span></a><a href="#pecas">Ver peças <span aria-hidden="true">↓</span></a></div>
+  </header>
+  <main id="conteudo">
+    <section class="frame splash">
+      <div><h1>Uniformes que vestem o seu ofício.</h1><p>Encontre peças pela rotina da equipe e leve a seleção para uma cotação.</p><a href="#pecas" class="primary">Explorar a vitrine <span aria-hidden="true">↓</span></a></div>
+      <img src="equipe.webp" alt="Equipe de cafeteria usa camiseta clara e avental verde-oliva" width="750" height="500" fetchpriority="high">
+    </section>
+    <section class="frame showroom" id="pecas">
+      <div class="section-title"><h2>O que sua equipe usa?</h2><p>As sugestões mudam conforme o tipo de trabalho. Você pode guardar peças de várias seleções na mesma lista.</p></div>
+      <form data-mode="vitrine">
+        <div data-fields>
+          <fieldset class="sectors"><legend>Tipo de trabalho</legend>
+            <label><input type="radio" name="setor" value="cafe" checked><span>Cafés e restaurantes</span></label>
+            <label><input type="radio" name="setor" value="atendimento"><span>Lojas e recepção</span></label>
+            <label><input type="radio" name="setor" value="oficina"><span>Oficinas e serviços</span></label>
+          </fieldset>
+          <div class="products">
+            <label data-sectors="cafe"><img src="avental.webp" width="750" height="500" loading="lazy" alt=""><span><strong>Avental de sarja</strong><small>Bolso frontal para a rotina de balcão.</small><span class="select-item"><input type="checkbox" name="peca" value="Avental de sarja"> Incluir na lista</span></span></label>
+            <label data-sectors="cafe atendimento"><img src="detalhe.webp" width="750" height="500" loading="lazy" alt=""><span><strong>Camiseta de algodão</strong><small>Base leve para compor com outras peças.</small><span class="select-item"><input type="checkbox" name="peca" value="Camiseta de algodão"> Incluir na lista</span></span></label>
+            <label data-sectors="atendimento oficina" hidden><img src="polo.webp" width="540" height="720" loading="lazy" alt=""><span><strong>Polo de piquê</strong><small>Gola estruturada para atendimento e serviço.</small><span class="select-item"><input type="checkbox" name="peca" value="Polo de piquê"> Incluir na lista</span></span></label>
+            <label data-sectors="oficina" hidden><img src="malha.webp" width="540" height="720" loading="lazy" alt=""><span><strong>Camiseta de malha encorpada</strong><small>Uma opção com tecido de gramatura mais alta.</small><span class="select-item"><input type="checkbox" name="peca" value="Camiseta de malha encorpada"> Incluir na lista</span></span></label>
+          </div>
+          <div class="bottom-bar"><output data-tally aria-live="polite">Nenhuma peça na lista</output><button class="primary" type="submit">Revisar seleção</button></div>
+          <p class="status" data-error role="status"></p>
+        </div>
+      <section class="receipt" hidden data-receipt tabindex="-1" aria-labelledby="titulo-resumo">
+        <h2 id="titulo-resumo">Sua lista para cotação</h2>
+        <dl data-summary></dl>
+        <p>Esta é uma demonstração. Nenhuma cotação foi enviada.</p>
+        <div class="actions"><button type="button" class="primary" data-copy>Copiar lista</button><button type="button" data-edit>Editar escolhas</button><button type="button" data-reset>Recomeçar</button></div>
+        <p class="status" data-status role="status"></p>
+      </section>
+      </form>
+    </section>
+  </main>
+  <footer><div class="frame"><span>Trama de Ofício</span><a href="versoes.html">Comparar versões <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>
