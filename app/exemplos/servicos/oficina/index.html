@@ -1,49 +1,50 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="robots" content="noindex,nofollow">
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
- <meta name="description" content="Oficina independente. Site demonstrativo do Caos Domado.">
- <title>Pista 22 | Oficina independente</title>
+ <meta name="description" content="Demonstração de site da Pista 22, oficina mecânica fictícia com pedido de atendimento simulado.">
+ <title>Pista 22 Oficina · Visita</title>
  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
- <link rel="stylesheet" href="../demo.css">
- <script src="../demo.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <link rel="stylesheet" href="pista.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="pista.js" defer></script>
 </head>
-<body data-campaign-demo="oficina" class="oficina">
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<aside class="demo-strip" aria-label="Demonstração do Caos Domado">
- <a href="/?tipo=orcamento&amp;projeto=oficina#trabalhos">Voltar aos exemplos</a><span>Site demonstrativo · Marca fictícia</span>
-</aside>
-<header class="site-header">
- <a class="wordmark" href="#conteudo">Pista 22</a>
- <nav aria-label="Navegação do exemplo"><a href="#servicos">Serviços</a><a href="#pedido">Orçamento</a></nav>
-</header>
-<main id="conteudo">
- <section class="hero"><div class="hero-copy"><h1>Seu carro.<br><em>Sem mistério.</em></h1><p>Revisão, diagnóstico e manutenção. Você explica o que percebeu no carro e a oficina orienta a próxima etapa.</p><a class="action" href="#pedido">Iniciar triagem</a></div><figure><img src="./hero.webp" width="1440" height="960" fetchpriority="high" alt="Mecânico examina o motor de um carro azul com o capô aberto."><figcaption>Imagem ilustrativa</figcaption></figure></section>
- <section class="section services" id="servicos"><h2>Serviços da oficina</h2><div><article><h3>Revisão preventiva</h3><p>Verificação dos itens de manutenção conforme o uso do veículo.</p></article><article><h3>Freios e suspensão</h3><p>Inspeção dos componentes antes de definir o reparo.</p></article><article><h3>Diagnóstico</h3><p>Investigação de ruído, luz no painel ou mudança de desempenho.</p></article></div></section>
- <aside class="section note"><h2>Você aprova antes do reparo.</h2><p>A equipe confirma os serviços propostos e conversa com você antes de iniciar o trabalho.</p></aside>
- <section class="section form-section" id="pedido" aria-labelledby="pedido-heading">
-  <div class="form-intro"><h2 id="pedido-heading">Triagem do veículo</h2><p>Selecione o serviço e as características do carro para a oficina orientar o primeiro atendimento.</p></div>
-  <form data-request>
-  <fieldset><legend>Serviço</legend><label class="choice"><input type="radio" name="campo-0" data-field="Serviço" value="Revisão preventiva" required> Revisão preventiva</label><label class="choice"><input type="radio" name="campo-0" data-field="Serviço" value="Freios e suspensão"> Freios e suspensão</label><label class="choice"><input type="radio" name="campo-0" data-field="Serviço" value="Diagnóstico de falha"> Diagnóstico de falha</label></fieldset>
-  <label>Ano do veículo<select name="campo-1" data-field="Ano do veículo" required><option value="">Selecione</option><option>Até 2015</option><option>2016 a 2020</option><option>2021 ou mais recente</option></select></label>
-  <label>Situação atual<select name="campo-2" data-field="Situação atual" required><option value="">Selecione</option><option>Carro em uso normal</option><option>Apresenta ruído ou luz no painel</option><option>Carro não está em uso</option></select></label>
-   <p class="trial-note">Use as opções de teste. O pedido fica apenas nesta página.</p>
-   <button class="action" type="submit" disabled>Ver ficha de teste</button>
-   <noscript><p>Ative o JavaScript para montar o pedido de teste.</p></noscript>
-  </form>
-  <section class="result" data-result hidden aria-labelledby="result-title">
-   <h3 tabindex="-1" id="result-title">O que a equipe receberia</h3>
-   <dl data-summary></dl>
-   <p>Simulação concluída. Nenhum pedido foi enviado.</p>
-   <button type="button" data-edit>Editar pedido</button>
-  </section>
- </section>
-</main>
-<footer><strong>Pista 22</strong><span>Demonstração criada pelo Caos Domado.</span><a href="/?tipo=orcamento&amp;projeto=oficina#trabalhos">Ver outros exemplos</a></footer>
-</body>
-</html>
+<body class="visita" data-campaign-demo="oficina">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=oficina#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Visita</a><a href="caderno.html">Caderno</a><a href="escuta.html">Escuta</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="garage-header"><div class="shell garage-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Pista 22, início">Pista <b>22</b><small>Oficina mecânica</small></a>
+  <nav aria-label="Navegação da oficina"><a href="#etapas">A visita</a><a href="#pedido">Pedir atendimento</a></nav>
+ </div></header>
+ <main id="conteudo"><section class="visit-hero"><img src="pista-recepcao-720.webp" srcset="pista-recepcao-720.webp 720w, pista-recepcao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Entrada de uma oficina com carro parado e atendimento em andamento." fetchpriority="high" decoding="async"><div class="shell visit-copy"><h1>Entre na oficina.</h1><p>Uma visita à Pista 22, da conversa no balcão à devolutiva da equipe.</p><a class="action" href="#etapas">Fazer a visita ↓</a></div></section>
+  <div id="etapas" class="shell visit-route"><nav aria-label="Paradas da visita" class="route-nav"><a href="#recepcao">Chegada</a><a href="#inspecao">Avaliação</a><a href="#retorno">Devolutiva</a></nav><div><article class="visit-stop" id="recepcao"><figure><img src="pista-recepcao-720.webp" srcset="pista-recepcao-720.webp 720w, pista-recepcao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Oficina com consultor, cliente e carro estacionado." loading="lazy" decoding="async"><figcaption>Chegada na Pista 22 · cena ilustrativa</figcaption></figure><div><h2>A conversa abre o atendimento.</h2><p>Conte o que mudou, quando percebeu e o que gostaria que a oficina avaliasse.</p></div></article><article class="visit-stop" id="inspecao"><figure><img src="pista-inspecao-720.webp" srcset="pista-inspecao-720.webp 720w, pista-inspecao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Mecânico inspeciona visualmente uma roda com o carro parado." loading="lazy" decoding="async"><figcaption>Avaliação na Pista 22 · cena ilustrativa</figcaption></figure><div><h2>A equipe reúne as informações.</h2><p>O veículo é avaliado pela equipe. A conversa inicial ajuda a organizar o que observar e quais dúvidas esclarecer.</p></div></article><article class="visit-stop" id="retorno"><figure><img src="pista-retorno-720.webp" srcset="pista-retorno-720.webp 720w, pista-retorno-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Consultora da oficina entrega uma pasta ao cliente perto do carro." loading="lazy" decoding="async"><figcaption>Devolutiva na Pista 22 · cena ilustrativa</figcaption></figure><div><h2>O que foi observado volta para você.</h2><p>A oficina explica o que identificou e conversa sobre os próximos passos. Você pode esclarecer o escopo antes de aprovar o serviço.</p></div></article></div></div>
+  <section class="shell faq" id="duvidas"><h2>Antes de levar o veículo</h2><div><details><summary>A solicitação já agenda um horário?</summary><p>O pedido reúne informações. Horário e disponibilidade são combinados na conversa com a oficina.</p></details><details><summary>Quando conversamos sobre o serviço?</summary><p>A devolutiva é o momento de entender o que foi observado e conversar sobre o escopo antes de aprovar.</p></details><details><summary>O que preciso informar no pedido?</summary><p>O motivo, uma observação e o tipo de veículo. Esta demonstração não pede cadastro ou placa.</p></details></div></section>
+  <div class="request-band"><div class="shell request-layout"><div><h2>O que você quer conversar com a oficina?</h2><p>Comece com a sua observação. A equipe pode perguntar mais na primeira conversa.</p></div><section class="request" id="pedido" aria-labelledby="request-title">
+   <div class="request-head"><h2 id="request-title">Preparar atendimento</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+   <form class="intake">
+    <fieldset data-step="0"><legend>O que trouxe você?</legend><label for="topic">Motivo do atendimento<select id="topic" required><option value="">Selecione o motivo</option><option value="revisao">Revisão preventiva</option><option value="freios">Freios e suspensão</option><option value="observacao">Algo observado no veículo</option></select></label></fieldset>
+    <fieldset data-step="1"><legend>O que vale mencionar?</legend><label for="detail"><span data-detail-label>Detalhe para a oficina</span><select id="detail" required disabled><option value="">Selecione o motivo primeiro</option></select></label></fieldset>
+    <fieldset data-step="2"><legend>Para que tipo de veículo?</legend><label for="vehicle">Tipo de veículo<select id="vehicle" required><option value="">Selecione o veículo</option><option>Carro de passeio</option><option>Utilitário leve</option><option>Ainda não quero informar</option></select></label></fieldset>
+
+    <button class="action submit" type="submit" disabled>Simular atendimento <span aria-hidden="true">↗</span></button>
+    <p class="demo-note">Simulação local. Sem identificação do veículo ou envio de dados.</p>
+    <noscript><p>Ative o JavaScript para experimentar a simulação.</p></noscript>
+   </form>
+   <div class="receipt" hidden>
+    <h3 tabindex="-1">Pedido de atendimento simulado</h3>
+    <dl><div><dt>Protocolo</dt><dd data-code></dd></div><div><dt>Motivo</dt><dd data-summary-topic></dd></div><div><dt>Observação</dt><dd data-summary-detail></dd></div><div><dt>Veículo</dt><dd data-summary-vehicle></dd></div></dl>
+    <p data-checklist-summary hidden></p><p data-message></p>
+    <div class="receipt-actions"><button class="quiet" type="button" data-copy>Copiar pedido</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div>
+    <p role="status" class="copy-status"></p>
+   </div>
+  </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Pista 22</strong> · Oficina fictícia em demonstração da Caos Domado. Imagens ilustrativas.</p><a class="project-whatsapp text-link" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Pista%2022%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20oficina." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>

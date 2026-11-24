@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de site da Pista 22, oficina mecânica fictícia com pedido de atendimento simulado.">
+ <title>Pista 22 Oficina · Escuta</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="pista.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="pista.js" defer></script>
+</head>
+<body class="escuta" data-campaign-demo="oficina">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=oficina#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./">Visita</a><a href="caderno.html">Caderno</a><a href="escuta.html" aria-current="page">Escuta</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="garage-header"><div class="shell garage-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Pista 22, início">Pista <b>22</b><small>Oficina mecânica</small></a>
+  <nav aria-label="Navegação da oficina"><a href="#pedido">Abrir triagem</a><a href="#retorno">Como a equipe recebe</a></nav>
+ </div></header>
+ <main id="conteudo"><section class="listen-intro"><div class="shell"><h1>O que você percebeu no veículo?</h1><p>Organize sua observação em três respostas para a equipe da oficina.</p></div></section>
+  <section class="shell listen-workspace">
+   <nav aria-label="Etapas da triagem" class="step-list"><ol><li aria-current="step">Motivo</li><li>Observação</li><li>Veículo</li></ol><p data-step-status role="status" class="step-status"></p></nav>
+   <section class="request" id="pedido" aria-labelledby="request-title">
+   <div class="request-head"><h2 id="request-title">Preparar atendimento</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+   <form class="intake" data-wizard>
+    <fieldset data-step="0"><legend>O que trouxe você?</legend><label for="topic">Motivo do atendimento<select id="topic" required><option value="">Selecione o motivo</option><option value="revisao">Revisão preventiva</option><option value="freios">Freios e suspensão</option><option value="observacao">Algo observado no veículo</option></select></label></fieldset>
+    <fieldset data-step="1"><legend>O que vale mencionar?</legend><label for="detail"><span data-detail-label>Detalhe para a oficina</span><select id="detail" required disabled><option value="">Selecione o motivo primeiro</option></select></label></fieldset>
+    <fieldset data-step="2"><legend>Para que tipo de veículo?</legend><label for="vehicle">Tipo de veículo<select id="vehicle" required><option value="">Selecione o veículo</option><option>Carro de passeio</option><option>Utilitário leve</option><option>Ainda não quero informar</option></select></label></fieldset>
+    <div class="wizard-controls" hidden><button type="button" class="quiet" data-back>Voltar</button><button type="button" class="action" data-next>Continuar →</button></div>
+    <button class="action submit" type="submit" disabled>Simular atendimento <span aria-hidden="true">↗</span></button>
+    <p class="demo-note">Simulação local. Sem identificação do veículo ou envio de dados.</p>
+    <noscript><p>Ative o JavaScript para experimentar a simulação.</p></noscript>
+   </form>
+   <div class="receipt" hidden>
+    <h3 tabindex="-1">Pedido de atendimento simulado</h3>
+    <dl><div><dt>Protocolo</dt><dd data-code></dd></div><div><dt>Motivo</dt><dd data-summary-topic></dd></div><div><dt>Observação</dt><dd data-summary-detail></dd></div><div><dt>Veículo</dt><dd data-summary-vehicle></dd></div></dl>
+    <p data-checklist-summary hidden></p><p data-message></p>
+    <div class="receipt-actions"><button class="quiet" type="button" data-copy>Copiar pedido</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div>
+    <p role="status" class="copy-status"></p>
+   </div>
+  </section>
+  </section>
+  <section class="listen-after" id="retorno"><div class="shell"><h2>O que a equipe recebe</h2><div><p>O resumo lista o assunto, o que você observou e o tipo de veículo. Em um atendimento real, a equipe usaria isso para organizar a conversa.</p><p>A triagem registra o seu relato. A avaliação do veículo é feita pela oficina.</p></div></div></section>
+  <section class="shell faq" id="duvidas"><h2>Antes de levar o veículo</h2><div><details><summary>O pedido dá um diagnóstico?</summary><p>A triagem reúne o que você informou. Diagnóstico e avaliação dependem da oficina.</p></details><details><summary>Posso testar sem saber o tipo do veículo?</summary><p>Você pode escolher “Ainda não quero informar”.</p></details><details><summary>Como corrijo minhas respostas?</summary><p>Use Voltar enquanto preenche ou Editar depois de gerar o resumo.</p></details></div></section></main>
+ <footer><div class="shell footer-inner"><p><strong>Pista 22</strong> · Oficina fictícia em demonstração da Caos Domado. Imagens ilustrativas.</p><a class="project-whatsapp text-link" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Pista%2022%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20oficina." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="robots" content="noindex, follow">
+ <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+ <meta name="description" content="Demonstração de site da Pista 22, oficina mecânica fictícia com pedido de atendimento simulado.">
+ <title>Pista 22 Oficina · Caderno</title>
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+ <link rel="stylesheet" href="pista.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="pista.js" defer></script>
+</head>
+<body class="caderno" data-campaign-demo="oficina">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=oficina#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./">Visita</a><a href="caderno.html" aria-current="page">Caderno</a><a href="escuta.html">Escuta</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="garage-header"><div class="shell garage-inner">
+  <a class="wordmark" href="#conteudo" aria-label="Pista 22, início">Pista <b>22</b><small>Oficina mecânica</small></a>
+  <nav aria-label="Navegação da oficina"><a href="#registros">Meu caderno</a><a href="#pedido">Preparar atendimento</a></nav>
+ </div></header>
+ <main id="conteudo"><section class="shell book-hero"><div><h1>O que você já sabe sobre o carro.</h1><p>Marque quais informações tem à mão. O caderno leva suas anotações ao pedido, sem pedir documentos.</p><a class="action" href="#registros">Abrir meu caderno ↓</a></div><figure><img src="pista-caderno-720.webp" srcset="pista-caderno-720.webp 720w, pista-caderno-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Caderno de manutenção aberto em bancada com chave de carro." fetchpriority="high" decoding="async"><figcaption>Caderno de manutenção · cena ilustrativa</figcaption></figure></section>
+  <section id="registros" class="shell book-sheet"><div class="book-margin"><h2>Antes da próxima visita</h2><p>Marque o que está disponível. A conversa também pode começar com informações em aberto.</p><p data-count role="status">Nenhuma informação marcada.</p><a class="text-link" href="#pedido">Levar ao pedido <span aria-hidden="true">↗</span></a></div>
+   <div class="book-checks">
+    <label><input type="checkbox" data-record="Data da última revisão"><span><strong>Data da última revisão</strong><small>Aproximada já serve para situar a conversa.</small></span></label>
+    <label><input type="checkbox" data-record="Quilometragem atual"><span><strong>Quilometragem atual</strong><small>Um registro recente ajuda a dar contexto.</small></span></label>
+    <label><input type="checkbox" data-record="Serviços anteriores"><span><strong>Serviços anteriores</strong><small>O que foi feito e se ficou algo a acompanhar.</small></span></label>
+    <label><input type="checkbox" data-record="Quando percebi a mudança"><span><strong>Quando percebi a mudança</strong><small>O momento em que você notou algo diferente.</small></span></label>
+   </div>
+  </section>
+  <section class="shell book-note"><figure><img src="pista-encontro-720.webp" srcset="pista-encontro-720.webp 720w, pista-encontro-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" width="1440" height="960" alt="Mecânico e motorista conversam ao lado de um veículo na oficina." loading="lazy" decoding="async"></figure><div><h2>Histórico é ponto de partida.</h2><p>Na visita, mostre o que você já tem e explique o que falta. A avaliação da equipe complementa o registro.</p></div></section>
+  <section class="shell faq" id="duvidas"><h2>Antes de levar o veículo</h2><div><details><summary>Preciso ter todas as informações?</summary><p>Não. Marque o que está disponível e leve as dúvidas para a conversa.</p></details><details><summary>O caderno guarda documentos?</summary><p>As marcações só aparecem no resumo de teste nesta página. Não há anexos.</p></details><details><summary>Posso corrigir as opções?</summary><p>Sim. Use Editar no resumo e volte ao caderno para ajustar as marcações.</p></details></div></section>
+  <div class="request-band"><div class="shell request-layout"><div><h2>Da anotação ao pedido.</h2><p>O resumo junta o motivo da visita com o que você já tem à mão.</p></div><section class="request" id="pedido" aria-labelledby="request-title">
+   <div class="request-head"><h2 id="request-title">Preparar atendimento</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+   <form class="intake">
+    <fieldset data-step="0"><legend>O que trouxe você?</legend><label for="topic">Motivo do atendimento<select id="topic" required><option value="">Selecione o motivo</option><option value="revisao">Revisão preventiva</option><option value="freios">Freios e suspensão</option><option value="observacao">Algo observado no veículo</option></select></label></fieldset>
+    <fieldset data-step="1"><legend>O que vale mencionar?</legend><label for="detail"><span data-detail-label>Detalhe para a oficina</span><select id="detail" required disabled><option value="">Selecione o motivo primeiro</option></select></label></fieldset>
+    <fieldset data-step="2"><legend>Para que tipo de veículo?</legend><label for="vehicle">Tipo de veículo<select id="vehicle" required><option value="">Selecione o veículo</option><option>Carro de passeio</option><option>Utilitário leve</option><option>Ainda não quero informar</option></select></label></fieldset>
+
+    <button class="action submit" type="submit" disabled>Simular atendimento <span aria-hidden="true">↗</span></button>
+    <p class="demo-note">Simulação local. Sem identificação do veículo ou envio de dados.</p>
+    <noscript><p>Ative o JavaScript para experimentar a simulação.</p></noscript>
+   </form>
+   <div class="receipt" hidden>
+    <h3 tabindex="-1">Pedido de atendimento simulado</h3>
+    <dl><div><dt>Protocolo</dt><dd data-code></dd></div><div><dt>Motivo</dt><dd data-summary-topic></dd></div><div><dt>Observação</dt><dd data-summary-detail></dd></div><div><dt>Veículo</dt><dd data-summary-vehicle></dd></div></dl>
+    <p data-checklist-summary hidden></p><p data-message></p>
+    <div class="receipt-actions"><button class="quiet" type="button" data-copy>Copiar pedido</button><button class="quiet" type="button" data-edit>Editar</button><button class="quiet" type="button" data-reset>Recomeçar</button></div>
+    <p role="status" class="copy-status"></p>
+   </div>
+  </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Pista 22</strong> · Oficina fictícia em demonstração da Caos Domado. Imagens ilustrativas.</p><a class="project-whatsapp text-link" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Pista%2022%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20oficina." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body></html>
