@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Monte um relato para conversar com a oficina de bicicletas.">
+  <title>Oficina Contrapedal · Diário do pedal</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="contrapedal.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="contrapedal.js" defer></script>
+</head>
+<body class="diario" data-campaign-demo="bicicletas">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="portfolio"><div class="wrap portfolio-row">
+    <a href="/?tipo=agendamento&amp;projeto=bicicletas#trabalhos" class="back"><span aria-hidden="true">←</span> Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Diário do pedal</a><a href="bancada.html">Bancada</a><a href="encaixe.html">Encaixe</a></nav>
+    <div data-demo-navigation-contact><a href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Oficina%20Contrapedal%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div></header>
+  <header class="workshop"><div class="wrap workshop-row"><a href="#conteudo" class="wordmark"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 12l4-4m-4 4v6m0-6H6"/></svg><span>Oficina Contrapedal<small>Oficina de bicicletas</small></span></a><a href="#fluxo">Montar relato <span aria-hidden="true">↓</span></a></div></header>
+  <main id="conteudo">
+    <section class="wrap journal-hero">
+      <div class="journal-copy">
+        <h1>O que você sentiu no pedal?</h1>
+        <p>Um ruído na subida ou uma marcha que escapou? Registre o que percebeu e leve um relato claro para a oficina.</p>
+        <a class="primary" href="#fluxo">Começar o relato <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure><img src="rua.webp" alt="Bicicleta urbana verde apoiada junto a uma fachada de tijolos" width="768" height="512" fetchpriority="high"><figcaption>O caminho e o momento ajudam a descrever o que mudou.</figcaption></figure>
+    </section>
+    <section class="journal-band" id="fluxo"><div class="wrap journal-layout">
+      <div><h2>Monte seu relato</h2><p>Escolha as situações que mais se aproximam do seu pedal. A oficina usa o contexto para orientar a conversa.</p></div>
+      <form data-flow="diario">
+        <div data-fields>
+          <fieldset><legend>Como você usa a bicicleta?</legend><div class="choices">
+            <label><input type="radio" name="uso" value="Dia a dia" required><span>Dia a dia</span></label>
+            <label><input type="radio" name="uso" value="Passeios"><span>Passeios</span></label>
+            <label><input type="radio" name="uso" value="Treino"><span>Treino</span></label>
+          </div></fieldset>
+          <fieldset><legend>O que chamou sua atenção?</legend><div class="choices">
+            <label><input type="radio" name="sinal" value="Ruído ou vibração" required><span>Ruído ou vibração</span></label>
+            <label><input type="radio" name="sinal" value="Marchas irregulares"><span>Marchas irregulares</span></label>
+            <label><input type="radio" name="sinal" value="Mudança na frenagem"><span>Mudança na frenagem</span></label>
+            <label><input type="radio" name="sinal" value="Quero uma revisão"><span>Quero uma revisão</span></label>
+          </div></fieldset>
+          <fieldset><legend>Em que momento você percebeu?</legend><div class="choices">
+            <label><input type="radio" name="momento" value="Ao pedalar" required><span>Ao pedalar</span></label>
+            <label><input type="radio" name="momento" value="Ao frear"><span>Ao frear</span></label>
+            <label><input type="radio" name="momento" value="Em piso irregular"><span>Em piso irregular</span></label>
+            <label><input type="radio" name="momento" value="Não tenho certeza"><span>Não tenho certeza</span></label>
+          </div></fieldset>
+          <button class="primary" type="submit">Revisar relato</button>
+        </div>
+        <section class="receipt" data-receipt hidden tabindex="-1" aria-labelledby="recibo">
+          <h2 id="recibo">Resumo da simulação</h2>
+          <p>Referência CP-DEMO-001. Este resumo fica na demonstração.</p>
+          <dl data-summary></dl>
+          <div class="actions"><button class="primary" type="button" data-copy>Copiar resumo</button><button class="secondary" type="button" data-edit>Editar</button><button class="plain" type="button" data-reset>Recomeçar</button></div>
+          <p data-status role="status"></p>
+        </section>
+      </form>
+    </div></section>
+  </main>
+  <footer><div class="wrap foot"><span>Oficina Contrapedal · Demonstração</span><a href="versoes.html">Comparar versões <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

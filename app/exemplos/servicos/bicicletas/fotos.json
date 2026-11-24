@@ -1,0 +1,24 @@
+{
+  "tool": "ImageGen",
+  "prompt": "Landscape contact sheet, exactly four edge-to-edge equal photographic quadrants with hard splits at center, no borders or words. Each quadrant separate photo for website bike shop. Top left editorial wide with olive commuter bicycle parked against a terracotta urban São Paulo building near a cafe unbranded, front end of bike to the center, warm angled late-afternoon sun. Top right side close-up black-gloved mechanic hand working on rear wheel of orange bicycle on a repair stand in industrial workshop, credible realistic anatomy and parts, warm shadows. Bottom left wide airy daylight bicycle shop entry with actual bicycles in neat racks, pale concrete and cobalt-blue door jamb, no signage, straight perpendicular composition. Bottom right closeup black bicycle cassette and chain on wooden repair bench, deep brown and copper colors. Premium documentary film still, no lettering, no overlays or watermarks. Bicycle proportions and construction accurate.",
+  "files": {
+    "rua.webp": [
+      0,
+      0,
+      768,
+      512
+    ],
+    "mecanica.webp": [
+      768,
+      0,
+      1536,
+      512
+    ],
+    "entrada.webp": [
+      0,
+      512,
+      768,
+      1024
+    ]
+  }
+}
