@@ -9,7 +9,7 @@
   {"type": "orcamento", "title": "Dentista", "description": "Uma página de clínica com os atendimentos e o caminho para solicitar avaliação.", "aliases": "odontologia clínica odontológica", "id": "dentista", "dest": "/exemplos/sites/dentista/", "mobile": true, "brand": "Odonto Premium", "tone": "saude", "english": {"title": "Dental practice", "description": "Explore the treatments and see how to request a consultation."}},
   {"type": "orcamento", "title": "Psicologia", "description": "Conheça a abordagem e simule o primeiro contato.", "aliases": "", "id": "psicologia", "dest": "/exemplos/sites/psicologia/", "mobile": false, "brand": "Psicologia", "tone": "produto", "english": {"title": "Psychology practice", "description": "Learn about the approach and try making an enquiry.", "brand": "Psychology practice"}},
   {"type": "orcamento", "title": "Advocacia", "description": "Áreas de atuação e um primeiro contato reservado, em um site completo.", "aliases": "advogado advogada escritório jurídico", "id": "advocacia", "dest": "/exemplos/profissionais/advocacia/", "mobile": true, "brand": "Pátio Advocacia", "tone": "legal", "english": {"title": "Law firm", "description": "Explore practice areas and try making an initial enquiry."}},
-  {"type": "orcamento", "title": "Arquitetura", "description": "Explore os estudos de projeto e monte um pedido de proposta.", "aliases": "", "id": "arquitetura", "dest": "/exemplos/profissionais/arquitetura/", "mobile": false, "brand": "Arquitetura", "tone": "produto", "english": {"title": "Architecture studio", "description": "Explore the projects and put together a proposal request.", "brand": "Architecture studio"}},
+  {"type": "orcamento", "title": "Arquitetura", "description": "Explore os estudos de projeto e monte um pedido de proposta.", "aliases": "", "id": "arquitetura", "dest": "/exemplos/profissionais/arquitetura/", "mobile": true, "brand": "Entrelinhas Arquitetura", "tone": "produto", "english": {"title": "Architecture studio", "description": "Explore the projects and put together a proposal request.", "brand": "Entrelinhas Arquitetura"}},
   {"type": "orcamento", "title": "Contabilidade", "description": "Escolha o que sua empresa precisa e simule a triagem.", "aliases": "", "id": "contabilidade", "dest": "/exemplos/profissionais/contabilidade/", "mobile": false, "brand": "Contabilidade", "tone": "produto", "english": {"title": "Accounting firm", "description": "Choose what your business needs and try the enquiry form.", "brand": "Accounting firm"}},
   {"type": "orcamento", "title": "Fotografia", "description": "Veja o portfólio e teste uma consulta para seu evento.", "aliases": "", "id": "fotografia", "dest": "/exemplos/servicos/fotografia/", "mobile": false, "brand": "Fotografia", "tone": "produto", "english": {"title": "Photographer", "description": "Browse the portfolio and try an event enquiry.", "brand": "Photographer"}},
   {"type": "orcamento", "title": "Aulas particulares", "description": "Escolha a matéria e simule um pedido de aula.", "aliases": "", "id": "aulas", "dest": "/exemplos/profissionais/aulas/", "mobile": false, "brand": "Aulas particulares", "tone": "produto", "english": {"title": "Private tutoring", "description": "Choose a subject and try requesting a lesson.", "brand": "Private tutoring"}},
@@ -83,7 +83,8 @@
    climapro:'/demos/index.html',
    salao:'/exemplos/sites/salao/versoes.html',
    dentista:'/exemplos/sites/dentista/versoes.html',
-   advocacia:'/exemplos/profissionais/advocacia/versoes.html'
+   advocacia:'/exemplos/profissionais/advocacia/versoes.html',
+   arquitetura:'/exemplos/profissionais/arquitetura/versoes.html'
   }[project.id];
   variantsLink.hidden = !variantsPath;
   if (variantsPath) {

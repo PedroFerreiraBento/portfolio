@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,follow">
+ <title>Entrelinhas Arquitetura · Camadas</title>
+ <meta name="description" content="Demonstração de site de arquitetura com estudos residenciais e briefing de projeto.">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="entrelinhas.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="entrelinhas.js" defer></script>
+</head>
+<body class="camadas" data-campaign-demo="arquitetura">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=arquitetura#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./">Habitar</a><a href="camadas.html" aria-current="page">Camadas</a><a href="implantacao.html">Implantação</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner">
+   <a class="wordmark" href="#conteudo" aria-label="Entrelinhas Arquitetura, início">Entrelinhas<span>Arquitetura</span></a>
+   <button class="menu" type="button" aria-expanded="false" aria-controls="studio-nav" hidden>Menu</button>
+   <nav id="studio-nav" aria-label="Navegação do estúdio"><a href="#estudos">Estudos</a><a href="#processo">Processo</a><a href="#duvidas">Dúvidas</a><a class="mobile-brief" href="#briefing">Montar briefing</a></nav>
+   <a class="action header-action" href="#briefing">Montar briefing <span aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="camadas-hero">
+   <div class="camadas-photo"><img src="entrelinhas-reforma-720.webp" srcset="entrelinhas-reforma-720.webp 720w, entrelinhas-reforma-1440.webp 1440w" sizes="100vw" alt="Sala de casa reformada com piso de madeira preservado e abertura para o jardim" fetchpriority="high" decoding="async" width="1440" height="960"></div>
+   <div class="shell camadas-intro"><p class="eyebrow">Reforma residencial</p><h1>Mudar o espaço. Preservar o que importa.</h1><p>Uma reforma começa por entender a casa existente. A partir daí, fica mais claro o que adaptar, manter ou fazer em etapas.</p><a class="action" href="#briefing" data-type="reforma">Descrever minha reforma <span aria-hidden="true">↗</span></a></div>
+  </section>
+  <section class="shell camadas-study" id="estudos"><div class="ledger-title"><p class="eyebrow">Estudo de reforma</p><h2>Uma casa, três decisões.</h2><p>Neste estudo, a abertura para o jardim muda a circulação, enquanto o piso e a parede de tijolos mantêm a leitura da construção original.</p></div>
+   <div class="ledger">
+    <article><h3>Manter</h3><p>Registrar os pisos, portas e peças que podem permanecer e orientar a escolha dos materiais novos.</p><details><summary>O que levar para a conversa</summary><p>Fotos gerais e de detalhes das peças que você gostaria de preservar.</p></details></article>
+    <article><h3>Adaptar</h3><p>Reorganizar a passagem entre sala e jardim para que o acesso faça sentido no uso diário.</p><details><summary>O que levar para a conversa</summary><p>Fotos de como os ambientes se conectam hoje e uma lista do que atrapalha o percurso.</p></details></article>
+    <article><h3>Fazer por etapas</h3><p>Separar as mudanças indispensáveis das que podem ser avaliadas em outra fase.</p><details><summary>O que levar para a conversa</summary><p>Datas importantes, ambientes que precisam seguir em uso e o que precisa estar pronto primeiro.</p></details></article>
+   </div>
+  </section>
+  <section class="reform-process" id="processo"><figure><img src="../patio-arquitetura.webp" alt="Pátio aberto com tijolo, pérgola e plantas" width="1440" height="1080" loading="lazy" decoding="async"></figure><div><p class="eyebrow">Levantamento</p><h2>O que já existe entra no projeto.</h2><p>Antes de propor alterações, o estúdio reúne plantas ou fotos disponíveis, necessidades de uso e pontos que precisam ser conferidos no imóvel. O briefing indica por onde começar.</p></div></section>
+  <section class="shell faq" id="duvidas"><h2>Antes da primeira conversa</h2><div><details><summary>Posso reformar sem sair de casa?</summary><p>Informe quais ambientes precisam continuar funcionando. O estudo do imóvel ajuda a avaliar as etapas.</p></details><details><summary>O que fazer se eu não tiver a planta?</summary><p>Indique no briefing que ainda não tem o levantamento. Fotos e medidas aproximadas ajudam na primeira conversa.</p></details><details><summary>O briefing faz uma estimativa de obra?</summary><p>O pedido organiza as informações iniciais. Custos e viabilidade dependem de uma análise específica.</p></details></div></section>
+  <div class="closing"><div class="shell closing-inner"><div><h2>O que você quer preservar na reforma?</h2><p>Escolha o tipo de espaço e indique o que já sabe sobre o imóvel.</p></div><section class="brief" id="briefing" aria-labelledby="brief-title">
+    <div class="brief-head"><h2 id="brief-title">Montar um briefing</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+    <p>Escolha o tipo de projeto, a área aproximada e o que você já tem em mãos.</p>
+    <form class="brief-form">
+     <div class="fields">
+      <label for="project">Tipo de projeto<select id="project" name="project" required><option value="interiores">Interiores de apartamento</option><option value="reforma" selected>Reforma de um espaço</option><option value="casa">Casa nova</option></select></label>
+      <label for="area">Área aproximada<select id="area" name="area" required>
+       <option value="">Selecione a área</option><option>Até 40 m²</option><option>De 41 a 100 m²</option><option>Mais de 100 m²</option><option>Ainda vou medir</option>
+      </select></label>
+      <label for="stage"><span data-stage-label>Etapa atual</span><select id="stage" name="stage" required><option value="">Selecione a etapa</option></select></label>
+     </div>
+     <button type="submit" class="action" disabled>Simular briefing <span aria-hidden="true">↗</span></button>
+     <p class="form-note">Demonstração. As informações não saem desta página.</p>
+     <noscript><p>Ative o JavaScript para testar a simulação.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Seu briefing de exemplo</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-code></dd></div><div><dt>Projeto</dt><dd data-project></dd></div><div><dt>Área aproximada</dt><dd data-area></dd></div><div><dt>Etapa</dt><dd data-stage></dd></div></dl>
+     <p>Em um atendimento real, o estúdio confirmaria o escopo e combinaria uma conversa antes de preparar a proposta.</p>
+     <p data-message></p>
+     <div class="receipt-actions"><button type="button" class="quiet" data-copy>Copiar briefing</button><button type="button" class="quiet" data-edit>Editar</button><button type="button" class="quiet" data-reset>Recomeçar</button></div>
+     <p class="status" role="status"></p>
+    </div>
+   </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Entrelinhas Arquitetura</strong> · Estúdio fictício. Imagens ilustrativas de estudos de projeto.</p><a class="text-link project-whatsapp" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Entrelinhas%20Arquitetura%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

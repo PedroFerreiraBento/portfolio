@@ -1,46 +1,65 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
- <meta name="robots" content="noindex,nofollow"><title>Entrelinhas Arquitetura — demonstração</title>
- <link rel="stylesheet" href="../profissionais.css"><script src="../solicitacao.js" defer></script>
-<script defer src="/assets/campanha.js"></script>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,follow">
+ <title>Entrelinhas Arquitetura · Habitar</title>
+ <meta name="description" content="Demonstração de site de arquitetura com estudos residenciais e briefing de projeto.">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="entrelinhas.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="entrelinhas.js" defer></script>
 </head>
-<body data-campaign-demo="arquitetura" class="architecture">
-<a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="demo-bar"><a href="/?tipo=orcamento&amp;projeto=arquitetura#trabalhos">Voltar aos exemplos</a><span>Demonstração do Caos Domado</span></div>
-<header class="header wrap">
- <a class="wordmark" href="#">Entrelinhas</a>
- <nav aria-label="Navegação principal"><a href="#projetos">Projetos</a><a href="#briefing">Descrever meu espaço</a></nav>
-</header>
-<main id="conteudo" class="wrap">
- <section class="architecture-hero">
-  <div class="architecture-title"><h1>Espaços para viver do seu jeito.</h1><p>Arquitetura residencial e interiores. Do primeiro esboço à escolha dos materiais.</p></div>
-  <figure><img src="../interior-arquitetura.webp" alt="Sala com escada de madeira, tecidos naturais e jardim visível pela janela" width="1440" height="1080" fetchpriority="high"><figcaption>Estudo conceitual · interiores residenciais</figcaption></figure>
- </section>
- <section class="architecture-projects" id="projetos">
-  <h2>Ideias que ganham forma</h2>
-  <div class="project-feature">
-   <img src="../patio-arquitetura.webp" alt="Pátio aberto com parede de tijolos, pérgola e plantas" width="1440" height="1080" loading="lazy">
-   <div><h3>Uma casa em torno do pátio</h3><p>Um estudo de casa térrea em que a sala se abre para a área externa e o jardim ajuda a organizar a circulação.</p><p>Nos interiores, o projeto começa por entender o uso de cada ambiente, o que pode ser mantido e o que precisa mudar.</p><a class="button" href="#briefing">Descrever meu espaço</a></div>
-  </div>
- </section>
- <section class="request architecture-request" id="briefing">
-  <div class="request-grid">
-   <div><h2>Conte um pouco sobre o projeto</h2><p>O primeiro orçamento parte do tipo de imóvel, do tamanho aproximado e da etapa em que você está.</p><p class="note">Escolha as opções para ver como o briefing chega organizado à equipe.</p></div>
-   <form data-demo-form method="post" action="#briefing">
-    <label for="arch-tipo">O que você quer projetar?</label>
-    <select id="arch-tipo" name="Projeto" required><option value="">Selecione o tipo de projeto</option><option>Interiores de apartamento</option><option>Casa nova</option><option>Reforma de um ambiente</option></select>
-    <label for="arch-area">Área aproximada do espaço</label>
-    <select id="arch-area" name="Área" required><option value="">Selecione a área</option><option>Até 40 m²</option><option>De 41 a 100 m²</option><option>Mais de 100 m²</option><option>Ainda estou levantando as medidas</option></select>
-    <label for="arch-etapa">Em que etapa você está?</label>
-    <select id="arch-etapa" name="Etapa" required><option value="">Selecione a etapa</option><option>Tenho a planta do imóvel</option><option>Já posso fazer uma visita</option><option>Estou começando a planejar</option></select>
-   <button class="button" type="submit" disabled>Ver briefing de exemplo</button>
-    <section class="receipt" data-receipt hidden aria-labelledby="arch-recibo"><h3 id="arch-recibo" tabindex="-1">Resumo do projeto</h3><dl data-summary></dl><p>Simulação local. Nenhuma informação foi enviada.</p></section>
-    <noscript><p>Ative o JavaScript para testar a prévia do briefing.</p></noscript>
-   </form>
-  </div>
- </section>
-</main>
-<footer class="footer wrap"><strong>Entrelinhas Arquitetura</strong><p>Estúdio fictício. As imagens são estudos ilustrativos.</p><a href="/pagina-de-orcamentos">Conhecer o serviço do Caos Domado</a></footer>
-</body></html>
+<body class="habitar" data-campaign-demo="arquitetura">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=arquitetura#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./" aria-current="page">Habitar</a><a href="camadas.html">Camadas</a><a href="implantacao.html">Implantação</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner">
+   <a class="wordmark" href="#conteudo" aria-label="Entrelinhas Arquitetura, início">Entrelinhas<span>Arquitetura</span></a>
+   <button class="menu" type="button" aria-expanded="false" aria-controls="studio-nav" hidden>Menu</button>
+   <nav id="studio-nav" aria-label="Navegação do estúdio"><a href="#estudos">Estudos</a><a href="#processo">Processo</a><a href="#duvidas">Dúvidas</a><a class="mobile-brief" href="#briefing">Montar briefing</a></nav>
+   <a class="action header-action" href="#briefing">Montar briefing <span aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="habitar-hero">
+   <div class="habitar-intro"><p class="eyebrow">Interiores residenciais</p><h1>Uma casa que acompanha a sua rotina.</h1><p>O projeto começa pelo jeito de morar. Conte quem usa os ambientes, o que funciona hoje e o que precisa mudar.</p><a class="action" href="#briefing" data-type="interiores">Descrever meus ambientes <span aria-hidden="true">↗</span></a></div>
+   <figure><img src="entrelinhas-interiores-720.webp" srcset="entrelinhas-interiores-720.webp 720w, entrelinhas-interiores-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 65vw" alt="Sala de apartamento com madeira, sofá verde e jardim na varanda" fetchpriority="high" decoding="async" width="1440" height="960"><figcaption>Estudo ilustrativo · apartamento articulado em torno da varanda.</figcaption></figure>
+  </section>
+  <section class="shell habitar-study" id="estudos">
+   <div><p class="eyebrow">Estudo de interiores</p><h2>A sala como ponto de encontro.</h2><p>Neste estudo, a sala e a varanda passam a funcionar como um só percurso. O móvel baixo guarda o que se usa todo dia sem fechar a vista para o jardim.</p><ul class="study-points"><li><strong>Chegar e guardar</strong><span>Um lugar para chaves, bolsas e sapatos logo na entrada.</span></li><li><strong>Receber sem rearrumar</strong><span>Móveis que deixam livre o caminho entre a mesa e a varanda.</span></li><li><strong>Escolher o que fica</strong><span>Peças existentes entram na planta antes de pensar em novas compras.</span></li></ul></div>
+   <figure><img src="../interior-arquitetura.webp" alt="Sala com escada de madeira, tecidos naturais e jardim" width="1440" height="1080" loading="lazy" decoding="async"><figcaption>Estudo complementar · circulação, luz e uso da sala.</figcaption></figure>
+  </section>
+  <section class="habitar-process" id="processo"><div class="shell process-inner"><h2>Da rotina ao desenho.</h2><ol><li><strong>Mapear os ambientes</strong><p>Quem usa cada espaço, o que precisa guardar e quais atividades convivem no mesmo lugar.</p></li><li><strong>Testar a planta</strong><p>Comparar posições de móveis e caminhos antes de escolher revestimentos.</p></li><li><strong>Detalhar as decisões</strong><p>Organizar materiais, iluminação e marcenaria para conversar com fornecedores.</p></li></ol></div></section>
+  <section class="shell faq" id="duvidas"><h2>Antes da primeira conversa</h2><div><details><summary>Preciso ter uma planta?</summary><p>Ajuda a começar, mas você pode indicar que ainda está levantando as medidas.</p></details><details><summary>Posso projetar só um ambiente?</summary><p>Pode indicar o ambiente e selecionar a faixa de área. A conversa inicial ajuda a delimitar o escopo.</p></details><details><summary>O briefing já informa um preço?</summary><p>Ele reúne o ponto de partida. Em um projeto real, o estúdio confirma o escopo antes de preparar a proposta.</p></details></div></section>
+  <div class="closing"><div class="shell closing-inner"><div><h2>O que a casa precisa fazer melhor?</h2><p>Comece pelo ambiente que motivou sua busca e pela etapa em que você está.</p></div><section class="brief" id="briefing" aria-labelledby="brief-title">
+    <div class="brief-head"><h2 id="brief-title">Montar um briefing</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+    <p>Escolha o tipo de projeto, a área aproximada e o que você já tem em mãos.</p>
+    <form class="brief-form">
+     <div class="fields">
+      <label for="project">Tipo de projeto<select id="project" name="project" required><option value="interiores" selected>Interiores de apartamento</option><option value="reforma">Reforma de um espaço</option><option value="casa">Casa nova</option></select></label>
+      <label for="area">Área aproximada<select id="area" name="area" required>
+       <option value="">Selecione a área</option><option>Até 40 m²</option><option>De 41 a 100 m²</option><option>Mais de 100 m²</option><option>Ainda vou medir</option>
+      </select></label>
+      <label for="stage"><span data-stage-label>Etapa atual</span><select id="stage" name="stage" required><option value="">Selecione a etapa</option></select></label>
+     </div>
+     <button type="submit" class="action" disabled>Simular briefing <span aria-hidden="true">↗</span></button>
+     <p class="form-note">Demonstração. As informações não saem desta página.</p>
+     <noscript><p>Ative o JavaScript para testar a simulação.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Seu briefing de exemplo</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-code></dd></div><div><dt>Projeto</dt><dd data-project></dd></div><div><dt>Área aproximada</dt><dd data-area></dd></div><div><dt>Etapa</dt><dd data-stage></dd></div></dl>
+     <p>Em um atendimento real, o estúdio confirmaria o escopo e combinaria uma conversa antes de preparar a proposta.</p>
+     <p data-message></p>
+     <div class="receipt-actions"><button type="button" class="quiet" data-copy>Copiar briefing</button><button type="button" class="quiet" data-edit>Editar</button><button type="button" class="quiet" data-reset>Recomeçar</button></div>
+     <p class="status" role="status"></p>
+    </div>
+   </section></div></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Entrelinhas Arquitetura</strong> · Estúdio fictício. Imagens ilustrativas de estudos de projeto.</p><a class="text-link project-whatsapp" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Entrelinhas%20Arquitetura%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>

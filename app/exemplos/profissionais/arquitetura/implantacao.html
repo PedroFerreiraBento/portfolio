@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,follow">
+ <title>Entrelinhas Arquitetura · Implantação</title>
+ <meta name="description" content="Demonstração de site de arquitetura com estudos residenciais e briefing de projeto.">
+ <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+ <link rel="stylesheet" href="/demos/assets/fonts/inter.css">
+ <link rel="stylesheet" href="entrelinhas.css">
+ <script src="/assets/campanha.js" defer></script>
+ <script src="entrelinhas.js" defer></script>
+</head>
+<body class="implantacao" data-campaign-demo="arquitetura">
+ <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+ <div class="workbar"><div class="shell workbar-inner">
+   <a class="workback" href="/?tipo=orcamento&amp;projeto=arquitetura#trabalhos" aria-label="Voltar aos trabalhos">← Voltar<span> aos trabalhos</span></a>
+   <nav aria-label="Versões da demonstração"><a href="./">Habitar</a><a href="camadas.html">Camadas</a><a href="implantacao.html" aria-current="page">Implantação</a></nav>
+   <div data-demo-navigation-contact data-contact-label="Quero um site assim"></div>
+ </div></div>
+ <header class="studio-header"><div class="shell studio-inner">
+   <a class="wordmark" href="#conteudo" aria-label="Entrelinhas Arquitetura, início">Entrelinhas<span>Arquitetura</span></a>
+   <button class="menu" type="button" aria-expanded="false" aria-controls="studio-nav" hidden>Menu</button>
+   <nav id="studio-nav" aria-label="Navegação do estúdio"><a href="#estudos">Estudos</a><a href="#processo">Processo</a><a href="#duvidas">Dúvidas</a><a class="mobile-brief" href="#briefing">Montar briefing</a></nav>
+   <a class="action header-action" href="#briefing">Montar briefing <span aria-hidden="true">↗</span></a>
+ </div></header>
+ <main id="conteudo"><section class="implantacao-hero"><div class="shell site-intro"><p class="eyebrow">Projeto residencial</p><h1>O terreno é o primeiro desenho.</h1><p>Para uma casa nova, o primeiro briefing reúne o que você sabe sobre o lote, o tamanho imaginado e a etapa atual do projeto.</p></div><figure><img src="entrelinhas-terreno-720.webp" srcset="entrelinhas-terreno-720.webp 720w, entrelinhas-terreno-1440.webp 1440w" sizes="100vw" alt="Residência térrea de tijolo e concreto aberta para o jardim" fetchpriority="high" decoding="async" width="1440" height="960"></figure><div class="shell site-brief"><section class="brief" id="briefing" aria-labelledby="brief-title">
+    <div class="brief-head"><h2 id="brief-title">Montar um briefing</h2><button type="button" class="quiet" data-example hidden>Usar exemplo</button></div>
+    <p>Escolha o tipo de projeto, a área aproximada e o que você já tem em mãos.</p>
+    <form class="brief-form">
+     <div class="fields">
+      <label for="project">Tipo de projeto<select id="project" name="project" required><option value="interiores">Interiores de apartamento</option><option value="reforma">Reforma de um espaço</option><option value="casa" selected>Casa nova</option></select></label>
+      <label for="area">Área aproximada<select id="area" name="area" required>
+       <option value="">Selecione a área</option><option>Até 40 m²</option><option>De 41 a 100 m²</option><option>Mais de 100 m²</option><option>Ainda vou medir</option>
+      </select></label>
+      <label for="stage"><span data-stage-label>Etapa atual</span><select id="stage" name="stage" required><option value="">Selecione a etapa</option></select></label>
+     </div>
+     <button type="submit" class="action" disabled>Simular briefing <span aria-hidden="true">↗</span></button>
+     <p class="form-note">Demonstração. As informações não saem desta página.</p>
+     <noscript><p>Ative o JavaScript para testar a simulação.</p></noscript>
+    </form>
+    <div class="receipt" hidden>
+     <h3 tabindex="-1">Seu briefing de exemplo</h3>
+     <dl><div><dt>Protocolo de teste</dt><dd data-code></dd></div><div><dt>Projeto</dt><dd data-project></dd></div><div><dt>Área aproximada</dt><dd data-area></dd></div><div><dt>Etapa</dt><dd data-stage></dd></div></dl>
+     <p>Em um atendimento real, o estúdio confirmaria o escopo e combinaria uma conversa antes de preparar a proposta.</p>
+     <p data-message></p>
+     <div class="receipt-actions"><button type="button" class="quiet" data-copy>Copiar briefing</button><button type="button" class="quiet" data-edit>Editar</button><button type="button" class="quiet" data-reset>Recomeçar</button></div>
+     <p class="status" role="status"></p>
+    </div>
+   </section></div></section>
+  <section class="shell site-study" id="estudos">
+   <div><p class="eyebrow">Estudo de implantação</p><h2>Uma casa em torno de um pátio.</h2><p>Neste estudo, a varanda conecta a sala ao jardim e distribui o acesso aos dormitórios. A casa se organiza em volumes baixos ao redor da área aberta.</p></div>
+   <figure><img src="../patio-arquitetura.webp" alt="Pátio com tijolos, pérgola e plantas" width="1440" height="1080" loading="lazy" decoding="async"><figcaption>Estudo complementar · a relação entre os espaços internos e externos.</figcaption></figure>
+  </section>
+  <section class="site-process" id="processo"><div class="shell process-inner"><h2>O que reunir antes de projetar.</h2><ol><li><strong>Informações do terreno</strong><p>Onde fica, o tamanho aproximado e se já existe levantamento.</p></li><li><strong>Programa da casa</strong><p>Quem vai morar, quais espaços são indispensáveis e o que pode ser decidido mais adiante.</p></li><li><strong>Etapa do projeto</strong><p>Se é um estudo inicial, se você já escolheu o terreno ou se já tem documentos e medidas.</p></li></ol></div></section>
+  <section class="shell faq" id="duvidas"><h2>Antes da primeira conversa</h2><div><details><summary>Ainda estou escolhendo o terreno. Posso começar?</summary><p>Sim. Escolha a etapa correspondente no briefing. A primeira conversa pode esclarecer quais informações reunir sobre o lote.</p></details><details><summary>Área do terreno e área da casa são a mesma coisa?</summary><p>Neste formulário, informe a área que imagina construir. Se ainda não tiver uma estimativa, escolha “Ainda vou medir”.</p></details><details><summary>O envio já inicia um projeto?</summary><p>Não. O briefing é a abertura da conversa. A contratação e o escopo são combinados à parte.</p></details></div></section>
+  <div class="shell end-link"><a class="action" href="#briefing" data-type="casa">Voltar ao briefing <span aria-hidden="true">↗</span></a></div></main>
+ <footer><div class="shell footer-inner"><p><strong>Entrelinhas Arquitetura</strong> · Estúdio fictício. Imagens ilustrativas de estudos de projeto.</p><a class="text-link project-whatsapp" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20da%20Entrelinhas%20Arquitetura%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio." data-project-whatsapp target="_blank" rel="noopener noreferrer">Quero um site assim <span aria-hidden="true">↗</span></a></div></footer>
+</body>
+</html>
