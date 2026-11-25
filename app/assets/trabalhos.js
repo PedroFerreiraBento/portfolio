@@ -60,7 +60,7 @@
  const campaignProject = items.find(item => item.id === root.dataset.defaultProject);
  let category = validType ? params.get('tipo') : (incomingProject || campaignProject)?.type || 'orcamento';
  let selected = [incomingProject, campaignProject].find(item => item?.type === category) || items.find(item => item.type === category);
- let expanded = category === 'orcamento' && !featured.includes(selected.id);
+ let expanded = false;
  const english = () => document.documentElement.lang === 'en';
  const localized = (pt,en) => english() ? en : pt;
  const nameOf = item => english() ? item.english.brand || item.brand : item.brand;
@@ -144,14 +144,15 @@
   const available = items.filter(item => item.type === category);
   const term = searchable(search.value);
   const matched = available.filter(item => searchable([item.title,item.brand,item.aliases,item.english.title,item.english.brand].join(' ')).includes(term));
-  const shown = category === 'orcamento' && !expanded && !term
-   ? featured.map(id => matched.find(item => item.id === id)).filter(Boolean) : matched;
-  find('showcase-picker-title').textContent = category === 'orcamento'
-   ? localized('Escolha o ramo', 'Choose your industry') : localized('Escolha um exemplo', 'Choose an example');
-  find('showcase-count').textContent = available.length + (category === 'orcamento'
-   ? localized(' ramos', ' industries')
-   : available.length === 1 ? localized(' exemplo', ' example') : localized(' exemplos', ' examples'));
-  find('showcase-search-box').hidden = category !== 'orcamento';
+  const highlights = category === 'orcamento'
+   ? featured.map(id => available.find(item => item.id === id)).filter(Boolean)
+   : available.slice(0, featured.length);
+  if (selected.type === category && !highlights.includes(selected)) {
+   highlights[highlights.length - 1] = selected;
+  }
+  const shown = expanded || term ? matched : highlights;
+  find('showcase-count').textContent = available.length + (available.length === 1
+   ? localized(' ramo', ' industry') : localized(' ramos', ' industries'));
   list.replaceChildren(...shown.map(item => {
    const li = document.createElement('li');
    const button = document.createElement('button');
@@ -169,7 +170,7 @@
    li.append(button);
    return li;
   }));
-  more.hidden = category !== 'orcamento' || Boolean(term);
+  more.hidden = available.length <= featured.length || Boolean(term);
   more.textContent = expanded ? localized('Voltar aos destaques', 'Back to highlights') : localized('Ver todos os ramos', 'See all industries');
   more.setAttribute('aria-expanded', String(expanded));
   find('showcase-empty').textContent = shown.length ? '' : localized('Nenhum ramo encontrado. Tente um nome mais curto.', 'No industries found. Try a shorter search.');
@@ -187,10 +188,6 @@
  search.addEventListener('input',renderPicker);
  more.addEventListener('click',() => {
   expanded = !expanded;
-  if (!expanded && !featured.includes(selected.id)) {
-   showProject(items.find(item => item.id === 'salao'));
-   rememberSelection();
-  }
   renderPicker();
   list.scrollTop = 0;
  });
@@ -200,6 +197,7 @@
    element.dataset.pt ??= element.textContent;
    element.textContent = localized(element.dataset.pt,element.dataset.en);
   }
+  find('showcase-picker-title').textContent = localized('Escolha o ramo', 'Choose an industry');
   const searchLabel = localized('Buscar ramo', 'Search industries');
   find('showcase-search-label').textContent = searchLabel;
   search.placeholder = searchLabel;
@@ -217,7 +215,7 @@
   if (!project) return;
   category = project.type;
   search.value = '';
-  expanded = category === 'orcamento' && !featured.includes(project.id);
+  expanded = false;
   syncTypeButtons();
   showProject(project);
   renderPicker();
