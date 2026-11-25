@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Combine uma planta e um vaso, confira os diâmetros e adicione o conjunto à cotação.">
+  <title>Folha Norte · Planta + vaso</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="folha.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="folha.js" defer></script>
+</head>
+<body class="dupla" data-catalog="dupla" data-campaign-demo="garden">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="shell portfolio-inner">
+    <a href="/?tipo=catalogo&amp;projeto=garden#trabalhos" class="back">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="./">Encontre pela luz</a><a href="composicao.html" aria-current="page">Planta + vaso</a><a href="lista.html">Lista de compra</a></nav>
+    <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20o%20cat%C3%A1logo%20demonstrativo%20Folha%20Norte%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20loja." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header><header class="shop"><div class="shell shop-inner"><a class="wordmark" href="./">Folha Norte</a><nav aria-label="Catálogo"><a href="#bancada">Montar combinação</a><a class="cart-link" href="#cotacao">Lista <span data-cart-count>0</span></a></nav></div></header>
+<main id="conteudo">
+<section class="shell pairing" id="bancada">
+  <div class="pair-title"><h1>Escolha a planta. Encaixe o vaso.</h1><p>Use as medidas do catálogo para montar uma dupla e conferir se o vaso de cultivo cabe no cachepô.</p></div>
+  <div class="pair-grid">
+    <div class="pair-board" aria-label="Prévia das duas peças">
+      <figure><img data-plant-preview src="zamioculca.webp" width="512" height="512" alt="Zamioculca"><figcaption data-plant-caption></figcaption></figure>
+      <span class="pair-plus" aria-hidden="true">+</span>
+      <figure><img data-pot-preview src="telha.webp" width="512" height="694" alt="Cachepô Telha"><figcaption data-pot-caption></figcaption></figure>
+    </div>
+    <div class="pair-controls">
+      <label>Planta <select data-plant-choice></select></label>
+      <label>Cachepô <select data-pot-choice></select></label>
+      <label>Quantidade de duplas <input type="number" min="1" max="99" step="1" value="1" inputmode="numeric" required data-pair-count></label>
+      <p class="fit-status" data-fit role="status"></p>
+      <button type="button" class="button" data-add-pair>Adicionar a dupla</button>
+    </div>
+  </div>
+</section>
+<section class="pair-note"><div class="shell note-grid"><img src="bancada.webp" width="512" height="512" loading="lazy" alt="Vasos de cerâmica e plantas em uma bancada"><div><h2>Por fora e por dentro.</h2><p>Comparamos o diâmetro externo do vaso de cultivo com a abertura interna do cachepô. A demonstração usa uma folga de 1 a 4 cm como referência. Confira a abertura e a profundidade com a loja antes de comprar.</p></div></div></section>
+<section id="cotacao" class="quote-band">
+  <div class="shell quote-layout">
+    <div>
+      <h2>Sua lista para cotação.</h2>
+      <p>Confira os produtos e as quantidades antes de visualizar a mensagem.</p>
+      <p class="quote-status" data-quote-status role="status"></p>
+    </div>
+    <div class="quote-sheet">
+      <p data-empty>Sua lista está vazia. Escolha produtos no catálogo para começar.</p>
+      <ul class="quote-items" data-quote-items aria-label="Produtos na lista"></ul>
+      <div class="quote-actions" data-review hidden>
+        <button class="button" type="button" data-simulate aria-controls="whatsapp" aria-expanded="false">Simular envio pelo WhatsApp</button>
+        <button class="plain" type="button" data-clear>Limpar lista</button>
+      </div>
+      <section id="whatsapp" class="whatsapp" data-preview hidden aria-labelledby="whatsapp-title">
+        <h3 id="whatsapp-title" tabindex="-1">Prévia da mensagem</h3>
+        <p>Esta simulação mostra a mensagem nesta página. Nenhum envio é feito.</p>
+        <pre data-message></pre>
+        <div class="quote-actions"><button class="button" type="button" data-copy>Copiar mensagem</button><button class="plain" type="button" data-edit>Voltar à lista</button></div>
+        <p data-copy-status role="status"></p>
+      </section>
+    </div>
+  </div>
+</section></main>
+<footer><div class="shell footer-inner"><span>Folha Norte · Catálogo demonstrativo</span><a href="versoes.html">Comparar as três versões</a></div></footer>
+</body>
+</html>

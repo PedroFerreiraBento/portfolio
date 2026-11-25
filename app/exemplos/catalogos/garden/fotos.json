@@ -1,0 +1,25 @@
+[
+  {
+    "ferramenta": "ImageGen nativo",
+    "origem": "exec-22abdcbd-432e-403f-b2a7-8c040c4d18a7.png",
+    "prompt": "High quality photographs for an ecommerce Brazilian plant shop. Landscape 3:2 composite contact sheet divided exactly in 3 columns and 2 rows, six independent equally-sized panels with zero gutter, no collage framing, no texts, no watermark. Six photographs in precise row-major order. Top left horizontal lifestyle shot: small urban home corner with tall lush zamioculca and other leafy plants, natural side light, yellow-green warm walls, Brazilian contemporary design, editorial Leica, generous space, plants fill middle; top center horizontal lifestyle shot of ceramic flowerpots on a russet studio shop worktop alongside loose plants and gardener glove, warm rose and brown, hard side daylight; top right horizontal documentary showroom shot with indoor greenery and pots, forest green walls, products lined on timber shelves. Bottom left single beautiful upright glossy Zamioculca with smooth legible foliage in a plain dark nursery pot isolated on a light pistachio professional product photo paper. Bottom center single trailing golden pothos with mottled heart leaves in a plain small dark nursery pot centered on muted light pink. Bottom right a compact rosemary plant with needle foliage in a plain nursery pot centered on muted apricot. All six image panels must stand alone with subjects centered in each panel and be high quality real photographs with subtle texture and clear natural plant forms. No typography.",
+    "arquivos": [
+      "janela.webp",
+      "bancada.webp",
+      "estoque.webp",
+      "zamioculca.webp",
+      "jiboia.webp",
+      "alecrim.webp"
+    ]
+  },
+  {
+    "ferramenta": "ImageGen nativo",
+    "origem": "exec-7a5dc0c6-cc48-4160-be51-31d47cd9965e.png",
+    "prompt": "Landscape 3:2 professional ecommerce product photography contact sheet, divided at exact horizontal thirds, three equal adjacent vertical photos on one line with no borders or gutters. Each panel one ceramic pot with the same perspective from slightly above so hollow interior visible. Each isolated centered pot entirely within own panel with whitespace, in front of seamless matte solid backdrop. First panel raw warm sienna terracotta classic slightly tapered round plant cachepot on warm salmon surface. Second panel straight sculptural dark indigo blue glazed ceramic cover pot on light lavender background. Third panel a larger sandstone colored beige textured rounded cachepot, pale orange background. Premium natural daylight, realistic tactile material, simple stylish Brazilian botanic retailer, no texts, no plants, no logos. Independent framing and each pot centered in its own precise third.",
+    "arquivos": [
+      "telha.webp",
+      "indigo.webp",
+      "areia.webp"
+    ]
+  }
+]
