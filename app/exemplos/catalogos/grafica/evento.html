@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Monte uma lista de impressos para recepção, circulação e mesas."
+    />
+    <title>Margem Comum · Ficha para evento</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="margem.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="margem.js" defer></script>
+  </head>
+  <body class="evento" data-campaign-demo="grafica">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap navline">
+        <a href="/?tipo=catalogo&amp;projeto=grafica#trabalhos">← Trabalhos</a>
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Mostruário por uso</a
+          ><a href="prova.html">Prova de bancada</a
+          ><a href="evento.html" aria-current="page">Ficha para evento</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Margem%20Comum%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20gr%C3%A1fica."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <div class="brand">
+      <div class="wrap brandline">
+        <strong>Margem Comum</strong><span>Gráfica personalizada</span
+        ><a href="#escolha"
+          >Organizar ficha
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </div>
+    <main id="conteudo">
+      <section class="event-hero">
+        <div class="wrap">
+          <div>
+            <h1>O que precisa estar impresso no dia?</h1>
+            <p>
+              Dimensione as peças pelo número de participantes e mesas. Ajuste
+              os totais antes de revisar a ficha.
+            </p>
+            <a class="primary" href="#escolha"
+              >Montar a ficha
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+            ></a>
+          </div>
+          <img
+            class=""
+            src="evento.webp"
+            width="1200"
+            height="800"
+            alt="Crachás, programa e placa de mesa em uma recepção"
+          />
+        </div>
+      </section>
+      <section class="wrap event-stage" id="escolha">
+        <h2>Planejar as quantidades</h2>
+        <form data-flow="event">
+          <div data-fields>
+            <div class="event-metrics">
+              <label for="participantes"
+                >Participantes<input
+                  name="participantes"
+                  id="participantes"
+                  type="number"
+                  min="1"
+                  max="2000"
+                  value="60"
+                  inputmode="numeric"
+                  required /></label
+              ><label for="mesas"
+                >Mesas<input
+                  name="mesas"
+                  id="mesas"
+                  type="number"
+                  min="0"
+                  max="300"
+                  value="8"
+                  inputmode="numeric"
+                  required /></label
+              ><button class="apply" type="button" data-estimate>
+                Preencher a partir dos números
+              </button>
+            </div>
+            <p class="calc-help">
+              O preenchimento usa um crachá e um programa por pessoa e uma placa
+              por mesa. As quantidades abaixo podem ser alteradas.
+            </p>
+            <fieldset class="event-rows">
+              <legend>Quantidades para cotação</legend>
+              <label for="cracha"
+                ><span><strong>Crachás</strong><small>Recepção</small></span
+                ><input
+                  name="cracha"
+                  id="cracha"
+                  type="number"
+                  min="0"
+                  max="3000"
+                  value="60"
+                  inputmode="numeric"
+                  required /></label
+              ><label for="programa"
+                ><span><strong>Programas</strong><small>Circulação</small></span
+                ><input
+                  name="programa"
+                  id="programa"
+                  type="number"
+                  min="0"
+                  max="3000"
+                  value="60"
+                  inputmode="numeric"
+                  required /></label
+              ><label for="placas"
+                ><span
+                  ><strong>Placas de mesa</strong
+                  ><small>Identificação</small></span
+                ><input
+                  name="placas"
+                  id="placas"
+                  type="number"
+                  min="0"
+                  max="3000"
+                  value="8"
+                  inputmode="numeric"
+                  required
+              /></label>
+            </fieldset>
+            <div class="event-end">
+              <output data-total aria-live="polite">128 impressos</output
+              ><button class="primary" type="submit">
+                Revisar ficha
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+            <p data-error role="status"></p>
+          </div>
+          <section
+            class="receipt"
+            data-receipt
+            hidden
+            tabindex="-1"
+            aria-labelledby="resumo"
+          >
+            <h2 id="resumo">Seu pedido de exemplo</h2>
+            <p class="ref">MC-DEMO-001</p>
+            <dl data-summary></dl>
+            <p>As escolhas ficam nesta página.</p>
+            <div class="actions">
+              <button class="primary" type="button" data-copy>
+                Copiar resumo</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Margem Comum · Demonstração de gráfica</span
+        ><a href="versoes.html"
+          >Ver as três versões
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>

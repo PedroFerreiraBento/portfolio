@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Compare formatos para apresentar uma marca, atender no balcão ou embalar um produto."
+    />
+    <title>Margem Comum · Mostruário por uso</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="margem.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="margem.js" defer></script>
+  </head>
+  <body class="mostruario" data-campaign-demo="grafica">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap navline">
+        <a href="/?tipo=catalogo&amp;projeto=grafica#trabalhos">← Trabalhos</a>
+        <nav aria-label="Versões da demonstração">
+          <a href="./" aria-current="page">Mostruário por uso</a
+          ><a href="prova.html">Prova de bancada</a
+          ><a href="evento.html">Ficha para evento</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Margem%20Comum%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20gr%C3%A1fica."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <div class="brand">
+      <div class="wrap brandline">
+        <strong>Margem Comum</strong><span>Gráfica personalizada</span
+        ><a href="#escolha"
+          >Ver impressos
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </div>
+    <main id="conteudo">
+      <section class="wrap shelf-hero">
+        <div>
+          <h1>Papel para o seu jeito de trabalhar.</h1>
+          <p>
+            Explore impressos por uso. Compare os formatos e leve sua escolha
+            para pedir uma cotação.
+          </p>
+          <a class="primary" href="#escolha"
+            >Explorar o mostruário
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+          ></a>
+        </div>
+        <img
+          class=""
+          src="mostruario.webp"
+          width="1200"
+          height="800"
+          alt="Impressos de papel em azul e laranja dispostos sobre a mesa"
+        />
+      </section>
+      <section class="shelf-stage" id="escolha">
+        <div class="wrap">
+          <h2>Qual impresso ajuda no dia a dia?</h2>
+          <form data-flow="shelf">
+            <div data-fields>
+              <fieldset>
+                <legend>Filtrar por uso</legend>
+                <div class="choices">
+                  <label
+                    ><input
+                      name="uso"
+                      type="radio"
+                      value="Marca"
+                      checked
+                    /><span>Marca</span></label
+                  ><label
+                    ><input name="uso" type="radio" value="Balcão" /><span
+                      >Balcão</span
+                    ></label
+                  ><label
+                    ><input name="uso" type="radio" value="Embalagem" /><span
+                      >Embalagem</span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <fieldset class="samples">
+                <legend>Escolha um impresso</legend>
+                <label data-group="Marca" style="--swatch: #1d43a6"
+                  ><input
+                    type="radio"
+                    name="impresso"
+                    value="Cartão de visita"
+                    data-measure="90 × 50 mm"
+                    required
+                  /><span
+                    ><strong>Cartão de visita</strong><small>90 × 50 mm</small
+                    ><span>Entregue em apresentações e visitas.</span></span
+                  ></label
+                ><label data-group="Marca" style="--swatch: #ad370e"
+                  ><input
+                    type="radio"
+                    name="impresso"
+                    value="Postal de apresentação"
+                    data-measure="148 × 105 mm"
+                    required
+                  /><span
+                    ><strong>Postal de apresentação</strong
+                    ><small>148 × 105 mm</small
+                    ><span>Leve a história da marca até o cliente.</span></span
+                  ></label
+                ><label data-group="Balcão" hidden style="--swatch: #b33d12"
+                  ><input
+                    type="radio"
+                    name="impresso"
+                    value="Cardápio dobrável"
+                    data-measure="210 × 297 mm aberto"
+                    required
+                    disabled
+                  /><span
+                    ><strong>Cardápio dobrável</strong
+                    ><small>210 × 297 mm aberto</small
+                    ><span>Reúna seções de um cardápio compacto.</span></span
+                  ></label
+                ><label data-group="Balcão" hidden style="--swatch: #1d43a6"
+                  ><input
+                    type="radio"
+                    name="impresso"
+                    value="Cartão de fidelidade"
+                    data-measure="90 × 50 mm"
+                    required
+                    disabled
+                  /><span
+                    ><strong>Cartão de fidelidade</strong
+                    ><small>90 × 50 mm</small
+                    ><span>Registre carimbos e retornos ao balcão.</span></span
+                  ></label
+                ><label data-group="Embalagem" hidden style="--swatch: #184b46"
+                  ><input
+                    type="radio"
+                    name="impresso"
+                    value="Tag de produto"
+                    data-measure="50 × 80 mm"
+                    required
+                    disabled
+                  /><span
+                    ><strong>Tag de produto</strong><small>50 × 80 mm</small
+                    ><span
+                      >Identifique uma peça com uma etiqueta pendurada.</span
+                    ></span
+                  ></label
+                ><label data-group="Embalagem" hidden style="--swatch: #a73543"
+                  ><input
+                    type="radio"
+                    name="impresso"
+                    value="Cartão de envio"
+                    data-measure="105 × 148 mm"
+                    required
+                    disabled
+                  /><span
+                    ><strong>Cartão de envio</strong><small>105 × 148 mm</small
+                    ><span>Inclua um recado dentro da encomenda.</span></span
+                  ></label
+                >
+              </fieldset>
+              <div class="shelf-end">
+                <label for="tiragem"
+                  >Quantidade de exemplares<input
+                    id="tiragem"
+                    name="tiragem"
+                    type="number"
+                    min="1"
+                    max="10000"
+                    value="100"
+                    required
+                    inputmode="numeric" /></label
+                ><button class="primary" type="submit">
+                  Revisar escolha
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M4 12h15m-6-6 6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <section
+              class="receipt"
+              data-receipt
+              hidden
+              tabindex="-1"
+              aria-labelledby="resumo"
+            >
+              <h2 id="resumo">Seu pedido de exemplo</h2>
+              <p class="ref">MC-DEMO-001</p>
+              <dl data-summary></dl>
+              <p>As escolhas ficam nesta página.</p>
+              <div class="actions">
+                <button class="primary" type="button" data-copy>
+                  Copiar resumo</button
+                ><button type="button" data-edit>Editar</button
+                ><button type="button" data-reset>Recomeçar</button>
+              </div>
+              <p data-status role="status"></p>
+            </section>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Margem Comum · Demonstração de gráfica</span
+        ><a href="versoes.html"
+          >Ver as três versões
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>

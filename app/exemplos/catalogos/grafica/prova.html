@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Visualize o formato em proporção a uma folha A4 e especifique o papel e o acabamento."
+    />
+    <title>Margem Comum · Prova de bancada</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="margem.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="margem.js" defer></script>
+  </head>
+  <body class="prova" data-campaign-demo="grafica">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap navline">
+        <a href="/?tipo=catalogo&amp;projeto=grafica#trabalhos">← Trabalhos</a>
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Mostruário por uso</a
+          ><a href="prova.html" aria-current="page">Prova de bancada</a
+          ><a href="evento.html">Ficha para evento</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Margem%20Comum%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20gr%C3%A1fica."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <div class="brand">
+      <div class="wrap brandline">
+        <strong>Margem Comum</strong><span>Gráfica personalizada</span
+        ><a href="#escolha"
+          >Montar prova
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </div>
+    <main id="conteudo">
+      <section class="wrap proof-intro">
+        <h1>Seu impresso, antes da impressão.</h1>
+        <p>
+          Compare o corte com uma folha A4. Depois, escolha o papel e o
+          acabamento da prova.
+        </p>
+      </section>
+      <section class="wrap proof-stage" id="escolha">
+        <form data-flow="proof">
+          <div class="proof-workspace" data-fields>
+            <div class="proof-board">
+              <div class="sheet">
+                <div class="trim" data-trim>
+                  <span data-sheet-name>Postal</span>
+                </div>
+              </div>
+              <p data-dimension aria-live="polite">Postal · 148 × 105 mm</p>
+              <small
+                >A folha maior representa um A4. A escala é relativa à
+                tela.</small
+              >
+            </div>
+            <div class="proof-controls">
+              <h2>Configurar prova</h2>
+              <fieldset>
+                <legend>Formato</legend>
+                <div class="choices">
+                  <label
+                    ><input
+                      name="formato"
+                      type="radio"
+                      value="Postal"
+                      checked
+                    /><span>Postal</span></label
+                  ><label
+                    ><input name="formato" type="radio" value="Convite" /><span
+                      >Convite</span
+                    ></label
+                  ><label
+                    ><input name="formato" type="radio" value="Cartão" /><span
+                      >Cartão</span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <div class="proof-pair">
+                <label for="papel"
+                  >Papel<select name="papel" id="papel">
+                    <option>Offset 240 g/m²</option>
+                    <option>Couché fosco 250 g/m²</option>
+                    <option>Papel texturizado 300 g/m²</option>
+                  </select></label
+                ><label for="acabamento"
+                  >Acabamento<select name="acabamento" id="acabamento">
+                    <option>Sem laminação</option>
+                    <option>Laminação fosca</option>
+                  </select></label
+                >
+              </div>
+              <p data-stock aria-live="polite"></p>
+              <button class="primary" type="submit">
+                Revisar especificação
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <section
+            class="receipt"
+            data-receipt
+            hidden
+            tabindex="-1"
+            aria-labelledby="resumo"
+          >
+            <h2 id="resumo">Seu pedido de exemplo</h2>
+            <p class="ref">MC-DEMO-001</p>
+            <dl data-summary></dl>
+            <p>As escolhas ficam nesta página.</p>
+            <div class="actions">
+              <button class="primary" type="button" data-copy>
+                Copiar resumo</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+      <figure class="wrap proof-figure">
+        <img
+          class=""
+          src="bancada.webp"
+          width="1200"
+          height="800"
+          alt="Mão manuseia uma amostra de papel sobre uma bancada de corte"
+        />
+        <figcaption>Prova de material na bancada.</figcaption>
+      </figure>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Margem Comum · Demonstração de gráfica</span
+        ><a href="versoes.html"
+          >Ver as três versões
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>

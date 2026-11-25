@@ -1,0 +1,20 @@
+{
+  "origem": "ImageGen integrado ao Codex",
+  "imagens": [
+    {
+      "file": "mostruario.webp",
+      "source": "exec-0478763a-c420-4e59-baf3-64573ebdf031.png",
+      "prompt": "Overhead print designer's editorial still life of an array of tactile uncoated invitation cards, business cards, folds and postcards, heavy cobalt blue prints interspersed with orange and cream geometric pieces, precise layered cutting and beautiful grain, soft daylight, white paper background. Fresh contemporary Brazilian independent printer portfolio, clean high-end magazine photo, no readable text. Landscape 3:2."
+    },
+    {
+      "file": "bancada.webp",
+      "source": "exec-8cf05dd0-8e07-433c-ada5-916af9d44275.png",
+      "prompt": "Independent print shop, close-up 3:2 horizontal photo of a hand turning a thick periwinkle uncoated card at a print proofing bench, with cut guides and a steel ruler on burgundy mat, warm studio light, sharply defined tactile grain, editorial material study, no logos no legible text."
+    },
+    {
+      "file": "evento.webp",
+      "source": "exec-c99edd99-de9a-4541-865f-b0a14e5ebdb2.png",
+      "prompt": "Segment of a contemporary event check-in table prepared with coordinated deep red and pale pink printed badges, folded program and table sign, cotton ribbon, off-white linen and architectural side light, sophisticated editorial product photography, cropped closely, no legible text. landscape 3:2."
+    }
+  ]
+}
