@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Descubra estampas por clima e peça amostras.">
+  <title>Entreparedes · Ambientes</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="paredes.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="paredes.js" defer></script>
+</head>
+<body data-version="ambientes" data-campaign-demo="papel-de-parede">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="shell portfolio-inner">
+    <a class="back" href="/?tipo=catalogo&amp;projeto=papel-de-parede#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html" aria-current="page">Ambientes</a><a href="medir.html">Medir parede</a><a href="pasta.html">Pasta de amostras</a></nav>
+    <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20da%20Entreparedes%20e%20quero%20conversar%20sobre%20um%20site." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header>
+<header class="shop"><div class="shell shop-inner">
+  <a class="brand" href="versoes.html">Entreparedes</a>
+  <nav aria-label="Navegação da loja"><a href="#ferramenta">Ver estampas</a><a class="list-link" href="#cotacao">Lista <span data-count>0</span></a></nav>
+</div></header>
+<main id="conteudo">
+  <section class="interior shell">
+    <div><h1>Uma parede muda o ambiente.</h1>
+    <p>Escolha pelo clima que você quer na sala, no quarto ou no escritório. Veja estampas aplicadas e reúna as amostras que quer conferir de perto.</p>
+    <a class="primary" href="#ferramenta">Explorar estampas</a></div>
+    <figure><img src="ambientes.webp" width="1360" height="906" fetchpriority="high" alt="Sala de jantar iluminada com papel listrado em terracota"><figcaption>Linha Cal · terracota</figcaption></figure>
+  </section>
+  <section class="showroom" id="ferramenta"><div class="shell">
+    <h2>Que clima você procura?</h2>
+    <fieldset><legend>Filtrar por atmosfera</legend><div class="choices">
+      <label><input name="clima" type="radio" value="todas" checked> Todas</label>
+      <label><input name="clima" type="radio" value="acolhedor"> Acolhedor</label>
+      <label><input name="clima" type="radio" value="natural"> Natural</label>
+      <label><input name="clima" type="radio" value="grafico"> Gráfico</label>
+    </div></fieldset>
+    <p class="availability" data-filter role="status"></p>
+    <div class="patterns" data-patterns></div>
+  </div></section>
+  <section class="quote" id="cotacao"><div class="shell quote-grid">
+  <div><h2>Sua lista para cotação</h2><p>Confira os produtos, as unidades e as quantidades.</p><p data-status role="status"></p></div>
+  <div>
+    <p data-empty>Sua lista está vazia. Adicione produtos para começar.</p>
+    <ul data-items aria-label="Produtos para cotar"></ul>
+    <div class="actions" data-review hidden>
+      <button class="primary" type="button" data-simulate aria-expanded="false" aria-controls="whatsapp">Simular envio pelo WhatsApp</button>
+      <button class="text-button" type="button" data-clear>Limpar lista</button>
+    </div>
+    <section class="message" id="whatsapp" data-preview hidden aria-labelledby="mensagem">
+      <h3 id="mensagem" tabindex="-1">Prévia para WhatsApp</h3>
+      <p>Demonstração. A mensagem fica nesta página.</p>
+      <pre data-message></pre>
+      <div class="actions"><button class="primary" type="button" data-copy>Copiar mensagem</button><button class="text-button" type="button" data-edit>Voltar à lista</button></div>
+      <p data-copy-status role="status"></p>
+    </section>
+  </div>
+</div></section>
+</main>
+</body>
+</html>

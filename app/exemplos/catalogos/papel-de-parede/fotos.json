@@ -1,0 +1,18 @@
+{
+  "generator": "OpenAI ImageGen nativo",
+  "prompts": [
+    "Create one horizontal 3:2 realistic high-end Brazilian interior editorial photograph for a wallpaper shop called Entreparedes. A clay salmon terracotta dining room with full-wall subtle vertical pinstripe wallpaper in warm terracotta and light cream, delicate tight repeat intervals, warm wooden rounded dining table and two chairs in foreground, small ceramic vase with olive branch. Flat frontal wall from slight angle; low late afternoon warm side light; room shows generous uninterrupted wallpaper, clean and aspirational. No text, no watermarks.",
+    "Create a horizontal 3:2 interior editorial photography contact sheet, grid of 3 columns and 2 rows, flush edges, each cell exactly equal with no gutters and independent framing. Top row: three medium-width rooms showing entire beautiful wallpaper accent wall. First a clay salmon terracotta dining room in warm terracotta-and-cream vertical pinstripe wallpaper, with wood chair and table; second a sage-and-cream stylized leaf repeat wallpaper behind a calm bedroom with light wooden bed; third midnight blue wallpaper with a very fine warm-gold small-scale arch pattern in a walnut home office with desk. Bottom row: the wallpaper product itself close-up flat swatch filling each frame matching color/pattern of room directly above, warm terracotta vertical pinstripe, sage small-scale repeating stylized leaves on ivory, midnight blue fine gold arches. Photoreal designs from a premium wallpaper catalogue. Each swatch should be uniform even light, clean luminous surface, full bleed for reuse. No typography, no lines between panels, no watermarks.",
+    "Create a horizontal 3:2 elegant close low-angle still life photograph for Entreparedes fictional high-end wallpaper catalogue. Three tipped paper sample cards in overlap arranged on dark brown studio table with soft cropped envelope, no writing. Wallpaper textures: warm terracotta and cream pinstripe, sage leaf on white, midnight blue minimalist gold geometric arch motif. Physical card shadows, slightly curled edges, materiality and fine printed ink, photographed near north-facing window with warm highlights. Design magazine product still life, deep hues, restrained, no text or watermark."
+  ],
+  "assets": {
+    "ambientes.webp": 0,
+    "pasta.webp": 2,
+    "linha-ambiente.webp": 1,
+    "folha-ambiente.webp": 1,
+    "arcos-ambiente.webp": 1,
+    "linha-amostra.webp": 1,
+    "folha-amostra.webp": 1,
+    "arcos-amostra.webp": 1
+  }
+}

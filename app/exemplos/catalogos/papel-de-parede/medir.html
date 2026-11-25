@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Calcule rolos pela largura, altura e repetição da estampa.">
+  <title>Entreparedes · Medir parede</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="paredes.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="paredes.js" defer></script>
+</head>
+<body data-version="medir" data-campaign-demo="papel-de-parede">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="shell portfolio-inner">
+    <a class="back" href="/?tipo=catalogo&amp;projeto=papel-de-parede#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html">Ambientes</a><a href="medir.html" aria-current="page">Medir parede</a><a href="pasta.html">Pasta de amostras</a></nav>
+    <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20da%20Entreparedes%20e%20quero%20conversar%20sobre%20um%20site." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header>
+<header class="shop"><div class="shell shop-inner">
+  <a class="brand" href="versoes.html">Entreparedes</a>
+  <nav aria-label="Navegação da loja"><a href="#ferramenta">Calcular rolos</a><a class="list-link" href="#cotacao">Lista <span data-count>0</span></a></nav>
+</div></header>
+<main id="conteudo">
+  <section class="calculator shell" id="ferramenta">
+    <div class="measure-intro"><h1>Quantos rolos entram no plano?</h1><p>Meça uma parede inteira. A conta considera as faixas, a folga para recorte e o encaixe da estampa.</p></div>
+    <form data-calc>
+      <div class="measure-inputs">
+        <h2>Medidas da parede</h2>
+        <label>Papel <select name="papel"></select></label>
+        <div class="dimension-inputs"><label>Largura (m)<input name="largura" type="number" min="0.3" max="20" step="0.01" inputmode="decimal" value="3.2" required></label>
+        <label>Altura (m)<input name="altura" type="number" min="0.5" max="5" step="0.01" inputmode="decimal" value="2.5" required></label></div>
+        <p class="specification" data-roll-spec></p>
+        <button class="primary" type="submit" data-add-rolls>Adicionar rolos à lista</button>
+        <p class="form-status" data-calc-status role="status"></p>
+      </div>
+      <div class="measure-result">
+        <p class="roll-total" data-roll-result role="status"></p>
+        <div class="wall" data-wall aria-hidden="true"></div>
+        <dl data-breakdown></dl>
+      </div>
+    </form>
+    <details class="assumptions"><summary>Como a conta funciona</summary>
+      <p>Use a maior largura e altura da parede, de ponta a ponta. Somamos 10 cm por faixa para recorte e arredondamos o comprimento para cima até o próximo ponto de repetição. A conta considera rolos inteiros e faixas sem emendas. Portas, janelas, primeira perda de alinhamento, encaixe alternado e reserva extra ficam fora da estimativa. Confirme o lote e a medida com o instalador antes de comprar.</p>
+    </details>
+  </section>
+  <section class="quote" id="cotacao"><div class="shell quote-grid">
+  <div><h2>Sua lista para cotação</h2><p>Confira os produtos, as unidades e as quantidades.</p><p data-status role="status"></p></div>
+  <div>
+    <p data-empty>Sua lista está vazia. Adicione produtos para começar.</p>
+    <ul data-items aria-label="Produtos para cotar"></ul>
+    <div class="actions" data-review hidden>
+      <button class="primary" type="button" data-simulate aria-expanded="false" aria-controls="whatsapp">Simular envio pelo WhatsApp</button>
+      <button class="text-button" type="button" data-clear>Limpar lista</button>
+    </div>
+    <section class="message" id="whatsapp" data-preview hidden aria-labelledby="mensagem">
+      <h3 id="mensagem" tabindex="-1">Prévia para WhatsApp</h3>
+      <p>Demonstração. A mensagem fica nesta página.</p>
+      <pre data-message></pre>
+      <div class="actions"><button class="primary" type="button" data-copy>Copiar mensagem</button><button class="text-button" type="button" data-edit>Voltar à lista</button></div>
+      <p data-copy-status role="status"></p>
+    </section>
+  </div>
+</div></section>
+</main>
+</body>
+</html>
