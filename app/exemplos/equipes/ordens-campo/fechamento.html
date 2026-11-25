@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <title>Norte Serviço · Fechamento da visita</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="norte.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="norte.js" defer></script>
+</head>
+<body data-view="fechamento" data-campaign-demo="ordens-campo">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="portfolio"><div class="wrap rail">
+    <a href="/?tipo=operacao&amp;projeto=ordens-campo#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html">Agenda da equipe</a><a href="pecas.html">Separação de peças</a><a href="fechamento.html" aria-current="page">Fechamento da visita</a></nav>
+    <div data-demo-navigation-contact><a class="studio" href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20ferramenta%20Norte%20Servi%C3%A7o%20e%20quero%20conversar%20sobre%20uma%20ferramenta%20para%20minha%20equipe." data-campaign-placement="demo-opening">Quero uma ferramenta assim</a></div>
+  </div></header>
+  <header class="workspace"><div class="wrap workspace-row">
+    <a class="brand" href="versoes.html"><strong>Norte Serviço</strong><span>Assistência técnica em campo</span></a>
+    <span class="environment">Dados de demonstração</span>
+  </div></header>
+<main class="wrap" id="conteudo">
+  <section class="opening"><div><h1>Feche a ordem com histórico</h1><p>Confirme o que aconteceu na visita e gere um resumo que o atendimento pode levar para a próxima conversa.</p></div><img src="visita.webp" width="508" height="1024" alt="Técnico guardando o estojo de ferramentas"></section>
+  <div class="summary" data-summary></div>
+  <div class="dispatch close-grid"><section class="board" aria-labelledby="visitas"><div class="panel-header"><h2 id="visitas">Visitas da equipe</h2><p>Selecione a ordem da visita.</p></div><div data-jobs></div></section>
+  <section class="panel" aria-labelledby="fechar"><div class="panel-header"><h2 id="fechar">Registro da visita</h2><p data-selected></p></div>
+    <form data-form><label>Resultado da visita<select name="resultado"><option>Serviço concluído</option><option>Orientação ao cliente registrada</option><option>Encaminhado para novo orçamento</option></select></label>
+    <label class="check"><input type="checkbox" name="confirmar" required> Conferi a ordem e registrei o resultado.</label>
+    <button type="submit" class="primary" data-action>Concluir ordem</button></form>
+    <div data-receipt hidden tabindex="-1"><h3>Resumo para atendimento</h3><dl data-history></dl><button type="button" data-copy>Copiar resumo</button></div>
+    <p data-status role="status"></p>
+  </section></div>
+  <div class="foot-controls"><button type="button" data-reset>Reiniciar demonstração</button><div data-reset-confirm hidden><p>Voltar às ordens e aos saldos iniciais?</p><button type="button" data-reset-yes>Confirmar reinício</button><button type="button" data-reset-no>Cancelar</button></div></div>
+</main><footer><div class="wrap"><p>As alterações ficam neste navegador.</p><a href="versoes.html">Comparar as três versões</a></div></footer></body></html>

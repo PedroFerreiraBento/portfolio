@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <title>Norte Serviço · Separação de peças</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="norte.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="norte.js" defer></script>
+</head>
+<body data-view="pecas" data-campaign-demo="ordens-campo">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="portfolio"><div class="wrap rail">
+    <a href="/?tipo=operacao&amp;projeto=ordens-campo#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html">Agenda da equipe</a><a href="pecas.html" aria-current="page">Separação de peças</a><a href="fechamento.html">Fechamento da visita</a></nav>
+    <div data-demo-navigation-contact><a class="studio" href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20ferramenta%20Norte%20Servi%C3%A7o%20e%20quero%20conversar%20sobre%20uma%20ferramenta%20para%20minha%20equipe." data-campaign-placement="demo-opening">Quero uma ferramenta assim</a></div>
+  </div></header>
+  <header class="workspace"><div class="wrap workspace-row">
+    <a class="brand" href="versoes.html"><strong>Norte Serviço</strong><span>Assistência técnica em campo</span></a>
+    <span class="environment">Dados de demonstração</span>
+  </div></header>
+<main class="wrap" id="conteudo">
+  <section class="opening"><div><h1>Prepare o material</h1><p>Confira o saldo necessário por ordem antes de separar o kit. A reserva fica registrada no estoque da demonstração.</p></div><img src="pecas.webp" width="508" height="1024" alt="Peças de reposição em uma bancada"></section>
+  <div class="summary" data-summary></div>
+  <section class="inventory" aria-labelledby="inventario"><div class="panel-header"><h2 id="inventario">Saldo da bancada</h2><p>O material separado sai do saldo disponível.</p></div><div class="bins" data-stock></div></section>
+  <div class="dispatch secondary-grid"><section class="board" aria-labelledby="kits"><div class="panel-header"><h2 id="kits">Kits por ordem</h2><p>Comece por uma visita planejada.</p></div><div data-jobs></div></section>
+  <section class="panel" aria-labelledby="separacao"><div class="panel-header"><h2 id="separacao">Separar material</h2><p data-selected></p></div>
+    <div data-kit></div>
+    <form data-form><button class="primary" type="submit" data-action>Confirmar separação</button><button type="button" data-return hidden>Devolver ao estoque</button></form>
+    <p data-status role="status"></p>
+  </section></div>
+  <div class="foot-controls"><button type="button" data-reset>Reiniciar demonstração</button><div data-reset-confirm hidden><p>Voltar às ordens e aos saldos iniciais?</p><button type="button" data-reset-yes>Confirmar reinício</button><button type="button" data-reset-no>Cancelar</button></div></div>
+</main><footer><div class="wrap"><p>As alterações ficam neste navegador.</p><a href="versoes.html">Comparar as três versões</a></div></footer></body></html>
