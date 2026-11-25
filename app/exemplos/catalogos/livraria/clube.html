@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Catálogo demonstrativo de uma livraria independente.">
+  <title>Casa Contracapa · Clube de leitura</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+
+  <link rel="stylesheet" href="contracapa.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="contracapa.js" defer></script>
+</head>
+<body data-campaign-demo="livraria" data-version="clube">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="shell portfolio-inner">
+    <a class="back" href="/?tipo=catalogo&amp;projeto=livraria#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html">Estante por vontade</a><a href="presente.html">Presente com bilhete</a><a href="clube.html" aria-current="page">Clube de leitura</a></nav>
+    <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20o%20cat%C3%A1logo%20da%20Casa%20Contracapa%20e%20quero%20conversar%20sobre%20um%20site." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header>
+<header class="shop"><div class="shell shop-inner"><a href="versoes.html" class="wordmark">Casa Contracapa<span>Livraria independente</span></a><nav aria-label="Navegação da livraria"><a href="#livros">Ver títulos</a><a class="list-link" href="#cotacao">Lista <span data-count>0</span></a></nav></div></header>
+<main id="conteudo">
+<section class="club-banner">
+  <div class="shell club-hero">
+    <div><h1>Um livro para cada voz.</h1><p>Organize o próximo encontro. Busque por título ou código, compare o número de leitores com os exemplares planejados e adicione tudo à lista de cotação.</p></div>
+    <img src="clube.webp" width="720" height="720" alt="Livros em pilhas e um exemplar aberto numa mesa de leitura">
+  </div>
+</section>
+<section class="shell club-workspace" id="livros">
+  <h2>Prepare o lote.</h2>
+  <form data-club>
+    <div class="club-toolbar">
+      <label for="busca">Buscar título ou código<input id="busca" data-search type="search" placeholder="Ex. CC-02" autocomplete="off"></label>
+      <label for="leitores">Leitores no grupo<input id="leitores" type="number" name="leitores" min="1" max="999" value="8" inputmode="numeric" required></label>
+    </div>
+    <table><thead><tr><th scope="col">Título · brochura</th><th scope="col">Exemplares</th></tr></thead><tbody data-club-rows></tbody></table>
+    <p data-no-results hidden>Nenhum título corresponde à busca.</p>
+    <div class="club-footer"><output data-club-total aria-live="polite">0 exemplares planejados</output><button class="primary" type="submit">Adicionar exemplares</button></div>
+    <p data-club-status role="status"></p>
+  </form>
+</section>
+<section class="quote" id="cotacao" aria-labelledby="quote-title">
+  <div class="shell quote-layout">
+    <div><h2 id="quote-title">Sua lista para cotação.</h2><p>Confira os títulos e as quantidades antes de preparar a mensagem.</p><p data-status role="status"></p></div>
+    <div>
+      <p data-empty>Sua lista está vazia. Escolha um livro para começar.</p>
+      <ul class="quote-items" data-items aria-label="Produtos na lista"></ul>
+      <div class="actions" data-review hidden>
+        <button class="primary" type="button" data-simulate aria-controls="previsualizacao" aria-expanded="false">Simular envio pelo WhatsApp</button>
+        <button type="button" class="plain" data-clear>Limpar lista</button>
+      </div>
+      <section class="message" id="previsualizacao" data-preview hidden aria-labelledby="mensagem">
+        <h3 id="mensagem" tabindex="-1">Mensagem para cotação</h3>
+        <p>Esta prévia fica nesta página.</p>
+        <pre data-message></pre>
+        <div class="actions"><button type="button" class="primary" data-copy>Copiar mensagem</button><button type="button" class="plain" data-edit>Voltar à lista</button></div>
+        <p data-copy-status role="status"></p>
+      </section>
+    </div>
+  </div>
+</section>
+</main>
+</body>
+</html>

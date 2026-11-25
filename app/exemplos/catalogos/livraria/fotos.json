@@ -1,0 +1,19 @@
+{
+  "origem": "ImageGen nativo",
+  "fotos": {
+    "arquivos": [
+      "estante.webp",
+      "presente.webp",
+      "clube.webp"
+    ],
+    "prompt": "Create exactly one editorial photograph, designed as a clean horizontal triptych contact sheet with equal width columns, each strictly independent, no margins or separators; each panel will be cropped as a vertical photo, maintain subject fully within panel. For an independent Brazilian literary bookshop website. LEFT: rich golden afternoon sunlight, independent bookstore corner, bookseller's hands arranging slender pastel books on old wood beside an open original literary magazine, forest green wall, rich chestnut and warm paper, no readable words. CENTER: close-up overhead on an aubergine studio surface, hands wrapping a paperback in pale lavender fine paper and violet cotton ribbon with a blank printed letterpress stock card, intimate soft shadows, bookseller gift workbench, almost monochrome muted lavender and burgundy. RIGHT: modern collaborative reading club table, stacks of identical plain pale orange paperbacks, open book and plain metal reading lamp, olive green room with amber details, direct natural directional light. Art magazine food-free photography, real hands and optics, grain subtle, all product and typography fictional, no publishing logo, no letters, no readable text, no mock website."
+  },
+  "arteEditorial": {
+    "arquivos": [
+      "quintais.webp",
+      "margem.webp",
+      "dias.webp"
+    ],
+    "prompt": "Make ONE independent literary press illustration asset as a horizontal contact sheet of exactly three equal-width portrait panels (no margins or separators, to be sliced). Bold original linocut printmaking, each panel distinct. LEFT a Ferris-wheel-like apartment clothesline emerging from geometric urban roofs, indigo and soft sage on pale periwinkle; CENTER a river bends around an isolated boat seen from above, coral red ink on pinkish cream; RIGHT an olive seedling with strangely tall leaves and a tiny human hand over muted ochre, with charcoal ink. Three adult fiction paperback cover ILLUSTRATIONS, simple synthetic hand-cut carved shapes and tactile print texture, keep all motifs central in their individual panels, no books, no fake text, no letters or type; titles will be typeset over the bottom in HTML."
+  }
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Catálogo demonstrativo de uma livraria independente.">
+  <title>Casa Contracapa · Estante por vontade</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+
+  <link rel="stylesheet" href="contracapa.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="contracapa.js" defer></script>
+</head>
+<body data-campaign-demo="livraria" data-version="estante">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="shell portfolio-inner">
+    <a class="back" href="/?tipo=catalogo&amp;projeto=livraria#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html" aria-current="page">Estante por vontade</a><a href="presente.html">Presente com bilhete</a><a href="clube.html">Clube de leitura</a></nav>
+    <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20o%20cat%C3%A1logo%20da%20Casa%20Contracapa%20e%20quero%20conversar%20sobre%20um%20site." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header>
+<header class="shop"><div class="shell shop-inner"><a href="versoes.html" class="wordmark">Casa Contracapa<span>Livraria independente</span></a><nav aria-label="Navegação da livraria"><a href="#livros">Ver estante</a><a class="list-link" href="#cotacao">Lista <span data-count>0</span></a></nav></div></header>
+<main id="conteudo">
+<section class="shelf-hero">
+  <div class="shell shelf-hero-grid">
+    <div><h1>O que dá vontade de ler?</h1><p>Uma faixa do dia, três histórias e jeitos muito diferentes de abrir um livro. Comece pela leitura que procura.</p><a class="primary" href="#livros">Escolher minha leitura</a></div>
+    <img src="estante.webp" width="720" height="720" alt="Mãos organizando livros em uma estante iluminada">
+  </div>
+</section>
+<section class="shell reading" id="livros">
+  <h2>Escolha pelo momento.</h2>
+  <fieldset class="tabs"><legend class="sr">Filtrar por intenção de leitura</legend>
+    <label><input type="radio" name="intencao" value="todas" checked><span>Todas</span></label>
+    <label><input type="radio" name="intencao" value="rapida"><span>Ler em uma tarde</span></label>
+    <label><input type="radio" name="intencao" value="mergulho"><span>Mergulhar numa história</span></label>
+    <label><input type="radio" name="intencao" value="conversa"><span>Conversar depois</span></label>
+  </fieldset>
+  <p data-filter role="status"></p>
+  <div class="book-shelf" data-books></div>
+</section>
+<section class="quote" id="cotacao" aria-labelledby="quote-title">
+  <div class="shell quote-layout">
+    <div><h2 id="quote-title">Sua lista para cotação.</h2><p>Confira os títulos e as quantidades antes de preparar a mensagem.</p><p data-status role="status"></p></div>
+    <div>
+      <p data-empty>Sua lista está vazia. Escolha um livro para começar.</p>
+      <ul class="quote-items" data-items aria-label="Produtos na lista"></ul>
+      <div class="actions" data-review hidden>
+        <button class="primary" type="button" data-simulate aria-controls="previsualizacao" aria-expanded="false">Simular envio pelo WhatsApp</button>
+        <button type="button" class="plain" data-clear>Limpar lista</button>
+      </div>
+      <section class="message" id="previsualizacao" data-preview hidden aria-labelledby="mensagem">
+        <h3 id="mensagem" tabindex="-1">Mensagem para cotação</h3>
+        <p>Esta prévia fica nesta página.</p>
+        <pre data-message></pre>
+        <div class="actions"><button type="button" class="primary" data-copy>Copiar mensagem</button><button type="button" class="plain" data-edit>Voltar à lista</button></div>
+        <p data-copy-status role="status"></p>
+      </section>
+    </div>
+  </div>
+</section>
+</main>
+</body>
+</html>
