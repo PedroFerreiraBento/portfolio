@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Compare edições e confira o estado da capa e do disco separadamente.">
+  <title>Rotação Discos · Prensagem</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="rotacao.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="rotacao.js" defer></script>
+</head>
+<body class="prensagem" data-campaign-demo="vinil">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio"><div class="shell portfolio-inner">
+  <a href="/?tipo=catalogo&amp;projeto=vinil#trabalhos">← Trabalhos</a>
+  <nav aria-label="Versões da demonstração"><a href="index.html">Garimpo</a><a href="prensagem.html" aria-current="page">Prensagem</a><a href="sessao.html">Sessão da casa</a></nav>
+  <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20da%20Rota%C3%A7%C3%A3o%20Discos%20e%20quero%20conversar%20sobre%20um%20site." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+</div></header>
+<header class="shop"><div class="shell shop-inner">
+  <a class="brand" href="versoes.html">Rotação <span>Discos</span></a>
+  <nav aria-label="Navegação da loja"><a href="#ferramenta">Comparar edições</a><a class="list-link" href="#cotacao">Lista <span data-count>0</span></a></nav>
+</div></header>
+<main id="conteudo">
+  <section class="press-hero">
+    <div class="shell press-grid"><div><h1>Qual edição vai para casa?</h1><p>Compare o ano, o formato e a conservação de cada cópia. A ficha separa o estado do vinil do estado da capa.</p><a class="primary" href="#ferramenta">Abrir comparação</a></div>
+    <img src="sulcos.webp" width="512" height="512" alt="Sulcos de um vinil e seu envelope interno em fundo azul" fetchpriority="high"></div>
+  </section>
+  <section class="shell inspection" id="ferramenta">
+    <div class="inspection-head"><h2>Duas edições, lado a lado.</h2><label>Escolha um álbum <select data-press-title></select></label></div>
+    <div class="comparison" data-press-options></div>
+    <details><summary>O que significam NM, VG+ e VG?</summary><dl><div><dt>NM · Quase novo</dt><dd>Exemplar com pouquíssimos sinais de uso.</dd></div><div><dt>VG+ · Muito bom+</dt><dd>Exemplar com sinais leves de manuseio.</dd></div><div><dt>VG · Muito bom</dt><dd>Exemplar com desgaste mais visível. Confira a descrição da cópia.</dd></div></dl><p>A classificação da loja é indicativa. Use a ficha para perguntar sobre a cópia específica.</p></details>
+  </section>
+  <section class="quote" id="cotacao"><div class="shell quote-grid">
+    <div><h2>Sua lista para cotação</h2><p>Confira edições, códigos e quantidades antes de copiar a mensagem.</p><p data-status role="status"></p></div>
+    <div class="quote-content">
+      <p data-empty>Sua lista está vazia. Adicione um disco para começar.</p>
+      <ul data-items aria-label="Discos para cotar"></ul>
+      <div class="actions" data-review hidden><button class="primary" type="button" data-simulate aria-expanded="false" aria-controls="whatsapp">Simular envio pelo WhatsApp</button><button class="quiet" type="button" data-clear>Limpar lista</button></div>
+      <section class="message" id="whatsapp" data-preview hidden aria-labelledby="mensagem">
+        <h3 id="mensagem" tabindex="-1">Mensagem de cotação</h3>
+        <p>Prévia local. Nenhuma mensagem será enviada.</p>
+        <pre data-message></pre>
+        <div class="actions"><button class="primary" type="button" data-copy>Copiar mensagem</button><button class="quiet" type="button" data-edit>Voltar à lista</button></div>
+        <p data-copy-status role="status"></p>
+      </section>
+    </div>
+  </div></section>
+</main>
+<footer><div class="shell"><a href="versoes.html">Rotação Discos</a><p>Catálogo demonstrativo. Títulos, artistas e disponibilidade são fictícios.</p></div></footer>
+</body>
+</html>

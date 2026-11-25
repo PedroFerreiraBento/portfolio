@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Explore a loja por gênero e descubra as capas e fichas de cada álbum.">
+  <title>Rotação Discos · Garimpo</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="rotacao.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="rotacao.js" defer></script>
+</head>
+<body class="garimpo" data-campaign-demo="vinil">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio"><div class="shell portfolio-inner">
+  <a href="/?tipo=catalogo&amp;projeto=vinil#trabalhos">← Trabalhos</a>
+  <nav aria-label="Versões da demonstração"><a href="index.html" aria-current="page">Garimpo</a><a href="prensagem.html">Prensagem</a><a href="sessao.html">Sessão da casa</a></nav>
+  <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20da%20Rota%C3%A7%C3%A3o%20Discos%20e%20quero%20conversar%20sobre%20um%20site." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+</div></header>
+<header class="shop"><div class="shell shop-inner">
+  <a class="brand" href="versoes.html">Rotação <span>Discos</span></a>
+  <nav aria-label="Navegação da loja"><a href="#ferramenta">Ver discos</a><a class="list-link" href="#cotacao">Lista <span data-count>0</span></a></nav>
+</div></header>
+<main id="conteudo">
+  <section class="dig-hero shell">
+    <div><h1>O próximo disco da sua estante.</h1><p>Passe pelas capas, encontre um gênero e confira a ficha de cada LP antes de escolher.</p><a class="primary" href="#ferramenta">Garimpar discos</a></div>
+    <img src="garimpo.webp" width="512" height="512" alt="Mão passando pelas capas de vinil em uma caixa de madeira" fetchpriority="high">
+  </section>
+  <section class="shell graphic-shelf" id="ferramenta"><div class="section-head"><h2>Qual som você procura?</h2>
+    <fieldset><legend class="sr">Filtrar por gênero</legend><div class="picks"><label><input name="genero" type="radio" value="todos" checked> Todos</label><label><input name="genero" type="radio" value="samba"> Samba-jazz</label><label><input name="genero" type="radio" value="ambient"> Ambient</label><label><input name="genero" type="radio" value="groove"> Groove</label></div></fieldset>
+    <p data-filter role="status"></p></div>
+    <div class="albums" data-albums></div>
+  </section>
+  <section class="quote" id="cotacao"><div class="shell quote-grid">
+    <div><h2>Sua lista para cotação</h2><p>Confira edições, códigos e quantidades antes de copiar a mensagem.</p><p data-status role="status"></p></div>
+    <div class="quote-content">
+      <p data-empty>Sua lista está vazia. Adicione um disco para começar.</p>
+      <ul data-items aria-label="Discos para cotar"></ul>
+      <div class="actions" data-review hidden><button class="primary" type="button" data-simulate aria-expanded="false" aria-controls="whatsapp">Simular envio pelo WhatsApp</button><button class="quiet" type="button" data-clear>Limpar lista</button></div>
+      <section class="message" id="whatsapp" data-preview hidden aria-labelledby="mensagem">
+        <h3 id="mensagem" tabindex="-1">Mensagem de cotação</h3>
+        <p>Prévia local. Nenhuma mensagem será enviada.</p>
+        <pre data-message></pre>
+        <div class="actions"><button class="primary" type="button" data-copy>Copiar mensagem</button><button class="quiet" type="button" data-edit>Voltar à lista</button></div>
+        <p data-copy-status role="status"></p>
+      </section>
+    </div>
+  </div></section>
+</main>
+<footer><div class="shell"><a href="versoes.html">Rotação Discos</a><p>Catálogo demonstrativo. Títulos, artistas e disponibilidade são fictícios.</p></div></footer>
+</body>
+</html>

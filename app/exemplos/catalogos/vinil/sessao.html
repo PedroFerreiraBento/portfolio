@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Monte uma sequência de discos guiada pelo clima da escuta.">
+  <title>Rotação Discos · Sessão da casa</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="rotacao.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="rotacao.js" defer></script>
+</head>
+<body class="sessao" data-campaign-demo="vinil">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio"><div class="shell portfolio-inner">
+  <a href="/?tipo=catalogo&amp;projeto=vinil#trabalhos">← Trabalhos</a>
+  <nav aria-label="Versões da demonstração"><a href="index.html">Garimpo</a><a href="prensagem.html">Prensagem</a><a href="sessao.html" aria-current="page">Sessão da casa</a></nav>
+  <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20da%20Rota%C3%A7%C3%A3o%20Discos%20e%20quero%20conversar%20sobre%20um%20site." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+</div></header>
+<header class="shop"><div class="shell shop-inner">
+  <a class="brand" href="versoes.html">Rotação <span>Discos</span></a>
+  <nav aria-label="Navegação da loja"><a href="#ferramenta">Montar sessão</a><a class="list-link" href="#cotacao">Lista <span data-count>0</span></a></nav>
+</div></header>
+<main id="conteudo">
+  <section class="session-hero shell">
+    <div><h1>Do primeiro lado ao último.</h1><p>Escolha o clima da escuta. A loja monta uma ordem para a sessão e você decide quais discos entram na lista.</p>
+      <fieldset><legend>Como começa a sessão?</legend><div class="picks"><label><input name="sessao" value="janela" type="radio" checked> Janela aberta</label><label><input name="sessao" value="mesa" type="radio"> Fim de tarde à mesa</label><label><input name="sessao" value="luzes" type="radio"> Luzes baixas</label></div></fieldset>
+      <a class="primary" href="#ferramenta">Ver sequência</a></div>
+    <img src="escuta.webp" width="512" height="512" alt="Vitrola e discos na luz de fim de tarde" fetchpriority="high">
+  </section>
+  <section class="session-panel" id="ferramenta"><div class="shell session-tool">
+    <div><h2 data-session-title></h2><p data-session-note></p></div>
+    <form data-session><p>Marque os discos que quer cotar.</p><ol data-queue></ol>
+      <button type="submit" class="primary">Adicionar discos escolhidos</button><p data-session-status role="status"></p>
+    </form>
+  </div></section>
+  <section class="quote" id="cotacao"><div class="shell quote-grid">
+    <div><h2>Sua lista para cotação</h2><p>Confira edições, códigos e quantidades antes de copiar a mensagem.</p><p data-status role="status"></p></div>
+    <div class="quote-content">
+      <p data-empty>Sua lista está vazia. Adicione um disco para começar.</p>
+      <ul data-items aria-label="Discos para cotar"></ul>
+      <div class="actions" data-review hidden><button class="primary" type="button" data-simulate aria-expanded="false" aria-controls="whatsapp">Simular envio pelo WhatsApp</button><button class="quiet" type="button" data-clear>Limpar lista</button></div>
+      <section class="message" id="whatsapp" data-preview hidden aria-labelledby="mensagem">
+        <h3 id="mensagem" tabindex="-1">Mensagem de cotação</h3>
+        <p>Prévia local. Nenhuma mensagem será enviada.</p>
+        <pre data-message></pre>
+        <div class="actions"><button class="primary" type="button" data-copy>Copiar mensagem</button><button class="quiet" type="button" data-edit>Voltar à lista</button></div>
+        <p data-copy-status role="status"></p>
+      </section>
+    </div>
+  </div></section>
+</main>
+<footer><div class="shell"><a href="versoes.html">Rotação Discos</a><p>Catálogo demonstrativo. Títulos, artistas e disponibilidade são fictícios.</p></div></footer>
+</body>
+</html>
