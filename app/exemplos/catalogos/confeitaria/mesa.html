@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Organize as quantidades de brigadeiros, trufas e bombons para um evento."
+    />
+    <title>Dobra Doce · Mesa de doces</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css" />
+    <link rel="stylesheet" href="dobra.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="dobra.js" defer></script>
+  </head>
+  <body class="mesa" data-campaign-demo="confeitaria">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap portfolio-inner">
+        <a href="/?tipo=catalogo&amp;projeto=confeitaria#trabalhos"
+          >← Trabalhos</a
+        >
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Caixa de balcão</a><a href="bolo.html">Bolo sob medida</a
+          ><a href="mesa.html" aria-current="page">Mesa de doces</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Dobra%20Doce%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="shop">
+      <div class="wrap">
+        <a class="wordmark" href="#conteudo">Dobra Doce</a
+        ><a href="#escolha"
+          >Calcular quantidades
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="mesa-hero">
+        <div class="wrap mesa-intro">
+          <h1>Uma mesa para repartir.</h1>
+          <p>
+            Defina a quantidade que quer servir e veja quanto cabe em cada tipo
+            de doce.
+          </p>
+          <a class="primary" href="#escolha"
+            >Planejar a mesa
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+            >
+              <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+          ></a>
+        </div>
+      </section>
+      <section class="wrap mesa-tool" id="escolha">
+        <div>
+          <h2>O cálculo da sua mesa.</h2>
+          <p>
+            Os valores iniciais são exemplos. Ajuste as porções considerando o
+            restante do cardápio e distribua o total entre os formatos.
+          </p>
+        </div>
+        <form data-flow="mesa">
+          <div data-fields>
+            <fieldset>
+              <legend>Defina a referência do evento</legend>
+              <div class="meters">
+                <label class="meter" for="convidados"
+                  ><span>Convidados</span
+                  ><input
+                    type="number"
+                    id="convidados"
+                    name="convidados"
+                    value="24"
+                    min="1"
+                    max="500"
+                    required
+                    step="1"
+                    inputmode="numeric" /></label
+                ><label class="meter" for="porcao"
+                  ><span>Doces por pessoa</span
+                  ><input
+                    type="number"
+                    id="porcao"
+                    name="porcao"
+                    value="4"
+                    min="1"
+                    max="20"
+                    required
+                    step="1"
+                    inputmode="numeric"
+                /></label>
+              </div>
+            </fieldset>
+            <p class="formula" data-formula aria-live="polite">
+              24 convidados × 4 doces = 96 unidades
+            </p>
+            <fieldset>
+              <legend>Distribua as unidades</legend>
+              <label class="meter" for="lote-0"
+                ><span>Brigadeiros</span
+                ><input
+                  type="number"
+                  id="lote-0"
+                  name="lote-0"
+                  value="48"
+                  min="0"
+                  max="10000"
+                  required
+                  step="1"
+                  inputmode="numeric"
+              /></label>
+              <label class="meter" for="lote-1"
+                ><span>Trufas</span
+                ><input
+                  type="number"
+                  id="lote-1"
+                  name="lote-1"
+                  value="24"
+                  min="0"
+                  max="10000"
+                  required
+                  step="1"
+                  inputmode="numeric"
+              /></label>
+              <label class="meter" for="lote-2"
+                ><span>Bombons</span
+                ><input
+                  type="number"
+                  id="lote-2"
+                  name="lote-2"
+                  value="24"
+                  min="0"
+                  max="10000"
+                  required
+                  step="1"
+                  inputmode="numeric"
+              /></label>
+            </fieldset>
+            <div class="bar">
+              <output aria-live="polite" data-balance
+                >96 de 96 unidades distribuídas</output
+              ><button class="primary" type="submit">
+                Revisar ficha
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+            <p data-error class="status" role="status"></p>
+          </div>
+          <section
+            class="receipt"
+            hidden
+            data-receipt
+            tabindex="-1"
+            aria-labelledby="resumo"
+          >
+            <h2 id="resumo">Resumo da demonstração</h2>
+            <dl data-summary></dl>
+            <p>Referência DD-DEMO-001. As escolhas ficam nesta página.</p>
+            <div class="receipt-actions">
+              <button type="button" class="primary" data-copy>
+                Copiar resumo</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Dobra Doce · Demonstração de confeitaria</span
+        ><a href="versoes.html"
+          >Ver as três versões
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>

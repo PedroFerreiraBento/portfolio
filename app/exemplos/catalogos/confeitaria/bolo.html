@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Monte um bolo de festa escolhendo massa, recheio e cobertura."
+    />
+    <title>Dobra Doce · Bolo sob medida</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css" />
+    <link rel="stylesheet" href="dobra.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="dobra.js" defer></script>
+  </head>
+  <body class="bolo" data-campaign-demo="confeitaria">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap portfolio-inner">
+        <a href="/?tipo=catalogo&amp;projeto=confeitaria#trabalhos"
+          >← Trabalhos</a
+        >
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Caixa de balcão</a
+          ><a href="bolo.html" aria-current="page">Bolo sob medida</a
+          ><a href="mesa.html">Mesa de doces</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Dobra%20Doce%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="shop">
+      <div class="wrap">
+        <a class="wordmark" href="#conteudo">Dobra Doce</a
+        ><a href="#escolha"
+          >Compor bolo
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="wrap cake-tool" id="escolha">
+        <div class="cake-intro">
+          <h1>Seu bolo, camada por camada.</h1>
+          <p>
+            Monte a composição e compare os acabamentos antes de preparar a
+            consulta à confeitaria.
+          </p>
+        </div>
+        <form data-flow="bolo">
+          <div data-fields>
+            <div class="cake-config">
+              <div class="cake-photo">
+                <figure>
+                  <img
+                    src="bolo-rosa.webp"
+                    width="627"
+                    height="627"
+                    alt="Bolo redondo coberto com creme rosa"
+                  />
+                  <figcaption data-finish-caption>
+                    Creme rosa · referência do acabamento
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="cake-controls">
+                <fieldset>
+                  <legend>Diâmetro do bolo</legend>
+                  <div class="choices">
+                    <label class="choice"
+                      ><input
+                        type="radio"
+                        name="tamanho"
+                        value="15 cm"
+                        checked
+                      /><span>15 cm</span></label
+                    >
+                    <label class="choice"
+                      ><input type="radio" name="tamanho" value="20 cm" /><span
+                        >20 cm</span
+                      ></label
+                    >
+                    <label class="choice"
+                      ><input type="radio" name="tamanho" value="25 cm" /><span
+                        >25 cm</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Massa</legend>
+                  <div class="choices">
+                    <label class="choice"
+                      ><input
+                        type="radio"
+                        name="massa"
+                        value="Baunilha"
+                        checked
+                      /><span>Baunilha</span></label
+                    >
+                    <label class="choice"
+                      ><input
+                        type="radio"
+                        name="massa"
+                        value="Chocolate"
+                      /><span>Chocolate</span></label
+                    >
+                  </div>
+                </fieldset>
+                <div class="select-field">
+                  <label for="recheio">Recheio</label
+                  ><select id="recheio" name="recheio">
+                    <option>Baunilha e amora</option>
+                    <option>Doce de leite</option>
+                  </select>
+                </div>
+                <fieldset>
+                  <legend>Acabamento</legend>
+                  <div class="choices">
+                    <label class="choice"
+                      ><input
+                        type="radio"
+                        name="acabamento"
+                        value="Creme rosa"
+                        checked
+                      /><span>Creme rosa</span></label
+                    >
+                    <label class="choice"
+                      ><input
+                        type="radio"
+                        name="acabamento"
+                        value="Creme marfim"
+                      /><span>Creme marfim</span></label
+                    >
+                  </div>
+                </fieldset>
+                <button class="primary" type="submit">
+                  Revisar composição
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  >
+                    <path d="M4 12h15m-6-6 6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <section
+            class="receipt"
+            hidden
+            data-receipt
+            tabindex="-1"
+            aria-labelledby="resumo"
+          >
+            <h2 id="resumo">Resumo da demonstração</h2>
+            <dl data-summary></dl>
+            <p>Referência DD-DEMO-001. As escolhas ficam nesta página.</p>
+            <div class="receipt-actions">
+              <button type="button" class="primary" data-copy>
+                Copiar resumo</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Dobra Doce · Demonstração de confeitaria</span
+        ><a href="versoes.html"
+          >Ver as três versões
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>
