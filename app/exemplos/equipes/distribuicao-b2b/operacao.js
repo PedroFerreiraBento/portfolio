@@ -189,7 +189,9 @@ const entrega = {
           available +
           ' de ' +
           capacity +
-          ' caixas livres</small><i class="meter"><span style="width:' +
+          ' caixas livres' +
+          (available < quote.count ? ' · insuficiente' : '') +
+          '</small><i class="meter"><span style="width:' +
           (100 * available) / capacity +
           '%"></span></i></span></label>'
         );

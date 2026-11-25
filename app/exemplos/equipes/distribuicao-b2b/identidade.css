@@ -180,3 +180,6 @@
     height: 88px;
   }
 }
+.window:has(input:disabled) .meter span {
+  background: #9cabb2;
+}

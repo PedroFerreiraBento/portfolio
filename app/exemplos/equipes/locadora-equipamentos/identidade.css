@@ -208,3 +208,13 @@
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 760px) {
+  .booking-grid .inputs label:has([name='equipamento']) {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .booking-grid .inputs label:has([name='equipamento']) {
+    grid-column: 1 / -1;
+  }
+}

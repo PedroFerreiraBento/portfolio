@@ -39,7 +39,7 @@ const products = [
   },
 ];
 const lookup = (id) => products.find((item) => item.id === id);
-const choices = products.map((item) => [item.id, item.name + ' · ' + item.id]);
+const choices = products.map((item) => [item.id, item.name]);
 const initial = {
   available: Object.fromEntries(products.map((item) => [item.id, item.stock])),
   orders: [

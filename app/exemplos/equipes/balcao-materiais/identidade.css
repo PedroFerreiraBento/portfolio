@@ -159,3 +159,9 @@
     padding: 10px 0;
   }
 }
+@media (max-width: 760px) {
+  .counter-screen .inputs,
+  .inventory .inputs {
+    grid-template-columns: minmax(0, 1fr) minmax(88px, 0.48fr);
+  }
+}
