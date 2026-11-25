@@ -1,0 +1,9 @@
+{
+  "source": "ImageGen nativo",
+  "prompt": "Wide 3:2 editorial photography contact sheet for a professional pottery workshop in Brazil. Exactly three horizontal scenes stacked in three equal horizontal bands with no gutters. Top: hands shaping sienna clay on a potter’s wheel in a sunlit terracotta studio, professional editorial lens. Middle: overhead still life of handmade ceramic cups, pumice, unlabeled blue ochre glaze samples and brushes on cobalt table with side light. Bottom: two adult friends shaping clay bowls by hand at a wooden table, sage studio and natural afternoon light, focused, shot from open door. Different colors and visual angles in every scene, no lettering.",
+  "assets": {
+    "cena-0.webp": "exec-b0a0df87-246e-46fb-b37b-58cb00cefff6.png, painel 1",
+    "cena-1.webp": "exec-b0a0df87-246e-46fb-b37b-58cb00cefff6.png, painel 2",
+    "cena-2.webp": "exec-b0a0df87-246e-46fb-b37b-58cb00cefff6.png, painel 3"
+  }
+}

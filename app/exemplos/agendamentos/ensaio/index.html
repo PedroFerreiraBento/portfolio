@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Compare espaço, lotação e bateria, depois confira os horários da sala escolhida."
+    />
+    <title>Sala de Fundo · Reserve uma sala</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="../escola-musica/agendas.css" />
+    <script defer src="/assets/campanha.js"></script>
+    <script defer src="../escola-musica/agendas.js"></script>
+  </head>
+  <body class="ensaio salas" data-campaign-demo="ensaio">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="shell portfolio-row">
+        <a href="/?tipo=agendamento&amp;projeto=ensaio#trabalhos"
+          >← Trabalhos</a
+        >
+        <nav aria-label="Versões da demonstração">
+          <a href="index.html" aria-current="page">Reserve uma sala</a>
+          <a href="rider.html">Monte seu rider</a>
+          <a href="estendido.html">Ensaio estendido</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            class="studio-cta"
+            href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Sala%20de%20Fundo%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="identity">
+      <div class="shell identity-row">
+        <div>
+          <a href="versoes.html" class="wordmark">Sala de Fundo</a
+          ><span class="descriptor">Estúdio de ensaio</span>
+        </div>
+        <a href="#agenda"
+          >Ver agenda
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15m-7-7 7 7-7 7" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="shell intro direct">
+        <div class="intro-copy">
+          <h1>O ensaio começa pela sala certa.</h1>
+          <p>
+            Compare espaço, lotação e bateria, depois confira os horários da
+            sala escolhida.
+          </p>
+          <a class="action jump" href="#agenda"
+            >Abrir a grade de salas
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              aria-hidden="true"
+            >
+              <path d="M4 12h15m-7-7 7 7-7 7" /></svg
+          ></a>
+        </div>
+      </section>
+      <section class="work-section">
+        <div class="shell">
+          <form
+            id="agenda"
+            data-booking="salas"
+            data-brand="Sala de Fundo"
+            data-code="SF"
+            data-kind="Reserve uma sala"
+          >
+            <div class="booking-fields" data-fields>
+              <div class="workbench">
+                <header class="tool-heading">
+                  <h2>Compare as salas</h2>
+                  <p>
+                    O tamanho da banda e a bateria disponível ajudam a escolher
+                    o espaço.
+                  </p>
+                </header>
+                <fieldset class="cards">
+                  <legend>Sala</legend>
+                  <div>
+                    <label
+                      ><input
+                        name="choice"
+                        type="radio"
+                        value="Sala A"
+                        checked
+                      /><span
+                        ><strong>Sala A</strong
+                        ><small>Até 3 · 12 m² · bateria compacta</small></span
+                      ></label
+                    ><label
+                      ><input name="choice" type="radio" value="Sala B" /><span
+                        ><strong>Sala B</strong
+                        ><small>Até 5 · 20 m² · bateria completa</small></span
+                      ></label
+                    ><label
+                      ><input name="choice" type="radio" value="Sala C" /><span
+                        ><strong>Sala C</strong
+                        ><small>Até 7 · 28 m² · montagem ampla</small></span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+                <fieldset class="chips">
+                  <legend>Duração</legend>
+                  <div>
+                    <label
+                      ><input
+                        name="detail"
+                        type="radio"
+                        value="1 hora"
+                        checked
+                      /><span>1 hora</span></label
+                    ><label
+                      ><input name="detail" type="radio" value="2 horas" /><span
+                        >2 horas</span
+                      ></label
+                    ><label
+                      ><input name="detail" type="radio" value="3 horas" /><span
+                        >3 horas</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+              </div>
+              <section class="schedule" aria-labelledby="schedule-title">
+                <h3 id="schedule-title">Escolha um horário</h3>
+                <p>Disponibilidade fictícia para explorar o fluxo.</p>
+                <fieldset class="slots">
+                  <legend class="sr">Horários fictícios</legend>
+                  <div data-slots></div>
+                </fieldset>
+                <p class="timing" data-timing role="status"></p>
+                <button type="submit" class="action" data-submit disabled>
+                  Revisar horário
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 12h15m-7-7 7 7-7 7" />
+                  </svg>
+                </button>
+              </section>
+            </div>
+            <section
+              class="receipt"
+              data-receipt
+              hidden
+              tabindex="-1"
+              aria-labelledby="receipt-title"
+            >
+              <h2 id="receipt-title">Seu horário de exemplo</h2>
+              <p>Protocolo local <strong data-code></strong></p>
+              <dl data-summary></dl>
+              <p>Simulação. Nenhum horário será reservado ou enviado.</p>
+              <div class="receipt-actions">
+                <button type="button" class="action" data-copy>
+                  Copiar resumo</button
+                ><button type="button" data-edit>Editar escolhas</button
+                ><button type="button" data-reset>Recomeçar</button>
+              </div>
+              <p data-status role="status"></p>
+            </section>
+          </form>
+        </div>
+      </section>
+      <section class="shell editorial-photo">
+        <figure>
+          <img
+            src="cena-0.webp"
+            width="960"
+            height="426"
+            alt="Sala de ensaio com bateria e amplificadores"
+            fetchpriority="high"
+          />
+          <figcaption>Veja onde a banda cabe.</figcaption>
+        </figure>
+      </section>
+      <section class="shell after">
+        <h2>O que está incluso</h2>
+        <p>
+          As três salas têm PA e um amplificador de baixo. Baquetas, pratos e
+          instrumentos pessoais vão com a banda.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <div class="shell footer-row">
+        <a href="versoes.html">Sala de Fundo</a>
+        <p>Horários fictícios. As escolhas são simuladas nesta página.</p>
+      </div>
+    </footer>
+  </body>
+</html>

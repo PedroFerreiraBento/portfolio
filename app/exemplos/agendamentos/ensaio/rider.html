@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Liste o que precisa estar ligado ao entrar. A ficha registra a sala, o horário e os equipamentos escolhidos."
+    />
+    <title>Sala de Fundo · Monte seu rider</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="../escola-musica/agendas.css" />
+    <script defer src="/assets/campanha.js"></script>
+    <script defer src="../escola-musica/agendas.js"></script>
+  </head>
+  <body class="ensaio rider" data-campaign-demo="ensaio">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="shell portfolio-row">
+        <a href="/?tipo=agendamento&amp;projeto=ensaio#trabalhos"
+          >← Trabalhos</a
+        >
+        <nav aria-label="Versões da demonstração">
+          <a href="index.html">Reserve uma sala</a>
+          <a href="rider.html" aria-current="page">Monte seu rider</a>
+          <a href="estendido.html">Ensaio estendido</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            class="studio-cta"
+            href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Sala%20de%20Fundo%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="identity">
+      <div class="shell identity-row">
+        <div>
+          <a href="versoes.html" class="wordmark">Sala de Fundo</a
+          ><span class="descriptor">Estúdio de ensaio</span>
+        </div>
+        <a href="#agenda"
+          >Ver agenda
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15m-7-7 7 7-7 7" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="intro poster-hero">
+        <div class="shell">
+          <figure>
+            <img
+              src="cena-1.webp"
+              width="960"
+              height="426"
+              alt="Músico instala um cabo próximo a um amplificador"
+              fetchpriority="high"
+            />
+            <figcaption>Leve a ficha ao estúdio.</figcaption>
+          </figure>
+          <div class="intro-copy">
+            <h1>Chegue com o som resolvido.</h1>
+            <p>
+              Liste o que precisa estar ligado ao entrar. A ficha registra a
+              sala, o horário e os equipamentos escolhidos.
+            </p>
+            <a class="action jump" href="#agenda"
+              >Preparar o rider
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                aria-hidden="true"
+              >
+                <path d="M4 12h15m-7-7 7 7-7 7" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="work-section">
+        <div class="shell">
+          <form
+            id="agenda"
+            data-booking="rider"
+            data-brand="Sala de Fundo"
+            data-code="SF"
+            data-kind="Monte seu rider"
+          >
+            <div class="booking-fields" data-fields>
+              <div class="workbench">
+                <header class="tool-heading">
+                  <h2>Monte a lista técnica</h2>
+                  <p>
+                    Inclua o tempo de montagem e marque o que a sala precisa
+                    deixar pronto.
+                  </p>
+                </header>
+                <fieldset class="chips">
+                  <legend>Sala</legend>
+                  <div>
+                    <label
+                      ><input
+                        name="choice"
+                        type="radio"
+                        value="Sala A"
+                        checked
+                      /><span>Sala A</span></label
+                    ><label
+                      ><input name="choice" type="radio" value="Sala B" /><span
+                        >Sala B</span
+                      ></label
+                    ><label
+                      ><input name="choice" type="radio" value="Sala C" /><span
+                        >Sala C</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+                <fieldset class="chips">
+                  <legend>Tempo de montagem</legend>
+                  <div>
+                    <label
+                      ><input
+                        name="detail"
+                        type="radio"
+                        value="15 minutos"
+                        checked
+                      /><span>15 minutos</span></label
+                    ><label
+                      ><input
+                        name="detail"
+                        type="radio"
+                        value="30 minutos"
+                      /><span>30 minutos</span></label
+                    ><label
+                      ><input
+                        name="detail"
+                        type="radio"
+                        value="45 minutos"
+                      /><span>45 minutos</span></label
+                    >
+                  </div>
+                </fieldset>
+                <fieldset class="check-list">
+                  <legend>Equipamentos</legend>
+                  <label
+                    ><input
+                      name="extra"
+                      type="checkbox"
+                      value="Microfone vocal"
+                    />
+                    <span>Microfone vocal</span></label
+                  ><label
+                    ><input
+                      name="extra"
+                      type="checkbox"
+                      value="Suporte de teclado"
+                    />
+                    <span>Suporte de teclado</span></label
+                  ><label
+                    ><input
+                      name="extra"
+                      type="checkbox"
+                      value="Amplificador de guitarra"
+                    />
+                    <span>Amplificador de guitarra</span></label
+                  ><label
+                    ><input
+                      name="extra"
+                      type="checkbox"
+                      value="Estante de partitura"
+                    />
+                    <span>Estante de partitura</span></label
+                  >
+                </fieldset>
+                <p class="configuration" data-selection role="status"></p>
+              </div>
+              <section class="schedule" aria-labelledby="schedule-title">
+                <h3 id="schedule-title">Escolha um horário</h3>
+                <p>Disponibilidade fictícia para explorar o fluxo.</p>
+                <fieldset class="slots">
+                  <legend class="sr">Horários fictícios</legend>
+                  <div data-slots></div>
+                </fieldset>
+                <p class="timing" data-timing role="status"></p>
+                <button type="submit" class="action" data-submit disabled>
+                  Revisar horário
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 12h15m-7-7 7 7-7 7" />
+                  </svg>
+                </button>
+              </section>
+            </div>
+            <section
+              class="receipt"
+              data-receipt
+              hidden
+              tabindex="-1"
+              aria-labelledby="receipt-title"
+            >
+              <h2 id="receipt-title">Seu horário de exemplo</h2>
+              <p>Protocolo local <strong data-code></strong></p>
+              <dl data-summary></dl>
+              <p>Simulação. Nenhum horário será reservado ou enviado.</p>
+              <div class="receipt-actions">
+                <button type="button" class="action" data-copy>
+                  Copiar resumo</button
+                ><button type="button" data-edit>Editar escolhas</button
+                ><button type="button" data-reset>Recomeçar</button>
+              </div>
+              <p data-status role="status"></p>
+            </section>
+          </form>
+        </div>
+      </section>
+      <section class="shell after">
+        <h2>Leve o que é pessoal</h2>
+        <p>
+          Confirme adaptadores e cabos próprios. Os itens escolhidos entram na
+          ficha para a sala conferir.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <div class="shell footer-row">
+        <a href="versoes.html">Sala de Fundo</a>
+        <p>Horários fictícios. As escolhas são simuladas nesta página.</p>
+      </div>
+    </footer>
+  </body>
+</html>

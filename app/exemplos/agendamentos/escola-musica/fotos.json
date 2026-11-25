@@ -1,0 +1,9 @@
+{
+  "source": "ImageGen nativo",
+  "prompt": "Wide 3:2 editorial website photography contact sheet, exactly three horizontal scenes stacked in three equal horizontal bands, no gutters, no text. Each scene fills width and is independently framed. Top: sunlit independent Brazilian music school, a young adult at an upright piano and smiling adult teacher listening, deep blue wall and honey oak, shoot from side at seated eye level. Middle: close-up hands tuning an acoustic guitar in a lesson room, burgundy wall and warm oak, musician face out of shot. Bottom: two adult music students and teacher smiling while rehearsing keyboard and bass from a normal distance, pale mustard rehearsal classroom, indie magazine analog photo. Realistic and candid, no logos.",
+  "assets": {
+    "cena-0.webp": "exec-d155fec9-95fa-4b54-8de6-0baa738a4939.png, painel 1",
+    "cena-1.webp": "exec-d155fec9-95fa-4b54-8de6-0baa738a4939.png, painel 2",
+    "cena-2.webp": "exec-d155fec9-95fa-4b54-8de6-0baa738a4939.png, painel 3"
+  }
+}

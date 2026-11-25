@@ -1,0 +1,9 @@
+{
+  "source": "ImageGen nativo",
+  "prompt": "Wide 3:2 architectural editorial photograph contact sheet exactly three horizontal photographs of a fictional rehearsal music studio stacked evenly in three bands without a gutter. Top: wide side view of black drum kit, bass amp and guitar propped away from door in dark real acoustic live room with spruce diffusers, warm amber practical lighting with midnight charcoal. Middle: emerald green acoustic drape, one musician plugs a jack cable into their guitar tuner beside an amp, tactile realistic materials. Bottom: warm lilac blue studio control desk with real faders, guitarist’s case in foreground, dry hazy evening through studio window, human-free. Independently well composed, no logos, no text.",
+  "assets": {
+    "cena-0.webp": "exec-18ad8e52-453f-4416-967f-723a6a928409.png, painel 1",
+    "cena-1.webp": "exec-18ad8e52-453f-4416-967f-723a6a928409.png, painel 2",
+    "cena-2.webp": "exec-18ad8e52-453f-4416-967f-723a6a928409.png, painel 3"
+  }
+}
