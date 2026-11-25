@@ -1,0 +1,187 @@
+:root {
+  --ink:#241d17;--paper:#f7efe3;--panel:#fffaf1;--accent:#78523e;
+  --line:color-mix(in srgb,var(--ink) 27%,transparent);
+  --serif:"Libre Caslon Display",Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "DM Sans",Arial,sans-serif}
+:focus-visible{outline:3px solid currentColor;outline-offset:4px}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+input,button,select{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.55}
+img{display:block;width:100%;height:auto}
+h1,h2,p,figure{margin:0}
+h1{font-size:clamp(46px,6vw,100px);line-height:.97;letter-spacing:-.035em;text-wrap:balance}
+h2{font-size:clamp(25px,3vw,37px);line-height:1.12;letter-spacing:-.025em}
+h1+p{margin-top:20px;max-width:39ch;font-size:clamp(16px,1.55vw,21px)}
+.wrap{width:min(calc(100% - 48px),1160px);margin-inline:auto}
+.skip{position:fixed;left:20px;top:10px;z-index:5;transform:translateY(-160%);background:white;color:black;padding:12px}
+.skip:focus{transform:none}
+.portfolio{background:#241d17;color:#fbefe0;font-size:13px}
+.portfolio-row,.shop-row{display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:62px}
+.portfolio-cta{display:inline-flex;padding:10px 14px;background:#ffb767;color:#251b10;text-decoration:none;font-weight:800}
+.variants{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-top:1px solid #ffffff40}
+.variants a[aria-current]{color:#ffc480;text-decoration-thickness:2px;text-underline-offset:4px}
+.shop{border-bottom:1px solid var(--line)}
+.shop-row>a:last-child{font-size:14px;font-weight:750;text-underline-offset:3px}
+.wordmark{font-size:clamp(23px,3vw,34px);font-weight:800;letter-spacing:-.03em;text-decoration:none}
+.button,.quiet{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:10px 17px;border:1px solid var(--accent);font-weight:800;text-decoration:none}
+.button{background:var(--accent);color:var(--panel)}
+.button:hover:not(:disabled){background:var(--ink)}
+.quiet{background:transparent;color:var(--accent)}
+.intro-copy>.button{margin-top:24px}
+.photo{overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+form{margin-block:42px 62px;scroll-margin-block:16px}
+fieldset{min-inline-size:0;margin:0;padding:0;border:0}
+legend{margin:0 0 10px;padding:0;font-size:20px;font-weight:800}
+.option-list{display:grid;gap:8px}
+.option{display:flex;gap:12px;align-items:center;min-height:54px;padding:12px 14px;border:1px solid var(--line);background:var(--panel);cursor:pointer}
+.option:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.option input,.time input{margin:0;accent-color:var(--accent);inline-size:16px;block-size:16px;flex:none}
+.option strong,.option small{display:block}
+.option small{margin-top:4px;font-size:14px}
+.form-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:start;gap:28px}
+.schedule{border-top:1px solid var(--line);padding-top:17px;min-width:0}
+.schedule-heading p{margin-top:6px;font-size:14px}
+.slots{margin-block:18px;display:grid;gap:10px}
+.day-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.day-tabs button{min-height:45px;padding:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.day-tabs button[aria-pressed=true]{background:var(--ink);color:var(--panel)}
+.time-grid{display:flex;gap:5px;flex-wrap:wrap}
+.time{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:8px 10px;background:var(--panel);border:1px solid var(--line);cursor:pointer}
+.time:has(:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.slot-matrix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.slot-matrix section{padding:9px;border:1px solid var(--line)}
+.slot-matrix .time-grid{display:grid;margin-top:8px}
+.slot-matrix .time{padding-inline:5px;gap:4px}
+.error:not(:empty){margin:12px 0;color:var(--accent);font-weight:800}
+.receipt{max-width:740px;margin-inline:auto;padding:clamp(20px,4vw,44px);background:var(--panel);border:1px solid var(--line)}
+.receipt dl{margin:18px 0;padding:0}
+.receipt dl>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.receipt dt{font-weight:800}
+.receipt dd{margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:14px}
+footer .wrap{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
+footer a{font-weight:800}
+/* Experience-led openings. */
+.journey-intro{display:grid;align-items:center;position:relative;min-height:460px;background:var(--ink);color:var(--panel);isolation:isolate}
+.journey-intro>.photo{position:absolute;inset:0;z-index:-2}
+.journey-intro::after{position:absolute;inset:0;background:linear-gradient(90deg,#0a1822e8 0%,#101c28b0 36%,transparent 92%);content:"";z-index:-1}
+.tatuagem.journey .journey-intro::after{background:linear-gradient(90deg,#2f100ef0 0%,#29130a9c 49%,transparent 95%)}
+.journey-intro h1{max-width:12ch}
+.journey-intro .intro-copy{padding-block:66px}
+.journey-intro .button{background:var(--panel);color:var(--ink);border-color:var(--panel)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--line)}
+.steps li{padding:18px 12px 18px 0;font-weight:800;border-right:1px solid var(--line)}
+.steps li+li{padding-left:12px}
+.steps li:last-child{border:0}
+.profile-intro{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(22px,5vw,76px);align-items:center;margin-top:clamp(24px,4vw,58px)}
+.profile-intro .photo{aspect-ratio:1.12}
+.profile-intro h1,.menu-intro h1,.split-intro h1{font:inherit;font-family:var(--serif);font-size:clamp(54px,7.5vw,110px);line-height:.89;letter-spacing:-.035em}
+.profiles .option-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+.profiles .form-fields,.duration .form-fields,.split .form-fields{grid-template-columns:1fr}
+.profiles .option{align-items:flex-start;min-height:132px}
+.profiles .option input{margin-top:4px}
+.matrix-intro{display:grid;grid-template-columns:1.25fr .75fr;gap:25px;align-items:end;padding-top:38px}
+.matrix-intro .photo{aspect-ratio:1.65}
+.matrix h1{font-weight:850;font-size:clamp(43px,5vw,78px)}
+.matrix form{margin-top:24px}
+.archive-intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(20px,6vw,85px);align-items:center;margin-top:42px}
+.archive-intro .photo{transform:rotate(-2deg);border:7px solid var(--panel);box-shadow:0 12px 26px #0a253c35}
+.swatches .option{min-height:62px;border-color:var(--accent);background:transparent}
+.swatches .option span,.duration .option span{display:flex;align-items:center;gap:16px}
+.swatches .option b{font-family:var(--serif);font-size:28px}
+.menu-intro{display:grid;grid-template-columns:1.08fr .92fr;background:var(--panel)}
+.menu-intro>.wrap{display:grid;align-items:center;width:min(calc(100% - 48px),540px);padding-block:38px}
+.menu-intro .photo{height:100%;min-height:355px}
+.menu .option{border-width:0 0 1px;background:transparent;padding-left:0}
+.menu .option:has(:checked){box-shadow:none;border-color:var(--accent)}
+.duration-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center;padding-top:35px}
+.duration-intro .photo{aspect-ratio:1.7}
+.duration .option-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+.duration .option{align-items:start;min-height:125px}
+.duration .option span{flex-direction:column;align-items:flex-start;gap:4px}
+.duration .option b{font-size:34px;line-height:1}
+.duration .option b small{display:inline;font-weight:500;margin-left:4px}
+.split-intro{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:var(--panel)}
+.split-intro .photo{height:100%;min-height:350px}
+.split-intro>.wrap{width:min(calc(100% - 48px),550px);display:grid;align-content:center;padding-block:32px}
+.split .option-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.split .option{align-items:flex-start}
+.split .option input{margin-top:4px}
+.gallery-main{padding-block:45px}
+.gallery-main h1{font:500 clamp(51px,6.5vw,90px)/.95 var(--serif)}
+.gallery-grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.gallery-grid a{background:var(--panel);border:1px solid var(--line);text-decoration:none;display:block}
+.gallery-grid a:hover h2{text-decoration:underline;text-underline-offset:4px}
+.gallery-grid img{aspect-ratio:8/5;object-fit:cover;object-position:top}
+.gallery-grid h2,.gallery-grid p{margin:13px 16px}
+.gallery-grid h2{font-size:23px}
+.gallery-grid p{font-size:14px}
+@media(max-width:700px){
+  .wrap{width:calc(100% - 32px)}
+  .portfolio-row,.shop-row{min-height:57px}
+  .variants{font-size:12px;line-height:1.25;gap:8px;align-items:start}
+  .shop-row>a:last-child{font-size:12px;text-align:right}
+  h1{font-size:clamp(40px,11.3vw,64px)}
+  h1+p{margin-top:14px}
+  .matrix h1{font-size:clamp(38px,10vw,63px)}
+  .journey-intro{min-height:420px}
+  .journey-intro::after,.tatuagem.journey .journey-intro::after{background:linear-gradient(90deg,#121615e8 0%,#151614b8 60%,#16171544)}
+  .journey-intro .intro-copy{padding-block:43px}
+  .form-fields,.profile-intro,.archive-intro,.duration-intro,.split-intro,.menu-intro,.gallery-grid{grid-template-columns:1fr}
+  .matrix-intro{grid-template-columns:1fr;gap:15px;padding-top:24px}
+  .matrix-intro .photo{display:none}
+  .profile-intro{gap:18px;margin-top:20px}
+  .profile-intro .photo{aspect-ratio:1.7}
+  .profile-intro h1,.menu-intro h1,.split-intro h1{font-size:clamp(48px,12vw,67px)}
+  .profiles .option-list{grid-template-columns:1fr}
+  .profiles .option{min-height:0}
+  .archive-intro{margin-top:26px;gap:20px}
+  .archive-intro .photo{aspect-ratio:1.58;transform:none}
+  .menu-intro .photo,.split-intro .photo{min-height:0;height:auto;aspect-ratio:1.8}
+  .menu-intro>.wrap,.split-intro>.wrap{width:calc(100% - 32px);padding-block:24px}
+  .duration-intro{padding-top:24px}
+  .duration .option-list{gap:5px}
+  .duration .option{padding:8px 6px;gap:5px;min-height:103px;font-size:12px}
+  .duration .option b{font-size:26px}
+  .duration .option small{font-size:12px}
+  .slot-matrix section{padding:5px;font-size:13px}
+  form{margin-block:29px 42px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+.swatches .option .flash-detail{display:block;flex:none;width:50px;height:44px;background:url(tatuagem/cena-2.webp) 6% 52%/190px auto}
+.swatches .option .geometrico{background-position:98% 55%}
+.swatches .option .floral{background-position:62% 48%}
+.journey-intro .button:hover{background:var(--paper)}
+@media(max-width:700px){
+ .matrix-intro .photo{display:block;aspect-ratio:2.6}
+}
+
+.tattoo-opening{min-height:430px;display:grid;grid-template-columns:1fr 1fr;background:#461e16;color:#fae6dd}
+.tattoo-opening .photo{grid-column:2;grid-row:1;min-height:100%}
+.tattoo-opening .intro-frame{grid-column:1;grid-row:1;align-self:center;padding:clamp(24px,5.5vw,85px)}
+.tattoo-opening h1{font:500 clamp(49px,6.8vw,93px)/.92 var(--serif);letter-spacing:-.032em}
+.tattoo-opening .button{background:#fae6dd;border-color:#fae6dd;color:#461e16}
+.tattoo-opening .button:hover{background:#f6c8b5}
+.tattoo-steps li{border-right:0;border-left:1px solid var(--line);padding-left:12px}
+.tattoo-steps li:last-child{border-left:1px solid var(--line)}
+.tatuagem.matrix .matrix-intro{grid-template-columns:minmax(0,1fr) 32%;align-items:center}
+.tatuagem.matrix .form-fields{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);grid-template-areas:'schedule reason'}
+.tatuagem.matrix .schedule{grid-area:schedule}
+.tatuagem.matrix .options{grid-area:reason}
+@media(max-width:700px){
+ .tattoo-opening{grid-template-columns:1fr}
+ .tattoo-opening .photo{grid-column:1;grid-row:2;aspect-ratio:1.9}
+ .tattoo-opening .intro-frame{padding:27px 16px 31px}
+ .tatuagem.matrix .matrix-intro{grid-template-columns:1fr}
+ .tatuagem.matrix .form-fields{grid-template-columns:1fr;grid-template-areas:'reason' 'schedule'}
+}
