@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Explore coleções de mobiliário para eventos e indique as peças para consultar."
+    />
+    <title>Vão Livre · Coleções</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="vao.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="vao.js" defer></script>
+  </head>
+  <body class="collection" data-campaign-demo="locacao">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap navline">
+        <a href="/?tipo=catalogo&amp;projeto=locacao#trabalhos">← Trabalhos</a>
+        <nav aria-label="Versões da demonstração">
+          <a href="./" aria-current="page">Coleções</a
+          ><a href="planta.html">Planta do salão</a
+          ><a href="logistica.html">Ida e volta</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20V%C3%A3o%20Livre%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20locadora."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="brand-header">
+      <div class="wrap brandline">
+        <a class="brand" href="versoes.html">Vão Livre</a>
+        <a class="brand-action" href="#escolha"
+          >Ver coleções
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="wrap editorial">
+        <div class="editorial-copy">
+          <h1>O salão começa na conversa.</h1>
+          <p>
+            Madeira, metal ou linho. Encontre a atmosfera do seu evento e monte
+            a lista de móveis que quer consultar.
+          </p>
+          <a class="primary" href="#escolha"
+            >Explorar as coleções
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              aria-hidden="true"
+            >
+              <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+          ></a>
+        </div>
+        <figure class="editorial-photo">
+          <img
+            src="colecao.webp"
+            width="1200"
+            height="900"
+            alt="Poltronas em madeira e palha com sofá de linho numa varanda"
+            fetchpriority="high"
+          />
+        </figure>
+      </section>
+      <section class="collection-tool" id="escolha">
+        <div class="wrap">
+          <h2>Escolha uma atmosfera</h2>
+          <form data-flow="collection">
+            <div data-fields>
+              <fieldset>
+                <legend class="sr">Coleção</legend>
+                <div class="choices">
+                  <label
+                    ><input
+                      type="radio"
+                      name="colecao"
+                      value="Varanda natural"
+                      checked
+                    /><span>Varanda natural</span></label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="colecao"
+                      value="Salão contemporâneo"
+                    /><span>Salão contemporâneo</span></label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="colecao"
+                      value="Lounge intimista"
+                    /><span>Lounge intimista</span></label
+                  >
+                </div>
+              </fieldset>
+              <div class="collection-preview">
+                <figure>
+                  <img
+                    src="colecao.webp"
+                    width="1200"
+                    height="900"
+                    alt="Poltronas em madeira e palha com sofá de linho numa varanda"
+                    data-look-photo
+                    loading="lazy"
+                  />
+                  <figcaption data-look-caption>
+                    Varanda natural · referência de composição
+                  </figcaption>
+                </figure>
+                <div class="pieces">
+                  <fieldset data-look="Varanda natural">
+                    <legend>Varanda natural</legend>
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Poltrona em palha"
+                      /><span
+                        >Poltrona em palha<small
+                          >Assento individual em madeira e trama natural.</small
+                        ></span
+                      ></label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Sofá de linho"
+                      /><span
+                        >Sofá de linho<small
+                          >Curvas baixas para pontos de conversa.</small
+                        ></span
+                      ></label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Mesa de centro terracota"
+                      /><span
+                        >Mesa de centro terracota<small
+                          >Apoio cerâmico para arranjos e taças.</small
+                        ></span
+                      ></label
+                    >
+                  </fieldset>
+                  <fieldset data-look="Salão contemporâneo" hidden>
+                    <legend>Salão contemporâneo</legend>
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Cadeira de carvalho"
+                      /><span
+                        >Cadeira de carvalho<small
+                          >Estrutura clara para mesas de jantar.</small
+                        ></span
+                      ></label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Mesa redonda de madeira"
+                      /><span
+                        >Mesa redonda de madeira<small
+                          >Tampo de 1,50 m para grupos.</small
+                        ></span
+                      ></label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Mesa alta de metal"
+                      /><span
+                        >Mesa alta de metal<small
+                          >Apoio para recepções e coquetéis.</small
+                        ></span
+                      ></label
+                    >
+                  </fieldset>
+                  <fieldset data-look="Lounge intimista" hidden>
+                    <legend>Lounge intimista</legend>
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Poltrona baixa"
+                      /><span
+                        >Poltrona baixa<small
+                          >Assento estofado para encontros menores.</small
+                        ></span
+                      ></label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Pufe em tecido"
+                      /><span
+                        >Pufe em tecido<small
+                          >Assento extra fácil de reposicionar.</small
+                        ></span
+                      ></label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="peca"
+                        value="Mesa lateral de madeira"
+                      /><span
+                        >Mesa lateral de madeira<small
+                          >Apoio compacto ao lado da poltrona.</small
+                        ></span
+                      ></label
+                    >
+                  </fieldset>
+                </div>
+              </div>
+              <p class="collection-note">
+                Sua lista mantém as peças marcadas ao trocar de coleção.
+              </p>
+              <div class="form-end">
+                <output data-total aria-live="polite"
+                  >Nenhuma peça selecionada</output
+                ><button class="primary" type="submit">
+                  Revisar seleção
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 12h15m-6-6 6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+              <p data-error role="status"></p>
+            </div>
+            <section
+              class="receipt"
+              data-receipt
+              hidden
+              tabindex="-1"
+              aria-labelledby="resumo"
+            >
+              <h2 id="resumo">Resumo da consulta</h2>
+              <p class="ref">VL-DEMO-001</p>
+              <dl data-summary></dl>
+              <p>
+                Esta é uma simulação, com escolhas registradas apenas nesta
+                página.
+              </p>
+              <div class="actions">
+                <button type="button" class="primary" data-copy>
+                  Copiar resumo</button
+                ><button type="button" data-edit>Editar</button
+                ><button type="button" data-reset>Recomeçar</button>
+              </div>
+              <p data-status role="status"></p>
+            </section>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <a href="versoes.html">Ver as três versões</a
+        ><span>Vão Livre · Demonstração de catálogo</span>
+      </div>
+    </footer>
+  </body>
+</html>

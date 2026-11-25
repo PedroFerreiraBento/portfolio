@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Planeje janelas fictícias de retirada e devolução para locação de mobiliário de evento."
+    />
+    <title>Vão Livre · Ida e volta</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="vao.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="vao.js" defer></script>
+  </head>
+  <body class="logistics" data-campaign-demo="locacao">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap navline">
+        <a href="/?tipo=catalogo&amp;projeto=locacao#trabalhos">← Trabalhos</a>
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Coleções</a><a href="planta.html">Planta do salão</a
+          ><a href="logistica.html" aria-current="page">Ida e volta</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20V%C3%A3o%20Livre%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20locadora."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="brand-header">
+      <div class="wrap brandline">
+        <a class="brand" href="versoes.html">Vão Livre</a>
+        <a class="brand-action" href="#escolha"
+          >Planejar janelas
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="log-hero">
+        <div class="wrap log-intro">
+          <div>
+            <h1>Da retirada à devolução.</h1>
+            <p>
+              Organize quando os móveis chegam e quando voltam. Escolha uma
+              forma de transporte e veja as janelas de exemplo.
+            </p>
+            <a class="primary" href="#escolha"
+              >Planejar ida e volta
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                aria-hidden="true"
+              >
+                <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+            ></a>
+          </div>
+          <img
+            src="carga.webp"
+            width="1200"
+            height="900"
+            alt="Cadeiras protegidas para transporte no compartimento de um furgão"
+            fetchpriority="high"
+          />
+        </div>
+      </section>
+      <section class="wrap logistics-tool" id="escolha">
+        <h2>Combine os dois momentos</h2>
+        <form data-flow="logistics">
+          <div data-fields>
+            <fieldset>
+              <legend>Como acontece o transporte?</legend>
+              <div class="choices">
+                <label
+                  ><input
+                    type="radio"
+                    name="transporte"
+                    value="Equipe da locadora"
+                    checked
+                  /><span>Equipe da locadora</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="transporte"
+                    value="Retiro e devolvo na loja"
+                  /><span>Retiro e devolvo na loja</span></label
+                >
+              </div>
+            </fieldset>
+            <ol class="timeline">
+              <li>
+                <label for="ida" data-ida-label>Entrega no evento</label
+                ><span>Na véspera ou no dia</span
+                ><select id="ida" name="ida" required>
+                  <option value="">Escolha uma janela</option>
+                  <option>Na véspera · 14h–17h</option>
+                  <option>No dia · 08h–11h</option>
+                </select>
+              </li>
+              <li>
+                <label for="volta" data-volta-label>Recolhimento</label
+                ><span>No dia ou no dia seguinte</span
+                ><select id="volta" name="volta" required>
+                  <option value="">Escolha uma janela</option>
+                  <option>No dia · 21h–23h</option>
+                  <option>No dia seguinte · 09h–12h</option>
+                </select>
+              </li>
+            </ol>
+            <div class="form-end">
+              <p>Janelas ilustrativas em relação ao dia do evento.</p>
+              <button class="primary" type="submit">
+                Revisar logística
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  aria-hidden="true"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <section
+            class="receipt"
+            data-receipt
+            hidden
+            tabindex="-1"
+            aria-labelledby="resumo"
+          >
+            <h2 id="resumo">Resumo da consulta</h2>
+            <p class="ref">VL-DEMO-001</p>
+            <dl data-summary></dl>
+            <p>
+              Esta é uma simulação, com escolhas registradas apenas nesta
+              página.
+            </p>
+            <div class="actions">
+              <button type="button" class="primary" data-copy>
+                Copiar resumo</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <a href="versoes.html">Ver as três versões</a
+        ><span>Vão Livre · Demonstração de catálogo</span>
+      </div>
+    </footer>
+  </body>
+</html>

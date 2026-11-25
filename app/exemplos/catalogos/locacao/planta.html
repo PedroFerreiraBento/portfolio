@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Distribua mesas e assentos por zona e confira um dimensionamento inicial."
+    />
+    <title>Vão Livre · Planta do salão</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="vao.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="vao.js" defer></script>
+  </head>
+  <body class="plan" data-campaign-demo="locacao">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap navline">
+        <a href="/?tipo=catalogo&amp;projeto=locacao#trabalhos">← Trabalhos</a>
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Coleções</a
+          ><a href="planta.html" aria-current="page">Planta do salão</a
+          ><a href="logistica.html">Ida e volta</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20V%C3%A3o%20Livre%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20locadora."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="brand-header">
+      <div class="wrap brandline">
+        <a class="brand" href="versoes.html">Vão Livre</a>
+        <a class="brand-action" href="#escolha"
+          >Abrir planta
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="wrap plan-intro">
+        <div>
+          <h1>O que cabe em cada espaço?</h1>
+          <p>
+            Planeje o jantar, o lounge e a recepção por zona. Ajuste as
+            quantidades e veja a lista de móveis se formar.
+          </p>
+        </div>
+        <a class="primary" href="#escolha"
+          >Começar pela planta
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </section>
+      <section class="wrap plan-tool" id="escolha">
+        <form data-flow="plan">
+          <div data-fields class="plan-grid">
+            <div class="map">
+              <fieldset class="floor">
+                <legend>Planta do salão</legend>
+                <div class="zones">
+                  <label class="dinner-zone"
+                    ><input
+                      type="radio"
+                      name="zona"
+                      value="jantar"
+                      checked
+                    /><span
+                      ><i aria-hidden="true"></i><strong>Jantar</strong
+                      ><small data-zone-count="jantar">0 lugares</small></span
+                    ></label
+                  >
+                  <label
+                    ><input type="radio" name="zona" value="lounge" /><span
+                      ><i aria-hidden="true"></i><strong>Lounge</strong
+                      ><small data-zone-count="lounge">0 lugares</small></span
+                    ></label
+                  >
+                  <label
+                    ><input type="radio" name="zona" value="recepcao" /><span
+                      ><i aria-hidden="true"></i><strong>Recepção</strong
+                      ><small data-zone-count="recepcao">0 apoios</small></span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <p>
+                Esquema ilustrativo. Confirme a circulação e as medidas no
+                local.
+              </p>
+            </div>
+            <div class="plan-controls">
+              <fieldset data-zone="jantar">
+                <legend>Dimensione o jantar</legend>
+                <label class="meter"
+                  >Pessoas sentadas<input
+                    name="lugares"
+                    type="number"
+                    min="0"
+                    max="500"
+                    value="0"
+                    required
+                    inputmode="numeric"
+                /></label>
+                <label class="meter"
+                  >Lugares por mesa<select name="capacidade">
+                    <option value="6">6 por mesa</option>
+                    <option value="8">8 por mesa</option>
+                    <option value="10">10 por mesa</option>
+                  </select></label
+                >
+                <p>
+                  Prevemos uma cadeira por pessoa e arredondamos o número de
+                  mesas para cima.
+                </p>
+              </fieldset>
+              <fieldset data-zone="lounge" hidden>
+                <legend>Dimensione o lounge</legend>
+                <label class="meter"
+                  >Poltronas<input
+                    name="poltronas"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value="0"
+                    required
+                    inputmode="numeric"
+                /></label>
+                <label class="meter"
+                  >Sofás de 3 lugares<input
+                    name="sofas"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value="0"
+                    required
+                    inputmode="numeric"
+                /></label>
+              </fieldset>
+              <fieldset data-zone="recepcao" hidden>
+                <legend>Dimensione a recepção</legend>
+                <label class="meter"
+                  >Mesas altas<input
+                    name="mesas-altas"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value="0"
+                    required
+                    inputmode="numeric"
+                /></label>
+                <label class="meter"
+                  >Balcões de apoio<input
+                    name="balcoes"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value="0"
+                    required
+                    inputmode="numeric"
+                /></label>
+              </fieldset>
+              <output class="plan-total" data-total aria-live="polite"
+                >0 móveis na planta</output
+              >
+              <button class="primary" type="submit">
+                Revisar planta
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  aria-hidden="true"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+              <p data-error role="status"></p>
+            </div>
+          </div>
+          <section
+            class="receipt"
+            data-receipt
+            hidden
+            tabindex="-1"
+            aria-labelledby="resumo"
+          >
+            <h2 id="resumo">Resumo da consulta</h2>
+            <p class="ref">VL-DEMO-001</p>
+            <dl data-summary></dl>
+            <p>
+              Esta é uma simulação, com escolhas registradas apenas nesta
+              página.
+            </p>
+            <div class="actions">
+              <button type="button" class="primary" data-copy>
+                Copiar resumo</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+      <figure class="wrap plan-photo">
+        <img
+          src="salao.webp"
+          width="1200"
+          height="900"
+          alt="Vista ampla de um salão com mesas e cadeiras"
+          fetchpriority="high"
+        />
+      </figure>
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <a href="versoes.html">Ver as três versões</a
+        ><span>Vão Livre · Demonstração de catálogo</span>
+      </div>
+    </footer>
+  </body>
+</html>
