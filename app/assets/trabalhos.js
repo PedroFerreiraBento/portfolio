@@ -76,21 +76,22 @@
   '#card-captacao':'climapro', '#card-catalogo':'catalogo', '#card-agenda':'agenda',
   '#card-painel':'painel', '#card-integracao':'integracao', '#card-vistoria':'vistoria'
  };
+ const linkedType = () => typeButtons.find(button => button.id && '#'+button.id === location.hash)?.dataset.type;
  const validType = typeButtons.some(button => button.dataset.type === params.get('tipo'));
  const incomingProject = items.find(item => item.id === (params.get('projeto') || legacy[location.hash]));
  const campaignProject = items.find(item => item.id === root.dataset.defaultProject);
- let category = validType ? params.get('tipo') : (incomingProject || campaignProject)?.type || 'orcamento';
+ let category = linkedType() || (validType ? params.get('tipo') : (incomingProject || campaignProject)?.type || 'orcamento');
  let selected = [incomingProject, campaignProject].find(item => item?.type === category) || items.find(item => item.type === category);
  let expanded = false;
  const english = () => document.documentElement.lang === 'en';
  const localized = (pt,en) => english() ? en : pt;
  const nameOf = item => english() ? item.english.brand || item.brand : item.brand;
 
- function rememberSelection() {
+ function rememberSelection(hash = 'trabalhos') {
   const url = new URL(location.href);
   url.searchParams.set('tipo',category);
   url.searchParams.set('projeto',selected.id);
-  url.hash = 'trabalhos';
+  url.hash = hash;
   history.replaceState(null,'',url);
  }
 
@@ -218,13 +219,17 @@
   find('showcase-empty').textContent = shown.length ? '' : localized('Nenhum ramo encontrado. Tente um nome mais curto.', 'No industries found. Try a shorter search.');
  }
 
- typeButtons.forEach(button => button.addEventListener('click',() => {
-  category = button.dataset.type;
+ function showCategory(type,project = items.find(item => item.type === type)) {
+  category = type;
   search.value = '';
   expanded = false;
   syncTypeButtons();
-  showProject(category === 'orcamento' ? items.find(item => item.id === 'salao') : items.find(item => item.type === category));
+  showProject(project);
   renderPicker();
+ }
+
+ typeButtons.forEach(button => button.addEventListener('click',() => {
+  showCategory(button.dataset.type);
   rememberSelection();
  }));
  search.addEventListener('input',renderPicker);
@@ -253,14 +258,14 @@
  }
 
  addEventListener('hashchange', () => {
+  const type = linkedType();
+  if (type) {
+   showCategory(type);
+   rememberSelection(location.hash);
+   return;
+  }
   const project = items.find(item => item.id === legacy[location.hash]);
-  if (!project) return;
-  category = project.type;
-  search.value = '';
-  expanded = false;
-  syncTypeButtons();
-  showProject(project);
-  renderPicker();
+  if (project) showCategory(project.type,project);
  });
  document.addEventListener('caos-language-change',renderLanguage);
  more.setAttribute('aria-controls',list.id);
@@ -268,4 +273,5 @@
  renderLanguage();
  root.querySelector('.showcase-types').hidden = false;
  root.querySelector('.showcase-picker').hidden = false;
+ if (linkedType()) rememberSelection(location.hash);
 })();
