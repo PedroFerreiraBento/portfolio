@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="description" content="Confira o disponível por produto, identifique reposições e registre uma entrada.">
+  <title>Ponto de Obra · Posição de estoque</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css">
+  <link rel="stylesheet" href="../commercial-kernel.css">
+  <link rel="stylesheet" href="identidade.css">
+  <script src="/assets/campanha.js" defer></script>
+</head>
+<body data-mode="estoque" data-campaign-demo="balcao-materiais">
+  <a href="#conteudo" class="skip">Pular para o conteúdo</a>
+  <header class="portfolio"><div class="wrap rail">
+    <a href="/?tipo=operacao&amp;projeto=balcao-materiais#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html">Pedido de balcão</a><a href="estoque.html" aria-current="page">Posição de estoque</a><a href="separacao.html">Separação</a></nav>
+    <div data-demo-navigation-contact><a class="studio" href="https://wa.me/5519974149650?text=Ol%C3%A1%21%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Ponto%20de%20Obra%20e%20quero%20conversar%20sobre%20uma%20ferramenta%20para%20minha%20equipe." data-campaign-placement="demo-opening">Quero uma ferramenta assim</a></div>
+  </div></header>
+  <header class="identity"><div class="wrap">
+    <div><strong>Ponto de Obra</strong><p>Materiais de construção</p></div>
+    <a class="go-gallery" href="versoes.html">Comparar versões</a>
+  </div></header>
+
+  <main id="conteudo" class="wrap">
+    <header class="heading"><div><h1>Posição de estoque</h1><p>Confira o disponível por produto, identifique reposições e registre uma entrada.</p></div><img src="operacao.webp" width="512" height="512" alt=""></header>
+    <p class="status-box" data-status role="status" aria-live="polite"></p>
+    <div data-app></div>
+    <noscript>Ative o JavaScript para experimentar esta ferramenta.</noscript>
+    <script type="module" src="operacao.js"></script>
+  </main>
+  <footer class="post-footer"><div class="wrap"><p>Demonstração local. Os dados representam uma operação fictícia.</p><button type="button" class="quiet" data-reset-demo>Reiniciar demonstração</button></div></footer>
+</body>
+</html>

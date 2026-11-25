@@ -1,0 +1,210 @@
+:root {
+  --canvas: #e8ebdd;
+  --ink: #222817;
+  --brand: #29361c;
+  --brand-ink: #f4f7e8;
+  --heading: 'DM Sans', sans-serif;
+  --heading-weight: 900;
+  --line: #bdc5a5;
+  --muted: #526045;
+  --action: #3c571b;
+  --on-action: #fbfff0;
+  --focus: #526d23;
+  --surface: #f6f7ee;
+  --field: #89956a;
+  --inset: #e5ead6;
+  --error: #922e1d;
+}
+.identity .wrap {
+  min-height: 65px;
+}
+.identity strong {
+  letter-spacing: -0.05em;
+}
+.identity strong::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #cbe273;
+  margin-inline-end: 9px;
+}
+.heading img {
+  object-position: center 45%;
+  border-bottom: 5px solid #a4b762;
+}
+.calendar-panel {
+  padding: clamp(10px, 2.5vw, 25px);
+}
+.calendar-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  align-items: end;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.calendar-header form .inputs {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+}
+.calendar-header input {
+  font-size: 14px;
+}
+.days,
+.fleet-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 65px minmax(0, 2.25fr) 115px;
+  gap: 12px;
+  align-items: center;
+}
+.days {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  padding-block: 8px;
+  text-align: center;
+  gap: 2px;
+}
+.fleet-row {
+  padding-block: 12px;
+  border-top: 1px solid var(--line);
+}
+.fleet-row h3 {
+  font-size: 1rem;
+}
+.calendar-counts {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 2px;
+}
+.days {
+  width: calc((100% - 216px) * 0.6923077);
+  margin-left: auto;
+  margin-right: 127px;
+}
+.calendar-counts span {
+  font-size: 0.88rem;
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1.2;
+  background: #dce7bf;
+  font-variant-numeric: tabular-nums;
+}
+.calendar-counts span[data-zero='true'] {
+  background: #ead3bf;
+}
+.free-count strong {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.text-link {
+  font-size: 0.88rem;
+  font-weight: 800;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  text-underline-offset: 3px;
+}
+.booking-grid .panel {
+  border: 2px solid var(--line);
+}
+.allocation {
+  --ink: #f4f8e9;
+  --muted: #d5dfc4;
+  --surface: #29361c;
+  --line: #667653;
+  --action: #d4e891;
+  --on-action: #222817;
+  color: var(--ink);
+}
+.allocation dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  padding-block: 7px;
+}
+.allocation dd {
+  font-weight: 800;
+}
+.allocation dt {
+  color: var(--muted);
+}
+.allocation dl > div:last-child dd {
+  font-size: 1.55rem;
+}
+.allocation .info {
+  background: #e5ead6;
+  color: #263315;
+}
+.inspection-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.69fr) minmax(0, 1.31fr);
+  align-items: start;
+  gap: 15px;
+}
+.checklist {
+  border-top: 5px solid #7e9844;
+}
+.inspection-select {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 8px;
+  align-items: start;
+  text-align: left;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  background: var(--surface);
+  color: inherit;
+  border: 1px solid var(--line);
+  margin-top: 6px;
+}
+.inspection-select[aria-pressed='true'] {
+  background: #e4edcb;
+  border-color: #5a7141;
+}
+.inspection-select small {
+  grid-column: 2;
+}
+.checklist .inputs {
+  margin-top: 11px;
+}
+.gallery-grid a {
+  border-top: 4px solid #7e9844;
+}
+@media (max-width: 900px) {
+  .calendar-header {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .inspection-grid {
+    grid-template-columns: 1fr;
+  }
+  .fleet-row {
+    grid-template-columns: minmax(0, 1fr) 48px;
+    gap: 4px;
+  }
+  .calendar-counts,
+  .text-link {
+    grid-column: 1/-1;
+  }
+  .days {
+    width: 100%;
+    margin: 0;
+  }
+  .calendar-counts span {
+    font-size: 0.78rem;
+  }
+  .calendar-header form .inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .calendar-header .primary {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 350px) {
+  .calendar-header form .inputs {
+    grid-template-columns: 1fr;
+  }
+}
