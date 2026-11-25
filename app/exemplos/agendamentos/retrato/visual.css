@@ -1,0 +1,17 @@
+@import url("../retrato/reserva.css");
+:root { --page: #f3efe8; --ink: #251f1b; --panel: #fdf8ed; --button: #1b347b; --button-ink: #fff; --selection: #1b347b; --selection-ink: #fff; }
+.page-0 { --hero: #172b67; --hero-ink: #fff4d0; }
+.page-0 .intro .primary { --button: #fff1c1; --button-ink: #172b67; }
+.page-1 { --hero: #28201e; --hero-ink: #f5e4bd; }
+.page-1 .intro .primary { --button: #ffb064; --button-ink: #231c19; }
+.page-2 { --hero: #ebc6b1; --hero-ink: #281d23; }
+.page-2 .intro .primary { --button: #76252e; --button-ink: #fff3df; }
+.branch-retrato .split-hero h1 { font-family: var(--serif); font-weight: 400; }
+.branch-retrato .story-hero img { aspect-ratio: 1.35; }
+.branch-retrato .story-hero .shell { grid-template-columns: .67fr 1fr; align-items: center; }
+.branch-retrato .story-hero figure { transform: rotate(-2deg); border: 8px solid #f7e6d8; }
+.branch-retrato .story-hero h1 { max-width: 11ch; }
+@media(max-width:760px) {
+ .branch-retrato .story-hero .shell { grid-template-columns: 1fr; }
+ .branch-retrato .story-hero figure { margin-inline: .4rem; }
+}

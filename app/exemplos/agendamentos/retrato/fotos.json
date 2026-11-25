@@ -1,0 +1,12 @@
+{
+  "method": "ImageGen nativo (painel 2 × 2)",
+  "source": "exec-5bd973e8-786a-438b-b477-1355d3c2d384.png",
+  "brief": "Retrato editorial em azul, estúdio iluminado, retrato de perfil escuro, dupla de colegas em ambiente externo.",
+  "files": [
+    "cena-0.webp",
+    "cena-1.webp",
+    "cena-2.webp",
+    "cena-3.webp"
+  ],
+  "prompt": "Editorial photographer portrait photography studio. 2x2 photographic panel with exact quadrant boundaries and absolutely no border or text. Top left portrait of adult artisan in crisp off-white blouse, side light, cobalt textured plaster. Top right full room view of architectural photo studio full of daylight, olive velvet chair and backdrop. Bottom left close-up photograph of one person in monochrome, purposeful candid profile and deep charcoal background. Bottom right warm portrait of two working colleagues in rust and cream outdoors. Sophisticated photographic realism, premium Brazilian independent photography studio."
+}

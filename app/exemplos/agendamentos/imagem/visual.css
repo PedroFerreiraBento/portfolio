@@ -1,0 +1,17 @@
+@import url("../retrato/reserva.css");
+:root { --page: #f5e9d2; --ink: #292321; --panel: #fff4df; --button: #4a292f; --button-ink: #fff3db; --selection: #5e363e; --selection-ink: #fff5e2; }
+.page-0 { --hero: #ded9af; --hero-ink: #2e3328; }
+.page-0 .intro .primary { --button: #334230; --button-ink: #fff5d8; }
+.page-1 { --hero: #5b2537; --hero-ink: #fff1d6; }
+.page-1 .intro .primary { --button: #f8c786; --button-ink: #382325; }
+.page-2 { --hero: #f2c16f; --hero-ink: #2d2821; }
+.page-2 .intro .primary { --button: #343756; --button-ink: #fff2d9; }
+.branch-imagem .split-hero .intro { padding-block: 1.2rem; border-block: 1px solid; }
+.branch-imagem .split-hero figure img { object-position: center 37%; }
+.branch-imagem .story-hero .shell { grid-template-columns: 1fr .88fr; }
+.branch-imagem .story-hero figure { grid-column: 1; grid-row: 1; }
+.branch-imagem .story-hero .intro { grid-column: 2; grid-row: 1; }
+@media(max-width:760px) {
+ .branch-imagem .story-hero .shell { grid-template-columns: 1fr; }
+ .branch-imagem .story-hero figure,.branch-imagem .story-hero .intro { grid-column: 1; grid-row: auto; }
+}
