@@ -1,0 +1,14 @@
+{
+  "generator": "ImageGen integrado",
+  "assets": {
+    "cesto.webp": "superior esquerdo",
+    "blazer.webp": "superior direito",
+    "camisa.webp": "inferior esquerdo",
+    "loja.webp": "inferior direito",
+    "vestido.webp": "foto individual"
+  },
+  "prompts": [
+    "Create one beautifully art directed commercial editorial photography contact sheet with four equal independent rectangles in exact 2x2 grid, hard seams at the exact center, no gutters, 1536x1024 landscape. Brazilian independent modern laundry and pressing service. Real photography, premium natural texture and color, no letters, no logos, no graphics, no typography. Top left: warm tomato-red painted wall and cream shelf with an orange-red stack of hand towels, natural white folded shirts and striped blue linens tucked into a cream square laundry basket, morning side light, warm editorial close medium scene. Top right: an elegant charcoal blazer on slim wooden hanger in a lemon-moss plaster atelier, warm side lighting, natural weave and fabric construction, haute tailoring editorial, very clear garment. Bottom left: folded white shirt, indigo linen cotton texture and a subtle diecut care label with no legible text, editorial macro still life, beautifully textured cool-green workspace surface, no lettering. Bottom right: a naturally lit cobalt-blue independent laundry storefront from inside looking to sidewalk, softly lit early morning, front desk and neat cotton canvas laundry bag ready for collection, Brazilian neighborhood beyond, true-to-life photographic composition. Each scene fills its full quadrant edge to edge individually, leave subjects centered within each own quadrant, do not allow objects to cross seams.",
+    "Photorealistic editorial ecommerce photograph, landscape 3:2. One midnight teal satin evening dress hanging discreetly on a simple wooden hanger against a warm antique sage wall in a Brazilian independent laundry's dedicated fine garment area. Frame the subtle folds and clean stitching. Natural soft window light, high-end restrained magazine art direction, no people, no lettering, no logos, no text. A full clear visual reference for the laundry intake website."
+  ]
+}

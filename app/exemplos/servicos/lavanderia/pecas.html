@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Explore peças que precisam de uma avaliação individual e prepare uma ficha."
+    />
+    <title>Linha Clara · Cuidado por peça</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/instrument-serif.css" />
+    <link rel="stylesheet" href="linha.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="linha.js" defer></script>
+  </head>
+  <body class="pecas" data-campaign-demo="lavanderia">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="wrap portfolio-row">
+        <a
+          href="/?tipo=agendamento&amp;projeto=lavanderia#trabalhos"
+          class="back"
+          >← Trabalhos</a
+        >
+        <nav aria-label="Versões da demonstração">
+          <a href="./">Cesto da semana</a
+          ><a href="pecas.html" aria-current="page">Cuidado por peça</a
+          ><a href="coleta.html">Janela de coleta</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Linha%20Clara%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="brand">
+      <div class="wrap brand-row">
+        <a class="wordmark" href="#conteudo"
+          >Linha Clara<span>Lavanderia e passadoria</span></a
+        >
+        <a class="brand-action" href="#ficha"
+          >Escolher peça
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo" class="wrap guide">
+      <section class="guide-intro">
+        <h1>O cuidado começa pela peça.</h1>
+        <p>
+          Escolha o que quer avaliar e confira quais detalhes observar antes de
+          levar à lavanderia.
+        </p>
+      </section>
+      <form id="ficha" data-flow="pecas">
+        <div data-fields>
+          <fieldset class="piece-switch">
+            <legend>Qual é a peça?</legend>
+            <div class="choices">
+              <label class="choice"
+                ><input
+                  type="radio"
+                  name="peca"
+                  value="Blazer"
+                  checked
+                  required
+                /><span>Blazer</span></label
+              ><label class="choice"
+                ><input
+                  type="radio"
+                  name="peca"
+                  value="Camisa delicada"
+                  required
+                /><span>Camisa delicada</span></label
+              ><label class="choice"
+                ><input
+                  type="radio"
+                  name="peca"
+                  value="Vestido de festa"
+                  required
+                /><span>Vestido de festa</span></label
+              >
+            </div>
+          </fieldset>
+          <div class="guide-stage">
+            <figure>
+              <img
+                data-piece-image
+                src="blazer.webp"
+                width="768"
+                height="512"
+                alt="Blazer de tecido escuro em um cabide"
+              />
+              <figcaption data-piece-caption>
+                Blazer · referência de peça
+              </figcaption>
+            </figure>
+            <div class="guide-sheet">
+              <h2 data-piece-name>Blazer</h2>
+              <p data-piece-note>
+                Observe se há forro, estrutura no ombro ou detalhes que merecem
+                atenção na avaliação.
+              </p>
+              <fieldset>
+                <legend>O que você observou?</legend>
+                <div class="choices observations">
+                  <label class="choice"
+                    ><input
+                      type="radio"
+                      name="observacao"
+                      value="Etiqueta legível"
+                      checked
+                      required
+                    /><span>Etiqueta legível</span></label
+                  ><label class="choice"
+                    ><input
+                      type="radio"
+                      name="observacao"
+                      value="Etiqueta ausente ou ilegível"
+                      required
+                    /><span>Etiqueta ausente ou ilegível</span></label
+                  ><label class="choice"
+                    ><input
+                      type="radio"
+                      name="observacao"
+                      value="Área que merece atenção"
+                      required
+                    /><span>Área que merece atenção</span></label
+                  >
+                </div>
+              </fieldset>
+              <button type="submit" class="primary">
+                Revisar ficha
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <section
+          class="receipt"
+          data-receipt
+          hidden
+          tabindex="-1"
+          aria-labelledby="titulo-resumo"
+        >
+          <h2 id="titulo-resumo">Seu resumo de demonstração</h2>
+          <p class="reference">LC-DEMO-001</p>
+          <dl data-summary></dl>
+          <p>
+            Simulação local. Você pode copiar o resumo, editar as escolhas ou
+            recomeçar.
+          </p>
+          <div class="receipt-actions">
+            <button type="button" data-copy class="primary">
+              Copiar resumo
+            </button>
+            <button type="button" data-edit>Editar</button>
+            <button type="button" data-reset>Recomeçar</button>
+          </div>
+          <p data-status role="status"></p>
+        </section>
+      </form>
+      <aside class="inline-note">
+        <h2>Vai mandar várias roupas comuns?</h2>
+        <p>
+          Monte um cesto por grupo para registrar o peso aproximado das roupas
+          da semana.
+        </p>
+        <a href="./"
+          >Montar cesto
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6" /></svg
+        ></a>
+      </aside>
+    </main>
+  </body>
+</html>
