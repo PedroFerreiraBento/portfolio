@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
+    <meta
+      name="description"
+      content="Marque os pontos da peça que quer avaliar."
+    />
+    <title>Ponto de Fio · Mapa do caimento</title>
+    <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css" />
+    <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css" />
+    <link rel="stylesheet" href="ponto.css" />
+    <script src="/assets/campanha.js" defer></script>
+    <script src="ponto.js" defer></script>
+  </head>
+  <body class="mapa" data-campaign-demo="costura">
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="portfolio">
+      <div class="shell portfolio-row">
+        <a class="back" href="/?tipo=agendamento&amp;projeto=costura#trabalhos"
+          >← Trabalhos</a
+        >
+        <nav aria-label="Versões da demonstração">
+          <a href="./" aria-current="page">Mapa do caimento</a
+          ><a href="lista.html">Lista de consertos</a
+          ><a href="prova.html">Prova no ateliê</a>
+        </nav>
+        <div data-demo-navigation-contact>
+          <a
+            href="https://wa.me/5519974149650?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20Ponto%20de%20Fio%20e%20quero%20conversar%20sobre%20um%20site%20para%20meu%20neg%C3%B3cio."
+            data-campaign-placement="demo-opening"
+            >Quero um site assim</a
+          >
+        </div>
+      </div>
+    </header>
+    <header class="brand">
+      <div class="shell">
+        <a class="wordmark" href="./">Ponto de Fio</a
+        ><a href="#ferramenta"
+          >Marcar ajustes
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 4v15m-6-6 6 6 6-6" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="shell map-intro">
+        <h1>
+          Onde a roupa<br />
+          pede ajuste?
+        </h1>
+        <p>
+          Escolha uma peça e marque no desenho os pontos que quer conversar com
+          o ateliê.
+        </p>
+      </section>
+      <section class="shell" id="ferramenta">
+        <form data-flow="map">
+          <div class="map-canvas" data-fields>
+            <figure class="pattern">
+              <div class="pattern-drawing">
+                <svg
+                  class="garment"
+                  viewBox="0 0 310 265"
+                  role="img"
+                  aria-label="Desenho técnico da peça com os pontos escolhidos em destaque"
+                >
+                  <g data-garment="Blazer">
+                    <path
+                      class="silhouette"
+                      d="M116 38 86 51 66 102 53 188 86 195 103 117 100 229 210 229 207 117 224 195 257 188 244 102 224 51 194 38 179 31h-48z"
+                    />
+                    <path
+                      class="seam"
+                      d="m131 31-12 34 15 22-11 12 32 57 32-57-11-12 15-22-12-34m-24 125v72m-99-55 32 8m133 0 32-8"
+                    />
+                    <path
+                      class="marks"
+                      data-zone="Mangas"
+                      d="m55 177 33 8m133 0 33-8"
+                    />
+                    <path
+                      class="marks"
+                      data-zone="Laterais"
+                      d="m103 135-2 55m106-55 2 55"
+                    />
+                    <path
+                      class="marks"
+                      data-zone="Comprimento"
+                      d="M100 216h110"
+                    />
+                  </g>
+                  <g data-garment="Calça" hidden>
+                    <path
+                      class="silhouette"
+                      d="M104 36h102l12 69 6 126h-56l-13-115-13 115H86l6-126z"
+                    />
+                    <path
+                      class="seam"
+                      d="M103 53h104m-52 22v41m-34-59c0 24-9 35-28 43m96-43c0 24 9 35 28 43"
+                    />
+                    <path class="marks" data-zone="Cintura" d="M102 50h106" />
+                    <path
+                      class="marks"
+                      data-zone="Laterais"
+                      d="m94 88-7 125m129-125 7 125"
+                    />
+                    <path
+                      class="marks"
+                      data-zone="Barra"
+                      d="M87 220h56m25 0h55"
+                    />
+                  </g>
+                  <g data-garment="Camisa" hidden>
+                    <path
+                      class="silhouette"
+                      d="m126 36-39 19-19 42-16 92 35 7 15-76v109q53 13 106 0V120l15 76 35-7-16-92-19-42-39-19-12-8h-34z"
+                    />
+                    <path
+                      class="seam"
+                      d="m137 28-10 26 28 24 28-24-10-26m-18 50v155M56 174l32 8m133 0 33-8"
+                    />
+                    <path
+                      class="marks"
+                      data-zone="Mangas"
+                      d="m56 180 32 7m133 0 33-7"
+                    />
+                    <path
+                      class="marks"
+                      data-zone="Laterais"
+                      d="M102 132v70m106-70v70"
+                    />
+                    <path
+                      class="marks"
+                      data-zone="Comprimento"
+                      d="M103 217q52 12 104 0"
+                    />
+                  </g>
+                </svg>
+                <div
+                  class="pattern-points"
+                  data-points
+                  role="group"
+                  aria-label="Pontos no desenho"
+                ></div>
+              </div>
+              <figcaption data-map-caption aria-live="polite">
+                Blazer · nenhum ponto marcado
+              </figcaption>
+            </figure>
+            <div class="map-controls">
+              <fieldset>
+                <legend>Qual é a peça?</legend>
+                <div class="choices">
+                  <label class="choice"
+                    ><input
+                      type="radio"
+                      name="roupa"
+                      value="Blazer"
+                      checked
+                      required
+                    /><span>Blazer</span></label
+                  ><label class="choice"
+                    ><input
+                      type="radio"
+                      name="roupa"
+                      value="Calça"
+                      required
+                    /><span>Calça</span></label
+                  ><label class="choice"
+                    ><input
+                      type="radio"
+                      name="roupa"
+                      value="Camisa"
+                      required
+                    /><span>Camisa</span></label
+                  >
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Quais pontos quer avaliar?</legend>
+                <div class="zones" data-zones></div>
+              </fieldset>
+              <p class="error" role="status" data-error></p>
+              <button type="submit" class="primary">
+                Revisar mapa
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <section
+            class="receipt"
+            hidden
+            data-receipt
+            tabindex="-1"
+            aria-labelledby="resumo"
+          >
+            <h2 id="resumo">Sua ficha de exemplo</h2>
+            <p class="ref">PF-DEMO-001</p>
+            <dl data-summary></dl>
+            <p>Esta ficha é uma simulação e fica nesta página.</p>
+            <div class="actions">
+              <button type="button" class="primary" data-copy>
+                Copiar ficha</button
+              ><button type="button" data-edit>Editar</button
+              ><button type="button" data-reset>Recomeçar</button>
+            </div>
+            <p data-status role="status"></p>
+          </section>
+        </form>
+      </section>
+      <section class="shell editorial">
+        <img
+          src="caimento.webp"
+          width="508"
+          height="1024"
+          loading="lazy"
+          alt="Blazer azul na bancada de costura"
+        />
+        <div>
+          <h2>Traga a peça para a prova.</h2>
+          <p>
+            O ateliê avalia o caimento com a roupa em uso e confirma quais
+            ajustes fazem sentido.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

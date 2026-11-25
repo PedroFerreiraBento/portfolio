@@ -1,0 +1,6 @@
+{
+  "tool": "ImageGen nativo",
+  "source": "exec-16ef7b52-411e-403e-931e-e2b55b659363.png",
+  "prompt": "Three distinct documentary editorial photographs, equal-width vertical triptych in one wide 3:2 sheet, exact clean straight thirds, no grid gutter, each designed for separate narrow portrait crop. An elegant small Brazilian clothing alterations atelier, real natural fabric texture, believable anatomy, zero lettering and logos. LEFT third: close view of an unoccupied dark ink-blue tailored blazer on a dress form, one hand gently pinching sleeve cuff with a tailor's chalk, dressmaker table and softly blurred background in grey blue, photographic. MIDDLE third: overhead still life of folded indigo jeans, eggshell shirt, olive coat fabric, natural wooden sewing tools and spool, plum brown matte table, warm daylight side shadow; rich editorial still life, do not overlap other thirds. RIGHT third: fitting room entrance with dusty brick red curtain slightly open, brass rack with a few garments and full-length mirror catching soft diffuse light, ocher and warm worn wood atelier interior; no people. Three distinct photos with clean sharp edges at 1/3 and 2/3 of total width. No typography, ruler markings, watermarks, contact sheet decorations or borders.",
+  "outputs": ["caimento.webp", "consertos.webp", "provador.webp"]
+}
