@@ -1,0 +1,13 @@
+{
+  "origem": "ImageGen nativo, mosaico de seis fotografias originais",
+  "prompt": "High-end art-directed editorial product photography contact sheet, 3 columns by 2 rows, all six equal-sized independent photographs, seamless flush rectangular cells, no gutters. Output landscape. Brazilian specialty coffee brand fictitious Pedra Clara. No readable text anywhere, no lettering, no logo. Top left: dramatically lit espresso-red backdrop, burnt orange matte unbranded 250g coffee bag, small pile of roasted beans and rust ceramic espresso cup, editorial hero. Top middle: royal blue background, royal blue matte blank 250g coffee bag with loose beans and white ceramic cupping spoon. Top right: forest green matte blank 250g coffee bag on green set, coffee beans and small paper tasting cup. Bottom left: warm dark wood table with three blank unbranded coffee bags rust, blue, and green, tactile shadows and beans. Bottom middle: high-angle close-up on coffeemaker counter, a glass dripper on carafe, metal moka pot and a hand grinding roasted coffee beans, hard sidelight against vivid periwinkle blue set. Bottom right: wholesale roasting workspace, several large one-kilo plain matte charcoal and kraft coffee pouches lined up near a scale on citrine industrial shelving, honest natural commercial photograph. Composition keep foreground subjects comfortably within each tile, straight photographed lines, professional specialty coffee catalog shoot, high texture and realism.",
+  "arquivo_original": "exec-4b044264-0929-4faf-bcce-322f7c72aa61.png",
+  "recortes": [
+    "colina.webp",
+    "vaivem.webp",
+    "pouso.webp",
+    "balcao.webp",
+    "preparo.webp",
+    "atacado.webp"
+  ]
+}

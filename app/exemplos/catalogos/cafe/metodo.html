@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Escolha o preparo e configure o café.">
+  <title>Pedra Clara · Meu método</title>
+  <link rel="stylesheet" href="/demos/assets/fonts/dm-sans.css">
+  <link rel="stylesheet" href="/demos/assets/fonts/libre-caslon.css">
+  <link rel="stylesheet" href="pedra.css">
+  <script src="/assets/campanha.js" defer></script>
+  <script src="pedra.js" defer></script>
+</head>
+<body class="method" data-mode="method" data-campaign-demo="cafe">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="portfolio">
+  <div class="shell portfolio-inner">
+    <a class="back" href="/?tipo=catalogo&amp;projeto=cafe#trabalhos">← Trabalhos</a>
+    <nav aria-label="Versões da demonstração"><a href="index.html">Balcão sensorial</a><a href="metodo.html" aria-current="page">Meu método</a><a href="reposicao.html">Reposição</a></nav>
+    <div data-demo-navigation-contact><a class="portfolio-cta" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20vi%20o%20cat%C3%A1logo%20Pedra%20Clara%20e%20quero%20conversar%20sobre%20um%20site%20para%20minha%20loja." data-campaign-placement="demo-opening">Quero um site assim</a></div>
+  </div>
+</header>
+<header class="shop"><div class="shell shop-inner"><a class="brand" href="metodo.html">Pedra Clara <small>TORREFAÇÃO</small></a><nav aria-label="Catálogo"><a href="#catalogo">Configurar preparo</a><a class="cart-link" href="#cotacao">Lista <span data-count>0</span></a></nav></div></header>
+<main id="conteudo">
+<section class="method-hero"><div class="shell"><h1>Como você passa o seu café?</h1><p>Escolha seu preparo. A bancada sugere uma moagem para começar e deixa você ajustar o pacote antes da cotação.</p></div></section>
+<section class="shell method-layout" id="catalogo">
+  <figure><img src="preparo.webp" width="512" height="512" fetchpriority="high" alt="Coador de vidro, cafeteira italiana e café numa bancada azul"></figure>
+  <form data-method><h2>Monte seu pacote.</h2>
+    <fieldset class="method-options"><legend>Preparo</legend><label><input type="radio" name="metodo" value="Coado" checked><span>Coado</span></label><label><input type="radio" name="metodo" value="Italiana"><span>Italiana</span></label><label><input type="radio" name="metodo" value="Prensa"><span>Prensa</span></label></fieldset>
+    <p class="method-note" data-method-note aria-live="polite"></p>
+    <div class="selectors"><label>Café <select name="cafe"></select></label><label>Moagem <select name="moagem"></select></label><label>Pacotes de 250 g <input name="quantidade" type="number" min="1" max="99" step="1" inputmode="numeric" value="1" required></label></div>
+    <button class="primary" type="submit">Adicionar à lista</button><p class="feedback" data-method-status role="status"></p>
+  </form>
+</section>
+<section id="cotacao" class="quote"><div class="shell quote-layout">
+  <div><h2>Sua lista para cotação.</h2><p>Confira os cafés, as variantes e as quantidades.</p><p data-status role="status"></p></div>
+  <div class="sheet">
+    <p data-empty>Sua lista está vazia. Comece pelo catálogo.</p>
+    <ul data-items aria-label="Itens da cotação"></ul>
+    <div class="actions" data-review hidden><button class="primary" type="button" data-simulate aria-controls="whatsapp" aria-expanded="false">Simular envio pelo WhatsApp</button><button class="link" type="button" data-clear>Limpar lista</button></div>
+    <section class="message" id="whatsapp" data-preview hidden aria-labelledby="mensagem"><h3 id="mensagem" tabindex="-1">Prévia da mensagem</h3><p>Simulação nesta página, sem envio.</p><pre data-message></pre><div class="actions"><button class="primary" type="button" data-copy>Copiar mensagem</button><button class="link" type="button" data-edit>Voltar à lista</button></div><p data-copy-status role="status"></p></section>
+  </div>
+</div></section>
+</main>
+<footer><div class="shell footer-inner"><span>Pedra Clara · Catálogo demonstrativo</span><a href="versoes.html">Comparar as três versões</a></div></footer>
+</body></html>
