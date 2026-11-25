@@ -137,4 +137,3 @@ footer a { font-weight:700; }
  [data-items] li { grid-template-columns:minmax(0,1fr) auto; }
  [data-items] li .quiet { grid-column:2; justify-self:end; }
 }
-
