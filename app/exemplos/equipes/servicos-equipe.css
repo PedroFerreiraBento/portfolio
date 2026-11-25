@@ -149,3 +149,5 @@ h3 { font-size:15px; line-height:1.25 }
 .tickets .record:has(.urgent) { border-top-color:#9d3823 }
 .priority { justify-self:end; color:var(--quiet); font-size:12px }
 .priority.urgent { color:#872d22; font-weight:800 }
+.collection-wrap { min-width:0 }
+.visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap }
