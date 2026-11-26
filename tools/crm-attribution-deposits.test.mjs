@@ -84,10 +84,14 @@ test('public journey, manual conversation, proposal and deposit through the norm
   await member('login','POST',{email:'marina@crm.local',password:'crm-local-marina'});
   const reference='CD-000000000021', visit=randomUUID();
   const track=(kind,ref=reference,id=visit,attrs=source)=>publicApi('track','POST',{
-    kind,placement:'catalogo-'+kind,visit_id:id,contact_reference:ref,...attrs
+    kind,placement:'catalogo-'+kind,visit_id:id,contact_reference:ref,landing_path:'/guias',...attrs
   });
   for(const kind of ['entry','demo','whatsapp','whatsapp']) assert.equal((await track(kind)).tracked,true);
   await publicApi('track','POST',{kind:'entry',placement:'entry',visit_id:visit,contact_reference:'invalid',...source},400);
+  for (let i=0;i<2;i++) await publicApi('track','POST',{...source,visit_id:visit,contact_reference:reference,kind:'offer',placement:'catalogo-online',landing_path:'/guias'});
+  const pageReport=await api('funnel&qa=1&start='+today+'&end='+today);
+  assert.equal(pageReport.pages.find(row=>row.page==='catalogo-online').visits,1);
+  assert.equal(pageReport.pages.find(row=>row.kind==='entry' && row.page==='/guias').visits,1);
   const opts={name:'QA de catálogo',project_name:'Catálogo Online QA',channel:'whatsapp',origin:'manual',campaign:'manual'};
   const created=(await api('save','POST',{...opts,visit_reference:reference},201)).row;
   assert.equal(created.reference,reference);
@@ -98,7 +102,7 @@ test('public journey, manual conversation, proposal and deposit through the norm
   const detail=()=>api(path);
   let actual=await detail();
   assert.equal(actual.attribution.status,'linked');
-  assert.deepEqual(actual.attribution.events.map(e=>e.kind),['entry','demo','whatsapp']);
+  assert.deepEqual(actual.attribution.events.map(e=>e.kind),['entry','demo','whatsapp','offer']);
   assert.equal(actual.row.deposit_status,null);
   await member(path,'GET',undefined,404);
   const deposit=(payload,status)=>api('pipeline-deposit','PATCH',{reference,...payload},status);

@@ -38,7 +38,7 @@ const publicFolders = new Set(['assets', 'crm', 'demos', 'guia']);
 const migrations = [
   'crm-runtime-role.sql', 'crm-intake-followup.sql', 'crm-funnel.sql',
   'crm-notifications.sql', 'crm-operations.sql', 'crm-today-experiments.sql',
-  'crm-team.sql', 'crm-team-assignment.sql', 'crm-clients.sql', 'crm-pipeline.sql', 'crm-attribution-deposits.sql'
+  'crm-team.sql', 'crm-team-assignment.sql', 'crm-clients.sql', 'crm-pipeline.sql', 'crm-attribution-deposits.sql', 'crm-visit-pages.sql'
 ];
 
 class RequestError extends Error {

@@ -34,10 +34,24 @@
  const phone = 'https://wa.me/5519974149650';
  const makeUrl = text => phone + '?text=' + encodeURIComponent(text);
  const campaignSlug = (value, fallback = '') => value?.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48) || fallback;
- const originName = campaignSlug(campaign.utm_source, 'direto');
- const campaignName = campaignSlug(campaign.utm_campaign, offer ? audience : 'direto');
+ function referral() {
+  if (!document.referrer) return {source:'desconhecida', medium:''};
+  const host = new URL(document.referrer).hostname.replace(/^www\./,'');
+  if (host === location.hostname.replace(/^www\./,'') || host === 'caosdomado.com.br') {
+   return {source:'desconhecida', medium:''};
+  }
+  const search = {'google.com':'google','google.com.br':'google','bing.com':'bing','duckduckgo.com':'duckduckgo','search.yahoo.com':'yahoo'};
+  return {source:search[host] || campaignSlug(host), medium:search[host] ? 'organico' : 'referencia'};
+ }
+ const previousTouch = load('portfolio-first-touch');
+ const touch = previousTouch?.visit === visitId ? previousTouch : {
+  visit:visitId, path:location.pathname, ...referral()
+ };
+ save('portfolio-first-touch',touch);
+ const originName = campaignSlug(campaign.utm_source, touch.source);
+ const campaignName = campaignSlug(campaign.utm_campaign, offer ? audience : 'sem-campanha');
  const campaignKey = originName + '/' + campaignName;
- const medium = campaignSlug(campaign.utm_medium);
+ const medium = campaignSlug(campaign.utm_medium, campaign.utm_source ? '' : touch.medium);
  const creative = campaignSlug(campaign.utm_content);
  const contactDetails = contactReference => [
   'Referência: ' + contactReference,
@@ -70,7 +84,7 @@
    method: 'POST',
    headers: {'Content-Type': 'application/json'},
    body: JSON.stringify({
-    visit_id: visitId, contact_reference: reference, kind, placement, origin: originName, campaign: campaignName, medium, creative
+    visit_id: visitId, contact_reference: reference, landing_path:touch.path, kind, placement, origin: originName, campaign: campaignName, medium, creative
    }),
    keepalive: true
   }).then(response => response.ok, () => false);
@@ -210,6 +224,7 @@
   record('portfolio_entrada', {}, demo ? 'demo' : surface);
   save('portfolio-measured-entry', reference);
  }
+ if (['pagina-de-orcamentos','catalogo-online','agendamento-online'].includes(surface)) track('offer',surface);
  if (demo) record('portfolio_demo_aberta', {}, demo);
  document.querySelectorAll('a[href]').forEach(link => {
   const url = new URL(link.getAttribute('href'),document.baseURI);

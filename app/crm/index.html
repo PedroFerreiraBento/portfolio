@@ -295,10 +295,13 @@
     <option value="campaign">Campanha</option>
     <option value="creative">Meio e criativo</option>
    </select></label>
+   <label>Consultar visita por referência<input name="visitRef" placeholder="CD-…" maxlength="15"></label>
    <button type="submit" class="quiet">Aplicar filtros</button>
   </form>
   <p id="funnel-status" role="status"></p>
   <p id="funnel-coverage" class="funnel-note"></p>
+  <section id="visit-journey" hidden><h3>Visita consultada</h3><p></p><ul></ul></section>
+  <details id="visit-pages" hidden><summary>Páginas de entrada e ofertas visitadas</summary><ul></ul></details>
   <ul class="funnel-results" aria-label="Resultados por campanha"></ul>
    </section>
    </section>

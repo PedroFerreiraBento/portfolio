@@ -26,6 +26,8 @@ export function initFunnel(loadFunnel) {
  const status = root.querySelector('#funnel-status');
  const coverage = root.querySelector('#funnel-coverage');
  const results = root.querySelector('.funnel-results');
+ const journey = root.querySelector('#visit-journey');
+ const pages = root.querySelector('#visit-pages');
  let request = 0;
  let currentReport;
  let message = '';
@@ -37,6 +39,7 @@ export function initFunnel(loadFunnel) {
   form.elements.end.value = today;
   form.elements.end.max = today;
   form.elements.start.max = today;
+  form.elements.visitRef.value = new URLSearchParams(location.search).get('visita') || '';
   form.elements.breakdown.value = 'campaign';
  }
 
@@ -78,6 +81,21 @@ export function initFunnel(loadFunnel) {
  }
 
  function renderReport(report) {
+   journey.hidden = !form.elements.visitRef.value;
+   journey.querySelector('p').textContent = form.elements.visitRef.value.toUpperCase() + (report.journey?.length ? '' : ' · Nenhuma visita encontrada');
+   journey.querySelector('ul').replaceChildren(...(report.journey || []).map(event => {
+    const line = document.createElement('li');
+    const label = {entry:'Entrada',offer:'Oferta visitada',demo:'Demo',whatsapp:'WhatsApp',email:'E-mail'}[event.kind];
+    line.textContent = [label, event.kind === 'entry' ? event.landing_path || 'Página desconhecida' : event.placement, 'Origem ' + event.origin, event.visit_id].join(' · ');
+    return line;
+   }));
+   pages.hidden = !report.pages?.length;
+   pages.querySelector('ul').replaceChildren(...(report.pages || []).map(item => {
+    const line = document.createElement('li');
+    const kind = item.kind === 'entry' ? 'Entrada' : 'Oferta';
+    line.textContent = t(kind) + ' · ' + (item.page || t('Página desconhecida')) + ' · ' + pt.format(item.visits);
+    return line;
+   }));
    const tracking = Boolean(report.trackingFrom && report.trackingFrom <= report.end);
    const metricNote = !tracking
     ? t('Cliques e entradas ainda não foram medidos neste período.')
@@ -94,6 +112,8 @@ export function initFunnel(loadFunnel) {
 
  async function refresh() {
   const current = ++request;
+  journey.hidden = true;
+  pages.hidden = true;
   root.setAttribute('aria-busy', 'true');
   status.dataset.error = 'false';
   setStatus('Carregando campanhas…');
@@ -116,6 +136,8 @@ export function initFunnel(loadFunnel) {
  }
 
  function reset() {
+  journey.hidden = true;
+  pages.hidden = true;
   request++;
   root.removeAttribute('aria-busy');
   currentReport = undefined;

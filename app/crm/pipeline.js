@@ -49,7 +49,7 @@ const copy={
  'Histórico de entradas':'Deposit history',
  'Proposta atualizada':'Proposal updated','Negociação atualizada':'Negotiation updated','Fechamento anterior':'Previous closing',
 };
-const trackKinds={entry:'Página acessada',demo:'Demo aberta',whatsapp:'Clique no WhatsApp',email:'Clique no e-mail'};
+const trackKinds={entry:'Página acessada',offer:'Oferta visitada',demo:'Demo aberta',whatsapp:'Clique no WhatsApp',email:'Clique no e-mail'};
 const depositState={pending:'Pendente',received:'Recebida'};
 const stageNames={novo:'Novo',conversa:'Em conversa',proposta:'Proposta enviada',negociacao:'Negociação',ganho:'Ganha',perdido:'Perdida'};
 const boardStages=['novo','conversa','proposta','negociacao'];
