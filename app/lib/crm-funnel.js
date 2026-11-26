@@ -1,5 +1,5 @@
 const timezone = 'America/Sao_Paulo';
-const kinds = new Set(['entry', 'offer', 'demo', 'whatsapp', 'email']);
+const kinds = new Set(['entry', 'gallery', 'offer', 'demo', 'whatsapp', 'email']);
 export const contactReferencePattern = /^CD-[A-Z0-9]{12}$/;
 const dayMs = 86_400_000;
 const time = new Intl.DateTimeFormat('sv-SE', {timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit'});
@@ -48,12 +48,14 @@ export async function handleFunnel({action, sql, schema, data, query, reply, lim
     const campaign = slug(data.campaign, 'direto');
     if (isQa(origin, campaign) && !qaEnabled) return reply(200, {tracked: false});
     if (kind === 'offer' && !['pagina-de-orcamentos','catalogo-online','agendamento-online'].includes(placement)) return reply(400,{error:'invalid'});
+    const galleryLabel = typeof data.gallery_label === 'string' ? data.gallery_label.trim().slice(0,180) : null;
+    if (kind === 'gallery' && (!galleryLabel || !/^(solucao|ramo|comparar|abrir)--(orcamento|catalogo|agendamento|operacao)(--[a-z0-9-]+){0,2}$/.test(placement))) return reply(400,{error:'invalid'});
     const path = typeof data.landing_path === 'string' && /^\/[a-z0-9/_.-]{0,200}$/i.test(data.landing_path) ? data.landing_path : null;
     if (!(await limit('track', 600))) return reply(429, {error: 'rate'});
     await sql.query(
-      'INSERT INTO ' + events + ' (visit_id,kind,placement,origin,campaign,medium,creative,contact_reference,landing_path)' +
-      ' VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) ON CONFLICT (visit_id,kind,placement) DO NOTHING',
-      [visitId, kind, kind === 'entry' ? 'entry' : placement, origin, campaign, slug(data.medium, ''), slug(data.creative, ''), reference,path]
+      'INSERT INTO ' + events + ' (visit_id,kind,placement,origin,campaign,medium,creative,contact_reference,landing_path,gallery_label)' +
+      ' VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) ON CONFLICT (visit_id,kind,placement) DO NOTHING',
+      [visitId, kind, kind === 'entry' ? 'entry' : placement, origin, campaign, slug(data.medium, ''), slug(data.creative, ''), reference,path,galleryLabel]
     );
     return reply(200, {tracked: true});
   }
@@ -104,7 +106,7 @@ export async function handleFunnel({action, sql, schema, data, query, reply, lim
   );
   const reference = String(query.visitRef || '').trim().toUpperCase();
   if (reference && !contactReferencePattern.test(reference)) return reply(400, {error:'invalid'});
-  const journey = reference ? await sql.query("SELECT visit_id,origin,landing_path,kind,placement FROM " + events +
+  const journey = reference ? await sql.query("SELECT visit_id,origin,landing_path,kind,placement,gallery_label FROM " + events +
     " WHERE contact_reference=$1 ORDER BY recorded_at,kind,placement LIMIT 100", [reference]) : [];
   const pages = await sql.query(range + " SELECT kind, CASE WHEN kind='entry' THEN landing_path ELSE placement END AS page, count(DISTINCT visit_id)::integer AS visits FROM " + events +
     " CROSS JOIN span WHERE kind IN ('entry','offer') AND recorded_at >= start_at AND recorded_at < end_at AND " + population +

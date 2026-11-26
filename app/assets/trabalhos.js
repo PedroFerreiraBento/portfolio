@@ -204,6 +204,7 @@
    button.setAttribute('aria-pressed',String(item === selected));
    button.textContent = localized(item.title, item.english.title);
    button.addEventListener('click', event => {
+    window.portfolioCampaign?.galleryEvent('ramo',item.type,item.id,null,item.title);
     showProject(item);
     rememberSelection();
     if (event.detail && matchMedia('(max-width:700px)').matches) {
@@ -229,6 +230,7 @@
  }
 
  typeButtons.forEach(button => button.addEventListener('click',() => {
+  window.portfolioCampaign?.galleryEvent('solucao',button.dataset.type);
   showCategory(button.dataset.type);
   rememberSelection();
  }));
@@ -257,6 +259,9 @@
   typeButtons.forEach(option => option.setAttribute('aria-pressed',String(option.dataset.type === category)));
  }
 
+ document.querySelectorAll('a.hero-offer-demo').forEach(link => link.addEventListener('click',() => {
+  window.portfolioCampaign?.galleryEvent('solucao',link.hash.replace('#trabalhos-',''));
+ }));
  addEventListener('hashchange', () => {
   const type = linkedType();
   if (type) {

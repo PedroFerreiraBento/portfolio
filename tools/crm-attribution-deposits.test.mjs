@@ -92,7 +92,14 @@ test('public journey, manual conversation, proposal and deposit through the norm
   const pageReport=await api('funnel&qa=1&start='+today+'&end='+today);
   assert.equal(pageReport.pages.find(row=>row.page==='catalogo-online').visits,1);
   assert.equal(pageReport.pages.find(row=>row.kind==='entry' && row.page==='/guias').visits,1);
-  const opts={name:'QA de catálogo',project_name:'Catálogo Online QA',channel:'whatsapp',origin:'manual',campaign:'manual'};
+  const comparison = {kind:'gallery',placement:'comparar--catalogo--cafe--versoes',gallery_label:'Catálogos online · Pedra Clara',visit_id:visit,contact_reference:reference,...source};
+  for(let attempt=0;attempt<2;attempt++) await publicApi('track','POST',comparison);
+  const galleryReport = await api('funnel&qa=1&visitRef='+reference);
+  const selection = galleryReport.journey.filter(event=>event.kind==='gallery');
+  assert.equal(selection.length,1);
+  assert.equal(selection[0].gallery_label,comparison.gallery_label);
+  assert.equal(selection[0].visit_id,visit);
+  const opts={name:'QA de catÃ¡logo',project_name:'CatÃ¡logo Online QA',channel:'whatsapp',origin:'manual',campaign:'manual'};
   const created=(await api('save','POST',{...opts,visit_reference:reference},201)).row;
   assert.equal(created.reference,reference);
   assert.equal(created.attributed_visit_id,visit);
@@ -102,7 +109,7 @@ test('public journey, manual conversation, proposal and deposit through the norm
   const detail=()=>api(path);
   let actual=await detail();
   assert.equal(actual.attribution.status,'linked');
-  assert.deepEqual(actual.attribution.events.map(e=>e.kind),['entry','demo','whatsapp','offer']);
+  assert.deepEqual(actual.attribution.events.map(e=>e.kind),['entry','demo','whatsapp','offer','gallery']);
   assert.equal(actual.row.deposit_status,null);
   await member(path,'GET',undefined,404);
   const deposit=(payload,status)=>api('pipeline-deposit','PATCH',{reference,...payload},status);
@@ -117,7 +124,7 @@ test('public journey, manual conversation, proposal and deposit through the norm
   await deposit({...pending,received_on:today},400);
 
   const move=(row,stage,fields={})=>api('pipeline-stage','PATCH',{reference,revision:row.revision,stage,...fields});
-  await api('activity','POST',{id:randomUUID(),reference,kind:'whatsapp',outcome:'connected',occurred_at:new Date().toISOString(),notes:'Simulação, sem mensagem'},201);
+  await api('activity','POST',{id:randomUUID(),reference,kind:'whatsapp',outcome:'connected',occurred_at:new Date().toISOString(),notes:'SimulaÃ§Ã£o, sem mensagem'},201);
   const conversation=(await move(created,'conversa')).row;
   const proposal=(await move(conversation,'proposta',{value_cents:169000,proposal_on:today,due_on:today,next_step:'Retorno de QA'})).row;
   const report=async ()=>(await api('funnel&qa=1&start='+today+'&end='+today+'&breakdown=creative')).rows.find(row=>row.campaign===campaign);

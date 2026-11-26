@@ -57,7 +57,7 @@ export async function handlePipeline({action, method, sql, schema, query, reply,
       ' LEFT JOIN ' + team + ' person ON person.id=d.actor_id' + where + ' ORDER BY d.revision DESC',[scope,reference]),
     !row.attributed_visit_id ? [] : sql.query(
       `WITH visit AS (${visitSource})
-       SELECT e.kind,e.placement,e.recorded_at FROM visit JOIN ${schema}.funnel_events e USING (visit_id)
+       SELECT e.kind,e.placement,e.gallery_label,e.recorded_at FROM visit JOIN ${schema}.funnel_events e USING (visit_id)
        JOIN ${opportunities} o ON o.attributed_visit_id=visit.visit_id${where}
        AND e.contact_reference=$3 ORDER BY e.recorded_at,e.kind,e.placement LIMIT 50`,
       [scope,reference,row.visit_reference,row.channel])

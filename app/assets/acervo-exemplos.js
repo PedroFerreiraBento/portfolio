@@ -4,6 +4,9 @@ const selected = branches.find(branch => branch.id === initial);
 if (selected) selected.open = true;
 
 for (const branch of branches) {
+ branch.querySelector('summary')?.addEventListener('click',() => {
+  if (!branch.open) window.portfolioCampaign?.galleryEvent('solucao',branch.id);
+ });
  branch.addEventListener('toggle', () => {
   if (!branch.open) return;
   for (const other of branches) {

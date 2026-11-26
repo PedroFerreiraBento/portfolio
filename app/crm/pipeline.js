@@ -49,7 +49,7 @@ const copy={
  'Histórico de entradas':'Deposit history',
  'Proposta atualizada':'Proposal updated','Negociação atualizada':'Negotiation updated','Fechamento anterior':'Previous closing',
 };
-const trackKinds={entry:'Página acessada',offer:'Oferta visitada',demo:'Demo aberta',whatsapp:'Clique no WhatsApp',email:'Clique no e-mail'};
+const trackKinds={gallery:'Galeria',entry:'Página acessada',offer:'Oferta visitada',demo:'Demo aberta',whatsapp:'Clique no WhatsApp',email:'Clique no e-mail'};
 const depositState={pending:'Pendente',received:'Recebida'};
 const stageNames={novo:'Novo',conversa:'Em conversa',proposta:'Proposta enviada',negociacao:'Negociação',ganho:'Ganha',perdido:'Perdida'};
 const boardStages=['novo','conversa','proposta','negociacao'];
@@ -458,7 +458,7 @@ export function initPipeline(api,getActor,callbacks) {
     el('p',[t(summary[visit.status]),row.visit_reference].filter(Boolean).join(' · '),'pipeline-section-note'));
    if (visit.events.length) attribution.append(historyList(visit.events,event=>{
     const item=el('li');
-    item.append(el('strong',t(trackKinds[event.kind])),el('small',eventTimeLabel(event.recorded_at)));
+    item.append(el('strong',[t(trackKinds[event.kind]),event.gallery_label].filter(Boolean).join(' · ')),el('small',eventTimeLabel(event.recorded_at)));
     return item;
    },''));
    const changes=historyList(result.events||[],event=>{

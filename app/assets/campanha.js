@@ -79,12 +79,32 @@
   portfolio_email_clique: 'email'
  };
  const surface = document.body.dataset.campaignSurface || demo || (hero ? 'home' : 'contato');
- function track(kind, placement) {
+ const solutionNames = {orcamento:'Páginas de orçamento',catalogo:'Catálogos online',agendamento:'Agendamento online',operacao:'Ferramentas para equipes'};
+ function galleryPage(path) {
+  const segments = path.split('/').filter(Boolean);
+  const [area, family, branch, file = 'index.html'] = segments;
+  if (area === 'exemplos' && branch) {
+   const type = {catalogos:'catalogo',agendamentos:'agendamento',equipes:'operacao'}[family] || 'orcamento';
+   return {type,branch,version:file.replace(/\.html$/,''),comparison:file === 'versoes.html'};
+  }
+  if (area === 'demos') return {type:'orcamento',branch:'climapro',version:family || 'index',comparison:!family || family === 'index.html'};
+  if (area === 'assets' && family === 'casos') {
+   const id = branch.replace(/\.html$/,'');
+   return {type:({catalogo:'catalogo',agenda:'agendamento'})[id] || 'operacao',branch:id,version:'principal'};
+  }
+ }
+ const gallery = galleryPage(location.pathname);
+ function galleryEvent(action,type,branch,version,label) {
+  if (!solutionNames[type]) return;
+  const placement = [action,type,branch,version].filter(Boolean).join('--');
+  return track('gallery',placement,[solutionNames[type],label].filter(Boolean).join(' · '));
+ }
+ function track(kind, placement, galleryLabel) {
   return fetch('/api/crm?action=track', {
    method: 'POST',
    headers: {'Content-Type': 'application/json'},
    body: JSON.stringify({
-    visit_id: visitId, contact_reference: reference, landing_path:touch.path, kind, placement, origin: originName, campaign: campaignName, medium, creative
+    visit_id: visitId, contact_reference: reference, landing_path:touch.path, gallery_label:galleryLabel, kind, placement, origin: originName, campaign: campaignName, medium, creative
    }),
    keepalive: true
   }).then(response => response.ok, () => false);
@@ -92,7 +112,11 @@
  function record(event, fields = {}, placement) {
   const entry = {event,...campaign,portfolio_demo:demo,page:location.pathname,reference,event_id:id(),...fields};
   (window.dataLayer ||= []).push(entry);
-  if (placement && trackedKinds[event]) track(trackedKinds[event], surface + '-' + placement);
+  if (placement && trackedKinds[event]) {
+   const button = [surface,placement].join('-');
+   const point = gallery && trackedKinds[event] === 'whatsapp' ? button + '--' + gallery.version : button;
+   track(trackedKinds[event],point,gallery ? document.title : undefined);
+  }
   if (vercelAnalytics && placement) {
    window.va('event', {name: event, data: {campanha: campaignKey, cta: placement}});
   }
@@ -116,7 +140,7 @@
   track('demo', surface + '-simulacao');
  }
  window.portfolioCampaign = {
-  whatsappUrl, record, contact, tryDemo,
+  whatsappUrl, record, contact, tryDemo, galleryEvent,
   attribution: {reference, origin: originName, campaign: campaignName, medium, creative}
  };
 
@@ -225,6 +249,13 @@
   save('portfolio-measured-entry', reference);
  }
  if (['pagina-de-orcamentos','catalogo-online','agendamento-online'].includes(surface)) track('offer',surface);
+ if (gallery) galleryEvent(gallery.comparison ? 'comparar' : 'abrir',gallery.type,gallery.branch,gallery.version,document.title);
+ document.addEventListener('click',event => {
+  const link = event.target.closest?.('.examples-tree a[href]');
+  if (!link) return;
+  const next = galleryPage(new URL(link.href).pathname);
+  if (next) galleryEvent('ramo',next.type,next.branch,null,link.textContent.trim());
+ });
  if (demo) record('portfolio_demo_aberta', {}, demo);
  document.querySelectorAll('a[href]').forEach(link => {
   const url = new URL(link.getAttribute('href'),document.baseURI);

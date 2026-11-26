@@ -86,7 +86,8 @@ export function initFunnel(loadFunnel) {
    journey.querySelector('ul').replaceChildren(...(report.journey || []).map(event => {
     const line = document.createElement('li');
     const label = {entry:'Entrada',offer:'Oferta visitada',demo:'Demo',whatsapp:'WhatsApp',email:'E-mail'}[event.kind];
-    line.textContent = [label, event.kind === 'entry' ? event.landing_path || 'Página desconhecida' : event.placement, 'Origem ' + event.origin, event.visit_id].join(' · ');
+    const galleryAction = {solucao:'Solução escolhida',ramo:'Ramo escolhido',comparar:'Comparação aberta',abrir:'Demonstração visitada'}[event.placement.split('--')[0]];
+    line.textContent = [label || galleryAction, event.kind === 'entry' ? event.landing_path || 'Página desconhecida' : event.gallery_label || event.placement, 'Origem ' + event.origin, event.visit_id].join(' · ');
     return line;
    }));
    pages.hidden = !report.pages?.length;
