@@ -60,6 +60,7 @@ async function formToCRM(page) {
   await start(page, '/contato.html');
   const isIntake = url => url.origin === origin && url.pathname === '/api/crm' && url.searchParams.get('action') === 'intake';
   let reference;
+  let receipt;
   await page.route(isIntake, async route => {
     const request = route.request();
     const payload = request.postDataJSON();
@@ -74,6 +75,7 @@ async function formToCRM(page) {
         maxRedirects: 0,
         timeout: 12000
       });
+      if (response.ok()) receipt = await response.json();
       await route.fulfill({response});
     } catch {
       await route.abort('failed').catch(() => {});
@@ -89,7 +91,7 @@ async function formToCRM(page) {
     form.locator('button[type="submit"]').click()
   ]);
   assert.equal(response.status(), 201, `CRM respondeu HTTP ${response.status()}`);
-  const receipt = await response.json();
+  assert.ok(receipt, 'CRM não devolveu o comprovante do teste');
   assert.equal(receipt.reference, reference, 'Referência devolvida pelo CRM divergente');
   assert.ok(receipt.monitor?.crmReadback === true && receipt.monitor?.rolledBack === true,
     'CRM não confirmou a leitura do registro e a reversão da transação de teste');

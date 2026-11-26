@@ -64,7 +64,7 @@ async function main() {
   const rows = await results();
   const failed = rows.filter(row => !row.ok);
   if (env.MONITOR_DRILL === '1') {
-    const summary = rows.map(row => (row.ok ? 'OK' : 'Falhou') + ' · ' + row.name).join('\n');
+    const summary = rows.map(row => (row.ok ? 'OK' : 'Falhou') + ' · ' + row.name + (row.ok ? '' : ' · ' + row.detail)).join('\n');
     await email(runId + '/simulacao', '[Teste de alerta] Monitor do Caos Domado',
       'Pedro, este é um exercício do monitor.\n\n' + summary + '\n\nVer a execução: ' + runUrl);
     return;
@@ -76,7 +76,7 @@ async function main() {
     const fingerprint = createHash('sha256').update(row.name).digest('hex').slice(0,16);
     try {
       await email(runId + '/' + fingerprint + '/falha', 'Falha no site · ' + row.name,
-        'O monitor detectou uma falha no percurso “' + row.name + '”.\n\nVer a execução: ' + runUrl);
+        'O monitor detectou uma falha no percurso “' + row.name + '”.\n' + String(row.detail || '').slice(0,450) + '\n\nVer a execução: ' + runUrl);
       state.open.push({name: row.name, run: runId, fingerprint});
       await saveState(state);
     } catch (error) { errors.push(error.message); }
