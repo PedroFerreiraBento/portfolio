@@ -48,7 +48,7 @@ async function harness(t) {
   const run = spawn(process.execPath,['tools/crm-local.mjs'],{
     env:{...process.env,CRM_LOCAL_DATA_DIR:'memory://',CRM_LOCAL_PORT:String(port),
       CRM_LOCAL_ADMIN_EMAIL:'admin@qa.local',CRM_LOCAL_ADMIN_PASSWORD:'crm-local-test-only',
-      CRM_PIPELINE_ENABLED:'1',CRM_LOCAL_NO_SEED:'0',CRM_QA_TRACKING_ENABLED:'1'},
+      JOURNEY_MONITOR_SECRET:'local-monitor-test-key',CRM_PIPELINE_ENABLED:'1',CRM_LOCAL_NO_SEED:'0',CRM_QA_TRACKING_ENABLED:'1'},
     stdio:['ignore','ignore','pipe'],windowsHide:true
   });
   let errors='';
@@ -63,9 +63,9 @@ async function harness(t) {
   }
   return function client() {
     let cookie='';
-    return async (action,method='GET',payload,status=200)=>{
+    return async (action,method='GET',payload,status=200,headers={})=>{
       const r=await fetch(host+'/api/crm?action='+action,{
-        method,headers:{origin:host,cookie,'content-type':'application/json'},
+        method,headers:{origin:host,cookie,'content-type':'application/json',...headers},
         body:payload&&JSON.stringify(payload),signal:AbortSignal.timeout(4000)
       });
       const issued=r.headers.get('set-cookie');
@@ -176,4 +176,22 @@ test('public journey, manual conversation, proposal and deposit through the norm
   assert.equal(unresolved.attributed_visit_id,null);
   await track('whatsapp',reference,randomUUID());
   assert.equal((await detail()).attribution.status,'conflict');
+});
+
+
+test('synthetic form submission verifies CRM readback and rolls back its opportunity and notification',async t=>{
+  const client=await harness(t);
+  const api=client();
+  const data={reference:'CD-FACE00000001',email:'monitor@caosdomado.invalid',name:'Monitor do site',
+    campaign:'qa-journey-monitor',message:'Verificação automática do recebimento pelo CRM.',accepted:true};
+  await api('intake','POST',data,403);
+  await api('intake','POST',data,403,{'x-journey-monitor':'wrong'});
+  const headers={'x-journey-monitor':'local-monitor-test-key'};
+  await api('intake','POST',{...data,email:'real@example.com'},400,headers);
+  for (let attempt=0;attempt<2;attempt++) {
+    const result=await api('intake','POST',data,201,headers);
+    assert.deepEqual(result,{reference:data.reference,monitor:{crmReadback:true,rolledBack:true}});
+  }
+  await api('login','POST',{email:'admin@qa.local',password:'crm-local-test-only'});
+  await api('pipeline-detail&reference='+data.reference,'GET',undefined,404);
 });

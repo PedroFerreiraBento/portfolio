@@ -1,0 +1,74 @@
+name: Monitor comercial
+on:
+  schedule:
+    - cron: '13,43 * * * *'
+  workflow_dispatch:
+    inputs:
+      drill:
+        description: Simular uma falha no guia e enviar um e-mail de teste
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: monitor-comercial-producao
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      MONITOR_DRILL: ${{ inputs.drill && '1' || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Recuperar incidentes anteriores
+        if: env.MONITOR_DRILL != '1'
+        uses: actions/cache/restore@v4
+        with:
+          path: journey-alert-state.json
+          key: incidentes-comerciais-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: incidentes-comerciais-v1-
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Preparar navegador
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts playwright@1.65.1
+          npx --no-install playwright install --with-deps chromium
+      - name: Testar os três percursos
+        id: journeys
+        continue-on-error: true
+        env:
+          JOURNEY_MONITOR_SECRET: ${{ secrets.JOURNEY_MONITOR_SECRET }}
+        run: node tools/monitor-journeys.mjs
+      - name: Notificar falhas e recuperações
+        if: always() && !cancelled()
+        env:
+          MONITOR_MAIL_KEY: ${{ secrets.MONITOR_MAIL_KEY }}
+          MONITOR_MAIL_FROM: ${{ secrets.MONITOR_MAIL_FROM }}
+          MONITOR_MAIL_TO: ${{ secrets.MONITOR_MAIL_TO }}
+        run: node tools/monitor-notify.mjs
+      - name: Guardar estado de alertas
+        if: always() && !cancelled() && env.MONITOR_DRILL != '1' && hashFiles('journey-alert-state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: journey-alert-state.json
+          key: incidentes-comerciais-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Resultado dos percursos
+        if: always() && !cancelled()
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync,appendFileSync} from 'node:fs';
+          import assert from 'node:assert/strict';
+          const results = JSON.parse(readFileSync('journey-results.json','utf8'));
+          assert.equal(results.length,3);
+          for(const row of results) appendFileSync(process.env.GITHUB_STEP_SUMMARY, (row.ok ? '✅ ' : '❌ ') + row.name + ' — ' + row.detail + '\n\n');
+          const failures = results.filter(row => !row.ok);
+          if (process.env.MONITOR_DRILL === '1') {
+            assert.equal(failures.length,1);
+            assert.match(failures[0].name,/^Guia/);
+            assert.match(failures[0].detail,/503/);
+          } else assert.equal(failures.length,0);
+          JS

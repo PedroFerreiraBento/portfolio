@@ -146,7 +146,14 @@ try {
   process.env.CRM_SESSION_SECRET = randomBytes(32).toString('hex');
   const { makeHandler } = await import(pathToFileURL(resolve(app, 'api/crm.js')));
   const handler = makeHandler(() => ({
-    query: async (...args) => (await db.query(...args)).rows
+    query: async (...args) => (await db.query(...args)).rows,
+    transaction: build => db.transaction(async transaction => {
+      const results = [];
+      for (const args of build({query:(...args) => args})) {
+        results.push((await transaction.query(...args)).rows);
+      }
+      return results;
+    })
   }));
 
   server.on('request', async (req, res) => {

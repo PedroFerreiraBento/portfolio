@@ -325,18 +325,45 @@ export function makeHandler(connect = neon) {
         if (result.row) return reply(201, {row:result.row});
         return result.parent_visible ? reply(409, {error:'duplicate'}) : reply(404, {error:'missing_contact'});
       }
-      if (publicIntake && !(await limit('intake', 12))) return reply(429, {error: 'rate'});
+      const monitorHeader = req.headers['x-journey-monitor'];
+      const monitor = publicIntake && (monitorHeader !== undefined || lead.campaign === 'qa-journey-monitor' ||
+        lead.email === 'monitor@caosdomado.invalid');
+      if (monitor) {
+        const expected = process.env.JOURNEY_MONITOR_SECRET;
+        if (!expected || typeof monitorHeader !== 'string' || !same(monitorHeader, expected)) return reply(403, {error:'monitor_auth'});
+        if (lead.campaign !== 'qa-journey-monitor' || lead.email !== 'monitor@caosdomado.invalid') return reply(400, {error:'monitor_input'});
+      }
+      if (publicIntake && !(await limit(monitor ? 'monitor-intake' : 'intake', 12))) return reply(429, {error:'rate'});
       const fingerprint = publicIntake ? digest(JSON.stringify([lead.email, lead.message, lead.name, lead.company])) : null;
       const ownerId = explicitOwner ? requestedOwner : actor?.id ?? null;
       const wonBy = lead.stage === 'ganho' ? ownerId ?? actor?.id ?? null : null;
-      const [created] = await sql.query('WITH attribution AS (' + matchingVisit(schema, '$15::text', '$4::text') + ')' +
+      const insert = 'WITH attribution AS (' + matchingVisit(schema, '$15::text', '$4::text') + ')' +
         ' INSERT INTO ' + links + ' AS o (reference,origin,campaign,channel,name,company,' +
         'email,message,next_step,stage,value_cents,won_at,due_on,medium,creative,visit_reference,intake_hash' +
         (team ? ',owner_id,won_by_id' : '') + (clients ? ',project_name' : '') + ',attributed_visit_id)' +
         " SELECT $1,COALESCE(a.origin,$2),COALESCE(a.campaign,$3),$4,$5,$6,$7,$8,$9,$10,$11,CASE WHEN $10='ganho' THEN now() END,$12,COALESCE(a.medium,$13),COALESCE(a.creative,$14),$15,$16" +
         (team ? ',$17,$18' : '') + (clients ? (team ? ',$19' : ',$17') : '') +
-        ',a.visit_id FROM (VALUES (1)) seed LEFT JOIN attribution a ON true ON CONFLICT (reference) DO NOTHING RETURNING ' + fields + ownershipFields,
-        [...params, lead.visit, fingerprint, ...(team ? [ownerId, wonBy] : []), ...(clients ? [projectName ?? ''] : [])]);
+        ',a.visit_id FROM (VALUES (1)) seed LEFT JOIN attribution a ON true ON CONFLICT (reference) DO NOTHING RETURNING ' + fields + ownershipFields;
+      const values = [...params, lead.visit, fingerprint, ...(team ? [ownerId, wonBy] : []), ...(clients ? [projectName ?? ''] : [])];
+      if (monitor) {
+        // The opportunity and its notification stay invisible to concurrent sessions.
+        const selectProbe = 'SELECT 1 FROM ' + links +
+          " WHERE reference=$1 AND email=$2 AND intake_hash=$3 AND channel='site'";
+        const probeValues = [lead.reference,lead.email,fingerprint];
+        const [,inserted,readback,,remaining,outbox] = await sql.transaction(tx => [
+          tx.query('SAVEPOINT synthetic_intake'),
+          tx.query(insert,values),
+          tx.query(selectProbe,probeValues),
+          tx.query('ROLLBACK TO SAVEPOINT synthetic_intake'),
+          tx.query(selectProbe,probeValues),
+          tx.query('SELECT 1 FROM ' + schema + '.notification_outbox WHERE reference=$1',[lead.reference])
+        ]);
+        if (inserted.length !== 1 || readback.length !== 1 || remaining.length || outbox.length) {
+          return reply(503, {error:'monitor_readback'});
+        }
+        return reply(201,{reference:lead.reference,monitor:{crmReadback:true,rolledBack:true}});
+      }
+      const [created] = await sql.query(insert,values);
       if (created) return reply(201, publicIntake ? {reference: lead.reference} : {row: created});
       if (publicIntake) {
         const [prior] = await sql.query('SELECT 1 AS accepted FROM ' + links + ' WHERE reference=$1 AND (' +
