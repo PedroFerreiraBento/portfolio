@@ -65,7 +65,20 @@ export async function handlePipeline({action, method, sql, schema, query, reply,
   const attribution = row.attributed_visit_id
     ? {status: visitTrail.length ? 'linked' : 'conflict', events: visitTrail}
     : {status: row.visit_reference ? 'unmatched' : 'manual', events: []};
-  return reply(200, {row,events,activities,attribution,depositEvents});
+  const conversation = activities.findLast(activity => ['connected','completed'].includes(activity.outcome));
+  const proposal = events.findLast(event => event.to_stage === 'proposta' && event.proposal_on);
+  const closure = events.find(event => ['ganho','perdido'].includes(event.to_stage) && event.closed_on);
+  const milestones = {
+    conversation: conversation?.occurred_at ?? null,
+    proposal: proposal?.proposal_on ?? row.proposal_on,
+    proposal_cents: proposal?.value_cents ?? (row.stage === 'proposta' ? row.value_cents : null),
+    closure: closure?.closed_on ?? row.closed_on,
+    closure_stage: closure?.to_stage ?? row.stage,
+    closure_cents: closure?.value_cents ?? row.value_cents,
+    receipt: row.deposit_status === 'received' ? row.deposit_received_on : null,
+    receipt_cents: row.deposit_status === 'received' ? row.deposit_cents : null
+  };
+  return reply(200, {row,events,activities,attribution,depositEvents,milestones});
 }
 
 function optionalText(value,max) {

@@ -149,6 +149,12 @@ test('public journey, manual conversation, proposal and deposit through the norm
   assert.equal(next.deposits,1);
   assert.equal(Number(next.deposit_cents),84500);
   assert.equal(Number(next.cents),0);
+  await move(actual.row,'ganho',{closed_on:today,value_cents:169000});
+  const closed=await detail();
+  assert.ok(closed.milestones.conversation);
+  assert.deepEqual([closed.milestones.proposal,closed.milestones.closure,closed.milestones.receipt],[today,today,today]);
+  assert.deepEqual([closed.milestones.proposal_cents,closed.milestones.closure_cents,closed.milestones.receipt_cents],[169000,169000,84500]);
+  assert.equal((await report()).proposals,1);
   const regular=(await api('funnel&start='+today+'&end='+today)).rows;
   assert.ok(!regular.some(row=>row.campaign===campaign));
 

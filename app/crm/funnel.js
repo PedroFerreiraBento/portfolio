@@ -63,7 +63,7 @@ export function initFunnel(loadFunnel) {
    field('WhatsApp', measured(entry.whatsapp)),
    field('E-mail', measured(entry.email)),
    field('Contatos', pt.format(entry.contacts)),
-   field('Propostas abertas', pt.format(entry.proposals)),
+   field('Propostas enviadas', pt.format(entry.proposals)),
    field('Vendas', pt.format(entry.wins)),
    field('Valor fechado', brl.format(Number(entry.cents) / 100))
   );
@@ -103,7 +103,7 @@ export function initFunnel(loadFunnel) {
     : report.start < report.trackingFrom
      ? t('Entradas e cliques disponíveis a partir de {date}.').replace('{date}', displayDay(report.trackingFrom))
      : '';
-   const notes = [t('Contatos e propostas abertas usam a data de entrada. Vendas e valor fechado usam a data de fechamento.'), metricNote];
+   const notes = [t('Contatos usam a data de cadastro. Propostas usam a data do primeiro envio registrado. Vendas e valor fechado usam a data de fechamento.'), metricNote];
    notes.push(t('Entradas recebidas usam a data do recebimento.'));
    if (report.truncated) notes.push(t('Mostrando 200 resultados. Reduza o período para detalhar os demais.'));
    coverage.textContent = notes.filter(Boolean).join(' ');

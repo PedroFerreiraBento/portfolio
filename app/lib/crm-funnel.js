@@ -86,8 +86,12 @@ export async function handleFunnel({action, sql, schema, data, query, reply, lim
     " 0 AS contacts, 0 AS proposals, 0 AS wins, 0 AS cents, 0 AS deposits, 0 AS deposit_cents FROM " + events + ' CROSS JOIN span' +
     ' WHERE recorded_at >= start_at AND recorded_at < end_at AND ' + population + ' GROUP BY ' + groups +
     ' UNION ALL SELECT ' + columns + ', 0, 0, 0, 0, count(*),' +
-    " count(*) FILTER (WHERE stage IN ('proposta','negociacao')), 0, 0, 0, 0 FROM " + opportunities + ' CROSS JOIN span' +
+    " 0, 0, 0, 0, 0 FROM " + opportunities + ' CROSS JOIN span' +
     ' WHERE created_at >= start_at AND created_at < end_at AND ' + population + ' GROUP BY ' + groups +
+    ' UNION ALL SELECT ' + columns + ', 0, 0, 0, 0, 0, count(*), 0, 0, 0, 0 FROM ' + opportunities + ' o' +
+    ' LEFT JOIN LATERAL (SELECT e.proposal_on FROM ' + schema + '.pipeline_events e' +
+    " WHERE e.reference=o.reference AND e.to_stage='proposta' AND e.proposal_on IS NOT NULL ORDER BY e.revision LIMIT 1) first_sent ON true" +
+    ' WHERE COALESCE(first_sent.proposal_on,o.proposal_on) BETWEEN $1::date AND $2::date AND ' + population + ' GROUP BY ' + groups +
     ' UNION ALL SELECT ' + columns + ', 0, 0, 0, 0, 0, 0, count(*), sum(value_cents), 0, 0 FROM ' + opportunities + ' CROSS JOIN span' +
     " WHERE stage='ganho' AND won_at >= start_at AND won_at < end_at AND " + population + ' GROUP BY ' + groups +
     ' UNION ALL SELECT ' + columns + ', 0, 0, 0, 0, 0, 0, 0, 0, count(*), sum(deposit_cents) FROM (' +

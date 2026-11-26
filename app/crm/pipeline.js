@@ -489,7 +489,23 @@ export function initPipeline(api,getActor,callbacks) {
     if (event.notes) item.append(el('p',event.notes));
     return item;
    },'Nenhuma atividade registrada.');
-   history.replaceChildren(el('h3',t('Histórico de etapas')),changes,el('h3',t('Atividades')),log);
+   const summaryBox=el('section',null,'pipeline-commercial-section');
+   summaryBox.id='sale-history';
+   summaryBox.append(el('h3',t('Histórico da venda')));
+   const facts=el('dl',null,'pipeline-profile');
+   const m=result.milestones;
+   for (const [label,date,cents] of [
+    ['Primeira conversa confirmada',m.conversation,null],['Primeira proposta enviada',m.proposal,m.proposal_cents],
+    [m.closure ? 'Fechamento · '+stageName(m.closure_stage) : 'Fechamento',m.closure,m.closure_stage==='ganho'?m.closure_cents:null],
+    ['Entrada recebida',m.receipt,m.receipt_cents]
+   ]) {
+    const field=el('div');
+    const value=date ? [dateLabel(date,true),cents!=null?money(cents,true):''].filter(Boolean).join(' · ') : t('Sem registro');
+    field.append(el('dt',t(label)),el('dd',value));
+    facts.append(field);
+   }
+   summaryBox.append(facts);
+   history.replaceChildren(summaryBox,el('h3',t('Histórico de etapas')),changes,el('h3',t('Atividades')),log);
    if (result.depositEvents?.length) {
     const deposits=historyList(result.depositEvents,event=>{
      const item=el('li');
@@ -752,5 +768,13 @@ export function initPipeline(api,getActor,callbacks) {
   if (row&&panelMode==='detail') paintPanel(row);
  });
  render();
- return {show:refresh,refresh,reset,select,notify};
+ async function show() {
+  await refresh();
+  const ref=new URLSearchParams(location.search).get('oportunidade');
+  if (active && ref && rows.some(row=>row.reference===ref)) {
+   select(ref,{focus:false});
+   openPanel('detail');
+  }
+ }
+ return {show,refresh,reset,select,notify};
 }
