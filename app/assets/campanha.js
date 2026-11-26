@@ -92,8 +92,17 @@
   recorded.add(key);
   record('portfolio_' + channel + '_clique', {portfolio_cta: placement}, placement);
  }
+ function tryDemo(action) {
+  const key = 'simulation/' + action;
+  if (recorded.has(key)) return;
+  recorded.add(key);
+  record('portfolio_demo_interacao', {portfolio_demo: surface, portfolio_cta: action}, action);
+  if (recorded.has('inline-demo')) return;
+  recorded.add('inline-demo');
+  track('demo', surface + '-simulacao');
+ }
  window.portfolioCampaign = {
-  whatsappUrl, record, contact,
+  whatsappUrl, record, contact, tryDemo,
   attribution: {reference, origin: originName, campaign: campaignName, medium, creative}
  };
 

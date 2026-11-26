@@ -5,12 +5,12 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="theme-color" content="#faf2e7">
  <title>Página para receber pedidos de orçamento | Caos Domado</title>
- <meta name="description" content="Página para apresentar um serviço e receber pedidos de orçamento pelo WhatsApp ou por formulário. R$ 1.490. Teste a demonstração.">
+ <meta name="description" content="Página para apresentar seus serviços e receber pedidos de orçamento pelo WhatsApp ou por formulário. Veja exemplos por ramo.">
  <link rel="canonical" href="https://www.caosdomado.com.br/pagina-de-orcamentos">
  <meta property="og:type" content="website">
  <meta property="og:locale" content="pt_BR">
  <meta property="og:title" content="Página para receber pedidos de orçamento | Caos Domado">
- <meta property="og:description" content="Página para apresentar um serviço e receber pedidos de orçamento pelo WhatsApp ou por formulário. R$ 1.490. Teste a demonstração.">
+ <meta property="og:description" content="Página para apresentar seus serviços e receber pedidos de orçamento pelo WhatsApp ou por formulário. Veja exemplos por ramo.">
  <meta property="og:url" content="https://www.caosdomado.com.br/pagina-de-orcamentos">
  <meta property="og:image" content="https://www.caosdomado.com.br/assets/solucao-sites-720.webp">
  <meta name="twitter:card" content="summary_large_image">
@@ -21,6 +21,10 @@
  <link rel="stylesheet" href="/assets/catalogo-online.css">
  <script src="/assets/campanha.js" defer></script>
  <script src="/assets/preferencias.js" defer></script>
+ <link rel="stylesheet" href="/assets/ofertas-navegacao.css">
+ <script src="/assets/ofertas-navegacao.js" defer></script>
+ <link rel="stylesheet" href="/assets/orcamento-demo.css">
+ <script src="/assets/orcamento-demo.js" defer></script>
 </head>
 <body class="catalog-page" data-campaign-surface="pagina-de-orcamentos">
  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -31,6 +35,7 @@
     <img class="brand-icon-dark" src="/assets/caos-domado-marca-escura.svg" width="40" height="40" alt="">
     <strong>Caos Domado</strong>
    </a>
+   <a class="offer-back" href="/?tipo=orcamento#trabalhos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6"/></svg><span data-offer-en="Gallery" data-no-translate>Galeria</span></a>
    <div class="header-preferences" hidden>
 <button class="theme-control" type="button" data-theme-toggle aria-label="Usar tema escuro">
 <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 14.1A8.8 8.8 0 0 1 9.9 3.2a9 9 0 1 0 10.9 10.9Z"/></svg>
@@ -51,61 +56,49 @@
   </div>
  </header>
  <main id="conteudo" tabindex="-1">
-  <section class="catalog-hero">
-   <div class="catalog-wrap catalog-hero-grid">
-    <div class="catalog-intro">
-     <h1>Apresente seu serviço e <span>receba pedidos de orçamento.</span></h1>
-     <p>Uma página que explica o que você faz e dá ao cliente um caminho direto para pedir orçamento pelo WhatsApp ou por formulário.</p>
-     <p class="catalog-summary"><strong>R$ 1.490</strong><span>Entrega em 5 dias úteis*</span></p>
-     <div class="catalog-actions">
-      <a class="catalog-button" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20receber%20pedidos%20de%20or%C3%A7amento%20para%20meu%20servi%C3%A7o." data-campaign-placement="hero" data-whatsapp-en="Hi Pedro! I'd like to talk about a quote request page for my service." target="_blank" rel="noopener noreferrer">Falar com Pedro no WhatsApp</a>
-      <a class="catalog-demo-link" href="/exemplos.html?tipo=orcamento#solucoes" aria-describedby="catalog-demo-note">Ver exemplos por ramo <span class="catalog-arrow" aria-hidden="true"></span></a>
-     </div>
-     <p class="catalog-note" id="catalog-demo-note">Escolha seu ramo e teste uma página completa.</p>
-     <p class="catalog-note">*A partir da entrada e do recebimento dos materiais e acessos necessários. O tempo de aprovação do cliente fica fora da contagem.</p>
-    </div>
-    <figure class="catalog-example">
-     <img src="/assets/solucao-sites-720.webp" width="720" height="360" fetchpriority="high" alt="Página de um serviço de climatização aberta em um tablet, com botão para pedir orçamento.">
-     <figcaption><p>Demonstração de uma página para pedir orçamento de manutenção.</p></figcaption>
-    </figure>
-   </div>
+  <section class="quote-lab q-hero">
+   <div class="q-wrap q-stage"><div class="q-intro">
+    <h1><span data-offer-en="Get quote requests" data-no-translate>Receba pedidos de orçamento</span> <em><span data-offer-en="on WhatsApp." data-no-translate>no WhatsApp.</span></em></h1>
+    <p><span data-offer-en="Customers choose a service and send the details. You get a request you can answer." data-no-translate>Seu cliente escolhe o serviço e envia os detalhes. Você recebe um pedido pronto para responder.</span></p>
+    <a class="q-test" href="#testar-orcamento"><span data-offer-en="Try a quote request" data-no-translate>Testar um pedido</span> <span aria-hidden="true">→</span></a>
+   </div><div class="q-live">
+    <div class="q-fields" id="testar-orcamento"><fieldset class="quote-inputs" disabled=""><legend class="sr-only"><span data-no-translate="" data-offer-en="Request details">Detalhes do pedido</span></legend>
+<label class="quote-service"><span data-no-translate="" data-offer-en="Service">Serviço</span><select id="quote-service"><option data-no-translate="" data-offer-en="Light fixture installation" value="luz">Instalação de luminárias</option><option data-no-translate="" data-offer-en="Outlet replacement" value="tomada">Troca de tomadas</option><option data-no-translate="" data-offer-en="Ceiling fan installation" value="ventilador">Instalação de ventiladores</option></select></label>
+<label><span data-no-translate="" data-offer-en="Quantity">Quantidade</span><select id="quote-count"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label>
+<label><span data-no-translate="" data-offer-en="City">Cidade</span><select id="quote-city"><option>Hortolândia</option><option selected>Campinas</option><option>Sumaré</option><option>Paulínia</option></select></label>
+</fieldset></div>
+    <div class="q-phone"><div class="q-screen"><div class="q-peer"><img src="/assets/whatsapp-oficial.svg" alt="WhatsApp" width="36" height="36"><div><strong>Elétrica Campinas</strong><small><span data-offer-en="Example business" data-no-translate>Empresa de exemplo</span></small></div></div>
+    <div aria-atomic="true" aria-live="polite" class="quote-message"><span id="quote-greeting">Olá! Gostaria de um orçamento para </span><strong id="quote-description">instalar 3 luminárias</strong><span id="quote-location"> em </span><strong id="quote-place">Campinas</strong><span id="quote-ending">. Vocês atendem minha região?</span></div><small class="q-notice"><span data-offer-en="Example message · Simulated request" data-no-translate>Mensagem de exemplo · Envio simulado</span></small></div></div>
+   </div></div>
   </section>
-  <section class="catalog-details catalog-wrap" aria-labelledby="entrega">
-   <div>
-    <h2 id="entrega">O que está incluído</h2>
-    <p class="catalog-fit">Para quem vende um serviço sob orçamento e precisa explicar antes do primeiro contato o que oferece e quais informações ajudam a avaliar o pedido.</p>
-    <ul class="catalog-scope">
-     <li>Página para um serviço, com até quatro seções.</li>
-     <li>Um canal para pedidos. Escolha WhatsApp ou formulário.</li>
-     <li>Na opção com formulário, até cinco campos e envio para um endereço de e-mail comercial.</li>
-     <li>Uma rodada consolidada de ajustes.</li>
-    </ul>
-    <p class="catalog-note">Para começar, separe uma descrição do serviço, as fotos que quer usar e os dados que costuma pedir antes de fazer um orçamento.</p>
-    <p class="catalog-note catalog-guide-link"><a href="/guia/pagina-para-orcamentos-no-whatsapp">Leia o guia para montar uma página de orçamentos pelo WhatsApp</a></p>
-   </div>
-   <div class="catalog-terms">
-    <h2>Como contratar</h2>
-    <ol>
-     <li>Conte ao Pedro qual serviço você quer apresentar e como prefere receber os pedidos.</li>
-     <li><strong>R$ 745 de entrada (50%)</strong><span>Envie os materiais e acessos necessários para começar.</span></li>
-     <li><strong>R$ 745 na entrega (50%)</strong></li>
-    </ol>
-    <p class="catalog-note">Domínio, hospedagem e ferramentas pagas são cobrados à parte.</p>
-    <a class="catalog-button" href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20receber%20pedidos%20de%20or%C3%A7amento%20para%20meu%20servi%C3%A7o." data-campaign-placement="terms" data-whatsapp-en="Hi Pedro! I'd like to talk about a quote request page for my service." target="_blank" rel="noopener noreferrer">Falar com Pedro no WhatsApp</a>
-   </div>
+  <section id="exemplos-orcamento" aria-label="Exemplos por ramo" class="q-trades"><a href="/demos/plano/index.html"><img src="/demos/assets/photos/technician-green-720.webp" width="720" height="480" loading="lazy" alt=""><div><h2><span data-offer-en="Air conditioning" data-no-translate>Climatização</span> <span aria-hidden="true">↗</span></h2><p><span data-offer-en="Installation, cleaning and maintenance." data-no-translate>Instalação, limpeza e manutenção.</span></p></div></a>
+<a href="/exemplos/sites/salao/"><img src="/exemplos/sites/salao/images/bellezza-corte-720.webp" width="720" height="480" loading="lazy" alt=""><div><h2><span data-offer-en="Hair salon" data-no-translate>Salão de beleza</span> <span aria-hidden="true">↗</span></h2><p><span data-offer-en="Cuts, color and styling." data-no-translate>Corte, coloração e penteados.</span></p></div></a>
+<a href="/exemplos/sites/dentista/"><img src="/exemplos/sites/dentista/avaliacao-720.webp" width="720" height="480" loading="lazy" alt=""><div><h2><span data-offer-en="Dentistry" data-no-translate>Odontologia</span> <span aria-hidden="true">↗</span></h2><p><span data-offer-en="Assessments and first appointments." data-no-translate>Avaliação e primeira consulta.</span></p></div></a>
   </section>
-  <section class="catalog-related catalog-wrap" aria-labelledby="servicos-relacionados">
-   <h2 id="servicos-relacionados">Outras formas de atender seus clientes</h2>
-   <ul>
-    <li><a href="/catalogo-online">Catálogo para cotação de produtos</a></li>
-    <li><a href="/agendamento-online">Agendamento online para receber reservas</a></li>
-   </ul>
-  </section>
+  <section class="q-wrap q-delivery" id="escopo"><div>
+    <h2><span data-offer-en="What you" data-no-translate>O que você</span> <em><span data-offer-en="get." data-no-translate>recebe.</span></em></h2>
+    <ul class="q-benefits"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20v13H2z M7 21h10 M12 17v4"/></svg><div><h3><span data-offer-en="A page with your brand" data-no-translate>Página com sua marca</span></h3><p><span data-offer-en="Your services presented with your business identity." data-no-translate>Seus serviços apresentados com a identidade do seu negócio.</span></p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M2 5l1 1 2-3M2 11l1 1 2-3M2 17l1 1 2-3"/></svg><div><h3><span data-offer-en="Questions for your service" data-no-translate>Perguntas do seu serviço</span></h3><p><span data-offer-en="Collect the details you need to prepare a quote." data-no-translate>Peça os detalhes que você precisa para preparar o orçamento.</span></p></div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v13H9l-6 4z M7 9h10M7 13h7"/></svg><div><h3><span data-offer-en="Requests on WhatsApp" data-no-translate>Pedido no WhatsApp</span></h3><p><span data-offer-en="Customers review their choices and send you the message." data-no-translate>O cliente revisa as escolhas e envia a mensagem para você.</span></p></div></li></ul>
+    <details><summary><span data-offer-en="View delivery details" data-no-translate>Ver detalhes da entrega</span></summary><ul class="catalog-scope">
+<li>Página com sua marca, apresentação dos serviços prioritários, área atendida e diferenciais que você pode comprovar.</li>
+<li>Pedido de orçamento pelo WhatsApp ou formulário, com as informações que ajudam a equipe a responder.</li>
+<li>Publicação para celular e computador, com título e descrição da página preparados para a busca.</li>
+<li>Teste do pedido do início ao recebimento no canal combinado.</li>
+</ul><p class="catalog-note">Você traz as informações dos serviços, fotos e provas autorizadas. Juntos, definimos o que pedir ao cliente e para onde encaminhar o pedido.</p><ol>
+<li>Antes de começar, alinhamos o escopo, os materiais, o prazo e quem fica responsável por atualizar a solução.</li>
+<li>Você aprova uma prévia. Publicamos, testamos o caminho do cliente e mostramos como usar.</li>
+</ol><p class="catalog-note">Domínio, hospedagem, licenças e manutenção recorrente são combinados à parte quando necessários.</p><p>Integração com CRM, automações, sessões de fotos, produção de conteúdo e gestão de anúncios entram como escopos separados.</p><p class="catalog-note catalog-guide-link"><a href="/guia/pagina-para-orcamentos-no-whatsapp">Leia o guia para montar uma página de orçamentos pelo WhatsApp</a></p></details>
+   </div><img class="q-product" src="/assets/solucao-sites-1400.webp" width="1400" height="700" loading="lazy" alt=""></section>
+  <section class="q-wrap q-approval"><img src="/assets/processo-em-uso-revisao-1000.webp" width="1000" height="580" loading="lazy" alt=""><div><h2><span data-offer-en="You" data-no-translate>Você</span> <em><span data-offer-en="approve the preview" data-no-translate>aprova a prévia</span></em> <span data-offer-en="before launch." data-no-translate>antes da publicação.</span></h2><p><span data-offer-en="Review the page, request the agreed changes and try the quote flow before launch." data-no-translate>Confira a página, peça os ajustes combinados e teste o pedido antes de colocar o site no ar.</span></p></div></section>
+  <section class="q-close"><div class="q-wrap"><h2><span data-offer-en="Ready to receive service requests on WhatsApp?" data-no-translate>Pronto para receber pedidos do seu serviço no WhatsApp?</span></h2><a class="q-contact" data-campaign-placement="offer-contact" data-whatsapp-en="Hi Pedro! I’d like to discuss a page to receive quote requests for my service." href="https://wa.me/5519974149650?text=Ol%C3%A1%2C%20Pedro%21%20Quero%20conversar%20sobre%20uma%20p%C3%A1gina%20para%20receber%20pedidos%20de%20or%C3%A7amento%20para%20meu%20servi%C3%A7o." rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M20.5 11.6a8.6 8.6 0 0 1-12.8 7.6l-4.6 1.2 1.2-4.4a8.6 8.6 0 1 1 16.2-4.4Z"></path><path d="M8 7.5c-.9 1-.2 3 1.6 4.8s3.9 2.7 5 1.8l.7-1.1-2-1-.8.8c-1.3-.6-2.3-1.6-2.9-2.9l.7-.8-.9-1.9Z"></path></svg><span data-no-translate="" data-offer-en="Talk to Pedro">Conversar com Pedro</span></a></div></section>
  </main>
- <footer class="catalog-footer">
-  <div class="catalog-wrap catalog-footer-inner">
-   <strong>Caos Domado</strong>
-   <a href="/">Voltar ao portfólio</a>
+ <footer class="quote-footer">
+  <div class="q-wrap quote-footer-grid">
+   <a class="quote-signature" href="/"><img src="/assets/caos-domado-marca-escura.svg" width="36" height="36" alt="">Caos Domado</a>
+   <nav class="quote-footer-solutions" aria-labelledby="quote-other"><h2 id="quote-other" data-no-translate data-offer-en="Other solutions">Outras soluções</h2>
+    <a href="/catalogo-online" data-no-translate data-offer-en="Online Catalog">Catálogo Online</a>
+    <a href="/agendamento-online" data-no-translate data-offer-en="Online Booking">Agenda Online</a>
+   </nav>
+   <a class="quote-gallery-return" href="/?tipo=orcamento#trabalhos"><span aria-hidden="true">←</span> <span data-offer-en="Back to the gallery" data-no-translate>Voltar à galeria</span></a>
   </div>
  </footer>
 </body>
