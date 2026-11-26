@@ -106,6 +106,7 @@
  ["pequenos negócios.", "small businesses."],
  ["Ofertas do Caos Domado", "Caos Domado services"],
  ["Página de Orçamento", "Quote Request Page"],
+ ["Exemplos por ramo", "Examples by industry"],
  ["Catálogo Online", "Online Catalog"],
  ["Agendamento Online", "Online Scheduling"],
  ["Ver demo", "View demo"],
