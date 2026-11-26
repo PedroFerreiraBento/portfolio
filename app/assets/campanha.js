@@ -256,7 +256,7 @@
   const next = galleryPage(new URL(link.href).pathname);
   if (next) galleryEvent('ramo',next.type,next.branch,null,link.textContent.trim());
  });
- if (demo) record('portfolio_demo_aberta', {}, demo);
+ if (demo && !gallery?.comparison) record('portfolio_demo_aberta', {}, demo);
  document.querySelectorAll('a[href]').forEach(link => {
   const url = new URL(link.getAttribute('href'),document.baseURI);
   if (url.hostname === 'wa.me') {
